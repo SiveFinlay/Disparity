@@ -1,47 +1,58 @@
+%NC: Note that in order for me to edit these properly I need your .bib file and all the figures. 
+%If you use GitHub that makes it a lot easier as I can just clone the repo rather than you sending me millions of files!
+
+
 %Start: 22/04/14
 %Last edited on 02/05
 
-%I sorted out the reference formatting by changing the encoding of my JabRef bibliography file
-%Based on my outline for disparity paper_NC_April2014 notes
+% I sorted out the reference formatting by changing the encoding of my JabRef bibliography file
+% Based on my outline for disparity paper_NC_April2014 notes
+
+% Preamble
+% NC: I've reordered this a bit (but check it) so that stuff you'll always want is near the top
+% and stuff you may need to change depending on the journal is near the bottom
 
 \documentclass[12pt,a4paper]{article}
+\usepackage{enumerate} 	% put in numbers or bullet points
+\usepackage{setspace}						
+\usepackage{authblk}	% For author affiliations
+\usepackage{graphicx} 	% For adding pictures
+\usepackage{float}
+\usepackage{pdflscape}	% for landscape pages
+\usepackage{graphicx}	% so we can add graphics
+\usepackage{authblk}	% For author affiliations
+\usepackage{mathtools}	% For equations etc.
+
+\floatstyle{plaintop} 	% Force table captions to go above the table
+\restylefloat{table} 	% allows you to force tables into specific places
+\setcounter{secnumdepth}{0} % removes numbers from section headings
+\raggedright 			% justify the text on the left only
+
+%\onehalfspacing %1.5 line spacing - use the below instead in case you need double spacing for some journals
+\linespread{1.3} 		% this is 1.5 spacing, double line spacing is 1.6
 \usepackage[round]{natbib} % author-year citations in round brackets
 
-
-\raggedright %justify the text on the left only
-\usepackage{enumerate} %put in numbers or bullet points
-
-\usepackage{setspace}
-\onehalfspacing %1.5 line spacing
-
-\usepackage{authblk}%For author affiliations
-
-\usepackage{graphicx} % For adding pictures
-
-\usepackage{float}
-\floatstyle{plaintop} %Force table captions to go above the table
-\restylefloat{table} %allows you to force tables into specific places
-
+% Start of document
 \begin{document}
 
 \title{Cranial morphological disparity within the adaptive radiation of tenrecs (Afrosoricida, Tenrecidae) is no greater than expected by chance} 
 
-%I want to come up with a better title
+% I want to come up with a better title
+% NC: Perhaps wait until you have confirmed the results etc.
 
 \author[1,2,*]{Sive Finlay}
 \author[1,2]{Natalie Cooper}
 %Most likely put Steve in here as well
+% NC: I have a feeling he may not be interested in being on this one but yes let's ask him
+\affil[1]{School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland}
+\affil[2]{Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland}
+% I know it seems daft but they'll want the full address for both
+\affil[*]{Corresponding author, sfinlay@tcd.ie} % Also need tel number and fax number - stupid but true
 
-\affil[1]{School of Natural Sciences, and}
-\affil[2]{Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Republic of Ireland}
-\affil[*]{Corresponding author, sfinlay@tcd.ie}
 \maketitle
 
-
 \begin{abstract}
-
 %I'll do this section last
-
 \end{abstract}
 
 \section{Introduction}
