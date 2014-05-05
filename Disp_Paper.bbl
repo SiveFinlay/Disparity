@@ -1,0 +1,332 @@
+\begin{thebibliography}{51}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Adams et~al.(2013)Adams, Ot\'arola-Castillo \& Paradis}]{Adams2013}
+Adams, D., Ot\'arola-Castillo, E. \& Paradis, E. 2013.
+\newblock geomorph: an r package for the collection and analysis of geometric
+  morphometric shape data.
+\newblock \emph{Methods in Ecology and Evolution} \textbf{4}: 393--399.
+\newblock 10.1111/2041-210X.12035.
+
+\bibitem[{Anderson(2001)}]{Anderson2001}
+Anderson, M. 2001.
+\newblock A new method for non-parametric multivariate analysis of variance.
+\newblock \emph{Austral Ecology} \textbf{26}: 32--46.
+\newblock 10.1111/j.1442-9993.2001.01070.pp.x.
+
+\bibitem[{Asher \& Hofreiter(2006)}]{Asher2006}
+Asher, R. \& Hofreiter, M. 2006.
+\newblock Tenrec phylogeny and the noninvasive extraction of nuclear {D}{N}{A}.
+\newblock \emph{Systematic Biology} \textbf{55}: 181--194.
+
+\bibitem[{Asher(1999)}]{Asher1999}
+Asher, R.J. 1999.
+\newblock A morphological basis for assessing the phylogeny of the
+  ''{T}enrecoidea'' ({M}ammalia, {L}ipotyphla).
+\newblock \emph{Cladistics} \textbf{15}: 231--252.
+
+\bibitem[{Asher \& Lehmann(2008)}]{Asher2008}
+Asher, R.J. \& Lehmann, T. 2008.
+\newblock Dental eruption in {A}frotherian mammals.
+\newblock \emph{BMC Biology} \textbf{6}.
+\newblock ISI Document Delivery No.: 286WD Times Cited: 31 Cited Reference
+  Count: 46 Asher, Robert J. Lehmann, Thomas Biomed central ltd London.
+
+\bibitem[{Asher et~al.(2010)Asher, Maree, Bronner, Bennett, Bloomer,
+  Czechowski, Meyer \& Hofreiter}]{Asher2010}
+Asher, R.J., Maree, S., Bronner, G., Bennett, N., Bloomer, P., Czechowski, P.,
+  Meyer, M. \& Hofreiter, M. 2010.
+\newblock A phylogenetic estimate for golden moles ({M}ammalia, {A}frotheria,
+  {C}hrysochloridae).
+\newblock \emph{BMC Evolutionary Biology} \textbf{10}: 1--13.
+
+\bibitem[{Barrow \& Macleod(2008)}]{Barrow2008}
+Barrow, E. \& Macleod, N. 2008.
+\newblock Shape variation in the mole dentary ({T}alpidae: {M}ammalia).
+\newblock \emph{Zoological Journal of the Linnean Society} \textbf{153}:
+  187--211.
+\newblock 10.1111/j.1096-3642.2008.00376.x.
+
+\bibitem[{Blagojevi\'c \& Milo\v{s}evi\'c-Zlatanovi\'c(2011)}]{Blagojevic2011}
+Blagojevi\'c, M. \& Milo\v{s}evi\'c-Zlatanovi\'c, S. 2011.
+\newblock Sexual shape dimorphism in {S}erbian roe deer (\textit{{C}apreolus
+  capreolus} {L}.).
+\newblock \emph{Mammalian Biology - Zeitschrift f\"ur S\"augetierkunde}
+  \textbf{76}: 735--740.
+
+\bibitem[{Brusatte et~al.(2008)Brusatte, Benton, Ruta \& Lloyd}]{Brusatte2008}
+Brusatte, S., Benton, M., Ruta, M. \& Lloyd, G. 2008.
+\newblock Superiority, competition and opportunism in the evolutionary
+  radiation of dinosaurs.
+\newblock \emph{Science} \textbf{321}: 1485--1488.
+
+\bibitem[{Cardini(2003)}]{Cardini2003}
+Cardini, A. 2003.
+\newblock The geometry of the marmot ({R}odentia: {S}ciuridae) mandible:
+  phylogeny and patterns of morphological evolution.
+\newblock \emph{Systematic Biology} \textbf{52}: 186--205.
+
+\bibitem[{Ciampaglio et~al.(2001)Ciampaglio, Kemp \& McShea}]{Ciampaglio2001}
+Ciampaglio, C., Kemp, M. \& McShea, D. 2001.
+\newblock Detecting changes in morphospace occupation patterns in the fossil
+  record: characterization and analysis of measures of disparity.
+\newblock \emph{Paleobiology} \textbf{27}: 695--715.
+\newblock 10.1666/0094-8373(2001)027<0695:DCIMOP>2.0.CO;2.
+
+\bibitem[{Collar et~al.(2011)Collar, Schulte \& Losos}]{Collar2011}
+Collar, D., Schulte, J. \& Losos, J. 2011.
+\newblock Evolution of extreme body size disparity in monitor lizards
+  (\textit{{V}aranus}).
+\newblock \emph{Evolution} \textbf{65}: 2664--2680.
+\newblock 10.1111/j.1558-5646.2011.01335.x.
+
+\bibitem[{Eisenberg \& Gould(1969)}]{Eisenberg1969}
+Eisenberg, J.F. \& Gould, E. 1969.
+\newblock The {T}enrecs: {A} {S}tudy in {M}ammalian {B}ehaviour and
+  {E}volution.
+\newblock \emph{Smithsonian Contributions to Zoology} \textbf{27}: 1--152.
+
+\bibitem[{Erwin(2007)}]{Erwin2007}
+Erwin, D. 2007.
+\newblock Disparity: morphological pattern and developmental context.
+\newblock \emph{Palaeontology} \textbf{50}: 57--73.
+
+\bibitem[{Foote(1997)}]{Foote1997}
+Foote, M. 1997.
+\newblock The evolution of morphological diversity.
+\newblock \emph{Annual Review of Ecology and Systematics} \textbf{28}:
+  129--152.
+
+\bibitem[{Foth et~al.(2012)Foth, Brusatte \& Butler}]{Foth2012}
+Foth, C., Brusatte, S. \& Butler, R. 2012.
+\newblock Do different disparity proxies converge on a common signal?
+  {I}nsights from the cranial morphometrics and evolutionary history of
+  \textit{{P}terosauria} ({D}iapsida: {A}rchosauria).
+\newblock \emph{Journal of Evolutionary Biology} \textbf{25}: 904--915.
+\newblock 10.1111/j.1420-9101.2012.02479.x.
+
+\bibitem[{Goodman et~al.(2006)Goodman, Raxworthy, Maminirina \&
+  Olson}]{Goodman2006}
+Goodman, S.M., Raxworthy, C.J., Maminirina, C.P. \& Olson, L.E. 2006.
+\newblock A new species of shrew tenrec (\textit{{M}icrogale jobihely}) from
+  northern {M}adagascar.
+\newblock \emph{Journal of Zoology} \textbf{270}: 384--398.
+
+\bibitem[{Goswami et~al.(2011)Goswami, Milne \& Wroe}]{Goswami2011}
+Goswami, A., Milne, N. \& Wroe, S. 2011.
+\newblock Biting through constraints: cranial morphology, disparity and
+  convergence across living and fossil carnivorous mammals.
+\newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
+  \textbf{278}: 1831--1839.
+\newblock 10.1098/rspb.2010.2031.
+
+\bibitem[{Harmon et~al.(2003)Harmon, Schulte, Larson \& Losos}]{Harmon2003}
+Harmon, L., Schulte, J., Larson, A. \& Losos, J.B. 2003.
+\newblock Tempo and mode of evolutionary radiation in iguanian lizards.
+\newblock \emph{Science} \textbf{301}: 961--964.
+
+\bibitem[{Harmon et~al.(2008)Harmon, Weir, Brock, Glor \&
+  Challenger}]{Harmon2008}
+Harmon, L., Weir, J., Brock, C., Glor, R. \& Challenger, W. 2008.
+\newblock G{E}{I}{G}{E}{R}: investigating evolutionary radiations.
+\newblock \emph{Bioinformatics} \textbf{24}: 129--131.
+
+\bibitem[{Hopkins(2013)}]{Hopkins2013}
+Hopkins, M. 2013.
+\newblock Decoupling of taxonomic diversity and morphological disparity during
+  decline of the {C}ambrian trilobite family \textit{{P}terocephaliidae}.
+\newblock \emph{Journal of Evolutionary Biology} \textbf{26}: 1665--1676.
+\newblock 10.1111/jeb.12164.
+
+\bibitem[{IUCN(2012)}]{IUCN2012}
+IUCN 2012.
+\newblock International {U}nion for {C}onservation of {N}ature.
+
+\bibitem[{Jenkins(2003)}]{Jenkins2003}
+Jenkins, P. 2003.
+\newblock \emph{Microgale, shrew tenrecs}, pp. 1273--1278.
+\newblock The University of Chicago Press, Chicago.
+
+\bibitem[{Klenov\v{s}ek \& Kry\v{s}tufek(2013)}]{Klenovsek2013}
+Klenov\v{s}ek, T. \& Kry\v{s}tufek, B. 2013.
+\newblock An ontogenetic perspective on the study of sexual dimorphism,
+  phylogenetic variability, and allometry of the skull of {E}uropean ground
+  squirrel, \textit{{S}permophilus citellus} (linnaeus, 1766).
+\newblock \emph{Zoomorphology} 10.1007/s00435-013-0196-1.
+
+\bibitem[{Klingenberg(2013)}]{Klingenberg2013}
+Klingenberg, C. 2013.
+\newblock Visualizations in geometric morphometrics: how to read and how to
+  make graphs showing shape changes.
+\newblock \emph{Hystrix, the Italian Journal of Mammalogy} \textbf{24}: 10.
+
+\bibitem[{Kuhn et~al.(2011)Kuhn, Mooers \& Thomas}]{Kuhn2011}
+Kuhn, T., Mooers, A. \& Thomas, G. 2011.
+\newblock A simple polytomy resolver for dated phylogenies.
+\newblock \emph{Methods in Ecology and Evolution} \textbf{2}: 427--436.
+\newblock 10.1111/j.2041-210X.2011.00103.x.
+
+\bibitem[{Losos(2010)}]{Losos2010}
+Losos, J. 2010.
+\newblock Adaptive radiation, ecological opportunity, and evolutionary
+  determinism. {A}merican {S}ociety of {N}aturalists {E}. {O}. {W}ilson {A}ward
+  {A}ddress.
+\newblock \emph{The American Naturalist} \textbf{175}: 623--639.
+\newblock 10.1086/652433.
+
+\bibitem[{Losos \& Mahler(2010)}]{Losos2010a}
+Losos, J.B. \& Mahler, D. 2010.
+\newblock \emph{Adaptive radiation: the interaction of ecological opportunity,
+  adaptation and speciation}, chap.~15, pp. 381--420.
+\newblock Sinauer Association, Sunderland, MA.
+
+\bibitem[{Machol\'an et~al.(2008)Machol\'an, Mikula \&
+  Vohral\'ikc}]{Macholan2008}
+Machol\'an, M., Mikula, O. \& Vohral\'ikc, V. 2008.
+\newblock Geographic phenetic variation of two eastern-{M}editerranean
+  non-commensal mouse species, \textit{{M}us macedonicus} and \textit{{M}.
+  cypriacus} ({R}odentia: {M}uridae) based on traditional and geometric
+  approaches to morphometrics.
+\newblock \emph{Zoologischer Anzeiger - A Journal of Comparative Zoology}
+  \textbf{247}: 67--80.
+
+\bibitem[{MacLeod(2013)}]{MacLeod2013}
+MacLeod, N. 2013.
+\newblock Landmarks and semilandmarks: Difference without meaning and meaning
+  without difference.
+
+\bibitem[{Olson \& Goodman(2003)}]{Olson2003}
+Olson, L. \& Goodman, S. 2003.
+\newblock \emph{Phylogeny and biogeography of tenrecs}, pp. 1235--1242.
+\newblock The University of Chicago Press, Chicago.
+
+\bibitem[{Olson et~al.(2004)Olson, Goodman \& Yoder}]{Olson2004}
+Olson, L., Goodman, S. \& Yoder, A. 2004.
+\newblock Illumination of cryptic species boundaries in long-tailed shrew
+  tenrecs ({M}ammalia: {T}enrecidae; \textit{{M}icrogale}), with new insights
+  into geographic variation and distributional constraints.
+\newblock \emph{Biological Journal of the Linnean Society} \textbf{83}.
+\newblock 10.1111/j.1095-8312.2004.00366.x.
+
+\bibitem[{Olson et~al.(2009)Olson, Rakotomalala, Hildebrandt, Lanier, Raxworthy
+  \& Goodman}]{Olson2009}
+Olson, L., Rakotomalala, Z., Hildebrandt, K., Lanier, H., Raxworthy, C. \&
+  Goodman, S. 2009.
+\newblock Phylogeography of \textit{{M}icrogale brevicaudata} ({T}enrecidae)
+  and description of a new species from western {M}adagascar.
+\newblock \emph{Journal of Mammalogy} \textbf{90}: 1095--1110.
+
+\bibitem[{Olson(2013)}]{Olson2013}
+Olson, L.E. 2013.
+\newblock Tenrecs.
+\newblock \emph{Current Biology} \textbf{23}: R5--R8.
+
+\bibitem[{O'Meara et~al.(2006)O'Meara, An\'e, Sanderson \&
+  Wainwright}]{OMeara2006}
+O'Meara, B., An\'e, C., Sanderson, M. \& Wainwright, P. 2006.
+\newblock Testing for different rates of continuous trait evolution using
+  likelihood.
+\newblock \emph{Evolution} \textbf{60}: 922--933.
+\newblock 10.1111/j.0014-3820.2006.tb01171.x.
+
+\bibitem[{Panchetti et~al.(2008)Panchetti, Scalici, Carpaneto \&
+  Gibertini}]{Panchetti2008}
+Panchetti, F., Scalici, M., Carpaneto, G. \& Gibertini, G. 2008.
+\newblock Shape and size variations in the cranium of elephant-shrews: a
+  morphometric contribution to a phylogenetic debate.
+\newblock \emph{Zoomorphology} \textbf{127}: 69--82.
+
+\bibitem[{Paradis et~al.(2004)Paradis, Claude \& Strimmer}]{Paradis2004}
+Paradis, E., Claude, J. \& Strimmer, K. 2004.
+\newblock Ape: Analyses of {P}hylogenetics and {E}volution in {R} language.
+\newblock \emph{Bioinformatics} \textbf{20}: 289--290.
+\newblock 10.1093/bioinformatics/btg412.
+
+\bibitem[{Price et~al.(2013)Price, Tavera, Near \& Wainwright}]{Price2013}
+Price, S., Tavera, J., Near, T. \& Wainwright, P. 2013.
+\newblock Elevated rates of morphological and functional diversification in
+  reef-dwelling haemulid fishes.
+\newblock \emph{Evolution} \textbf{67}: 417--428.
+\newblock 10.1111/j.1558-5646.2012.01773.x.
+
+\bibitem[{Revell(2012)}]{Revell2012}
+Revell, L. 2012.
+\newblock phytools: an {R} package for phylogenetic comparative biology (and
+  other things).
+\newblock \emph{Methods in Ecology and Evolution} \textbf{3}: 217--223.
+
+\bibitem[{Rohlf(2012)}]{Rohlf2012}
+Rohlf, F. 2012.
+\newblock Tpsutil.
+
+\bibitem[{Rohlf(2013)}]{Rohlf2013}
+Rohlf, F. 2013.
+\newblock Tpsdig2 ver 2.17.
+
+\bibitem[{Rohlf \& Marcus(1993)}]{Rohlf1993}
+Rohlf, J. \& Marcus, L. 1993.
+\newblock A revolution in morphometrics.
+\newblock \emph{Trends in Ecology \& Evolution} \textbf{8}: 129--132.
+
+\bibitem[{Roy \& Foote(1997)}]{Roy1997}
+Roy, K. \& Foote, M. 1997.
+\newblock Morphological approaches to measuring biodiversity.
+\newblock \emph{Trends in Ecology \& Evolution} \textbf{12}: 277--281.
+
+\bibitem[{Ruta et~al.(2013)Ruta, Angielczyk, Fr\"obisch \& Benton}]{Ruta2013}
+Ruta, M., Angielczyk, K., Fr\"obisch, J. \& Benton, M. 2013.
+\newblock Decoupling of morphological disparity and taxic diversity during the
+  adaptive radiation of anomodont therapsids.
+\newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
+  \textbf{280}: 20131071.
+\newblock 10.1098/rspb.2013.1071.
+
+\bibitem[{Samonds et~al.(2013)Samonds, Godfrey, Ali, Goodman, Vences,
+  Sutherland, Irwin \& Krause}]{Samonds2013}
+Samonds, K., Godfrey, L., Ali, J., Goodman, S., Vences, M., Sutherland, M.,
+  Irwin, M. \& Krause, D. 2013.
+\newblock Imperfect isolation: {F}actors and filters shaping {M}adagascar's
+  extant vertebrate fauna.
+\newblock \emph{PloS one} \textbf{8}.
+\newblock 10.1371/journal.pone.0062086.
+
+\bibitem[{Soarimalala \& Goodman(2011)}]{Soarimalala2011}
+Soarimalala, V. \& Goodman, S. 2011.
+\newblock \emph{Les petits mammiferes de {M}adagascar}.
+\newblock Guides sur la diversit\'e biologique de {M}adagascar. Association
+  {V}ahatra, {A}ntananarivo, {M}adagascar.
+
+\bibitem[{Team(2013)}]{Team2013}
+Team, R.D.C. 2013.
+\newblock R: {A} language and environment for statistical computing.
+
+\bibitem[{Wills et~al.(1994)Wills, Briggs \& Fortey}]{Wills1994}
+Wills, A., Briggs, D. \& Fortey, R. 1994.
+\newblock Disparity as an evolutionary index: {A} comparison of {C}ambrian and
+  recent arthropods.
+\newblock \emph{Paleontological Society} \textbf{20}: 93--130.
+
+\bibitem[{Wilson \& Reeder(2005)}]{Wilson2005}
+Wilson, D. \& Reeder, D. 2005.
+\newblock \emph{Mammal species of the world. {A} taxonomic and geographic
+  reference (3rd ed)}.
+\newblock Johns Hopkins University Press.
+
+\bibitem[{Wroe \& Milne(2007)}]{Wroe2007}
+Wroe, S. \& Milne, N. 2007.
+\newblock Convergence and remarkably consistent constraint in the evolution of
+  carnivore skull shape.
+\newblock \emph{Evolution} \textbf{61}: 1251--1260.
+
+\bibitem[{Zelditch et~al.(2012)Zelditch, Swiderski \& Sheets}]{Zelditch2012}
+Zelditch, M., Swiderski, D. \& Sheets, D. 2012.
+\newblock \emph{Geometric {M}orphometrics for {B}iologists, second edition}.
+\newblock Academic Press, Elsevier, United States of America.
+
+\end{thebibliography}
