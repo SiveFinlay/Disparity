@@ -28,244 +28,231 @@
 #5) Dealing with phylogenies
       #tree.only
       #remove.missing.species.tree
+        #(remove.missing.species.phy and remove.missing.species.multiphy)
       #split.binom
       #add.species.to.MRCA
 
-#********************************************
+#******************************************
 #1) General functions
 #******************************************
 #Function to find the ID (row) numbers that match a subset of specimens
   #subset.col and main.col are the relevant columns in each data set
-
-matching.id<-function (subset.col, main.col){
-  if (class(subset.col)=="factor"){
-    id.list<-rep(NA, length(subset.col))
-      for ( i in 1:length (subset.col)){
-        id.list[i]<-grep(subset.col[i], main.col)
+  matching.id <- function (subset.col, main.col){
+    id.list <- rep(NA, length(subset.col))
+ 
+      for (i in 1:length (subset.col)){
+        id.list[i] <- grep(subset.col[i], main.col)
       }
     return(id.list)
-    }
-    else (stop("This function finds matching matching row numbers between columns of factors"))
   }
+  
 #--------------------------------------
 #Function to select particular rows from a matrix
-  subset.matrix<-function(mydata, subset.col, criteria){
-    set<-mydata[which(subset.col==criteria),]
+  subset.matrix <- function(mydata, subset.col, criteria){
+    set <- mydata[which(subset.col == criteria),]
   }
+  
 #------------------------------------
 #Extract the f value, r squared and p value from an anova table
-
-anova.frp<-function(anova.object){
-  output<-matrix(NA, nrow=1, ncol=3)
-  colnames(output)<-c("F.Model", "R2", "p")
-    output[1,1]<-anova.object$aov.tab$F.Model[1]
-    output[1,2]<-anova.object$aov.tab$R2[1]
-    output[1,3]<-anova.object$aov.tab$Pr[1]
-  return(output)
+  anova.frp <- function(anova.object){
+    anova.frp <- matrix(NA, nrow=1, ncol=3)
+    colnames(anova.frp) <- c("F.Model", "R2", "p")
+      anova.frp[1,1] <- anova.object$aov.tab$F.Model[1]
+      anova.frp[1,2] <- anova.object$aov.tab$R2[1]
+      anova.frp[1,3] <- anova.object$aov.tab$Pr[1]
+    return(anova.frp)
   }
   
 
-#******************************
+#****************************************
 #2) Dealing with lists
 #****************************************
+#Function to remove a vector of numbers from non matrix objects in a list
+  remove.from.list <- function(mylist, remove.id){
+    newlist <- as.list(rep(NA,length(mylist)))
+    names(newlist) <- names(mylist)
 
-#Function to remove a vector of numbers from elements in a list object
-  #NB: it treats elements differently depending on their class
+      for (i in 1: length(mylist)){
+        if(class(mylist[[i]]) == "matrix"){
+          newlist[[i]]<-mylist[[i]]  #don't remove anything from matrix elements (curves in my landmark data)
 
-remove.from.list<-function(mylist, remove.id){
-  newlist<-as.list(rep(NA,length(mylist)))
-  names(newlist)<-names(mylist)
-    for (i in 1: length(mylist)) {
-      if(class(mylist[[i]])=="matrix"){
-        newlist[[i]]<-mylist[[i]]  #don't remove anything from matrix elements (curves in my landmark data)
+        } else {        
+          if(class(mylist[[i]]) == "array"){
+            newlist[[i]] <- mylist[[i]][,,-remove.id] #remove from the third dimension of an array (landmark coordinates)
+
+          } else {  
+            newlist[[i]] <- mylist[[i]][-remove.id] #remove from all other elements in the list
+            }
+          }
       }
-      else{        
-        if(class(mylist[[i]])=="array"){
-          newlist[[i]]<-mylist[[i]][,,-remove.id] #remove from the third dimension of an array (landmark coordinates)
-        }
-        else{  
-          newlist[[i]]<-mylist[[i]][-remove.id] #remove from all other elements in the list
-        }
-      }
-     }
-  return(newlist)
+      return(newlist)
   }
 
 #---------------------------------------------
-#Function to select specific ID numbers from each element in a list
-  #NB: it treats elements differently depending on their class
-  
-select.from.list<-function(mylist, select.id){
-  newlist<-as.list(rep(NA,length(mylist))) 
-  names(newlist)<-names(mylist)       
-    for (i in 1: length(mylist)) {
-     if (class(mylist[[i]])=="matrix"){
-        newlist[[i]]<-mylist[[i]] #leave matrix elements in the list unchanged (curves in the landmark data) 
-     }
-     else{         
-       if(class(mylist[[i]])=="array"){
-          newlist[[i]]<-mylist[[i]][,,select.id] #select from the third dimension of an array (landmark coordinates)
-        }
-        else{ 
-          newlist[[i]]<-mylist[[i]][select.id]   #select from all other elements in the list
-        }
-     }
-    }
-  return(newlist)
+#Function to select specific ID numbers from non-matrix objects in a list  
+  select.from.list <- function(mylist, select.id){
+    newlist <- as.list(rep(NA,length(mylist))) 
+    names(newlist) <- names(mylist)       
+      
+      for (i in 1: length(mylist)){
+       if (class(mylist[[i]]) == "matrix"){
+         newlist[[i]] <- mylist[[i]] #leave matrix elements in the list unchanged (curves in the landmark data) 
+      
+       } else {         
+         if(class(mylist[[i]]) == "array"){
+           newlist[[i]] <- mylist[[i]][,,select.id] #select from the third dimension of an array (landmark coordinates)
+      
+         } else { 
+           newlist[[i]] <- mylist[[i]][select.id]   #select from all other elements in the list
+           }
+         }
+      }
+      return(newlist)
   }
   
 #------------------------------------------------------------------
-#Function to drop unused levels from each element in a list
-     #drop levels from elements that are factors and characters
-     
-droplevels.from.list<-function(mylist){
-    newlist<-as.list(rep(NA,length(mylist)))
-    names(newlist)<-names(mylist)        
-        for (i in 1: length(mylist)) {
-          if (class(mylist[[i]])!="integer" & class(mylist[[i]])!="array" 
-              & class(mylist[[i]])!="numeric" & class(mylist[[i]])!="matrix"){
-              newlist[[i]]<-droplevels(mylist[[i]])
-            }
-          else {
-            newlist[[i]]<-mylist[[i]]
-            }
+#Function to drop unused levels from list elements that are factors and characters
+  droplevels.from.list <- function(mylist){
+    newlist <- as.list(rep(NA,length(mylist)))
+    names(newlist) <- names(mylist)        
+      
+      for (i in 1: length(mylist)) {
+        if (class(mylist[[i]]) != "integer" & class(mylist[[i]]) != "array" 
+            & class(mylist[[i]]) != "numeric" & class(mylist[[i]]) != "matrix"){
+          newlist[[i]] <- droplevels(mylist[[i]])
+      
+        } else {
+          newlist[[i]] <- mylist[[i]]
           }
-  return(newlist)
+        }
+        return(newlist)
   }
   
 #------------------------------------------------------------------------------------
 #Function to apply a calculation to each element in a list 
-calc.each.list<-function(mylist, calculation){
-      output<-NULL
-      for (i in 1:length(mylist)){
-        output[[i]]<-calculation(mylist[[i]])
-      }
-    class(output)<-class(mylist)
-    return(output)
-  }
-#----------------------------------------------------------
+  calc.each.list <- function(mylist, calculation){
+    new.list <- NULL
 
+      for (i in 1:length(mylist)){
+        new.list[[i]] <- calculation(mylist[[i]])
+      }
+     class(new.list) <- class(mylist)
+     return(new.list)
+  }
+
+#----------------------------------------------------------
 #Function to apply a calculation to each array within a list of arrays
-calc.each.array<-function(array.list, calculation){
-   if (class(array.list)=="list" & class(array.list[[1]])=="array"){
-      output<-NULL
+  calc.each.array <- function(array.list, calculation){
+    new.array.list <- NULL
+ 
       for (i in 1:length(array.list)){
-        output[[i]]<-rep(NA, dim(array.list[[i]])[3])
+        new.array.list[[i]] <- rep(NA, dim(array.list[[i]])[3])
       }
       #fill the empty list with a calculation for each array
-      for (j in 1:length(array.list)){
-        for(k in 1:dim(array.list[[j]])[3]){
-          output[[j]][k]<-calculation(array.list[[j]][,,k])
+
+        for (j in 1:length(array.list)){
+          for(k in 1:dim(array.list[[j]])[3]){
+            new.array.list[[j]][k] <- calculation(array.list[[j]][,,k])
+          }
         }
-      }
-   }
-   else(stop("This function requires a list of arrays of resampled data"))
-    return(output)
+        return(new.array.list)
   }
   
 #-----------------------------------------------------------------------------------
 #Function to turn a list of matrices into a list of arrays    
-list.matrix.to.array<-function(mylist){
-  if(class(mylist)=="list" & class(mylist[[1]])=="array"){
-    output<-NULL
-    for (i in 1:length(mylist)){
-      for(m in 1:(dim(mylist[[i]])[3])){ #gives the number of arrays
-        output[[m+(i*(dim(mylist[[i]])[3])-(dim(mylist[[i]])[3]))]]<-mylist[[i]][,,m]
+  list.matrix.to.array <- function(mylist){
+    new.list <- NULL
+
+      for (i in 1:length(mylist)){
+        for(m in 1:(dim(mylist[[i]])[3])){ #gives the number of arrays
+          new.list[[m+(i*(dim(mylist[[i]])[3])-(dim(mylist[[i]])[3]))]] <- mylist[[i]][,,m]
                    #For 10 arrays ((dim(mylist[[i]])[3]) =10)
                     #when i is 1, m will take the values 1:10
                     #when i is 2, m will take the values 11:20
+        }
       }
-    }
+      return(new.list)
   }
-  else(stop("This function requires a list of arrays"))
-  return(output)
-}
   
     
-#**********************************************
+#***************************************************
 #3) Dealing with shape data
 #***************************************************
-  
 #Function to select the Procrustes coordinates of each species
   #Inputs are an array object of the coordinates and the binomial species values that correspond to that array
+  species.coordinates <- function(coords, coords.binom){
+    binom.list <- unique(coords.binom)      
+      #list of ID numbers for each species
+      species <- as.list(rep(NA, length(binom.list)))
 
-species.coordinates<-function(coords, coords.binom){
-  binom.list<-unique(coords.binom)
-
-   if (class(coords)=="array"){      
-     #list of ID numbers for each species
-     species<-as.list(rep(NA, length(binom.list)))
-      for (i in 1:length(binom.list)){
-        species[[i]]<-which(coords.binom==binom.list[i])
+        for (i in 1:length(binom.list)){
+          species[[i]] <- which(coords.binom == binom.list[i])
         }
       #coordinates of those ID numbers
-      sps.proc.co<-as.list(rep(NA, length(binom.list)))
-        names(sps.proc.co)<-binom.list
-          for (j in 1:length(species)){
-            sps.proc.co[[j]]<-coords[,,species[[j]]]
-          }
-      return (sps.proc.co)
-     }
-     else(stop("This function needs an list of coordinates in an array object"))
-     }
+      sps.proc.co <- as.list(rep(NA, length(binom.list)))
+      names(sps.proc.co)<-binom.list
+
+        for (j in 1:length(species)){
+          sps.proc.co[[j]] <- coords[,,species[[j]]]
+        }
+        return (sps.proc.co)
+  }
 
 #-----------------------------------------------------------
 #Function to find the average coordinates of each species
-  mean.coords<-function(sps.coords){
-    if (class(sps.coords)=="list"){
-     # species<-names(sps.coords)
-      sps.coords.mean<-array(data=NA, dim=c(dim(sps.coords[[1]])[1],2,length(sps.coords)))
+  mean.coords <- function(sps.coords){
+    sps.coords.mean<-array(data=NA, dim=c(dim(sps.coords[[1]])[1],2,length(sps.coords)))
       #Select each species
+
         for (k in 1:length(sps.coords)){
           #get the meanshape of the aligned coordinates of that species
           for(m in 1:length(dim(sps.coords[[k]]))){
-            #NB: some species only have one set of coordinates, these will have dimensions of length 2 because they're not a 3D array
-            #so I need a statement to say only calculate the mean shape of coordinates when there's more than one set of landmarks
-             if (length(dim(sps.coords[[k]]))!=2){
-              sps.coords.mean[,,k]<-mshape(sps.coords[[k]])
-              }
-            else{
-              sps.coords.mean[,,k]<-sps.coords[[k]]
-            }     
-          }
-         }
-        sps.mean<-list(meanshape=sps.coords.mean, ID=1:length(names(sps.coords)), Binom=as.factor(names(sps.coords)))
-          return (sps.mean)
-     }  
-    else (stop ("This function needs a list of arrays of coordinates"))
+            #Only calculate the mean shape of coordinates when there's more than one set of landmarks
+             if (length(dim(sps.coords[[k]])) != 2){
+               sps.coords.mean[,,k] <- mshape(sps.coords[[k]])
+             
+             } else {
+               sps.coords.mean[,,k] <- sps.coords[[k]]
+               }     
+           }   
+        }
+        sps.mean <- list(meanshape=sps.coords.mean, ID=1:length(names(sps.coords)), Binom=as.factor(names(sps.coords)))
+        return (sps.mean)
   }
 
 #-------------------------------------
 #Function to select specific PC axes from a pcaresults object
-  selectPCaxes<-function(pcaresults, threshold, species){
-      no.of.axes<-which(pcaresults$pc.summary$importance[3,]<=threshold)
-      PCaxes<-pcaresults$pc.scores[,no.of.axes]
-        rownames(PCaxes)<-species
-      return(PCaxes)
-    }
+  selectPCaxes <- function(pcaresults, threshold, species){
+    no.of.axes <- which(pcaresults$pc.summary$importance[3,] <= threshold)
+      PCaxes <- pcaresults$pc.scores[,no.of.axes]
+      rownames(PCaxes) <- species
+    return(PCaxes)
+  }
     
 #**********************************************
 #4) Resampling (rarefaction)
 #*********************************************
 #Function to resample data for rarefaction
-  resample.data<-function(mydata, samp.min, samp.max, no.replicates, no.col){
+  resample.data <- function(mydata, samp.min, samp.max, no.replicates, no.col){
     #make a list of empty arrays first
-    resample<-as.list(rep(NA, samp.max))
+    resample <- as.list(rep(NA, samp.max))
+   
       for (i in samp.min:samp.max){
-        resample[[i]]<-array(NA, dim=(c(i,no.col, no.replicates)))
+        resample[[i]] <- array(NA, dim=(c(i,no.col, no.replicates)))
       }
-    #fill the empty arrays with resampled data
-    for (j in samp.min:samp.max){
-      for (k in 1:no.replicates){
-        resample[[j]][,,k]<-mydata[sample(nrow(mydata), size=j, replace=FALSE),]
+      #fill the empty arrays with resampled data
+   
+      for (j in samp.min:samp.max){
+        for (k in 1:no.replicates){
+          resample[[j]][,,k] <- mydata[sample(nrow(mydata), size=j, replace=FALSE),]
+        }
       }
-    }
-    #if samp.min is 2 then the first value of resample is NULL (didn't select multiple replicates of a single species)
+     #if samp.min is 2 then the first value of resample is NULL (didn't select multiple replicates of a single species)
       #remove that null value
-    if (is.na(resample[[1]])==TRUE){
-    resample[[1]]<-NULL
-    }
-  return(resample)
+      if (is.na(resample[[1]]) == TRUE){
+        resample[[1]] <- NULL
+      }
+      return(resample)
   }
   
 
@@ -274,68 +261,74 @@ species.coordinates<-function(coords, coords.binom){
 #***************************************
 #Function to identify taxa that are in the trees but not the morphological data
   #works for both multiPhylo and and phylo objects
-  tree.only<-function(phy,data.species){
-    output<-as.list(rep(NA, length(phy)))
-      if(class(phy)=="phylo"){
-        output<-setdiff(phy$tip.label, data.species)
-      }
-      else{  
-        for (i in 1:length(phy)){
-          output[[i]]<-setdiff(phy[[i]]$tip.label, data.species)
+  tree.only <- function(phy,data.species){
+    taxa.tree.only <- as.list(rep(NA, length(phy)))
+      if(class(phy) == "phylo"){
+        taxa.tree.only <- setdiff(phy$tip.label, data.species)
+    
+      } else {  
+          for (i in 1:length(phy)){
+            taxa.tree.only[[i]]<-setdiff(phy[[i]]$tip.label, data.species)
+          }
         }
-      }
-    return(output)
+        return(taxa.tree.only)
     }
 #---------------------------------------------    
-#Function to remove missing species from the tree
-   #works for both phylo and MultiPhylo objects, missing.species can't be a list object
+#Functions to remove missing species from trees
 
-remove.missing.species.tree <- function(phy, missing.species){
-  if (class(missing.species) != "list"){
-    output<-as.list(rep(NA, length(phy)))
-    if(class(phy)=="phylo"){
-      output<-drop.tip(phy, missing.species)
-    }
-    else{
-          for (i in 1:length(phy)){
-             output[[i]]<-drop.tip(phy[[i]], missing.species)
-          }
-      }
-    class(output)<-class(phy)
-    return(output)
-    }
-    else(stop("Missing.species cannot be a list object"))
+#Remove missing species from a single tree
+  remove.missing.species.phy <- function(phy, missing.species) {
+    new.trees <- drop.tip(phy, missing.species)
   }
+
+#Remove missing species from multiple trees
+  remove.missing.species.multiphy <- function(multiphy, missing.species){
+    new.trees<-NULL
+      for (i in 1:length(multiphy)){
+        new.trees[[i]] <- drop.tip(multiphy[[i]], missing.species)
+      }
+      return(new.trees)
+  }
+
+#Wrapper function to remove missing species from either a phy or MultiPhy object
+  remove.missing.species.tree <- function(mytrees, missing.species){
+     new.trees <- NULL
+       if (class(mytrees) == "phylo"){
+         new.trees <- remove.missing.species.phy(mytrees, missing.species)
+ 
+       } else {
+         new.trees <- remove.missing.species.multiphy(mytrees, missing.species)
+         }
+         return(new.trees)
+  }
+  
 #----------------------------------------------
 #Function to split Binomial names into a data frame of genus and species names
-
-split.binom<-function(binom.list){
-    sps.split<-strsplit(binom.list, split="_")  
-      output<-as.data.frame(matrix(NA, nrow=length(sps.split), ncol=2))
-      colnames(output)<-c("Genus", "Species")
-        for (i in 1:nrow(output)){
-            output[i,1]<-sps.split[[i]][1]
-            output[i,2]<-sps.split[[i]][2]
+  split.binom <- function(binom.list){
+    sps.split <- strsplit(binom.list, split="_")  
+    split.names <- as.data.frame(matrix(NA, nrow=length(sps.split), ncol=2))
+      colnames(split.names) <- c("Genus", "Species")
+        
+        for (i in 1:nrow(split.names)){
+          split.names[i,1] <- sps.split[[i]][1]
+            split.names[i,2] <- sps.split[[i]][2]
         }
-      return(output)
+        return(split.names)
     }
 
 #-------------------------------------------------------
 #Function to add a species at random to the most recent common ancestor of a list of species
-  
-add.species.to.MRCA<-function(mytrees, species.in.tree, species.to.add){
+  add.species.to.MRCA <- function(mytrees, species.in.tree, species.to.add){
   #find the most recent common ancestor of the species
-  anc<-NA
-    for (i in 1:length(mytrees)){
-      anc[i]<-findMRCA(tree=mytrees[[i]], tips=species.in.tree, type="node")
-    }
-  
-  #bind the new species to that node
-  newtrees<-mytrees
-    for (j in 1:length(newtrees)){
-      newtrees[[j]]<-bind.tip(tree=mytrees[[j]], tip.label=species.to.add, edge.length=NULL, where=anc[j], position=0)
-    }
-    
-  return(newtrees)
-}
+    anc<-NA
+      for (i in 1:length(mytrees)){
+        anc[i] <- findMRCA(tree=mytrees[[i]], tips=species.in.tree, type="node")
+      }
+  #bind the new species to that ancestral node
+    newtrees<-mytrees
+      for (j in 1:length(newtrees)){
+        newtrees[[j]] <- bind.tip(tree=mytrees[[j]], tip.label=species.to.add, edge.length=NULL, where=anc[j], position=0)
+      }
+      return(newtrees)
+  }
                       
