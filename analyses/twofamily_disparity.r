@@ -44,19 +44,19 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #READ IN DATA; directory will change for each data set
 ########################################################
 #SkDors data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
 
 #1) Landmarks
 #landmarks + curves file with the control lines removed
-  #land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+  land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
 
 #2) Sliders
 #edited sliders file (top 2 rows removed and the words before slide after put in instead
-  #curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+  curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
 
 #3) Taxonomy
 #file that has the correct taxonomy for each of the images
-  #taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+  taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
 
 #4) Specimens to remove
   #Null
@@ -87,16 +87,16 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
 
 #1) Landmarks
-  land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
+  #land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
 #2) Sliders
-  curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
+  #curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
 #3) Taxonomy
-  taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
+  #taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
 #4) Specimens to remove
-  rem <- read.csv("Mands_remove_spec.csv", header=T)
+  #rem <- read.csv("Mands_remove_spec.csv", header=T)
 
 #################################################
 #CLEAN UP THE DATA
@@ -114,12 +114,12 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #********************************************
 #Option depending on the data
 #Clean up the sklat, skvent and mands data
+  #doesn't apply to the skdors data because rem is NULL
 #************************************************** 
 #find the ID numbers of specimens with missing data
-  #doesn't apply to the skdors data because rem is NULL
-  matching <- matching.id(rem$SpecID, combine$SpecID)
-    combine <- remove.from.list(combine, matching)
-    combine <- droplevels.from.list(combine)
+  #matching <- matching.id(rem$SpecID, combine$SpecID)
+   # combine <- remove.from.list(combine, matching)
+   # combine <- droplevels.from.list(combine)
 #*********************************************
 
 #Select the tenrec and golden mole specimens only
@@ -260,7 +260,7 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #1) Distance matrix
 
 #Euclidean distance matrix of all of the species
-  Euc.dist <- as.matrix(dist(PC95axes,method="euclidean", diag=FALSE,upper=FALSE))
+  Euc.dist <- as.matrix(dist(PC95axes, method="euclidean", diag=FALSE,upper=FALSE))
 
 #npMANOVA of the distance matrix separated by family
   dist.man <- adonis(Euc.dist~sp.fam$Family, data=sp.fam, permutations=9999,method="euclidean")
@@ -287,46 +287,46 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #Save the outputs to different working directory
 
 #SkDors
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
   #1) Average shape coordinates
     #dput(sps.mean, file="SkDors_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-    #write.table(file="SkDors_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+    #write.table(file="SkDors_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of disparity measures for each family
-    #write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+    write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
-    #write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+    write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #--------------------------------------------------------------------
 #SkLat
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
   #1) Average shape coordinates
      #dput(sps.mean, file="SkLat_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-     #write.table(file="SkLat_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+     #write.table(file="SkLat_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of disparity measures for each family
-     #write.table(file="SkLat_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+     #write.table(file="SkLat_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
-     #write.table(file="SkLat_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+     #write.table(file="SkLat_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #----------------------------------------------------------
 #SkVent
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
   #1) Average shape coordinates
     #dput(sps.mean, file="SkVent_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-    #write.table(file="SkVent_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+    #write.table(file="SkVent_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of disparity measures for each family
-    #write.table(file="SkVent_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+    #write.table(file="SkVent_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
-    #write.table(file="SkVent_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+    #write.table(file="SkVent_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #----------------------------------------------------------
 #Mands
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+#  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
   #1) Average shape coordinates
-    dput(sps.mean, file="Mands_tenrec+gmole_sps.mean.txt")
+#    dput(sps.mean, file="Mands_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-    write.table(file="Mands_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+#    write.table(file="Mands_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of disparity measures for each family
-    write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+#    write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
-    write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=T)
+#    write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
