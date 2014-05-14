@@ -222,8 +222,10 @@
 
 #-------------------------------------
 #Function to select specific PC axes from a pcaresults object
+  #select based on a threshold and then add 1 extra axis
+    #avoids selecting just single axes
   selectPCaxes <- function(pcaresults, threshold, species){
-    no.of.axes <- which(pcaresults$pc.summary$importance[3,] <= threshold)
+    no.of.axes <- (which(pcaresults$pc.summary$importance[3,] <= threshold) + 1)
       PCaxes <- pcaresults$pc.scores[,no.of.axes]
       rownames(PCaxes) <- species
     return(PCaxes)
