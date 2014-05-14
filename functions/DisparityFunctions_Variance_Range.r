@@ -22,58 +22,57 @@
 #1) Based on PC axes
 ################################################
 #Calculate the variance of each PC axis
-  PCvariance <- function(PCmatrix){
-    cols<-ncol(PCmatrix)
-      PCvar <- matrix(data=NA,ncol=cols,nrow=1)
-
-        for (i in 1:cols){
-          PCvar[,i] <- var(PCmatrix[,i])
-        }
-  return(PCvar)
+  PCvariance <- function(PCdata){
+    PCmatrix <- as.matrix(PCdata)
+    PCvar <- NULL
+      for (i in 1:ncol(PCmatrix)){
+        PCvar[i] <- var(PCmatrix[,i])
+      }
+      return(PCvar)
   }
 
 #------------------------------------------------------------
-#Caculate the sum of variance
-  PCsumvar <- function(PCmatrix){
-    cols <- ncol(PCmatrix)
-      PCvar <- matrix(data=NA,ncol=cols,nrow=1)
-
-        for (j in 1:cols){
-          PCvar[,j] <-var (PCmatrix[,j])
+#Caculate the sum of variance 
+  PCsumvar <- function(PCdata){
+   PCvar <- PCvariance(PCdata)
+    sumvar <- NULL
+      if (length(PCvar) > 1){
+        sumvar <- sum (PCvar)
+      } else {
+        sumvar <- 0 #single axes can't have a sum of variance
         }
-      sumvar<-sum(PCvar)
-      return(sumvar)
+    return(sumvar)
   }
 
 #------------------------------------------------------------
 #Calculate the product of variance
-  PCprodvar <- function(PCmatrix){
-    cols <- ncol(PCmatrix)
-      PCvar <- matrix(data=NA,ncol=cols,nrow=1)
-
-        for (j in 1:cols){
-          PCvar[,j] <- var(PCmatrix[,j])
-        }
-      prodvar<-prod(PCvar)
-      #divide the product by the root of the number of axes used to reduce the dimensionality of the answer (cf Wills + Brusatte)
-        prodvar.scaled <- prodvar^(1/cols)
-        return(prodvar.scaled)
+  PCprodvar <- function(PCdata){
+    PCvar <- PCvariance(PCdata)
+      prodvar<-NULL
+        if (length(PCvar) > 1) {
+            prodvar <-prod(PCvar)
+        } else {
+          prodvar <- 0     #single axes can't have a product of variance
+          } 
+          #divide the product by the root of the number of axes used to reduce the dimensionality of the answer (cf Wills + Brusatte)
+          prodvar.scaled<-prodvar^(1/(length(PCvar)))
+          return(prodvar.scaled)
   }
 
 #------------------------------------------------------------
 #Calculate the range of each PC axis
-  PCrange <- function(PCmatrix){
-    cols <- ncol(PCmatrix)
-      PCrange.min.max <- matrix(data=NA,ncol=2,nrow=cols)
+  PCrange <- function(PCdata){
+    PCmatrix <- as.matrix(PCdata)
+      PCrange.min.max <- matrix(data=NA,ncol=2,nrow=ncol(PCmatrix))
 
-        for(i in 1:cols){
+        for(i in 1:ncol(PCmatrix)){
           PCrange.min.max[i,1] <- range(PCmatrix[,i])[1]
           PCrange.min.max[i,2] <- range(PCmatrix[,i])[2]
         }
         #new matrix for the difference between the max and min
-        PCrange<-matrix(data=NA,ncol=1,nrow=cols)
+        PCrange<-matrix(data=NA,ncol=1,nrow=ncol(PCmatrix))
 
-          for (j in 1:cols){
+          for (j in 1:ncol(PCmatrix)){
             PCrange[j,1] <- (PCrange.min.max[j,2]-(PCrange.min.max[j,1]))
           }
         return(PCrange)
@@ -81,19 +80,19 @@
 
 #------------------------------------------------------------
 #Calculate the sum of ranges of each PC axis
-  PCsumrange <- function(PCmatrix){
-    ranges <- PCrange(PCmatrix)
+  PCsumrange <- function(PCdata){
+    ranges <- PCrange(PCdata)
     sumrange <- sum (ranges[,1])
     return (sumrange)
   }
 
 #------------------------------------------------------------
 #Calculate the product of ranges of each PC axis
-  PCprodrange <- function(PCmatrix){
-    cols <- ncol(PCmatrix)
+  PCprodrange <- function(PCdata){
+    PCmatrix <- as.matrix(PCdata)
     ranges <- PCrange(PCmatrix)
       prodrange <- prod(ranges[,1])
-        prodrange.scaled <- prodrange^(1/cols)
+        prodrange.scaled <- prodrange^(1/ncol(PCmatrix))
     return(prodrange.scaled)
   }   
 

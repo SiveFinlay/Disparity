@@ -259,20 +259,33 @@
 #***************************************
 #5) Dealing with phylogenies
 #***************************************
-#Function to identify taxa that are in the trees but not the morphological data
-  #works for both multiPhylo and and phylo objects
-  tree.only <- function(phy,data.species){
-    taxa.tree.only <- as.list(rep(NA, length(phy)))
-      if(class(phy) == "phylo"){
-        taxa.tree.only <- setdiff(phy$tip.label, data.species)
-    
-      } else {  
-          for (i in 1:length(phy)){
-            taxa.tree.only[[i]]<-setdiff(phy[[i]]$tip.label, data.species)
+#Functions to identify taxa that are in the trees but not the data
+
+#Identify tree-only taxa in a single tree
+  tree.only.phy <- function(phy,data.species){
+    taxa.tree.only <- setdiff(phy$tip.label, data.species)
+    }
+
+#Identify tree-only taxa in multiple trees
+  tree.only.multiphy <- function(multiphy,data.species){
+    taxa.tree.only <- NULL
+      for (i in 1:length(multiphy)){
+        taxa.tree.only[[i]] <- setdiff(multiphy[[i]]$tip.label, data.species)
           }
+          return(taxa.tree.only)
+  }
+    
+#Wrapper function to select tree-only taxa from either a phy or multiphy object    
+  tree.only <- function(phy,data.species){
+    taxa.tree.only <- NULL
+      if(class(phy) == "phylo"){
+        taxa.tree.only <- tree.only.phy(phy, data.species)
+      } else {  
+        taxa.tree.only <- tree.only.multiphy(phy, data.species)
         }
         return(taxa.tree.only)
-    }
+  }
+    
 #---------------------------------------------    
 #Functions to remove missing species from trees
 
@@ -285,7 +298,7 @@
   remove.missing.species.multiphy <- function(multiphy, missing.species){
     new.trees<-NULL
       for (i in 1:length(multiphy)){
-        new.trees[[i]] <- drop.tip(multiphy[[i]], missing.species)
+        new.trees[[i]] <- drop.tip(multiphy[[i]], missing.species[[i]])
       }
       return(new.trees)
   }
