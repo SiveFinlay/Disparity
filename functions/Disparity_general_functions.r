@@ -1,6 +1,5 @@
-#06/05/2014
-#07/05/2014
-#12/05/2014
+#Start date: 06/05/2014
+
 
 #Useful functions from my re-writing of the disparity analysis
 
@@ -21,6 +20,7 @@
       #species.coordinates
       #mean.coordinates
       #selectPCaxes
+      #selectPCaxes.prcomp
 
 #4) Resampling (rarefaction)
       #resample.data
@@ -31,6 +31,9 @@
         #(remove.missing.species.phy and remove.missing.species.multiphy)
       #split.binom
       #add.species.to.MRCA
+
+#6) Plotting functions
+      #arrow.to.x.point
 
 #******************************************
 #1) General functions
@@ -222,7 +225,7 @@
 
 #-------------------------------------
 #Function to select specific PC axes from a pcaresults object
-  #select based on a threshold and then add 1 extra axis
+  #select based on a threshold amount of cumulative variation explained and then add 1 extra axis
     #avoids selecting just single axes
   selectPCaxes <- function(pcaresults, threshold, species){
     no.of.axes <- length(which(pcaresults$pc.summary$importance[3,] <= threshold))
@@ -231,6 +234,20 @@
     return(PCaxes)
   }
     
+#Functionto select specific PC axes from a prcomp object
+  #selects based on a threshold amount of cumulative variation explained and then add 1 extra axis
+  selectPCaxes.prcomp <- function (prcomp.object, threshold){
+    no.of.axes <- NULL
+      if(summary(prcomp.object)$importance[3,1] > 0.956){
+        no.of.axes <- 1
+      } else {
+        no.of.axes <- length(which(summary(prcomp.object)$importance[3,] <= threshold))
+        }
+        PCaxes <- prcomp.object$x[,1:(no.of.axes +1)]
+        rownames(PCaxes) <- rownames(prcomp.object$x) 
+     return(PCaxes)
+   } 
+
 #**********************************************
 #4) Resampling (rarefaction)
 #*********************************************
@@ -347,3 +364,15 @@
       return(newtrees)
   }
                       
+###########################################################
+#6) PLOTTING FUNCTIONS
+#############################################################
+
+#Function to add an arrow to a histogram which points to a particular x value
+  arrow.to.x.point <- function (histog, x.value, fraction.of.yaxis, line.fraction.of.yaxis, height.above.xaxis, head.length, colour, line.width) {
+    point <- c(x.value, (max(histog$counts)/fraction.of.yaxis))
+    line.length <- max(histog$counts)/line.fraction.of.yaxis
+      
+      arrows((point[1]), (point[2] + line.length), (point[1]), (point[2] + height.above.xaxis), 
+            length=head.length, col=colour, lwd=line.width, code=2) 
+  }

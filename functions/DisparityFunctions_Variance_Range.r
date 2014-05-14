@@ -82,7 +82,7 @@
 #Calculate the sum of ranges of each PC axis
   PCsumrange <- function(PCdata){
     ranges <- PCrange(PCdata)
-    sumrange <- sum (ranges[,1])
+    sumrange <- sum (ranges)
     return (sumrange)
   }
 
@@ -114,7 +114,7 @@
         ild.dist[,1] <- fam
         ild.dist[,2] <- species
 
-          for (i in 1:length(binom)){
+          for (i in 1:length(species)){
             ild.dist[i,3] <- ild(coordinates[,,i], ref)
           }
     return(ild.dist)
