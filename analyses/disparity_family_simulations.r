@@ -37,163 +37,162 @@ library(geomorph)
 #SkDors
 #1) Phylogenies
    setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-  mytrees<-read.tree("SkDors_tenrec+gmole_101trees.phy")
+  mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
 
 #2) Data
   setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
   #2a) All tenrecs and golden moles
       #shape coordinates
-      sps.mean<-dget(file="SkDors_tenrec+gmole_sps.mean.txt")
+      sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-      tax<-read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
+      tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
       #shape coordinates
-#      sps.mean<-dget(file="SkDors_nonmictenrec+gmole_sps.mean.txt")
+#      sps.mean <- dget(file="SkDors_nonmictenrec+gmole_sps.mean.txt")
       #taxonomic information
-#      tax<-read.table("SkDors_nonmictenrec+gmole_taxonomy.txt")
+#      tax <- read.table("SkDors_nonmictenrec+gmole_taxonomy.txt")
 #------------------------------------------------------
 #SkLat
 
 #1) Phylogenies
 #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-#     mytrees<-read.tree("SkLat_tenrec+gmole_101trees.phy")
+#     mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
      
 #2) Data
 #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
   #2a) All tenrecs and golden moles
       #shape coordinates
-#      sps.mean<-dget(file="SkLat_tenrec+gmole_sps.mean.txt")
+#      sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#      tax<-read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
+#      tax <- read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-#    sps.mean<-dget(file="SkLat_nonmictenrec+gmole_sps.mean.txt")
+#    sps.mean <- dget(file="SkLat_nonmictenrec+gmole_sps.mean.txt")
     #taxonomic information
-#    tax<-read.table("SkLat_nonmictenrec+gmole_sps.mean_taxonomy.txt")
+#    tax <- read.table("SkLat_nonmictenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #SkVent
 #1) Phylogenies
 #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-#    mytrees<-read.tree("SkVent_tenrec+gmole_101trees.phy")
+#    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
 
 #2) Data
 #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
   #2a) All tenrecs and golden moles
       #shape coordinates
-#      sps.mean<-dget(file="SkVent_tenrec+gmole_sps.mean.txt")
+#      sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#     tax<-read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
+#     tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-    #sps.mean<-dget("SkVent_nonmictenrec+gmole_sps.mean.txt")
+    #sps.mean <- dget("SkVent_nonmictenrec+gmole_sps.mean.txt")
     #taxonomic information
-    #tax<-read.table("SkVent_nonmictenrec+gmole_sps.mean_taxonomy.txt")
+    #tax <- read.table("SkVent_nonmictenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #Mandibles
 #1) Phylogenies
 #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-#    mytrees<-read.tree("Mands_tenrec+gmole_101trees.phy")
+#    mytrees <- read.tree("Mands_tenrec+gmole_101trees.phy")
 
 #2) Data
 #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
   #2a) All tenrecs and golden moles
       #shape coordinates
-#      sps.mean<-dget(file="Mands_tenrec+gmole_sps.mean.txt")
+#      sps.mean <- dget(file="Mands_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#     tax<-read.table("Mands_tenrec+gmole_sps.mean_taxonomy.txt")
+#     tax <- read.table("Mands_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-#    sps.mean<-dget(file="Mands_nonmictenrec+gmole_sps.mean.txt")
+#    sps.mean <- dget(file="Mands_nonmictenrec+gmole_sps.mean.txt")
     #taxonomic information
-#    tax<-read.table("Mands_nonmictenrec+gmole_sps.mean_taxonomy.txt")
+#    tax <- read.table("Mands_nonmictenrec+gmole_sps.mean_taxonomy.txt")
 
 #################################################
 #2) CHOOSE WHICH FAMILY 
 #################################################
 #Golden moles
-# sps.tax<-tax$Binomial[which(tax$Family=="Chrysochloridae")]
+# sps.tax <- tax$Binomial[which(tax$Family == "Chrysochloridae")]
 
 #Tenrecs
-  sps.tax<-tax$Binomial[which(tax$Family=="Tenrecidae")]
+  sps.tax <- tax$Binomial[which(tax$Family == "Tenrecidae")]
 
 #find the ID numbers for the species of interest
-  ID.sps<-matching.id(sps.tax, sps.mean$Binom)
+  ID.sps <- matching.id(sps.tax, sps.mean$Binom)
 
 #select those species from the overall data
-  mysps.mean<-select.from.list(sps.mean, ID.sps)
+  mysps.mean <- select.from.list(sps.mean, ID.sps)
 #drop unused levels
-  mysps.mean<-droplevels.from.list(mysps.mean)
+  mysps.mean <- droplevels.from.list(mysps.mean)
 
 ##################################################
 #3) PRUNE THE PHYLOGENIES
 ##################################################
 #Prune the trees to include that family's taxa only
 
-  TreeOnly<-tree.only(mytrees, sps.tax)
+  TreeOnly <- tree.only(mytrees, sps.tax)
 
 #prune the trees so that they only include the species which are in the species data
-  sps.trees<-remove.missing.species.tree(mytrees, TreeOnly)
+  sps.trees <- remove.missing.species.tree(mytrees, TreeOnly)
 
 ###################################################
 #4) SHAPE SIMULATION
 ###################################################
 
 #Convert the shape coordinates into a 2D array
-  twoDshape<-two.d.array(mysps.mean$meanshape)
+  twoDshape <- two.d.array(mysps.mean$meanshape)
 
 #Add the species as rownames
-  rownames(twoDshape)<-mysps.mean$Binom
+  rownames(twoDshape) <- mysps.mean$Binom
 
 #Separate variance covariance matrix of the shape data for each of the phylogenies
-  varcov<-as.list(rep(NA,length(sps.trees)))
+  varcov <- as.list(rep(NA,length(sps.trees)))
     for(i in 1:length(sps.trees)){
-      varcov[[i]]<-vcv(phy=sps.trees[[i]],twoDshape)
+      varcov[[i]] <- vcv(phy=sps.trees[[i]],twoDshape)
     }   
 
 #simulate shape evolution on each phylogeny
-  shape.sim<-as.list(rep(NA,length(sps.trees)))
+  shape.sim <- as.list(rep(NA,length(sps.trees)))
     for (i in 1: length(sps.trees)){
-      shape.sim[[i]]<-sim.char(sps.trees[[i]], varcov[[i]],nsim=1000,model="BM")
+      shape.sim[[i]] <- sim.char(sps.trees[[i]], varcov[[i]],nsim=1000,model="BM")
     }
     
 #Combine simulations into one list
-simlist<-list.matrix.to.array(shape.sim)  
+simlist <- list.matrix.to.array(shape.sim)  
 ######################################################
 #5) PCA ANALYSIS
 ######################################################
 
 #a) Simulated data
-  shape.simPC<-calc.each.list(mylist=simlist, calculation=prcomp)
+  shape.simPC <- calc.each.list(mylist=simlist, calculation=prcomp)
 
 #Select the PC axes that account for 95% of the variation
-  shape.simPC95axes<-NULL
+  shape.simPC95axes <- NULL
     for (i in 1: length(shape.simPC)){
       #if PC1 axis explains less than 0.956% of the cumulative variation
-      if(summary(shape.simPC[[i]])$importance[3,1]<=0.956){
+      if(summary(shape.simPC[[i]])$importance[3,1] <= 0.956){
         #select the number of axes which do explain less than or equal to 0.956% of the total variation
-        shape.simPC95axes[[i]]<-which(summary(shape.simPC[[i]])$importance[3,]<=0.956)
-      }
-     else{
+        shape.simPC95axes[[i]] <- which(summary(shape.simPC[[i]])$importance[3,] <= 0.956)
+      } else{
      #otherwise just select the first PC axis
       #NB: this could mean either that PC1 explains more than 95% of the variation
       #or that PC1 is less than 95% and PC2 is greater than 95%
-      shape.simPC95axes[[i]]<-1
-    }
+        shape.simPC95axes[[i]] <- 1
+        }
   }
  
 
 #Use these numbers to select the corresponding PC axes for each simulation
-  shape.simPC95<-NULL
+  shape.simPC95 <- NULL
     for(i in 1: length(shape.simPC95axes)){
-        shape.simPC95[[i]]<-shape.simPC[[i]]$x[,shape.simPC95axes[[i]]]
+        shape.simPC95[[i]] <- shape.simPC[[i]]$x[,shape.simPC95axes[[i]]]
     }
   
 #Turn all of the elements into matrices -makes it easier for later calculations
-  shape.simPC95<-calc.each.list(mylist=shape.simPC95, calculation=as.matrix) 
+  shape.simPC95 <- calc.each.list(mylist=shape.simPC95, calculation=as.matrix) 
 
 #b) Observed data
   #Do a principal components analysis on the family's (tenrec or golden mole)shape values only
@@ -201,36 +200,35 @@ simlist<-list.matrix.to.array(shape.sim)
     #Makes sense because simulations are based on the shape coordinates for one family only
 
 #PCA of mean shape values for each species
-  obsPC<-prcomp(twoDshape)
+  obsPC <- prcomp(twoDshape)
 
 #select the PC axes which correspond to 95% of the variation
-  obsPC95<-obsPC$x[,which(summary(obsPC)$importance[3,]<=0.956)]
+  obsPC95 <- obsPC$x[,which(summary(obsPC)$importance[3,]<=0.956)]
 
 ##########################################################
 #6) CALCULATE DISPARITY FOR SIMULATIONS AND OBSERVED DATA
 ##########################################################
-
 #Simulated data
   #Variance measures
-    sumvar<-calc.each.list(mylist=shape.simPC95, calculation=PCsumvar)
-    prodvar<-calc.each.list(mylist=shape.simPC95, calculation=PCprodvar)
-      
+    sumvar <- calc.each.list(mylist=shape.simPC95, calculation=PCsumvar)
+    prodvar <- calc.each.list(mylist=shape.simPC95, calculation=PCprodvar)
+    
       #Matrix of the sum and product of variance for each simulation
-      simPC.var<-matrix(NA,nrow=length(sumvar),ncol=2)
-        colnames(simPC.var)<-c("SumVar","ProdVar")
-        simPC.var[,1]<-sumvar
-        simPC.var[,2]<-prodvar
+      simPC.var <- matrix(NA,nrow=length(sumvar),ncol=2)
+        colnames(simPC.var) <- c("SumVar","ProdVar")
+        simPC.var[,1] <- unlist(sumvar)
+        simPC.var[,2] <- unlist(prodvar)
   
 
   #Range measures
-    sumrange<-calc.each.list(mylist=shape.simPC95, calculation=PCsumrange)
-    prodrange<-calc.each.list(mylist=shape.simPC95, calculation=PCprodrange)
+    sumrange <- calc.each.list(mylist=shape.simPC95, calculation=PCsumrange)
+    prodrange <- calc.each.list(mylist=shape.simPC95, calculation=PCprodrange)
       
       #Matrix of the sum and product of range for each simulation
-      simPC.range<-matrix(NA,nrow=length(sumrange),ncol=2)
-        colnames(simPC.range)<-c("SumRange","ProdRange")
-        simPC.range[,1]<-sumrange
-        simPC.range[,2]<-prodrange
+      simPC.range <- matrix(NA,nrow=length(sumrange),ncol=2)
+        colnames(simPC.range) <- c("SumRange","ProdRange")
+        simPC.range[,1] <- sumrange
+        simPC.range[,2] <- prodrange
     
     
 #Observed data
