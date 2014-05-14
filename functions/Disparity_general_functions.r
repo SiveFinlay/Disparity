@@ -225,8 +225,8 @@
   #select based on a threshold and then add 1 extra axis
     #avoids selecting just single axes
   selectPCaxes <- function(pcaresults, threshold, species){
-    no.of.axes <- (which(pcaresults$pc.summary$importance[3,] <= threshold) + 1)
-      PCaxes <- pcaresults$pc.scores[,no.of.axes]
+    no.of.axes <- length(which(pcaresults$pc.summary$importance[3,] <= threshold))
+      PCaxes <- pcaresults$pc.scores[,1:(no.of.axes + 1)]
       rownames(PCaxes) <- species
     return(PCaxes)
   }
