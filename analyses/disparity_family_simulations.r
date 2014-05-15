@@ -11,6 +11,10 @@
   #6) Calculate disparity for each simulation and observed data
   #7) Compare observed and simulated disparity
   #8) Create output files
+        #Table of disparity comparisons (observed vs. simulated)
+        #Histograms of disparity comparisons; variance
+                                            # range
+                                            # ZelditchMD  
   
 #########################################################
 library(ape)
@@ -303,12 +307,64 @@ simlist <- list.arrays.to.matrices(shape.sim)
 #######################################
 #8) CREATE THE OUTPUT FILES
 #######################################
+#Set the correct working directory for each data set 
 
+#SkDors
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/skdors")
+
+#SkLat
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/sklat")
+  
+#SkVent
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/skvent")
+  
+#Mands
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/mands")
+
+#*******************************************************************************
+# Table of disparity comparisons
+#*******************************************************************************
+#SkDors
+  #Tenrecs
+  write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#-------------------------------------------------------------------------------  
+#SkLat
+  #Tenrecs
+  #write.table(file="sklat_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#-------------------------------------------------------------------------------
+#SkVent
+  #Tenrecs
+  #write.table(file="skvent_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#-------------------------------------------------------------------------------
+#Mands
+  #Tenrecs
+  #write.table(file="mands_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#********************************************************
 #Histogram plots of the simulated disparity values
   #arrows point to the observed disparity values for comparison
+#*******************************************************
+#1) Variance measures
 
-#Variance measures
-  dev.new()
+#SkDors
+  #Tenrecs
+  pdf(file="skdors_trc+gmole_tenrec_variance.pdf")
+#-------------------------------------------------------------------
+#SkLat
+  #Tenrecs
+  #pdf(file="sklat_trc+gmole_tenrec_variance.pdf")
+#-------------------------------------------------------------------
+#SkVent
+  #Tenrecs
+  #pdf(file="skvent_trc+gmole_tenrec_variance.pdf")
+#--------------------------------------------------------------------
+#Mands
+  #Tenrecs
+  #pdf(file="mands_trc+gmole_tenrec_variance.pdf")
+#--------------------------------------------------------------------
   par(mfrow=c(1,2))
 
   sumvar.hist <- hist(simPC.var$SumVar, xlab="Sum of Variance", main=NULL)
@@ -318,9 +374,28 @@ simlist <- list.arrays.to.matrices(shape.sim)
   prodvar.hist <- hist(simPC.var$ProdVar, xlab="Product of Variance", main=NULL)
     arrow.to.x.point(prodvar.hist, obs.prodvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4, 
                      height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
+                     
+  dev.off()
+#***************************************************************
+#2) Range measures
 
-#Range measures
-  dev.new()
+#SkDors
+  #Tenrecs
+  pdf(file="skdors_trc+gmole_tenrec_range.pdf")
+#-------------------------------------------------------------------
+#SkLat
+  #Tenrecs
+  #pdf(file="sklat_trc+gmole_tenrec_range.pdf")
+#-------------------------------------------------------------------
+#SkVent
+  #Tenrecs
+  #pdf(file="skvent_trc+gmole_tenrec_range.pdf")
+#--------------------------------------------------------------------
+#Mands
+  #Tenrecs
+  #pdf(file="mands_trc+gmole_tenrec_range.pdf")
+#--------------------------------------------------------------------
+
   par(mfrow=c(1,2))
 
   sumrange.hist <- hist(simPC.range$SumRange, xlab="Sum of Ranges", main=NULL)
@@ -330,12 +405,31 @@ simlist <- list.arrays.to.matrices(shape.sim)
   prodrange.hist <- hist(simPC.range$ProdRange, xlab="Product of Ranges", main=NULL)
     arrow.to.x.point(prodrange.hist, obs.prodrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
+    
+  dev.off()
+#***************************************************************
+#3) ZelditchMD (sum of squared distances)
 
-#ZelditchMD (sum of squared distances)
-  dev.new()
+#SkDors
+  #Tenrecs
+  pdf(file="skdors_trc+gmole_tenrec_ZelditchMD.pdf")
+#-------------------------------------------------------------------
+#SkLat
+  #Tenrecs
+  #pdf(file="sklat_trc+gmole_tenrec_ZelditchMD.pdf")
+#-------------------------------------------------------------------
+#SkVent
+  #Tenrecs
+  #pdf(file="skvent_trc+gmole_tenrec_ZelditchMD.pdf")
+#--------------------------------------------------------------------
+#Mands
+  #Tenrecs
+  #pdf(file="mands_trc+gmole_tenrec_ZelditchMD.pdf")
+#--------------------------------------------------------------------
   par(mfrow=c(1,1))
 
   md.hist <- hist(sim.md, xlab="ZeldtichMD", main=NULL)
     arrow.to.x.point(md.hist, obs.md, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
+  dev.off()
 
