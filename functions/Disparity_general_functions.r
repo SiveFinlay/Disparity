@@ -14,7 +14,7 @@
       #droplevels.from.list
       #calc.each.list
       #calc.each.array
-      #list.matrix.to.array
+      #list.arrays.to.matrices
       
 #3) Dealing with shape data
       #species.coordinates
@@ -162,8 +162,8 @@
   }
   
 #-----------------------------------------------------------------------------------
-#Function to turn a list of matrices into a list of arrays    
-  list.matrix.to.array <- function(mylist){
+#Function to break a list of arrays into a list of matrices    
+  list.arrays.to.matrices <- function(mylist){
     new.list <- NULL
 
       for (i in 1:length(mylist)){

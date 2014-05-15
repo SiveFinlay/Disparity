@@ -115,10 +115,11 @@ library(geomorph)
 #2) CHOOSE WHICH FAMILY 
 #################################################
 #Golden moles
-# sps.tax <- tax$Binomial[which(tax$Family == "Chrysochloridae")]
-
+  #fam <- "Chrysochloridae"
 #Tenrecs
-  sps.tax <- tax$Binomial[which(tax$Family == "Tenrecidae")]
+  fam <- "Tenrecidae"
+
+  sps.tax <- tax$Binomial[which(tax$Family == fam)]
 
 #find the ID numbers for the species of interest
   ID.sps <- matching.id(sps.tax, sps.mean$Binom)
@@ -161,7 +162,7 @@ library(geomorph)
     }
     
 #Combine simulations into one list
-simlist <- list.matrix.to.array(shape.sim)  
+simlist <- list.arrays.to.matrices(shape.sim)  
 ######################################################
 #5) PCA ANALYSIS
 ######################################################
@@ -191,7 +192,8 @@ simlist <- list.matrix.to.array(shape.sim)
 ##########################################################
 #Simulated data
 #a) Disparity based on PC axes
-  #Variance measures
+  #Simulated data
+    #Variance measures
     sumvar <- calc.each.list(mylist=shape.simPC95, calculation=PCsumvar)
     prodvar <- calc.each.list(mylist=shape.simPC95, calculation=PCprodvar)
     
@@ -202,7 +204,7 @@ simlist <- list.matrix.to.array(shape.sim)
         simPC.var[,2] <- unlist(prodvar)
   
 
-  #Range measures
+    #Range measures
     sumrange <- calc.each.list(mylist=shape.simPC95, calculation=PCsumrange)
     prodrange <- calc.each.list(mylist=shape.simPC95, calculation=PCprodrange)
       
@@ -212,25 +214,42 @@ simlist <- list.matrix.to.array(shape.sim)
         simPC.range[,1] <- unlist(sumrange)
         simPC.range[,2] <- unlist(prodrange)
 
-#b) Disparity based on interlandmark distances
-
-#convert the simulated shape matrices into three dimensional arrays
-   test <- arrayspecs(A=simlist[[1]], p=((dim(simlist[[1]])[2])/2), k=2)
-      #gives an error message, the example in the geomorph package has the same error message -> need to email aithore
-
-     #interlandmark distance: compare each species to the overall mean shape of all species
-        ild.distance <- lapply(simlist, dist.to.ref(simlist))
-
-  
-    
-#Observed data
-  #Variance
+  #Observed data
+    #Variance
     obs.sumvar <- PCsumvar(obsPC95)
     obs.prodvar <- PCprodvar(obsPC95)
   
-  #Range
+    #Range
     obs.sumrange <- PCsumrange(obsPC95)
     obs.prodrange <- PCprodrange(obsPC95)
+
+#b) Disparity based on interlandmark distances
+  #Simulated data
+    #convert the simulated shape matrices into three dimensional arrays
+      simlist.arrays <- NULL
+        for (i in 1:length(simlist)){
+          simlist.arrays[[i]] <- arrayspecs(A=simlist[[i]], p=((dim(simlist[[i]])[2])/2), k=2, byLand=FALSE)
+        }
+
+    #calculate the ild.distances for each simulation: compare each species to the overall mean shape of all species
+      simlist.ild <- NULL
+        for (i in 1:length(simlist.arrays)){
+          simlist.ild[[i]]<-dist.to.ref(simlist.arrays[[i]], fam, names((simlist.arrays[[i]])[1,1,]))
+        }
+
+    #calculate disparity as the sum of squared distances (Zeldich 2012)
+      sim.md <- NULL
+        for (i in 1:length(simlist.ild)){
+          sim.md[[i]] <- ZelditchMD(simlist.ild[[i]]$Ild)
+        }
+
+  #Observed data
+    #calculate the ild.distance for each species
+      obs.ild <- dist.to.ref(mysps.mean$meanshape, fam, mysps.mean$Binom) 
+    
+    #calculate disparity
+      obs.md <- ZelditchMD(obs.ild$Ild)
+
 
 ######################################################### 
 #7)COMPARE OBSERVED AND SIMULATED DISPARITY
@@ -238,41 +257,48 @@ simlist <- list.matrix.to.array(shape.sim)
 
 #Compare observed disparity to the distribution of simulated values
   # (histograms in the output section below)
-  sumvar.p <- pvalue.dist(distribution=simPC.var[,1], obs.val=obs.sumvar)
-  prodvar.p <- pvalue.dist(distribution=simPC.var[,2], obs.val=obs.prodvar)
-  sumrange.p <- pvalue.dist(distribution=simPC.range[,1], obs.val=obs.sumrange)
-  prodrange.p <- pvalue.dist(distribution=simPC.range[,2], obs.val=obs.prodrange)
-
+  sumvar.p <- pvalue.dist(distribution=simPC.var$SumVar, obs.val=obs.sumvar)
+  prodvar.p <- pvalue.dist(distribution=simPC.var$ProdVar, obs.val=obs.prodvar)
+  sumrange.p <- pvalue.dist(distribution=simPC.range$SumRange, obs.val=obs.sumrange)
+  prodrange.p <- pvalue.dist(distribution=simPC.range$ProdRange, obs.val=obs.prodrange)
+  
+  md.p <- pvalue.dist(distribution=sim.md, obs.val=obs.md)
 
 
 #Create a table to compare the disparity measures
-  disp <- as.data.frame(matrix(NA, nrow=4, ncol=5))
-  rownames(disp) <- c("SumVar","ProdVar","SumRange","ProdRange")
+  disp <- as.data.frame(matrix(NA, nrow=5, ncol=5))
+  rownames(disp) <- c("SumVar","ProdVar","SumRange","ProdRange","ZelditchMD")
   colnames(disp) <- c("Observed","Sim.min","Sim.max", "Sdev.sim","p.value")
 
-    disp[1,1] <- obssumvar
-    disp[1,2] <- range(simPC.var[,1])[1]
-    disp[1,3] <- range(simPC.var[,1])[2]
-    disp[1,4] <- sd(simPC.var[,1])
+    disp[1,1] <- obs.sumvar
+    disp[1,2] <- range(simPC.var$SumVar)[1]
+    disp[1,3] <- range(simPC.var$SumVar)[2]
+    disp[1,4] <- sd(simPC.var$SumVar)
     disp[1,5] <- sumvar.p
 
-    disp[2,1] <- obsprodvar
-    disp[2,2] <- range(simPC.var[,2])[1]
-    disp[2,3] <- range(simPC.var[,2])[2]
-    disp[2,4] <- sd(simPC.var[,2])
+    disp[2,1] <- obs.prodvar
+    disp[2,2] <- range(simPC.var$ProdVar)[1]
+    disp[2,3] <- range(simPC.var$ProdVar)[2]
+    disp[2,4] <- sd(simPC.var$ProdVar)
     disp[2,5] <- prodvar.p
 
-    disp[3,1] <- obssumrange
-    disp[3,2] <- range(simPC.range[,1])[1]
-    disp[3,3] <- range(simPC.range[,1])[2]
-    disp[3,4] <- sd(simPC.range[,1])
+    disp[3,1] <- obs.sumrange
+    disp[3,2] <- range(simPC.range$SumRange)[1]
+    disp[3,3] <- range(simPC.range$SumRange)[2]
+    disp[3,4] <- sd(simPC.range$SumRange)
     disp[3,5] <- sumrange.p
 
-    disp[4,1] <- obsprodrange
-    disp[4,2] <- range(simPC.range[,2])[1]
-    disp[4,3] <- range(simPC.range[,2])[2]
-    disp[4,4] <- sd(simPC.range[,2])
+    disp[4,1] <- obs.prodrange
+    disp[4,2] <- range(simPC.range$ProdRange)[1]
+    disp[4,3] <- range(simPC.range$ProdRange)[2]
+    disp[4,4] <- sd(simPC.range$ProdRange)
     disp[4,5] <- prodrange.p
+    
+    disp[5,1] <- obs.md
+    disp[5,2] <- range(sim.md)[1]
+    disp[5,3] <- range(sim.md)[2]
+    disp[5,4] <- sd(sim.md)
+    disp[5,5] <- md.p
 
 #######################################
 #8) CREATE THE OUTPUT FILES
@@ -280,27 +306,36 @@ simlist <- list.matrix.to.array(shape.sim)
 
 #Histogram plots of the simulated disparity values
   #arrows point to the observed disparity values for comparison
-dev.new()
-par(mfrow=c(2,2))
 
-sumvar.hist <- hist(simPC.var$SumVar, xlab="Sum of Variance", main=NULL)
-arrow.to.x.point(sumvar.hist, obs.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
+#Variance measures
+  dev.new()
+  par(mfrow=c(1,2))
+
+  sumvar.hist <- hist(simPC.var$SumVar, xlab="Sum of Variance", main=NULL)
+    arrow.to.x.point(sumvar.hist, obs.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
+                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
+                    
+  prodvar.hist <- hist(simPC.var$ProdVar, xlab="Product of Variance", main=NULL)
+    arrow.to.x.point(prodvar.hist, obs.prodvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4, 
+                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
+
+#Range measures
+  dev.new()
+  par(mfrow=c(1,2))
+
+  sumrange.hist <- hist(simPC.range$SumRange, xlab="Sum of Ranges", main=NULL)
+    arrow.to.x.point(sumrange.hist, obs.sumrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
                     
-prodvar.hist <- hist(simPC.var$ProdVar, xlab="Product of Variance", main=NULL)
-arrow.to.x.point(prodvar.hist, obs.prodvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4, 
+  prodrange.hist <- hist(simPC.range$ProdRange, xlab="Product of Ranges", main=NULL)
+    arrow.to.x.point(prodrange.hist, obs.prodrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
 
-sumrange.hist <- hist(simPC.range$SumRange, xlab="Sum of Ranges", main=NULL)
-arrow.to.x.point(sumrange.hist, obs.sumrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
+#ZelditchMD (sum of squared distances)
+  dev.new()
+  par(mfrow=c(1,1))
+
+  md.hist <- hist(sim.md, xlab="ZeldtichMD", main=NULL)
+    arrow.to.x.point(md.hist, obs.md, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
-                    
-prodrange.hist <- hist(simPC.range$ProdRange, xlab="Product of Ranges", main=NULL)
-arrow.to.x.point(prodrange.hist, obs.prodrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
-                    height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
-
-par(mfrow=c(1,1))
-
-MD.hist <- hist(
-
 
