@@ -107,15 +107,11 @@
 
 #--------------------------------------------------------
 #Calculate interlandmark distances between species' mean coordinates and reference shapes
-  dist.to.ref <- function(coordinates, fam, species){
+  dist.to.ref <- function(coordinates){
     ref <- mshape(coordinates)
-    ild.dist <- as.data.frame(matrix(NA, ncol=3, nrow=(length(species))))
-      colnames(ild.dist) <- c("Family","Binomial","Ild")
-        ild.dist[,1] <- fam
-        ild.dist[,2] <- species
-
-          for (i in 1:length(species)){
-            ild.dist[i,3] <- ild(coordinates[,,i], ref)
+    ild.dist <- NULL
+          for (i in 1:(dim(coordinates)[3])){
+            ild.dist[i] <- ild(coordinates[,,i], ref)
           }
     return(ild.dist)
    }

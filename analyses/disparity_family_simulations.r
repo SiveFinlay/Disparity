@@ -238,21 +238,21 @@ simlist <- list.arrays.to.matrices(shape.sim)
     #calculate the ild.distances for each simulation: compare each species to the overall mean shape of all species
       simlist.ild <- NULL
         for (i in 1:length(simlist.arrays)){
-          simlist.ild[[i]]<-dist.to.ref(simlist.arrays[[i]], fam, names((simlist.arrays[[i]])[1,1,]))
+          simlist.ild[[i]]<-dist.to.ref(simlist.arrays[[i]])
         }
 
     #calculate disparity as the sum of squared distances (Zeldich 2012)
       sim.md <- NULL
         for (i in 1:length(simlist.ild)){
-          sim.md[[i]] <- ZelditchMD(simlist.ild[[i]]$Ild)
+          sim.md[[i]] <- ZelditchMD(simlist.ild[[i]])
         }
 
   #Observed data
     #calculate the ild.distance for each species
-      obs.ild <- dist.to.ref(mysps.mean$meanshape, fam, mysps.mean$Binom) 
+      obs.ild <- dist.to.ref(mysps.mean$meanshape) 
     
     #calculate disparity
-      obs.md <- ZelditchMD(obs.ild$Ild)
+      obs.md <- ZelditchMD(obs.ild)
 
 
 ######################################################### 

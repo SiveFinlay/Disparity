@@ -231,15 +231,15 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 
 #Based on sum of squared distances (Zeldich 2012)
   #interlandmark distance: compare each species to the overall mean shape of all species
-    ild.distance <- dist.to.ref(sps.mean$meanshape, sp.fam$Fam, sp.fam$Binom)
+    ild.distance <- dist.to.ref(sps.mean$meanshape)
 
   #tenrecs
-    tenrec.ild <- subset.matrix(ild.distance, ild.distance$Fam, "Tenrecidae")
-    tenrecMD <- ZelditchMD(tenrec.ild$Ild)
+    tenrec.ild <- ild.distance[which(sp.fam$Fam == "Tenrecidae")]
+    tenrecMD<- ZelditchMD(tenrec.ild)
 
   #golden moles
-    gmole.ild <- subset.matrix(ild.distance, ild.distance$Fam, "Chrysochloridae")
-    gmoleMD <- ZelditchMD(gmole.ild$Ild)
+    gmole.ild <- ild.distance[which(sp.fam$Fam == "Chrysochloridae")]
+    gmoleMD <- ZelditchMD(gmole.ild)
 
 #Put the disparity calculations into a single table
   disp <- matrix(NA,nrow=2, ncol=5)
@@ -267,6 +267,7 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     #extract the f, r2 and p values
       dist.man.frp <- anova.frp(dist.man)
 
+#2) PC axes
 #NPMANOVA of the PC axes  (e.g. Stayton 2005 and Ruta 2013)
   PC.man <- adonis(PC95axes~sp.fam$Family, data=sp.fam, permutations=999, method="euclidean")
     #extract the f, r2 and p values
@@ -275,9 +276,38 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #Compare the distance and PC npMANOVA results
   manova.res <- rbind(dist.man.frp, PC.man.frp)
   rownames(manova.res) <-c ("dist.man", "PC.man")
+
 #######################################
-#SENSITIVITY ANALYSIS
+#SENSITIVITY ANALYSIS for the PC-based disparity metrics
 #######################################
+
+#Re-sample the PC axis data: from 2 to (full species-1), resample without replacement 
+#Tenrecs
+  tenrec.res <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates =100, no.col=ncol(tenrecPC))
+
+#Golden moles
+  gmole.res <- resample.data(gmolePC, samp.min=2, samp.max=(nrow(gmolePC)-1), no.replicates =100, no.col=ncol(gmolePC))
+
+#Calculate disparity metrics for each re-sampled data
+#Disparity based on PC axes
+  #Sum of variance
+    tenrec.res.sv <- calc.each.array(tenrec.res, PCsumvar)
+    gmole.res.sv <- calc.each.array(gmole.res, PCsumvar)
+  
+  #Product of variance
+    tenrec.res.pv <- calc.each.array(tenrec.res, PCprodvar)
+    gmole.res.pv <- calc.each.array(gmole.res, PCprodvar)
+  
+  #Sum of ranges
+    tenrec.res.sr <- calc.each.array(tenrec.res, PCsumrange)
+    gmole.res.sr <- calc.each.array(gmole.res, PCsumrange)
+  
+  #Product of ranges
+    tenrec.res.pr <- calc.each.array(tenrec.res, PCprodrange)
+    gmole.res.pr <- calc.each.array(gmole.res, PCprodrange)
+
+
+
 
 
 #######################################
