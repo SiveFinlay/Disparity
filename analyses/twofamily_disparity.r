@@ -16,6 +16,7 @@
   #5) Select PC axes that account for 95% of the variation
   #6) Calculate disparity measures
   #7) Compare disparity in families; npMANOVA
+  #8) Output files: shape data, taxonomy, disparity, disparity comparisons
   #8) Sensitivity analysis (rarefaction)
 
 #output from this script
@@ -44,19 +45,19 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #READ IN DATA; directory will change for each data set
 ########################################################
 #SkDors data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
 
 #1) Landmarks
 #landmarks + curves file with the control lines removed
-  land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+  #land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
 
 #2) Sliders
 #edited sliders file (top 2 rows removed and the words before slide after put in instead
-  curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+  #curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
 
 #3) Taxonomy
 #file that has the correct taxonomy for each of the images
-  taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+  #taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
 
 #4) Specimens to remove
   #Null
@@ -87,16 +88,16 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
 
 #1) Landmarks
-  #land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
+  land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
 #2) Sliders
-  #curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
+  curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
 #3) Taxonomy
-  #taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
+  taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
 #4) Specimens to remove
-  #rem <- read.csv("Mands_remove_spec.csv", header=T)
+  rem <- read.csv("Mands_remove_spec.csv", header=T)
 
 #################################################
 #CLEAN UP THE DATA
@@ -117,9 +118,9 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #doesn't apply to the skdors data because rem is NULL
 #************************************************** 
 #find the ID numbers of specimens with missing data
-  #matching <- matching.id(rem$SpecID, combine$SpecID)
-   # combine <- remove.from.list(combine, matching)
-   # combine <- droplevels.from.list(combine)
+  matching <- matching.id(rem$SpecID, combine$SpecID)
+    combine <- remove.from.list(combine, matching)
+    combine <- droplevels.from.list(combine)
 #*********************************************
 
 #Select the tenrec and golden mole specimens only
@@ -178,20 +179,7 @@ sps.meanPCA <- plotTangentSpace(sps.mean$meanshape, axis1 = 1, axis2 = 2,warpgri
   sp.fam <- as.data.frame(unique(cbind(as.matrix(Proc.co$Fam), as.matrix(Proc.co$Binom))))
     colnames(sp.fam) <- c("Family","Binomial")
 
-#PCA plot, default colour palette so Chrysochloridae are black and Tenrecidae are red
-  dev.new()
-  plot(xaxis,yaxis, xlab="Species' average PC1", ylab="Species' average PC2",las=1,
-       col=sp.fam$Family,pch=16, bty="l",cex.lab=1.5,cex=1.2, xaxt="n",yaxt="n")
-    #draw the min,max and 0 values on the x axis
-      axis(side=1,at=c(-0.1,0,0.1),las=1,cex=1.3)
-    #same for the y axis
-      axis(side=2,at=c(-0.06,0,0.08),las=1,cex=1.3)
-    #add dotted lines along 0,0
-      abline(0,0,h=0,v=0,lty=2,lwd=1.5)
-
-#identify points on the graph
-  #identify(xaxis,yaxis,labels=(sp.fam$Binom))
-
+#PCA graph in the output files section at the end of the script
 #######################################
 #SELECT PC AXES
 #######################################
@@ -277,9 +265,92 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   manova.res <- rbind(dist.man.frp, PC.man.frp)
   rownames(manova.res) <-c ("dist.man", "PC.man")
 
+
 #######################################
+#OUTPUT FILES
+#######################################
+
+#Save the outputs to different working directory
+#SkDors
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
+#SkLat
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
+#SkVent
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
+#Mands
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+
+#**************************************************
+#1) Shape data, taxonomy , disparity measures, disparity comparisons 
+#SkDors
+  #1) Average shape coordinates
+    #dput(sps.mean, file="SkDors_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+    #write.table(file="SkDors_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+    #write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+    #write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+#--------------------------------------------------------------------
+#SkLat
+  #1) Average shape coordinates
+     #dput(sps.mean, file="SkLat_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+     #write.table(file="SkLat_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+     #write.table(file="SkLat_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+     #write.table(file="SkLat_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+#----------------------------------------------------------
+#SkVent
+  #1) Average shape coordinates
+    #dput(sps.mean, file="SkVent_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+    #write.table(file="SkVent_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+    #write.table(file="SkVent_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+    #write.table(file="SkVent_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+#----------------------------------------------------------
+#Mands
+  #1) Average shape coordinates
+#    dput(sps.mean, file="Mands_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+#    write.table(file="Mands_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+#    write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+#    write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#**************************************************
+#2) Save the PCA plot
+  #SkDors
+    #pdf(file="skdors_tenrec+gmole_PCA.pdf")
+  #SkLat
+    #pdf(file="sklat_tenrec+gmole_PCA.pdf") 
+  #SkVent
+    #pdf(file="skvent_tenrec+gmole_PCA.pdf")
+  #Mands
+    pdf(file="mands_tenrec+gmole_PCA.pdf")
+
+#PCA plot, default colour palette so Chrysochloridae are black and Tenrecidae are red
+ 
+  plot(xaxis,yaxis, xlab="Species' average PC1", ylab="Species' average PC2",las=1,
+       col=sp.fam$Family,pch=16, bty="l",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
+    #draw the min,max and 0 values on the x axis
+      axis(side=1,at=c(-0.1,0,0.1),las=1,cex=1.3)
+    #same for the y axis
+      axis(side=2,at=c(-0.06,0,0.08),las=1,cex=1.3)
+    #add dotted lines along 0,0
+      abline(0,0,h=0,v=0,lty=2,lwd=1)
+
+dev.off()
+#identify points on the graph
+  #identify(xaxis,yaxis,labels=(sp.fam$Binom))
+
+#########################################################################
 #SENSITIVITY ANALYSIS for the PC-based disparity metrics
-#######################################
+#########################################################################
 
 #Re-sample the PC axis data: from 2 to (full species-1), resample without replacement 
 #Tenrecs
@@ -288,8 +359,8 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #Golden moles
   gmole.res <- resample.data(gmolePC, samp.min=2, samp.max=(nrow(gmolePC)-1), no.replicates =100, no.col=ncol(gmolePC))
 
+#-----------------------------------------------------------------
 #Calculate disparity metrics for each re-sampled data
-#Disparity based on PC axes
   #Sum of variance
     tenrec.res.sv <- calc.each.array(tenrec.res, PCsumvar)
     gmole.res.sv <- calc.each.array(gmole.res, PCsumvar)
@@ -306,57 +377,191 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     tenrec.res.pr <- calc.each.array(tenrec.res, PCprodrange)
     gmole.res.pr <- calc.each.array(gmole.res, PCprodrange)
 
+#-----------------------------------------------------------------
+#Mean values for each sample (mean sumvar for 2 species, 3 species etc.)
+  #Sum of variance
+    tenrec.res.sv.mean <- lapply(tenrec.res.sv, mean)
+    gmole.res.sv.mean <- lapply(gmole.res.sv, mean)
 
+  #Product of variance
+    tenrec.res.pv.mean <- lapply(tenrec.res.pv, mean)
+    gmole.res.pv.mean <- lapply(gmole.res.pv, mean)
+    
+  #Sum of ranges
+    tenrec.res.sr.mean <- lapply(tenrec.res.sr, mean)
+    gmole.res.sr.mean <- lapply(gmole.res.sr, mean)
+    
+  #Product of ranges
+    tenrec.res.pr.mean <- lapply(tenrec.res.pr, mean)
+    gmole.res.pr.mean <- lapply(gmole.res.pr, mean)
 
+#----------------------------------------------------
+#Bootstrap confidence intervals
+  #Sum of variance
+    #Tenrecs
+      tenrec.sv.boot <- lapply(tenrec.res.sv, boot.mean.1000)
+      tenrec.sv.min.conf <- unlist(lapply(tenrec.sv.boot, boot.95.min.confidence))
+      tenrec.sv.max.conf <- unlist(lapply(tenrec.sv.boot, boot.95.max.confidence))
+    #Golden moles
+      gmole.sv.boot <- lapply(gmole.res.sv, boot.mean.1000)
+      gmole.sv.min.conf <- unlist(lapply(gmole.sv.boot, boot.95.min.confidence))
+      gmole.sv.max.conf <- unlist(lapply(gmole.sv.boot, boot.95.max.confidence))      
 
+  #Product of variance
+    #Tenrecs
+      tenrec.pv.boot <- lapply(tenrec.res.pv, boot.mean.1000)
+      tenrec.pv.min.conf <- unlist(lapply(tenrec.pv.boot, boot.95.min.confidence))
+      tenrec.pv.max.conf <- unlist(lapply(tenrec.pv.boot, boot.95.max.confidence))
+    #Golden moles
+      gmole.pv.boot <- lapply(gmole.res.pv, boot.mean.1000)
+      gmole.pv.min.conf <- unlist(lapply(gmole.pv.boot, boot.95.min.confidence))
+      gmole.pv.max.conf <- unlist(lapply(gmole.pv.boot, boot.95.max.confidence))      
 
-#######################################
-#OUTPUT FILES
-#######################################
+  #Sum of ranges
+    #Tenrecs
+      tenrec.sr.boot <- lapply(tenrec.res.sr, boot.mean.1000)
+      tenrec.sr.min.conf <- unlist(lapply(tenrec.sr.boot, boot.95.min.confidence))
+      tenrec.sr.max.conf <- unlist(lapply(tenrec.sr.boot, boot.95.max.confidence))
+    #Golden moles
+      gmole.sr.boot <- lapply(gmole.res.sr, boot.mean.1000)
+      gmole.sr.min.conf <- unlist(lapply(gmole.sr.boot, boot.95.min.confidence))
+      gmole.sr.max.conf <- unlist(lapply(gmole.sr.boot, boot.95.max.confidence))      
 
-#Save the outputs to different working directory
+  #Product of ranges
+    #Tenrecs
+      tenrec.pr.boot <- lapply(tenrec.res.pr, boot.mean.1000)
+      tenrec.pr.min.conf <- unlist(lapply(tenrec.pr.boot, boot.95.min.confidence))
+      tenrec.pr.max.conf <- unlist(lapply(tenrec.pr.boot, boot.95.max.confidence))
+    #Golden moles
+      gmole.pr.boot <- lapply(gmole.res.pr, boot.mean.1000)
+      gmole.pr.min.conf <- unlist(lapply(gmole.pr.boot, boot.95.min.confidence))
+      gmole.pr.max.conf <- unlist(lapply(gmole.pr.boot, boot.95.max.confidence))      
 
+#-------------------------------------------------------------
+#Plot the rarefaction curves
+  #sample sizes
+  tenrec.samp <- c(2:(nrow(tenrecPC)-1)) 
+  gmole.samp <-  c(2:(nrow(gmolePC)-1))  
+
+#Range of confidence intervals to use as the ylim values
+  conf.range.sv <- c(min(gmole.sv.min.conf), max(gmole.sv.max.conf), min(tenrec.sv.min.conf), max(tenrec.sv.max.conf))
+  conf.range.pv <- c(min(gmole.pv.min.conf), max(gmole.pv.max.conf), min(tenrec.pv.min.conf), max(tenrec.pv.max.conf))
+  conf.range.sr <- c(min(gmole.sr.min.conf), max(gmole.sr.max.conf), min(tenrec.sr.min.conf), max(tenrec.sr.max.conf))
+  conf.range.pr <- c(min(gmole.pr.min.conf), max(gmole.pr.max.conf), min(tenrec.pr.min.conf), max(tenrec.pr.max.conf))
+  
+  
 #SkDors
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
-  #1) Average shape coordinates
-    #dput(sps.mean, file="SkDors_tenrec+gmole_sps.mean.txt")
-  #2) Family and species taxonomy
-    #write.table(file="SkDors_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #3) Table of disparity measures for each family
-    write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #4) Table of npMANOVA results
-    write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-#--------------------------------------------------------------------
+   #pdf(file="skdors_trc+gmole_PCrarefaction.pdf")
+
 #SkLat
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
-  #1) Average shape coordinates
-     #dput(sps.mean, file="SkLat_tenrec+gmole_sps.mean.txt")
-  #2) Family and species taxonomy
-     #write.table(file="SkLat_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #3) Table of disparity measures for each family
-     #write.table(file="SkLat_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #4) Table of npMANOVA results
-     #write.table(file="SkLat_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-#----------------------------------------------------------
+   #pdf(file="sklat_trc+gmole_PCrarefaction.pdf")
+
 #SkVent
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
-  #1) Average shape coordinates
-    #dput(sps.mean, file="SkVent_tenrec+gmole_sps.mean.txt")
-  #2) Family and species taxonomy
-    #write.table(file="SkVent_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #3) Table of disparity measures for each family
-    #write.table(file="SkVent_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #4) Table of npMANOVA results
-    #write.table(file="SkVent_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-#----------------------------------------------------------
+   #pdf(file="skvent_trc+gmole_PCrarefaction.pdf")
+
 #Mands
-#  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
-  #1) Average shape coordinates
-#    dput(sps.mean, file="Mands_tenrec+gmole_sps.mean.txt")
-  #2) Family and species taxonomy
-#    write.table(file="Mands_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #3) Table of disparity measures for each family
-#    write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-  #4) Table of npMANOVA results
-#    write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+   pdf(file="mands_trc+gmole_PCrarefaction.pdf")
+
+
+par(mfrow=c(2,2))
+#Sum of variance
+  plot(tenrec.samp,tenrec.res.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+       ylim=c(min(conf.range.sv), max(conf.range.sv)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
+       xlab="SampleSize", ylab="Sum of Variance")
+        
+         lines(tenrec.samp,tenrec.sv.min.conf, type="o", col="pink")   #confidence intervals for tenrecs
+         lines(tenrec.samp,tenrec.sv.max.conf, type="o", col="pink")
+   
+       lines(gmole.samp,gmole.res.sv.mean,type="o", col="black")  #mean line for golden moles
+         lines(gmole.samp,gmole.sv.min.conf, type="o", col="grey") #confidence intervals for golden moles
+         lines(gmole.samp,gmole.sv.max.conf, type="o", col="grey")
+            
+#Product of variance
+  plot(tenrec.samp,tenrec.res.pv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+       ylim=c(min(conf.range.pv), max(conf.range.pv)),        
+       xlab="SampleSize", ylab="Product of Variance")
+        
+         lines(tenrec.samp,tenrec.pv.min.conf, type="o", col="pink")   
+         lines(tenrec.samp,tenrec.pv.max.conf, type="o", col="pink")
+   
+        lines(gmole.samp,gmole.res.pv.mean,type="o", col="black")  
+          lines(gmole.samp,gmole.pv.min.conf, type="o", col="grey") 
+          lines(gmole.samp,gmole.pv.max.conf, type="o", col="grey")
+            
+#Sum of ranges
+  plot(tenrec.samp,tenrec.res.sr.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+       ylim=c(min(conf.range.sr), max(conf.range.sr)),       
+       xlab="SampleSize", ylab="Sum of Ranges")
+        
+         lines(tenrec.samp,tenrec.sr.min.conf, type="o", col="pink")   
+         lines(tenrec.samp,tenrec.sr.max.conf, type="o", col="pink")
+   
+       lines(gmole.samp,gmole.res.sr.mean,type="o", col="black")  
+         lines(gmole.samp,gmole.sr.min.conf, type="o", col="grey") 
+         lines(gmole.samp,gmole.sr.max.conf, type="o", col="grey")
+            
+#Product of ranges
+  plot(tenrec.samp,tenrec.res.pr.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+       ylim=c(min(conf.range.pr), max(conf.range.pr)),        
+       xlab="SampleSize", ylab="Product of Ranges")
+        
+         lines(tenrec.samp,tenrec.pr.min.conf, type="o", col="pink")   
+         lines(tenrec.samp,tenrec.pr.max.conf, type="o", col="pink")
+   
+        lines(gmole.samp,gmole.res.pr.mean,type="o", col="black")  
+          lines(gmole.samp,gmole.pr.min.conf, type="o", col="grey") 
+          lines(gmole.samp,gmole.pr.max.conf, type="o", col="grey")
+            
+dev.off()    
+
+
+########################################################
+#Come back to this
+
+#Alternative way of getting confidence intervals (Foote 1992)
+#Trial way to get 90% confidence intervals (Foote 1992)
+   
+#   sorted.tc.sv <- NULL
+#    for (i in 1:length(tenrec.res.sv)){
+#      sorted.tc.sv[[i]] <- sort(tenrec.res.sv[[i]])
+#    }
+    
+#    min.lim.tc.sv <- NULL
+#      for (i in 1:length(sorted.tc.sv)){
+#        min.lim.tc.sv[[i]] <- sorted.tc.sv[[i]][6]
+#      }
+      
+#    max.lim.tc.sv <- NULL
+#      for (i in 1:length(sorted.tc.sv)){
+#        max.lim.tc.sv[[i]] <- sorted.tc.sv[[i]][95]
+#      }
+#---------------------------    
+#    sorted.gm.sv <- NULL
+#     for (i in 1:length(gmole.res.sv)){
+#      sorted.gm.sv[[i]] <- sort(gmole.res.sv[[i]])
+#    }  
+
+#  min.lim.gm.sv <- NULL
+#      for (i in 1:length(sorted.gm.sv)){
+#        min.lim.gm.sv[[i]] <- sorted.gm.sv[[i]][6]
+#      }
+      
+#    max.lim.gm.sv <- NULL
+#      for (i in 1:length(sorted.gm.sv)){
+#        max.lim.gm.sv[[i]] <- sorted.gm.sv[[i]][95]
+#      }
+
+#tc.samp <- 2:30
+#gm.samp <- 2:11 
+#dev.new()
+#plot(tc.samp,tenrec.res.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.75,
+#      ylim=c((min(min.lim.tc.sv)), (max(max.lim.tc.sv))),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
+#      xlab="SampleSize", ylab="Sum of Variance")
+#        lines(tc.samp,max.lim.tc.sv, type="o", col="pink")   #confidence intervals for tenrecs
+#        lines(tc.samp,min.lim.tc.sv, type="o", col="pink")
+   
+#    lines(gm.samp,gmole.res.sv.mean,type="o", col="black")  #mean line for golden moles
+#            lines(gm.samp,max.lim.gm.sv, type="o", col="grey") #confidence intervals for golden moles
+#            lines(gm.samp,min.lim.gm.sv, type="o", col="grey")
+            
 

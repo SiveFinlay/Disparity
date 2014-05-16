@@ -24,6 +24,11 @@
 
 #4) Resampling (rarefaction)
       #resample.data
+      #mean.fun
+      #boot.mean.1000
+      #boot.95.min.confidence
+      #boot.95.max.confidence
+
       
 #5) Dealing with phylogenies
       #tree.only
@@ -274,6 +279,32 @@
       return(resample)
   }
   
+#--------------------------------------------
+#Function to calculate the mean
+  #non-parametric bootstrapping requires functions with at least 2 arguments
+  #code for a mean function here https://stat.ethz.ch/pipermail/r-help/2008-April/160254.html
+  mean.fun <- function(dat, idx) mean(dat[idx], na.rm = TRUE)
+
+#Function to calculate mean for 1000 bootstrapped values
+  boot.mean.1000 <- function (sample.values){
+    boot.mean.values <- boot(data=sample.values, statistic=mean.fun, R=1000, sim="ordinary")
+  }
+
+#------------------------------------------------
+#Function to return the minimum 95% confidence value from bootstrapped data
+  boot.95.min.confidence <- function (boot.data){
+    conf.intervals <- boot.ci(boot.data, type="norm")
+    min.confidence <- conf.intervals$normal[2] 
+  return (min.confidence)  
+  }
+  
+#--------------------------------------------
+#Function to return the maximum 95% confidence value from bootstrapped data
+  boot.95.max.confidence <- function (boot.data){
+    conf.intervals <- boot.ci(boot.data, type="norm")
+    max.confidence <- conf.intervals$normal[3]
+  return (max.confidence)
+  }
 
 #***************************************
 #5) Dealing with phylogenies
