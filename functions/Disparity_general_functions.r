@@ -7,6 +7,7 @@
     #matching.id 
     #subset.matrix
     #anova.frp
+    #common.character
     
 #2) Dealing with lists
       #remove.from.list
@@ -24,6 +25,7 @@
 
 #4) Resampling (rarefaction)
       #resample.data
+      #resample.data.replace
       #mean.fun
       #boot.mean.1000
       #boot.95.min.confidence
@@ -71,7 +73,19 @@
     return(anova.frp)
   }
   
-
+#--------------------------------------------------------  
+#Function to find common characters in two lists
+  common.character <- function (long.list, short.list){
+    tmp<-NULL
+    value<-NULL
+    common<-NULL
+      for (i in 1: length(long.list)){
+        tmp<-(long.list[i] == an.har)
+        value<-which(tmp == TRUE)
+        common<-c(common, short.list[value])
+      }
+      return(common)
+  }
 #****************************************
 #2) Dealing with lists
 #****************************************
@@ -256,7 +270,7 @@
 #**********************************************
 #4) Resampling (rarefaction)
 #*********************************************
-#Function to resample data for rarefaction
+#Function to resample data without replacement for rarefaction
   resample.data <- function(mydata, samp.min, samp.max, no.replicates, no.col){
     #make a list of empty arrays first
     resample <- as.list(rep(NA, samp.max))
@@ -269,6 +283,29 @@
       for (j in samp.min:samp.max){
         for (k in 1:no.replicates){
           resample[[j]][,,k] <- mydata[sample(nrow(mydata), size=j, replace=FALSE),]
+        }
+      }
+     #if samp.min is 2 then the first value of resample is NULL (didn't select multiple replicates of a single species)
+      #remove that null value
+      if (is.na(resample[[1]]) == TRUE){
+        resample[[1]] <- NULL
+      }
+      return(resample)
+  }
+
+#Function to resample data with replacement  
+  resample.data.replace <- function(mydata, samp.min, samp.max, no.replicates, no.col){
+    #make a list of empty arrays first
+    resample <- as.list(rep(NA, samp.max))
+   
+      for (i in samp.min:samp.max){
+        resample[[i]] <- array(NA, dim=(c(i,no.col, no.replicates)))
+      }
+      #fill the empty arrays with resampled data
+   
+      for (j in samp.min:samp.max){
+        for (k in 1:no.replicates){
+          resample[[j]][,,k] <- mydata[sample(nrow(mydata), size=j, replace=TRUE),]
         }
       }
      #if samp.min is 2 then the first value of resample is NULL (didn't select multiple replicates of a single species)

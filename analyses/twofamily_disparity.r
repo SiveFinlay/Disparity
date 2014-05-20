@@ -353,7 +353,7 @@ dev.off()
 #########################################################################
 
 #Re-sample the PC axis data: from 2 to (full species-1), resample without replacement 
-#Tenrecs
+#Tenrecs 
   tenrec.res <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates =100, no.col=ncol(tenrecPC))
 
 #Golden moles
@@ -517,6 +517,26 @@ dev.off()
 
 ########################################################
 #Come back to this
+
+#Resample the tenrec data with replacment
+  #resample with replacement
+  tenrec.res.rep <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates=100, no.col=ncol(tenrecPC))
+  #Sum of variance
+    tenrec.res.rep.sv <- calc.each.array(tenrec.res.rep, PCsumvar)
+    #mean values Sum of variance
+    tenrec.res.rep.sv.mean <- lapply(tenrec.res.rep.sv, mean)
+    #bootstrap confidence intervals
+    #Tenrecs
+      tenrec.rep.sv.boot <- lapply(tenrec.res.rep.sv, boot.mean.1000)
+      tenrec.rep.sv.min.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.min.confidence))
+      tenrec.rep.sv.max.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.max.confidence))
+      
+  plot(tenrec.samp,tenrec.res.rep.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+       ylim=c(min(tenrec.rep.sv.min.conf), max(tenrec.rep.sv.max.conf)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
+       xlab="SampleSize", ylab="Sum of Variance")
+        
+         lines(tenrec.samp,tenrec.rep.sv.min.conf, type="o", col="pink")   #confidence intervals for tenrecs
+         lines(tenrec.samp,tenrec.rep.sv.max.conf, type="o", col="pink")
 
 #Alternative way of getting confidence intervals (Foote 1992)
 #Trial way to get 90% confidence intervals (Foote 1992)

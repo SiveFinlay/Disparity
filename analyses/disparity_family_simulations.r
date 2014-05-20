@@ -25,14 +25,14 @@ library(geomorph)
 #First option: working directories
 
 #Run on my computer
-	source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
-	source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
-  source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
+#	source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
+#	source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
+#  source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
 
 #On the alien: save everything onto the USB
-#  setwd("E:/Disparity")
-#  source("E:/Disparity/DisparityFunctions_Variance_Range.r")
-#  source("E:/Disparity/PValueFunction_FromDistribution.r")
+  source("E:/Disparity/functions/Disparity_general_functions.r")
+  source("E:/Disparity/functions/DisparityFunctions_Variance_Range.r")
+  source("E:/Disparity/functions/PValueFunction_FromDistribution.r")
 
 ######################################################
 #1) READ IN DATA
@@ -40,16 +40,16 @@ library(geomorph)
 
 #SkDors
 #1) Phylogenies
-   setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-  mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
+   #setwd("E:/Disparity/output/phylogenies")
+   #mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
 
 #2) Data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
+   #setwd("E:/Disparity/output/shape_data/skdors")
   #2a) All tenrecs and golden moles
       #shape coordinates
-      sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-      tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
+      #tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
       #shape coordinates
@@ -60,16 +60,16 @@ library(geomorph)
 #SkLat
 
 #1) Phylogenies
-#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-#     mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
+#setwd("E:/Disparity/output/phylogenies")
+    # mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
      
 #2) Data
-#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
+#setwd("E:/Disparity/output/shape_data/sklat")
   #2a) All tenrecs and golden moles
       #shape coordinates
-#      sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#      tax <- read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
+      #tax <- read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
@@ -79,16 +79,16 @@ library(geomorph)
 #------------------------------------------------------
 #SkVent
 #1) Phylogenies
-#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-#    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
+setwd("E:/Disparity/output/phylogenies")
+    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
 
 #2) Data
-#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
+setwd("E:/Disparity/output/shape_data/skvent")
   #2a) All tenrecs and golden moles
       #shape coordinates
-#      sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
+      sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#     tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
+     tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
@@ -98,11 +98,11 @@ library(geomorph)
 #------------------------------------------------------
 #Mandibles
 #1) Phylogenies
-#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
+#setwd("E:/Disparity/output/phylogenies")
 #    mytrees <- read.tree("Mands_tenrec+gmole_101trees.phy")
 
 #2) Data
-#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+#setwd("E:/Disparity/output/shape_data/mands")
   #2a) All tenrecs and golden moles
       #shape coordinates
 #      sps.mean <- dget(file="Mands_tenrec+gmole_sps.mean.txt")
@@ -119,9 +119,9 @@ library(geomorph)
 #2) CHOOSE WHICH FAMILY 
 #################################################
 #Golden moles
-  #fam <- "Chrysochloridae"
+  fam <- "Chrysochloridae"
 #Tenrecs
-  fam <- "Tenrecidae"
+  #fam <- "Tenrecidae"
 
   sps.tax <- tax$Binomial[which(tax$Family == fam)]
 
@@ -310,33 +310,39 @@ simlist <- list.arrays.to.matrices(shape.sim)
 #Set the correct working directory for each data set 
 
 #SkDors
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/skdors")
+  #setwd("E:/Disparity/output/shape_simulation/skdors")
 
 #SkLat
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/sklat")
+  #setwd("E:/Disparity/output/shape_simulation/sklat")
   
 #SkVent
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/skvent")
+  setwd("E:/Disparity/output/shape_simulation/skvent")
   
 #Mands
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_simulation/mands")
+  #setwd("E:/Disparity/output/shape_simulation/mands")
 
 #*******************************************************************************
 # Table of disparity comparisons
 #*******************************************************************************
 #SkDors
   #Tenrecs
-  write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #Golden moles
+  #write.table(file="skdors_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #-------------------------------------------------------------------------------  
 #SkLat
   #Tenrecs
   #write.table(file="sklat_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #Golden moles
+  #write.table(file="sklat_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #-------------------------------------------------------------------------------
 #SkVent
   #Tenrecs
   #write.table(file="skvent_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #Golden moles
+  write.table(file="skvent_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #-------------------------------------------------------------------------------
 #Mands
@@ -351,15 +357,21 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  pdf(file="skdors_trc+gmole_tenrec_variance.pdf")
+  #pdf(file="skdors_trc+gmole_tenrec_variance.pdf")
+  #Golden moles
+  #pdf(file="skdors_trc+gmole_gmole_variance.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
   #pdf(file="sklat_trc+gmole_tenrec_variance.pdf")
+  #Golden moles
+  #pdf(file="sklat_trc+gmole_gmole_variance.pdf")
 #-------------------------------------------------------------------
 #SkVent
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_variance.pdf")
+  #Golden moles
+  pdf(file="skvent_trc+gmole_gmole_variance.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
@@ -381,15 +393,21 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  pdf(file="skdors_trc+gmole_tenrec_range.pdf")
+  #pdf(file="skdors_trc+gmole_tenrec_range.pdf")
+  #Golden moles
+  #pdf(file="skdors_trc+gmole_gmole_range.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
   #pdf(file="sklat_trc+gmole_tenrec_range.pdf")
+  #Golden moles
+  #pdf(file="sklat_trc+gmole_gmole_range.pdf")
 #-------------------------------------------------------------------
 #SkVent
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_range.pdf")
+  #Golden moles
+  pdf(file="skvent_trc+gmole_gmole_range.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
@@ -412,15 +430,21 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  pdf(file="skdors_trc+gmole_tenrec_ZelditchMD.pdf")
+  #pdf(file="skdors_trc+gmole_tenrec_ZelditchMDnew.pdf")
+  #Golden moles
+  #pdf(file="skdors_trc+gmole_gmole_ZelditchMD.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
   #pdf(file="sklat_trc+gmole_tenrec_ZelditchMD.pdf")
+  #Golden moles
+  #pdf(file="sklat_trc+gmole_gmole_ZelditchMD.pdf")
 #-------------------------------------------------------------------
 #SkVent
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_ZelditchMD.pdf")
+  #Golden moles
+  pdf(file="skvent_trc+gmole_gmole_ZelditchMD.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
