@@ -119,9 +119,9 @@ setwd("E:/Disparity/output/shape_data/skvent")
 #2) CHOOSE WHICH FAMILY 
 #################################################
 #Golden moles
-  fam <- "Chrysochloridae"
+  #fam <- "Chrysochloridae"
 #Tenrecs
-  #fam <- "Tenrecidae"
+  fam <- "Tenrecidae"
 
   sps.tax <- tax$Binomial[which(tax$Family == fam)]
 
