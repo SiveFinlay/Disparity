@@ -80,7 +80,7 @@
     value<-NULL
     common<-NULL
       for (i in 1: length(long.list)){
-        tmp<-(long.list[i] == an.har)
+        tmp<-(long.list[i] == short.list)
         value<-which(tmp == TRUE)
         common<-c(common, short.list[value])
       }
