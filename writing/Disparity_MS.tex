@@ -153,38 +153,8 @@ We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}
 \begin{table}[H]			
 \centering
 \caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the skulls in dorsal view (see Figure \ref{dorslandmarks}).}
-\begin{tabular}[t]{l l}		
-\hline
-\textbf{Landmark} & \textbf{Description} \\
-\hline
-1 + 2 & Left (1) and right (2) anterior points of the premaxilla \\
-3 & Anterior of the nasal bones in the midline \\
-4 + 5 &	Maximum width of the palate (maxillary) on the left (4) and right (5)\\
-6 & Midline intersection between nasal and frontal bones \\
-7 + 8 & Widest point of the skull on the left (7) and right (8) \\
-9 &	Posterior of the skull in the midline \\
-	%Panchetti 2008 and Macholan2008 have different definitions for this one so I need to choose one
-10 & Posterior intersection between saggital and parietal sutures \\
-
-\hline
-\textbf{Curves} & \textbf{Description}\\
-\hline
-
-\textbf{Curve A} & Outline of the braincase on the left side, between landmarks 9 and 7\\ 
-(12 points) & (does not include visible features from the lower (ventral) side of the skull) \\
-
-\textbf{Curve B} & Outline of the palate on the left side, between landamarks 4 and 1 \\
-(10 points) & (outline of the rostrum only, not the shape of the teeth)\\
-
-\textbf{Curve C} &	Outline of the braincase on the right side, between landmarks 9 and 8 \\
-(12 points) & (does not include visible features from the lower (ventral) side of the skull) \\
-
-\textbf{Curve D} & Outline of the palate on the right side, between landamarks 5 and 2 \\
-(10 points) & (outline of the rostrum only, not the shape of the teeth)\\
-
-\hline
-\end{tabular}
-\label{dorslanddesc} %give it a label so I can refer to it in the text
+\input{tables/skdors.landmarks} % This is the same table that I used in my methods chapter
+\label{dorslanddesc}  the text
 \end{table}
 
 \begin{figure}[H]
@@ -200,29 +170,7 @@ We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}
 \begin{table}[H]			
 \centering
 \caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the mandibles in lateral (buccal) view (see figure \ref{mandslandmarks})}
-\begin{tabular}[t]{l l}		
-\hline
-\textbf{Landmark} & \textbf{Description} \\
-\hline
-1 & Anterior of the alveolus of the first incisor \\
-2 & Posterior of the alveolus of the first incisor \\
-3 &	Anterior of the alveolus of the first molar \\
-4 & Posterior of the alveolus of the last molar \\
-5 & Maximum curvature between the coronoid and condylar processes\\
-6 & Maximum curvature between the condylar and angular processes  \\
-7 &	Maximum curvature between the angular process and the horizontal ramus \\
-
-\hline
-\textbf{Curves} & \textbf{Description}\\
-\hline
-
-Curve A & Condyloid process (between landmarks 4 and 5, 15 points)\\
-Curve B & Condylar process (between landmarks 5 and 6, 15 points) \\
-Curve C & Angular process (between landmarks 6 and 7, 15 points)  \\
-Curve D & Base of the jaw (between landmarks 7 and 1, 12 points)  \\
-
-\hline
-\end{tabular}
+\input{tables/mandibles.landmarks}
 \label{mandslanddesc} %give it a label so I can refer to it in the text
 \end{table}
  
@@ -288,23 +236,12 @@ Removing the phenotypically similar \textit{Microgale} tenrecs did not qualitati
 %Table of the simulation results for SkDors tenrecs
 	%comes from the SkDors_Trc+Gmole_TenrecDisparity_1000simsOutput file
 
-\begin{table}[H]				%h places the table where it's neatest at that point in the code
+\begin{table}[H]				
 
 \centering
 \caption{Comparison of observed and simulated disparity measures for the dorsal skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values)}
 
-\begin{tabular}[t]{l l l l l l }		%l left aligns p gives defined col width for long entries
-\hline
-%\
-\textbf{Disparity metric} & \textbf{Observed} & \textbf{Sim.min} & \textbf{Sim.max} & \textbf{Sdev.sim} & \textbf{p value} \\
-%\multicolumn{6}{c}{}\\	% empty line below the column headers
-\hline
-Sum of Variance & 0.0017 & 24742.44 & 286028.06 & 20878.99 &	0\\
-Product of Variance	& 0.00013 &	1306.57 &	286028.06 &	3518.66 & 0\\
-Sum of Ranges &	0.38 &	1224.51 &	2934.11 &	167.54 & 0 \\
-Product of Ranges & 0.047 &	148.62 & 1627.71 &	60.48 &	0\\
-\hline
-\end{tabular}
+\input{tables/skdors.sim.disp}
 \label{skdorssims} %give it a label so I can refer to it in the text
 \end{table}
 
@@ -314,16 +251,7 @@ Product of Ranges & 0.047 &	148.62 & 1627.71 &	60.48 &	0\\
 \centering
 \caption{Comparison of observed and simulated disparity measures for the mandibles analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values)}
 
-\begin{tabular}[t]{l l l l l l }		%l left aligns p gives defined col width for long entries
-\hline
-\textbf{Disparity metric} & \textbf{Observed} & \textbf{Sim.min} & \textbf{Sim.max} & \textbf{Sdev.sim} & \textbf{p value} \\
-\hline
-Sum of Variance & 0.0032 & 23459.28 & 286827.19 & 20915.32 &	0\\
-Product of Variance	& 0.000189 & 1173.95 &	286827.19 &	3346.28 & 0\\
-Sum of Ranges &	0.676 &	1212.44 &	2996.77 &	170.86 & 0 \\
-Product of Ranges & 0.0639 & 151.54 & 1520.68 &	60.51 &	0\\
-\hline
-\end{tabular}
+\input{tables/mands.sim.disp}
 \label{mandssims}
 \end{table}
 

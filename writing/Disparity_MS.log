@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  28 MAY 2014 15:39
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  28 MAY 2014 16:14
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -432,7 +432,9 @@ Package pdftex.def Info: figures/AMNH_51327_dorsallandmarksdiagram.png used on
 input line 145.
 (pdftex.def)             Requested size: 398.3386pt x 265.55688pt.
 
-Overfull \hbox (83.30539pt too wide) in paragraph at lines 156--188
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/skdors.landmarks.tex)
+
+Overfull \hbox (83.30539pt too wide) in paragraph at lines 3--158
  [][] 
  []
 
@@ -443,21 +445,24 @@ File: figures/AMNH_51327_landmarksdiagram.png Graphic file (type png)
 
 <use figures/AMNH_51327_landmarksdiagram.png>
 Package pdftex.def Info: figures/AMNH_51327_landmarksdiagram.png used on input 
-line 192.
+line 162.
 (pdftex.def)             Requested size: 398.3386pt x 167.25629pt.
  [7]
-Overfull \hbox (87.73332pt too wide) in paragraph at lines 203--227
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/mandibles.landmarks.t
+ex)
+Overfull \hbox (87.73332pt too wide) in paragraph at lines 3--175
  [][] 
  []
 
 [8 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/AMNH_51327_landma
 rksdiagram.png>] [9] [10] [11] [12]
-Overfull \hbox (20.20947pt too wide) in paragraph at lines 296--309
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/skdors.sim.disp.tex)
+Overfull \hbox (20.20947pt too wide) in paragraph at lines 3--246
  [][] 
  []
 
-
-Overfull \hbox (20.20947pt too wide) in paragraph at lines 317--328
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/mands.sim.disp.tex)
+Overfull \hbox (20.20947pt too wide) in paragraph at lines 3--256
  [][] 
  []
 
@@ -467,7 +472,7 @@ pt>
 File: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg Graphic file (type jpg)
  <use figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg>
 Package pdftex.def Info: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg used on
- input line 353.
+ input line 281.
 (pdftex.def)             Requested size: 398.3386pt x 298.83437pt.
  [14]
 <figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg, id=54, 548.0475pt x 480.7962
@@ -475,19 +480,19 @@ Package pdftex.def Info: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg used on
 File: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg Graphic file (type jpg)
  <use figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg>
 Package pdftex.def Info: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg used 
-on input line 369.
+on input line 297.
 (pdftex.def)             Requested size: 398.3386pt x 349.46704pt.
  [15 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkDors_Tenrecs+
 Gmoles_PC1PC2_01_05.jpg>] [16 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writin
 g/figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg>]
-LaTeX Font Info:    Try loading font information for OML+pplj on input line 385
+LaTeX Font Info:    Try loading font information for OML+pplj on input line 313
 .
-LaTeX Font Info:    No file OMLpplj.fd. on input line 385.
+LaTeX Font Info:    No file OMLpplj.fd. on input line 313.
 
 
 LaTeX Font Warning: Font shape `OML/pplj/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textgreater' on input line 385.
+(Font)              for symbol `textgreater' on input line 313.
 
 [17] [18] [19]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [20]
@@ -498,8 +503,8 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4524 strings out of 493921
- 63544 string characters out of 3147276
+ 4544 strings out of 493921
+ 64337 string characters out of 3147276
  133745 words of memory out of 3000000
  7706 multiletter control sequences out of 15000+200000
  40872 words of font info for 97 fonts, out of 3000000 for 9000
@@ -513,7 +518,7 @@ ts/type1/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (24 pages, 937899 bytes).
+Output written on Disparity_MS.pdf (24 pages, 937792 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
