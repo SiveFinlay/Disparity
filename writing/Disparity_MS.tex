@@ -20,15 +20,17 @@
 \usepackage{setspace}	% line spacing					
 \usepackage{authblk}	% For author affiliations
 \usepackage{graphicx} 	% For adding pictures
-\usepackage{float}
+
+\usepackage[nomarkers]{endfloat} %Figures and tables at the end of the document
 \usepackage{pdflscape}	% for landscape pages
 \usepackage{mathtools}	% For equations etc.
 \usepackage[osf]{mathpazo} % palatino font package
 
 \usepackage{ms}     	% load the manuscript style template
 
-\floatstyle{plaintop} 	% Force table captions to go above the table
-%\restylefloat{table} 	% allows you to force tables into specific places - unrecognised command in the new style
+%\usepackage{float}		% Use these options to have figures in specific places in the text
+%\floatstyle{plaintop} 	% Force table captions to go above the table
+
 \setcounter{secnumdepth}{0} % removes numbers from section headings
 \raggedright 			% justify the text on the left only
 \pagenumbering{arabic}	% Page numbers
@@ -136,11 +138,12 @@ We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}
 % NC: stick into the document. Will be easier to edit and you'll have less stuff cluttering the manuscript file. Also will make it easier for the thesis version.
 	
 	%*************************************************
-	%Remember I need to come back and fix this formatting
+	%Remember I need to come back and fix this formatting to put the tables and figures at the end
+	%I've left them for the moment to make it easier to read it all together
 	% Also try and think of a way of showing the figures without colour or that they could be colour online only
 	%**************************************
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figures/AMNH_51327_dorsallandmarksdiagram.png}
 \caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of skulls in dorsal view. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) skull, accession number: AMNH\_51327}
