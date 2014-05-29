@@ -14,7 +14,7 @@
 %\setcounter{secnumdepth}{0} % removes numbers from section headings
 \raggedright 			% justify the text on the left only
 \pagenumbering{arabic}
-
+\linespread{1.6}
 	
 
 \begin{document}
@@ -27,7 +27,7 @@
 \date{}
 \maketitle
 
-\linespread{1.6}
+
 
 
 %----------------------------------------------------
@@ -41,6 +41,10 @@ We used photographic copy stands consisting of a camera attachment with an adjus
 To take the light variability into account, on each day we took a picture of a white sheet of paper and used the custom white balance function on the camera to set the image as the baseline “white” measurement for those particular light conditions.
 
 We photographed the specimens on a black material background with the light source in the top left-hand corner of the picture. We positioned a piece of white card on the bottom right side of the specimen to reflect the light back onto the specimen and therefore minimise any shadows (figure \ref{fig:camera} below).
+We made small bean bags (12 x 5cm) from the same black material as the background and filled them with plastic beads. We used these bags as necessary to hold the specimens in position while being photographed. For example, when taking pictures of the lateral view of skulls, we placed one bean bag under the nose of the skull and another bag lying along the top (cranial) side of the skull to ensure that the side being photographed lay in a flat plane relative to the camera and did not tilt in any direction. 
+We used the grid-line function on the live-view display screen of the camera to position the specimens in the centre of each image. 
+
+
 
 %Camera picture
 \begin{figure}[H] 
@@ -51,10 +55,11 @@ We photographed the specimens on a black material background with the light sour
   \label{fig:camera}
   \end{figure}
 
+Photographs were captured and saved in a raw file format. Before using the pictures for morphometric analyses, we converted the raw files to binary (grey scale) images and re-saved them as TIFF files. The black and white pictures were more useful for later analyses since we were not interested in including any colour comparisons and it is easier to see some biological features in binary images. TIFF files were the most appropriate to use for my morphometric analyses as they are uncompressed (in comparison to JPEG) images and therefore there is less chance of any picture distortions which may affect later analyses \citep{HERC2013}.
 %----------------------------------------------
 %Resampling for minimum number of points
 %-----------------------------------------
-\section{Determining the number of landmarks to use for curves}
+\section{Determining the number of semilandmarks to use for curves}
 When combining landmark and semi-landmark approaches, there is a potential problem of over-sampling the curves (REFS). To determine the number of semilandmark points required to adequately summarise the curves in our data sets,  we followed the method outlined by MacLeod \citeyearpar{MacLeod2012}. 
 For each data set we chose a random selection of pictures of specimens which represented the breadth of the morphological data (i.e. specimens from each sub-group of species).  We drew the appropriate curves on the each specimen and over-sampled the number of points on the curves (i.e. resampled the curves so that points were very close together). 
 We measured the length of the line and regarded that as the 100\%, true length of that outline. We then re-sampled the curves with decreasing numbers of points and measured the length of the outlines. We calculated the length of the curves resampled with fewere points as a percentage of the total length of the curve. We repeated these calculations for each specimen and then found the average percentage length for each resampled curve across all of the specimens in the test file. We continued this process until we found the minimum number of points that, on average, gave a curve length which was at least a 96\% accurate representatio of the true (over-sampled) curve length.  
@@ -63,9 +68,15 @@ We repeated these curve-sampling tests for each analysis (skulls in dorsal/ventr
 %---------------------------------------------------------
 %Landmarks and results for ventral and lateral skull views
 %---------------------------------------------------------
-\section{Analyses of ventral and lateral skull views}
+\section{Additional skull analyses}
 
 %--------------------------------------
+\subsection{Landmark placement}
+
+\subsubsection{Skulls: lateral view}
+I placed nine landmarks on the lateral pictures (see figure \ref{fig:sklat_landmarks}) and also drew two semilandmark curves between landmarks 7 and 8 to represent the shape of the back of the skull (resampled to 20 semilandmark points) and landmarks 8 and 1 (resampled to 15 semilandmark points) down the midline of the nose to represent the shape of the top of the skull. Table \ref{tab:sklat} describes the definitions for each of the landmark points. 
+For specimens that were damaged on their right side we reflected photographs of the left lateral side of the skull so that all pictures would be in the same orientation.
+
 %Sklat diagram and landmarks description
 \begin{figure}[H] 
   \centering
@@ -76,15 +87,18 @@ We repeated these curve-sampling tests for each analysis (skulls in dorsal/ventr
   \end{figure}
 
 
-% Skulls ventral landmarks
+% Skulls lateral landmarks
 \begin{table}[h]
 \caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the skulls in ventral view (see Figure \ref{fig:sklat_landmarks}.} 
 \input{tables/sklat.landmarks}
 \label{tab:sklat}
 \end{table}
+%-------------------------------------------
+
+\subsubsection{Skulls: ventral view}
+Most of the landmarks in this view are concentrated around the dentition and palate of the animals. We placed 13 landmarks and drew one outline curve (resampled to 60 semilandmark points) around the back of the skulls between landmarks 12 and 13 (figure \ref{fig:skvent_landmarks}). The high variability of the species’ basi-cranial region and difficulties associated with identifying developmentally or functionally homologous points precluded designation of additional landmarks towards the back of the skulls. Table \ref{tab:skvent} outlines the descriptions of the landmarks we placed on the ventral pictures.
 
 
-%--------------------------------------
 %Skvent diagram and landmarks description
 \begin{figure}[H] 
   \centering
@@ -101,10 +115,70 @@ We repeated these curve-sampling tests for each analysis (skulls in dorsal/ventr
 \input{tables/skvent.landmarks}
 \label{tab:skvent}
 \end{table}
+
+%--------------------------------------------
+\subsection{Disparity analysis}
+
+
+We compared observed disparity to calculations of disparity from BM simulations of shape data (1,000 simulations on each of 101 phylogenies). Our analyses for both the lateral skulls (table \ref{tab:sklat_sims}) and ventral skulls (table \ref{tab:skvent_sims}) supported our findings for the dorsal skulls and mandibles: the true (observed) disparity values were significantly lower than expected compared to the distribution of simulated values. The same patterns were true in each of our five disparity metrics; four of which were based on the PC scores of each species (sum and product of range and variance) and disparity calculated as the sum of squared distances between species pairs \citep{Zelditch2012}. 
+
+%--------------------------------------_________
+%Tables of simulation results
+\begin{table}[H]				
+\centering
+\caption{Comparison of observed and simulated disparity measures for the lateral skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values.)}
+
+\input{tables/sklat.sim.disp}
+\label{tab:sklat_sims} %give it a label so I can refer to it in the text
+\end{table}
+
+\begin{table}[H]				
+
+\centering
+\caption{Comparison of observed and simulated disparity measures for the ventral skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values.)}
+
+\input{tables/skvent.sim.disp}
+\label{tab:skvent_sims} %give it a label so I can refer to it in the text
+\end{table}
+
+%----------------------------------------------------------
+
+Figures  \ref{fig:sklatPCA} and \ref{fig:skventPCA} depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our lateral and ventral skull data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = X axes for the lateral skulls analysis and n = X axes for the ventral skulls analysis) to calculate the disparity of each family. 
+
+In the analysis of skulls in lateral view, tenrecs had higher disparity than golden moles for all of the five metrics and they occupy a significantly different area of morphospace (npMANOVA, F=75.07, R$^{2}$ = 0.65,  p =0.001, figure \ref{fig:sklatPCA}).  
+%**********NB: I've phrased it like this because I'm not sure whether the npMANOVA is testing morphospace occupation in general or disparity specifically
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm, height=12cm, keepaspectratio=true]
+{figures/sklat_tenrec+gmole_PCA.jpg}
+\caption{Principal components plot of the lateral skulls' morphospace occupied by tenrecs (red, n=31) and golden moles (black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+\label{fig:sklatPCA}
+\end{figure}
+
+
+%--------------------------------------------------------
+In contrast, in the analysis of skulls in ventral view, tenrecs had higher disparity than golden moles in four of the five metrics but not when we calculated disparity as the sum of ranges.
+%*********** Remember I need to put in the disp tables here
+The two families occupy significantly different areas of morphospace (npMANOVA, F=100.74, r$^{2}$ = 0.71, p=0.001) but sensitivity analyses indicate that these differences could be artefacts of variation in sample size (section X below).
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm, height=12cm, keepaspectratio=true]
+{figures/skvent_tenrec+gmole_PCA.jpg}
+\caption{Principal components plot of the lateral skulls' morphospace occupied by tenrecs (red, n=31) and golden moles (black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+\label{fig:skventPCA}
+\end{figure}
+
+
 %---------------------------------------------------------
 %Rarefaction methods and results
 %---------------------------------------------------------
-\section{Sensitivity analyses: sample size}
+\section{Sensitivity analyses}
+\subsection{Sample size}
+
 Our calculations of disparity in tenrecs and golden moles are based on the amount of morphospace which is occupied by each group; families which occupy larger areas of morphospace are considered to have higher morphological disparity. However, larger groups might be expected to occupy greater areas of morphospace just because they are represented by more species. We compared a sample of 31 species of tenrec to 12 species of golden moles. Therefore, we used rarefaction analyses to test whether differences in morphospace occupation between the two groups were merely artefacts of variation in sample size.
 
 For each data set (skulls dorsal/ventral/lateral and mandibles) we re-sampled the shape data (average shape for each species) without replacement and repeated the resampling 100 times for each iteration. For tenrecs and golden moles we re-sampled from two to n-1 species i.e. 100 samples of 2 species, 3 species, 4 species etc. We calculated disparity metrics (sum and product of variance and ranges) for each re-sampled iteration and took the average calculated value for that metric and iteration (e.g. average sum of variance from 100 sets of 2 re-sampled species). We used bootstapping (1000 iterations) to calculate 95\% confidence intervals for each sample size. We plotted the mean values and confidence intervals against sample size to depict the expected change in disparity. 
@@ -124,7 +198,7 @@ Separate discussion of each data set
 %---------------------------------------------------------
 %Simulation results for non-Microgale tenrecs
 %---------------------------------------------------------
-\section{Sensitivity analyses: comparison of non-\textit{Microgale} tenrecs}
+\subsection{Comparison of non-\textit{Microgale} tenrecs}
 
 
 %---------------------------------------------------------
