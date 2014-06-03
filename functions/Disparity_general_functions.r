@@ -246,9 +246,9 @@
 #Function to select specific PC axes from a pcaresults object
   #select based on a threshold amount of cumulative variation explained and then add 1 extra axis
     #avoids selecting just single axes
-  selectPCaxes <- function(pcaresults, threshold, species){
-    no.of.axes <- length(which(pcaresults$pc.summary$importance[3,] <= threshold))
-      PCaxes <- pcaresults$pc.scores[,1:(no.of.axes + 1)]
+  selectPCaxes <- function(pcaresults, threshold, species){                #03/06/2014 Changed function for twofamily_disparity script
+    no.of.axes <- length(which(pcaresults$importance[3,] <= threshold))      #took out $pc.summary before $importance
+      PCaxes <- pcaresults$x[,1:(no.of.axes + 1)]                            #changed $pc.scores to $x
       rownames(PCaxes) <- species
     return(PCaxes)
   }
