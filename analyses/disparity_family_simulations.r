@@ -1,6 +1,6 @@
-#12/05/2014
+#03/06/2014 (date of most recent modification)
 #General script for simulating shape evolution across phylogenies and calculating disparity
-    #Based on the previous script (30_04_14) but tidier because I'm using my new general functions
+    #Modified the script to make it work for running the analyses through the terminal connection to cyberman
 
 #Steps
   #1) Read in phylogenies, shape data and taxonomy
@@ -30,9 +30,14 @@ library(geomorph)
 #  source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
 
 #On the alien: save everything onto the USB
-  source("E:/Disparity/functions/Disparity_general_functions.r")
-  source("E:/Disparity/functions/DisparityFunctions_Variance_Range.r")
-  source("E:/Disparity/functions/PValueFunction_FromDistribution.r")
+  #source("E:/Disparity/functions/Disparity_general_functions.r")
+  #source("E:/Disparity/functions/DisparityFunctions_Variance_Range.r")
+  #source("E:/Disparity/functions/PValueFunction_FromDistribution.r")
+  
+#On cyberman (alien as remote server)
+  source("~/Disparity/functions/Disparity_general_functions.r")
+  source("~/Disparity/functions/DisparityFunctions_Variance_Range.r")
+  source("~/Disparity/functions/PvalueFunction_FromDistribution.r")
 
 ######################################################
 #1) READ IN DATA
@@ -40,16 +45,16 @@ library(geomorph)
 
 #SkDors
 #1) Phylogenies
-   #setwd("E:/Disparity/output/phylogenies")
-   #mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
+   setwd("~/Disparity/output/phylogenies")
+   mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
 
 #2) Data
-   #setwd("E:/Disparity/output/shape_data/skdors")
+   setwd("~/Disparity/output/shape_data/skdors")
   #2a) All tenrecs and golden moles
       #shape coordinates
-      #sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
+      sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-      #tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
+      tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
       #shape coordinates
@@ -60,11 +65,11 @@ library(geomorph)
 #SkLat
 
 #1) Phylogenies
-#setwd("E:/Disparity/output/phylogenies")
+#setwd("~/Disparity/output/phylogenies")
     # mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
      
 #2) Data
-#setwd("E:/Disparity/output/shape_data/sklat")
+#setwd("~/Disparity/output/shape_data/sklat")
   #2a) All tenrecs and golden moles
       #shape coordinates
       #sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
@@ -79,16 +84,16 @@ library(geomorph)
 #------------------------------------------------------
 #SkVent
 #1) Phylogenies
-setwd("E:/Disparity/output/phylogenies")
-    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
+#setwd("~/Disparity/output/phylogenies")
+#    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
 
 #2) Data
-setwd("E:/Disparity/output/shape_data/skvent")
+#setwd("~/Disparity/output/shape_data/skvent")
   #2a) All tenrecs and golden moles
       #shape coordinates
-      sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
+ #     sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-     tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
+  #   tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
@@ -98,11 +103,11 @@ setwd("E:/Disparity/output/shape_data/skvent")
 #------------------------------------------------------
 #Mandibles
 #1) Phylogenies
-#setwd("E:/Disparity/output/phylogenies")
+#setwd("~/Disparity/output/phylogenies")
 #    mytrees <- read.tree("Mands_tenrec+gmole_101trees.phy")
 
 #2) Data
-#setwd("E:/Disparity/output/shape_data/mands")
+#setwd("~/Disparity/output/shape_data/mands")
   #2a) All tenrecs and golden moles
       #shape coordinates
 #      sps.mean <- dget(file="Mands_tenrec+gmole_sps.mean.txt")
@@ -232,8 +237,8 @@ simlist <- list.arrays.to.matrices(shape.sim)
     #convert the simulated shape matrices into three dimensional arrays
       simlist.arrays <- NULL
         for (i in 1:length(simlist)){
-          simlist.arrays[[i]] <- arrayspecs(A=simlist[[i]], p=((dim(simlist[[i]])[2])/2), k=2, byLand=FALSE)
-        }
+          simlist.arrays[[i]] <- arrayspecs(A=simlist[[i]], p=((dim(simlist[[i]])[2])/2), k=2)
+        }                                            #(Old version of geomorph had a byLAND=FALSE option)
 
     #calculate the ild.distances for each simulation: compare each species to the overall mean shape of all species
       simlist.ild <- NULL
@@ -310,23 +315,23 @@ simlist <- list.arrays.to.matrices(shape.sim)
 #Set the correct working directory for each data set 
 
 #SkDors
-  #setwd("E:/Disparity/output/shape_simulation/skdors")
+  setwd("~/Disparity/output/shape_simulations/skdors")
 
 #SkLat
-  #setwd("E:/Disparity/output/shape_simulation/sklat")
+  #setwd("~/Disparity/output/shape_simulations/sklat")
   
 #SkVent
-  setwd("E:/Disparity/output/shape_simulation/skvent")
+  #setwd("~/Disparity/output/shape_simulations/skvent")
   
 #Mands
-  #setwd("E:/Disparity/output/shape_simulation/mands")
+  #setwd("~/Disparity/output/shape_simulations/mands")
 
 #*******************************************************************************
 # Table of disparity comparisons
 #*******************************************************************************
 #SkDors
   #Tenrecs
-  #write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #Golden moles
   #write.table(file="skdors_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
@@ -342,7 +347,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Tenrecs
   #write.table(file="skvent_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #Golden moles
-  write.table(file="skvent_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #write.table(file="skvent_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #-------------------------------------------------------------------------------
 #Mands
@@ -357,7 +362,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  #pdf(file="skdors_trc+gmole_tenrec_variance.pdf")
+  jpeg(file="skdors_trc+gmole_tenrecsum+prodvariance.jpg")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_variance.pdf")
 #-------------------------------------------------------------------
@@ -371,13 +376,13 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_variance.pdf")
   #Golden moles
-  pdf(file="skvent_trc+gmole_gmole_variance.pdf")
+  #pdf(file="skvent_trc+gmole_gmole_variance.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
   #pdf(file="mands_trc+gmole_tenrec_variance.pdf")
 #--------------------------------------------------------------------
-  par(mfrow=c(1,2))
+par(mfrow=c(1,2))
 
   sumvar.hist <- hist(simPC.var$SumVar, xlab="Sum of Variance", main=NULL)
     arrow.to.x.point(sumvar.hist, obs.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
@@ -393,7 +398,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  #pdf(file="skdors_trc+gmole_tenrec_range.pdf")
+  jpeg(file="skdors_trc+gmole_tenrec_sum+prodrange.jpg")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_range.pdf")
 #-------------------------------------------------------------------
@@ -407,7 +412,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_range.pdf")
   #Golden moles
-  pdf(file="skvent_trc+gmole_gmole_range.pdf")
+  #pdf(file="skvent_trc+gmole_gmole_range.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
@@ -430,7 +435,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  #pdf(file="skdors_trc+gmole_tenrec_ZelditchMDnew.pdf")
+  jpeg(file="skdors_trc+gmole_tenrec_ZelditchMD.jpg")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_ZelditchMD.pdf")
 #-------------------------------------------------------------------
@@ -444,7 +449,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_ZelditchMD.pdf")
   #Golden moles
-  pdf(file="skvent_trc+gmole_gmole_ZelditchMD.pdf")
+  #pdf(file="skvent_trc+gmole_gmole_ZelditchMD.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
