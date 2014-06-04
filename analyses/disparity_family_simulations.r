@@ -1,4 +1,4 @@
-#03/06/2014 (date of most recent modification)
+#04/06/2014 (date of most recent modification)
 #General script for simulating shape evolution across phylogenies and calculating disparity
     #Modified the script to make it work for running the analyses through the terminal connection to cyberman
 
@@ -12,9 +12,11 @@
   #7) Compare observed and simulated disparity
   #8) Create output files
         #Table of disparity comparisons (observed vs. simulated)
-        #Histograms of disparity comparisons; variance
-                                            # range
-                                            # ZelditchMD  
+        #Histograms of disparity comparisons; sum of variance
+                                            # product of variance
+                                            # sum of ranges 
+                                            # product of ranges 
+                                            # ZelditchMD 
   
 #########################################################
 library(ape)
@@ -45,16 +47,17 @@ library(geomorph)
 
 #SkDors
 #1) Phylogenies
-   setwd("~/Disparity/output/phylogenies")
-   mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
+   #setwd("~/Disparity/output/phylogenies")
+   #mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
 
 #2) Data
-   setwd("~/Disparity/output/shape_data/skdors")
+   #setwd("~/Disparity/output/shape_data/skdors")
+  
   #2a) All tenrecs and golden moles
       #shape coordinates
-      sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-      tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
+      #tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
       #shape coordinates
@@ -65,11 +68,12 @@ library(geomorph)
 #SkLat
 
 #1) Phylogenies
-#setwd("~/Disparity/output/phylogenies")
-    # mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
+setwd("~/Disparity/output/phylogenies")
+     mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
      
 #2) Data
-#setwd("~/Disparity/output/shape_data/sklat")
+setwd("~/Disparity/output/shape_data/sklat")
+  
   #2a) All tenrecs and golden moles
       #shape coordinates
       #sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
@@ -78,22 +82,23 @@ library(geomorph)
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-#    sps.mean <- dget(file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
+    sps.mean <- dget(file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
     #taxonomic information
-#    tax <- read.table("SkLat_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
+    tax <- read.table("SkLat_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #SkVent
 #1) Phylogenies
 #setwd("~/Disparity/output/phylogenies")
-#    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
+    #mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
 
 #2) Data
 #setwd("~/Disparity/output/shape_data/skvent")
+  
   #2a) All tenrecs and golden moles
       #shape coordinates
- #     sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-  #   tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
+      #tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
@@ -104,21 +109,21 @@ library(geomorph)
 #Mandibles
 #1) Phylogenies
 #setwd("~/Disparity/output/phylogenies")
-#    mytrees <- read.tree("Mands_tenrec+gmole_101trees.phy")
+    #mytrees <- read.tree("Mands_tenrec+gmole_101trees.phy")
 
 #2) Data
 #setwd("~/Disparity/output/shape_data/mands")
   #2a) All tenrecs and golden moles
       #shape coordinates
-#      sps.mean <- dget(file="Mands_tenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="Mands_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#     tax <- read.table("Mands_tenrec+gmole_sps.mean_taxonomy.txt")
+      #tax <- read.table("Mands_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-#    sps.mean <- dget(file="Mands_nonmic_tenrec+gmole_sps.mean.txt")
+    #sps.mean <- dget(file="Mands_nonmic_tenrec+gmole_sps.mean.txt")
     #taxonomic information
-#    tax <- read.table("Mands_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
+    #tax <- read.table("Mands_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 
 #################################################
 #2) CHOOSE WHICH FAMILY 
@@ -315,10 +320,10 @@ simlist <- list.arrays.to.matrices(shape.sim)
 #Set the correct working directory for each data set 
 
 #SkDors
-  setwd("~/Disparity/output/shape_simulations/skdors")
+  #setwd("~/Disparity/output/shape_simulations/skdors")
 
 #SkLat
-  #setwd("~/Disparity/output/shape_simulations/sklat")
+  setwd("~/Disparity/output/shape_simulations/sklat")
   
 #SkVent
   #setwd("~/Disparity/output/shape_simulations/skvent")
@@ -331,7 +336,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
 #*******************************************************************************
 #SkDors
   #Tenrecs
-  write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #write.table(file="skdors_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #Golden moles
   #write.table(file="skdors_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
@@ -344,6 +349,8 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Golden moles
   #write.table(file="sklat_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+  #Non-Microgale tenrecs
+  write.table(file="sklat_nonmictrc+gmole_nonmic_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #-------------------------------------------------------------------------------
 #SkVent
   #Tenrecs
@@ -351,99 +358,223 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Golden moles
   #write.table(file="skvent_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+  #Non-Microgale tenrecs
+  #write.table(file="skvent_nonmictrc+gmole_nonmic_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #-------------------------------------------------------------------------------
 #Mands
   #Tenrecs
   #write.table(file="mands_trc+gmole_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #Golden moles
+  #write.table(file="mands_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+  #Non-Microgale tenrecs
+  #write.table(file="mands_nonmictrc+gmole_nonmic_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #********************************************************
 #Histogram plots of the simulated disparity values
   #arrows point to the observed disparity values for comparison
+  #breaks in the x axes because the limits are extended to include the observed values
+  #saved separate plots for each comparison because otherwise they're too small to see
 #*******************************************************
-#1) Variance measures
+#1/5) Sum of variance 
 
 #SkDors
   #Tenrecs
-  pdf(file="skdors_trc+gmole_tenrecsum+prodvariance.pdf")
+  #pdf(file="skdors_trc+gmole_tenrec_sumvariance.pdf")
   #Golden moles
-  #pdf(file="skdors_trc+gmole_gmole_variance.pdf")
+  #pdf(file="skdors_trc+gmole_gmole_sumvariance.pdf")
   
   #Non-microgale tenrecs
-  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrecsum+prodvariance.pdf")
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_sumvariance.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
-  #pdf(file="sklat_trc+gmole_tenrec_variance.pdf")
+  #pdf(file="sklat_trc+gmole_tenrec_sumvariance.pdf")
   #Golden moles
-  #pdf(file="sklat_trc+gmole_gmole_variance.pdf")
+  #pdf(file="sklat_trc+gmole_gmole_sumvariance.pdf")
+  
+  #Non-microgale tenrecs
+  pdf(file="sklat_nonmictrc+gmole_nonmic_tenrec_sumvariance.pdf")
 #-------------------------------------------------------------------
 #SkVent
   #Tenrecs
-  #pdf(file="skvent_trc+gmole_tenrec_variance.pdf")
+  #pdf(file="skvent_trc+gmole_tenrec_sumvariance.pdf")
   #Golden moles
-  #pdf(file="skvent_trc+gmole_gmole_variance.pdf")
+  #pdf(file="skvent_trc+gmole_gmole_sumvariance.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skvent_nonmictrc+gmole_nonmic_tenrec_sumvariance.pdf")
+
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
-  #pdf(file="mands_trc+gmole_tenrec_variance.pdf")
-#--------------------------------------------------------------------
-par(mfrow=c(1,2))
-
-  sumvar.hist <- hist(simPC.var$SumVar, xlab="Sum of Variance", main=NULL)
-    arrow.to.x.point(sumvar.hist, obs.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
+  #pdf(file="mands_trc+gmole_tenrec_sumvariance.pdf")
+  #Golden moles
+  #pdf(file="mands_trc+gmole_gmole_sumvariance.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="mands_nonmictrc+gmole_nonmic_tenrec_sumvariance.pdf")
+#------------------------------------------------------------
+par(mgp=c(3.2,0.5,0))
+par(mar=c(5,7,4,2)+0.1)                   
+ sumvar.hist <- hist(simPC.var$SumVar, xlab="Sum of Variance", main=NULL, las=1, 
+                  xlim=c(obs.sumvar, max(simPC.var$SumVar)), cex.lab=1.2)
+    arrow.to.x.point(sumvar.hist, obs.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4, 
                      height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
-                    
-  prodvar.hist <- hist(simPC.var$ProdVar, xlab="Product of Variance", main=NULL)
+                     
+  dev.off()  
+  
+#**************************************************************
+#2/5) Product of variance 
+
+#SkDors
+  #Tenrecs
+  #pdf(file="skdors_trc+gmole_tenrec_prodvariance.pdf")
+  #Golden moles
+  #pdf(file="skdors_trc+gmole_gmole_prodvariance.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_prodvariance.pdf")
+#-------------------------------------------------------------------
+#SkLat
+  #Tenrecs
+  #pdf(file="sklat_trc+gmole_tenrec_prodvariance.pdf")
+  #Golden moles
+  #pdf(file="sklat_trc+gmole_gmole_prodvariance.pdf")
+  
+  #Non-microgale tenrecs
+  pdf(file="sklat_nonmictrc+gmole_nonmic_tenrec_prodvariance.pdf")
+#-------------------------------------------------------------------
+#SkVent
+  #Tenrecs
+  #pdf(file="skvent_trc+gmole_tenrec_prodvariance.pdf")
+  #Golden moles
+  #pdf(file="skvent_trc+gmole_gmole_prodvariance.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skvent_nonmictrc+gmole_nonmic_tenrec_prodvariance.pdf")
+
+#--------------------------------------------------------------------
+#Mands
+  #Tenrecs
+  #pdf(file="mands_trc+gmole_tenrec_prodvariance.pdf")
+  #Golden moles
+  #pdf(file="mands_trc+gmole_gmole_prodvariance.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="mands_nonmictrc+gmole_nonmic_tenrec_prodvariance.pdf")
+#--------------------------------------------------------------------  
+par(mgp=c(3.2,0.5,0))
+par(mar=c(5,7,4,2)+0.1)                   
+  prodvar.hist <- hist(simPC.var$ProdVar, xlab="Product of Variance", main=NULL, las=1, 
+                  xlim=c(obs.prodvar, max(simPC.var$ProdVar)), cex.lab=1.2)
     arrow.to.x.point(prodvar.hist, obs.prodvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4, 
                      height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
                      
   dev.off()
 #***************************************************************
-#2) Range measures
+#3/5) Sum of ranges 
 
 #SkDors
   #Tenrecs
-  pdf(file="skdors_trc+gmole_tenrec_sum+prodrange.pdf")
+  #pdf(file="skdors_trc+gmole_tenrec_sumrange.pdf")
   #Golden moles
-  #pdf(file="skdors_trc+gmole_gmole_range.pdf")
+  #pdf(file="skdors_trc+gmole_gmole_sumrange.pdf")
   
   #Non-microgale tenrecs
-  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_sum+prodrange.pdf")
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_sumrange.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
-  #pdf(file="sklat_trc+gmole_tenrec_range.pdf")
+  #pdf(file="sklat_trc+gmole_tenrec_sumrange.pdf")
   #Golden moles
-  #pdf(file="sklat_trc+gmole_gmole_range.pdf")
+  #pdf(file="sklat_trc+gmole_gmole_sumrange.pdf")
+  
+  #Non-microgale tenrecs
+  pdf(file="sklat_nonmictrc+gmole_nonmic_tenrec_sumrange.pdf")
 #-------------------------------------------------------------------
 #SkVent
   #Tenrecs
-  #pdf(file="skvent_trc+gmole_tenrec_range.pdf")
+  #pdf(file="skvent_trc+gmole_tenrec_sumrange.pdf")
   #Golden moles
-  #pdf(file="skvent_trc+gmole_gmole_range.pdf")
+  #pdf(file="skvent_trc+gmole_gmole_sumrange.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skvent_nonmictrc+gmole_nonmic_tenrec_sumrange.pdf")
+
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
-  #pdf(file="mands_trc+gmole_tenrec_range.pdf")
+  #pdf(file="mands_trc+gmole_tenrec_sumrange.pdf")
+  #Golden moles
+  #pdf(file="mands_trc+gmole_gmole_sumrange.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="mands_nonmictrc+gmole_nonmic_tenrec_sumrange.pdf")
 #--------------------------------------------------------------------
-
-  par(mfrow=c(1,2))
-
-  sumrange.hist <- hist(simPC.range$SumRange, xlab="Sum of Ranges", main=NULL)
+   
+par(mgp=c(3.2,0.5,0))
+par(mar=c(5,7,4,2)+0.1)   
+  sumrange.hist <- hist(simPC.range$SumRange, xlab="Sum of Ranges", main=NULL, las=1, 
+                  xlim=c(obs.sumrange, max(simPC.range$SumRange)), cex.lab=1.2)
     arrow.to.x.point(sumrange.hist, obs.sumrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
-                    
-  prodrange.hist <- hist(simPC.range$ProdRange, xlab="Product of Ranges", main=NULL)
+
+dev.off()
+
+#***************************************************************
+#4/5) Product of ranges 
+
+#SkDors
+  #Tenrecs
+  #pdf(file="skdors_trc+gmole_tenrec_prodrange.pdf")
+  #Golden moles
+  #pdf(file="skdors_trc+gmole_gmole_prodrange.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_prodrange.pdf")
+#-------------------------------------------------------------------
+#SkLat
+  #Tenrecs
+  #pdf(file="sklat_trc+gmole_tenrec_prodrange.pdf")
+  #Golden moles
+  #pdf(file="sklat_trc+gmole_gmole_prodrange.pdf")
+  
+  #Non-microgale tenrecs
+  pdf(file="sklat_nonmictrc+gmole_nonmic_tenrec_prodrange.pdf")
+#-------------------------------------------------------------------
+#SkVent
+  #Tenrecs
+  #pdf(file="skvent_trc+gmole_tenrec_prodrange.pdf")
+  #Golden moles
+  #pdf(file="skvent_trc+gmole_gmole_prodrange.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skvent_nonmictrc+gmole_nonmic_tenrec_prodrange.pdf")
+
+#--------------------------------------------------------------------
+#Mands
+  #Tenrecs
+  #pdf(file="mands_trc+gmole_tenrec_prodrange.pdf")
+  #Golden moles
+  #pdf(file="mands_trc+gmole_gmole_prodrange.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="mands_nonmictrc+gmole_nonmic_tenrec_prodrange.pdf")
+#-------------------------------------------------------------------------
+par(mgp=c(3.2,0.5,0))
+par(mar=c(5,7,4,2)+0.1)                      
+  prodrange.hist <- hist(simPC.range$ProdRange, xlab="Product of Ranges", main=NULL, las=1,
+                    xlim=c(obs.prodrange, max(simPC.range$ProdRange)), cex.lab=1.2)
     arrow.to.x.point(prodrange.hist, obs.prodrange, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
     
   dev.off()
 #***************************************************************
-#3) ZelditchMD (sum of squared distances)
+#5/5) ZelditchMD (sum of squared distances)
 
 #SkDors
   #Tenrecs
-  pdf(file="skdors_trc+gmole_tenrec_ZelditchMD.pdf")
+  #pdf(file="skdors_trc+gmole_tenrec_ZelditchMD.pdf")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_ZelditchMD.pdf")
   
@@ -456,20 +587,33 @@ par(mfrow=c(1,2))
   #pdf(file="sklat_trc+gmole_tenrec_ZelditchMD.pdf")
   #Golden moles
   #pdf(file="sklat_trc+gmole_gmole_ZelditchMD.pdf")
+  
+  #Non-microgale tenrecs
+  pdf(file="sklat_nonmictrc+gmole_nonmic_tenrec_ZelditchMD.pdf")
 #-------------------------------------------------------------------
 #SkVent
   #Tenrecs
   #pdf(file="skvent_trc+gmole_tenrec_ZelditchMD.pdf")
   #Golden moles
   #pdf(file="skvent_trc+gmole_gmole_ZelditchMD.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skvent_nonmictrc+gmole_nonmic_tenrec_ZelditchMD.pdf")
 #--------------------------------------------------------------------
 #Mands
   #Tenrecs
   #pdf(file="mands_trc+gmole_tenrec_ZelditchMD.pdf")
+  #Golden moles
+  #pdf(file="mands_trc+gmole_gmole_ZelditchMD.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="mands_nonmictrc+gmole_nonmic_tenrec_ZelditchMD.pdf")
 #--------------------------------------------------------------------
-  par(mfrow=c(1,1))
+par(mgp=c(3.2,0.5,0))
+par(mar=c(5,7,4,2)+0.1) 
 
-  md.hist <- hist(sim.md, xlab="ZeldtichMD", main=NULL)
+  md.hist <- hist(sim.md, xlab="ZelditchMD", main=NULL, las=1,
+            xlim=c(obs.md, max(sim.md)), cex.lab=1.2)
     arrow.to.x.point(md.hist, obs.md, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
   dev.off()
