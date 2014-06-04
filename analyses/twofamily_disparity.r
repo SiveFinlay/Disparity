@@ -45,19 +45,19 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #READ IN DATA; directory will change for each data set
 ########################################################
 #SkDors data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
 
 #1) Landmarks
 #landmarks + curves file with the control lines removed
-  land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+  #land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
 
 #2) Sliders
 #edited sliders file (top 2 rows removed and the words before slide after put in instead
-  curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+  #curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
 
 #3) Taxonomy
 #file that has the correct taxonomy for each of the images
-  taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+  #taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
 
 #4) Specimens to remove
   #Null
@@ -88,16 +88,16 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
 
 #1) Landmarks
-  #land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
+  land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
 #2) Sliders
-  #curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
+  curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
 #3) Taxonomy
-  #taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
+  taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
 #4) Specimens to remove
-  #rem <- read.csv("Mands_remove_spec.csv", header=T)
+  rem <- read.csv("Mands_remove_spec.csv", header=T)
 
 #################################################
 #CLEAN UP THE DATA
@@ -118,9 +118,9 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #doesn't apply to the skdors data because rem is NULL
 #************************************************** 
 #find the ID numbers of specimens with missing data
-  #matching <- matching.id(rem$SpecID, combine$SpecID)
-    #combine <- remove.from.list(combine, matching)
-    #combine <- droplevels.from.list(combine)
+  matching <- matching.id(rem$SpecID, combine$SpecID)
+    combine <- remove.from.list(combine, matching)
+    combine <- droplevels.from.list(combine)
 #*********************************************
 
 #Select the tenrec and golden mole specimens only
@@ -170,8 +170,8 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 sps.meanPCA <- plotTangentSpace(sps.mean$meanshape, axis1 = 1, axis2 = 2,warpgrids = TRUE, label = TRUE)
 
 #Re-create the PCA plot
-  xaxis <- sps.meanPCA$pc.scores[,1]
-  yaxis <- sps.meanPCA$pc.scores[,2]
+  xaxis <- sps.meanPCA$x[,1]
+  yaxis <- sps.meanPCA$x[,2]
 
 #colour points by family
   #data frame of the unique family and binomical combinations
@@ -271,27 +271,45 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 
 #Save the outputs to different working directory
 #SkDors
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
 #SkLat
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
 #SkVent
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
 #Mands
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
 
 #**************************************************
 #1) Shape data, taxonomy , disparity measures, disparity comparisons 
-#SkDors
+#****************************************************
+#SkDors: 
+#A) All tenrecs and golden moles
   #1) Average shape coordinates
     #dput(sps.mean, file="SkDors_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
     #write.table(file="SkDors_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of disparity measures for each family
-    write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
-    write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#B) Non-microgale tenrecs and golden moles
+
+  #1) Average shape coordinates
+    #dput(sps.mean, file="SkDors_nonmic_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+    #write.table(file="SkDors_nonmic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+    #write.table(file="SkDors_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+    #write.table(file="SkDors_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+
+
 #--------------------------------------------------------------------
 #SkLat
+
+#A) All tenrecs and golden moles
   #1) Average shape coordinates
      #dput(sps.mean, file="SkLat_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
@@ -300,8 +318,19 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
      #write.table(file="SkLat_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
      #write.table(file="SkLat_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+     
+#B) Non-microgale tenrecs and golden moles
+  #1) Average shape coordinates
+     #dput(sps.mean, file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+     #write.table(file="SkLat_nonmic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+     #write.table(file="SkLat_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+     #write.table(file="SkLat_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #----------------------------------------------------------
 #SkVent
+#A) All tenrecs and golden moles
   #1) Average shape coordinates
     #dput(sps.mean, file="SkVent_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
@@ -310,27 +339,56 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     #write.table(file="SkVent_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
     #write.table(file="SkVent_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    
+#B) Non-microgale tenrecs and golden moles
+  #1) Average shape coordinates
+    #dput(sps.mean, file="SkVent_nonmic_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+    #write.table(file="SkVent_nonmic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+    #write.table(file="SkVent_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+    #write.table(file="SkVent_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #----------------------------------------------------------
 #Mands
+#A) All tenrecs and golden moles
   #1) Average shape coordinates
-#    dput(sps.mean, file="Mands_tenrec+gmole_sps.mean.txt")
+    #dput(sps.mean, file="Mands_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-#    write.table(file="Mands_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="Mands_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of disparity measures for each family
-#    write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
-#    write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#B) Non-microgale tenrecs and golden moles
+  #1) Average shape coordinates
+   # dput(sps.mean, file="Mands_nonmic_tenrec+gmole_sps.mean.txt")
+  #2) Family and species taxonomy
+   # write.table(file="Mands_nonmic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #3) Table of disparity measures for each family
+   # write.table(file="Mands_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #4) Table of npMANOVA results
+   # write.table(file="Mands_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #**************************************************
 #2) Save the PCA plot
+#******************************************
   #SkDors
     #pdf(file="skdors_tenrec+gmole_PCA.pdf")
+    #pdf(file="skdors_nonmic_tenrec+gmole_PCA.pdf")
+  
   #SkLat
     #pdf(file="sklat_tenrec+gmole_PCA.pdf") 
+    #pdf(file="sklat_nonmic_tenrec+gmole_PCA.pdf") 
+  
   #SkVent
     #pdf(file="skvent_tenrec+gmole_PCA.pdf")
+    #pdf(file="skvent_nonmic_tenrec+gmole_PCA.pdf")
+        
   #Mands
-   #pdf(file="mands_tenrec+gmole_PCA.pdf")
+   pdf(file="mands_tenrec+gmole_PCA.pdf")
+   #pdf(file="mands_nonmic_tenrec+gmole_PCA.pdf")
 
 #PCA plot, default colour palette so Chrysochloridae are black and Tenrecidae are red
  
@@ -343,26 +401,27 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     #add dotted lines along 0,0
       abline(0,0,h=0,v=0,lty=2,lwd=1)
  
-#dev.off()
+dev.off()
+
 #identify points on the graph
-  identify(xaxis,yaxis,labels=(sp.fam$Binom))
+#  identify(xaxis,yaxis,labels=(sp.fam$Binom))
 
 #------------------------------------------------------  
 #Cleaned up plot for presentations (no axes or values)
   #Plot just the golden moles on their own (tenrecs are white)
-  gmole.alone <- c("black", "white")
-  palette(gmole.alone)
+#  gmole.alone <- c("black", "white")
+#  palette(gmole.alone)
 
-  plot(xaxis,yaxis, xlab="", ylab="",las=1,
-       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
-      abline(0,0,h=0,v=0,lty=1,lwd=2)
+#  plot(xaxis,yaxis, xlab="", ylab="",las=1,
+#       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
+#      abline(0,0,h=0,v=0,lty=1,lwd=2)
 
   #Plot golden moles and tenrecs
-  palette("default")
+#  palette("default")
 
-  plot(xaxis,yaxis, xlab="", ylab="",las=1,
-       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
-      abline(0,0,h=0,v=0,lty=1,lwd=2)
+#  plot(xaxis,yaxis, xlab="", ylab="",las=1,
+#       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
+#      abline(0,0,h=0,v=0,lty=1,lwd=2)
 
 #########################################################################
 #SENSITIVITY ANALYSIS for the PC-based disparity metrics
@@ -468,71 +527,79 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   
 #SkDors
    #pdf(file="skdors_trc+gmole_PCrarefaction.pdf")
+   #pdf(file="skdors_nonmictrc+gmole_PCrarefaction.pdf")
 
 #SkLat
    #pdf(file="sklat_trc+gmole_PCrarefaction.pdf")
+   #pdf(file="sklat_nonmictrc+gmole_PCrarefaction.pdf")
 
 #SkVent
    #pdf(file="skvent_trc+gmole_PCrarefaction.pdf")
+   #pdf(file="skvent_nonmictrc+gmole_PCrarefaction.pdf")
 
 #Mands
-   #pdf(file="mands_trc+gmole_PCrarefaction.pdf")
+   pdf(file="mands_trc+gmole_PCrarefaction.pdf")
+   #pdf(file="mands_nonmictrc+gmole_PCrarefaction.pdf")
 
 
 
 par(mfrow=c(2,2))
 #
-par(mgp=c(3,0.5,0))
+par(mgp=c(3.2,0.5,0))
 par(mar=c(5,7,4,2)+0.1)
 #Sum of variance
-  plot(tenrec.samp,tenrec.res.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.5, lwd=2, cex=1.5,
+  plot(tenrec.samp,tenrec.res.sv.mean, type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.sv), max(conf.range.sv)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
        xlab="SampleSize", ylab="Sum of Variance")
         
-         lines(tenrec.samp,tenrec.sv.min.conf, type="o", col="pink", lwd=2, cex=1.2)   #confidence intervals for tenrecs
-         lines(tenrec.samp,tenrec.sv.max.conf, type="o", col="pink", lwd=2,cex=1.2)
+         lines(tenrec.samp,tenrec.sv.min.conf, type="o",pch=16, col="pink", lwd=1, cex=0.6)   #confidence intervals for tenrecs
+         lines(tenrec.samp,tenrec.sv.max.conf, type="o",pch=16, col="pink", lwd=1,cex=0.6)
    
-       lines(gmole.samp,gmole.res.sv.mean,type="o", col="black", lwd=2, cex=1.5)  #mean line for golden moles
-         lines(gmole.samp,gmole.sv.min.conf, type="o", col="grey", lwd=2, cex=1.2) #confidence intervals for golden moles
-         lines(gmole.samp,gmole.sv.max.conf, type="o", col="grey",lwd=2, cex=1.2)
+       lines(gmole.samp,gmole.res.sv.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  #mean line for golden moles
+         lines(gmole.samp,gmole.sv.min.conf, type="o",pch=16, col="grey", lwd=1, cex=0.6) #confidence intervals for golden moles
+         lines(gmole.samp,gmole.sv.max.conf, type="o",pch=16, col="grey",lwd=1, cex=0.6)
             
 #Product of variance
-  plot(tenrec.samp,tenrec.res.pv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+  plot(tenrec.samp,tenrec.res.pv.mean,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.pv), max(conf.range.pv)),        
        xlab="SampleSize", ylab="Product of Variance")
         
-         lines(tenrec.samp,tenrec.pv.min.conf, type="o", col="pink")   
-         lines(tenrec.samp,tenrec.pv.max.conf, type="o", col="pink")
+         lines(tenrec.samp,tenrec.pv.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
+         lines(tenrec.samp,tenrec.pv.max.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)
    
-        lines(gmole.samp,gmole.res.pv.mean,type="o", col="black")  
-          lines(gmole.samp,gmole.pv.min.conf, type="o", col="grey") 
-          lines(gmole.samp,gmole.pv.max.conf, type="o", col="grey")
+        lines(gmole.samp,gmole.res.pv.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
+          lines(gmole.samp,gmole.pv.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
+          lines(gmole.samp,gmole.pv.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
             
 #Sum of ranges
-  plot(tenrec.samp,tenrec.res.sr.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+  plot(tenrec.samp,tenrec.res.sr.mean,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.sr), max(conf.range.sr)),       
        xlab="SampleSize", ylab="Sum of Ranges")
         
-         lines(tenrec.samp,tenrec.sr.min.conf, type="o", col="pink")   
-         lines(tenrec.samp,tenrec.sr.max.conf, type="o", col="pink")
+         lines(tenrec.samp,tenrec.sr.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
+         lines(tenrec.samp,tenrec.sr.max.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)
    
-       lines(gmole.samp,gmole.res.sr.mean,type="o", col="black")  
-         lines(gmole.samp,gmole.sr.min.conf, type="o", col="grey") 
-         lines(gmole.samp,gmole.sr.max.conf, type="o", col="grey")
+       lines(gmole.samp,gmole.res.sr.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
+         lines(gmole.samp,gmole.sr.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
+         lines(gmole.samp,gmole.sr.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
             
 #Product of ranges
-  plot(tenrec.samp,tenrec.res.pr.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+  plot(tenrec.samp,tenrec.res.pr.mean,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.pr), max(conf.range.pr)),        
        xlab="SampleSize", ylab="Product of Ranges")
         
-         lines(tenrec.samp,tenrec.pr.min.conf, type="o", col="pink")   
-         lines(tenrec.samp,tenrec.pr.max.conf, type="o", col="pink")
+         lines(tenrec.samp,tenrec.pr.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
+         lines(tenrec.samp,tenrec.pr.max.conf, type="o", pch=16,  col="pink", lwd=1, cex=0.6)
    
-        lines(gmole.samp,gmole.res.pr.mean,type="o", col="black")  
-          lines(gmole.samp,gmole.pr.min.conf, type="o", col="grey") 
-          lines(gmole.samp,gmole.pr.max.conf, type="o", col="grey")
+        lines(gmole.samp,gmole.res.pr.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
+          lines(gmole.samp,gmole.pr.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
+          lines(gmole.samp,gmole.pr.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
             
 dev.off()    
+
+
+
+
 
 
 ########################################################

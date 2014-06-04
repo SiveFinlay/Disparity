@@ -58,9 +58,9 @@ library(geomorph)
   
   #2b) Non-microgale tenrecs and all golden moles
       #shape coordinates
-#      sps.mean <- dget(file="SkDors_nonmictenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="SkDors_nonmic_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-#      tax <- read.table("SkDors_nonmictenrec+gmole_taxonomy.txt")
+      #tax <- read.table("SkDors_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #SkLat
 
@@ -78,9 +78,9 @@ library(geomorph)
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-#    sps.mean <- dget(file="SkLat_nonmictenrec+gmole_sps.mean.txt")
+#    sps.mean <- dget(file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
     #taxonomic information
-#    tax <- read.table("SkLat_nonmictenrec+gmole_sps.mean_taxonomy.txt")
+#    tax <- read.table("SkLat_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #SkVent
 #1) Phylogenies
@@ -97,9 +97,9 @@ library(geomorph)
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-    #sps.mean <- dget("SkVent_nonmictenrec+gmole_sps.mean.txt")
+    #sps.mean <- dget("SkVent_nonmic_tenrec+gmole_sps.mean.txt")
     #taxonomic information
-    #tax <- read.table("SkVent_nonmictenrec+gmole_sps.mean_taxonomy.txt")
+    #tax <- read.table("SkVent_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #Mandibles
 #1) Phylogenies
@@ -116,9 +116,9 @@ library(geomorph)
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-#    sps.mean <- dget(file="Mands_nonmictenrec+gmole_sps.mean.txt")
+#    sps.mean <- dget(file="Mands_nonmic_tenrec+gmole_sps.mean.txt")
     #taxonomic information
-#    tax <- read.table("Mands_nonmictenrec+gmole_sps.mean_taxonomy.txt")
+#    tax <- read.table("Mands_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 
 #################################################
 #2) CHOOSE WHICH FAMILY 
@@ -335,6 +335,8 @@ simlist <- list.arrays.to.matrices(shape.sim)
   #Golden moles
   #write.table(file="skdors_trc+gmole_gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+  #Non-microgale tenrecs
+  #write.table(file="skdors_nonmictrc+gmole_nonmic_tenrec_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 #-------------------------------------------------------------------------------  
 #SkLat
   #Tenrecs
@@ -362,9 +364,12 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #SkDors
   #Tenrecs
-  jpeg(file="skdors_trc+gmole_tenrecsum+prodvariance.jpg")
+  pdf(file="skdors_trc+gmole_tenrecsum+prodvariance.pdf")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_variance.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrecsum+prodvariance.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
@@ -398,9 +403,12 @@ par(mfrow=c(1,2))
 
 #SkDors
   #Tenrecs
-  jpeg(file="skdors_trc+gmole_tenrec_sum+prodrange.jpg")
+  pdf(file="skdors_trc+gmole_tenrec_sum+prodrange.pdf")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_range.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_sum+prodrange.pdf")
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
@@ -435,9 +443,13 @@ par(mfrow=c(1,2))
 
 #SkDors
   #Tenrecs
-  jpeg(file="skdors_trc+gmole_tenrec_ZelditchMD.jpg")
+  pdf(file="skdors_trc+gmole_tenrec_ZelditchMD.pdf")
   #Golden moles
   #pdf(file="skdors_trc+gmole_gmole_ZelditchMD.pdf")
+  
+  #Non-microgale tenrecs
+  #pdf(file="skdors_nonmictrc+gmole_nonmic_tenrec_ZelditchMD.pdf")
+  
 #-------------------------------------------------------------------
 #SkLat
   #Tenrecs
