@@ -64,15 +64,15 @@ $^*$sfinlay@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland.
 \mstitlepage			% Instead of \maketitle you can use the nice template to get it looking like a manuscript
 \parindent=1.5em		% Changes paragraph indenting so it's not so big
 \addtolength{\parskip}{.3em} % Changes spacing between sections so it's smaller
-
+%---------------------------------------------------
 \begin{abstract}
 %I'll do this section last
 \end{abstract}
 
 \newpage
+%-------------------------------------------------------
 \section{Introduction} % NC: This is *far* too long. Best introductions are short and to the point
 % NC: What does a reader *really* need to know to understand your paper? Generally aim for 4 or 5 paragraphs. 
-
 
 % NC: OK I see what you're getting at here. But it's far to long before you get on to what you're actually looking at. How about a severely shortened version, something along the lines of 
 %1 - Adaptive radiation, short definition, is an exciting pattern and seen across many taxa (some examples, probably mention Darwin's finches). There has been debate about the exact meaning of the term - some arguing that it should be reserved only for species exhibiting lots of morphological disparity. However, few adaptive radiations have been characterised in this way (if this is true :). 
@@ -102,24 +102,24 @@ Using the most complete morphological data set of tenrecs and golden moles to da
 These findings highlight the vital importance of testing our common, but often erroneous, expectations about patterns of morphological diversity in adaptively radiated groups. 
 
 %I need a better final sentence here
-
+%-------------------------------------------------------------
 \section{Materials and Methods}
 
 \subsection{Data collection} % NC: Separate into data collection and analysis sections 
 % NC: I'd go for the geometric morphometrics first then mention the supplemental data e.g phylogeny afterwards
 
-\subsection{Morphological data collection} % NC: Perhaps more descriptive than geo morph?
+\subsubsection{Morphological data collection} % NC: Perhaps more descriptive than geo morph?
 
 % Due to the high number and relatively small sizes of our specimens we chose to use two dimensional morphometrics rather than 3D techniques. NC: Is this needed? Never start a section with an apology!
 	%SF Fair point, I was just trying to pre-empt an obvious reviewer criticism but I could stick the justification into the supplemental if necessary
 	
-One of us (SF) photographed cranial specimens of tenrecs and golden moles at the Natural History Museum London (NHML), the Smithsonian Institute Natural History Museum (SI), the American Museum of Natural History (AMNH), Harvard's Museum of Comparative Zoology (MCZ) and the Field Museum of Natural History, Chicago (FMNH). We photographed the specimens with a Canon EOS 650D camera fitted with an EF 100mm f/2.8 Macro USM lens using a standardised procedure to minimise potential error (see Supplementary Material for details). 
+One of us (SF) photographed cranial specimens of tenrecs and golden moles at the Natural History Museum London (NHML), the Smithsonian Institute Natural History Museum (SI), the American Museum of Natural History (AMNH), Harvard's Museum of Comparative Zoology (MCZ) and the Field Museum of Natural History, Chicago (FMNH). We photographed the specimens with a Canon EOS 650D camera fitted with an EF 100mm f/2.8 Macro USM lens using a standardised procedure to minimise potential error (see supplementary material for details). 
 %NC Might want to use the standard museum abbreviations - BMNH etc.
 	%SF I used NHML because I thought the BMNH was the old name?
 
-%I haven't written the supplementary material yet
 
-We collected pictures of the skulls in dorsal, ventral and lateral views (right side of the skull) and of the outer (buccal) side of the right mandibles. A full list of museum accession numbers and access to the images can be found in the Supplementary Material.
+
+We collected pictures of the skulls in dorsal, ventral and lateral views (right side of the skull) and of the outer (buccal) side of the right mandibles. A full list of museum accession numbers and access to the images can be found in the supplementary material.
 
 
 In total we collected pictures from 182 skulls in dorsal view (148 tenrecs and 34 golden moles) and 181 mandibles in lateral view (147 tenrecs and 34 golden moles), representing 31 species of tenrec (out of the total 34 in the family) and 12 species of golden moles (out of a total of 21 in the family \citep{Asher2010}). We used the taxonomy of Wilson and Reeder \citeyearpar{Wilson2005} supplemented with more recent sources \citep{IUCN2012, Olson2013} to identify our specimens. 
@@ -127,65 +127,53 @@ In total we collected pictures from 182 skulls in dorsal view (148 tenrecs and 3
 	%Thanks, I know I'm long-winded!
 	
 
-We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}) and semilandmarks to characterise the shapes of our specimens. Our landmarks (points) and semilandmarks (outline curves) used to represent shape variation in the dorsal skulls and mandibles are in Figures \ref{dorslandmarks} and \ref{mandslandmarks} respectively. Corresponding landmark definitions for each view are in tables \ref{dorslanddesc} and \ref{mandslanddesc}.
+We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}) and semilandmarks to characterise the shapes of our specimens. Our landmarks (points) and semilandmarks (outline curves) used to represent shape variation in the dorsal skulls and mandibles are depicted in Figures \ref{fig:skdors_landmarks} and \ref{fig:mands_landmarks} respectively. Corresponding landmark definitions for each view are in tables \ref{tab:skdors_landmarks} and \ref{tab:mands_landmarks}. We also placed landmarks and semilandmarks on photographs of ventral and lateral skull views, details can be found in the supplementary material. We digitised all landmarks and semilandmarks in tpsDIG, version 2.17 \citep{Rohlf2013}.
 
-%These figures still look rough
-	%Most papers have pictures which look like diagrams - drawings rather than photos - but I need to work out how to do that. Thomas might have a few ideas?
-% NC: Photos are fine. If you want to remove backgrounds and stuff have a play with Inkscape (free to download)
-
-% NC: Remember for a manuscript these will all be at the end
-% NC: You probably want to do this like the template thesis I sent round and have the tables as separate files to
-% NC: stick into the document. Will be easier to edit and you'll have less stuff cluttering the manuscript file. Also will make it easier for the thesis version.
-	
-	%*************************************************
-	%Remember I need to come back and fix this formatting to put the tables and figures at the end
-	%I've left them for the moment to make it easier to read it all together
-	% Also try and think of a way of showing the figures without colour or that they could be colour online only
-	%**************************************
-
+%*************************************************
+%I've fixed the formatting to put tables and figures at the end
+%May need to re-do pictures to grey scale instead of colour
+%**************************************
+%Skdors landmarks diagram
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figures/AMNH_51327_dorsallandmarksdiagram.png}
 \caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of skulls in dorsal view. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) skull, accession number: AMNH\_51327}
-\label{dorslandmarks}
+\label{fig:skdors_landmarks}
 \end{figure}
 
 
 %Table for the dorsal skulls landmark descriptions
-
 \begin{table}[H]			
 \centering
-\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the skulls in dorsal view (see Figure \ref{dorslandmarks}).}
+\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the skulls in dorsal view (see Figure \ref{fig:skdors_landmarks}).}
 \input{tables/skdors.landmarks} % This is the same table that I used in my methods chapter
-\label{dorslanddesc}  the text
+\label{tab:skdors_landmarks}  
 \end{table}
-
+%------------------------------------------
+%Mandibles landmarks diagram
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\linewidth]{figures/AMNH_51327_landmarksdiagram.png}
 
 \caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of mandibles. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) mandible, accession number: AMNH\_51327}
-\label{mandslandmarks}
+\label{fig:mands_landmarks}
 \end{figure}
 
 %Table for the mandibles' landmark descriptions
 
 \begin{table}[H]			
 \centering
-\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the mandibles in lateral (buccal) view (see figure \ref{mandslandmarks})}
+\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the mandibles in lateral (buccal) view (see figure \ref{fig:mands_landmarks})}
 \input{tables/mandibles.landmarks}
-\label{mandslanddesc} %give it a label so I can refer to it in the text
+\label{tab:mands_landmarks} %give it a label so I can refer to it in the text
 \end{table}
- 
-Our analyses of ventral and lateral skull views yielded similar patterns in our disparity analyses (see results), details can be found in the Supplementary Material. We digitised all landmarks and semilandmarks in tpsDIG, version 2.17 \citep{Rohlf2013}.
-
-%Diagram of the dorsal and mandible landmarks
-%Table of the landmark definitions
+%---------------------------------------------------------- 
 
 
-We re-sampled the outlines to a standard number of evenly spaced points which were the minimum number required to represent each outline accurately \citep[][details in Supplementary Material]{MacLeod2013}. We used TPSUtil \citep{Rohlf2012} to create sliders files \citep{Zelditch2012} which defines which points are semilandmarks. We conducted all subsequent analyses in R version 3.0.2 \citep[R Development Core][]{Team2013} within the geomorph package \citep{Adams2013}. We used the gpagen function to run a general Procrustes alignment (REFS) of the landmark coordinates while sliding the semilandmarks by minimising procrustes distance rather than bending energy (REFS). We used these Procrustes-aligned coordinates of all species (n=43) to calculate average shape values for each species which we then used for a principal components (PC) analysis (REFS) with the plotTangentSpace function \citep{Adams2013}. 
 
+We re-sampled the outlines to a standard number of evenly spaced points which were the minimum number required to represent each outline accurately \citep[][details in supplementary material]{MacLeod2013}. We used TPSUtil \citep{Rohlf2012} to create sliders files \citep{Zelditch2012} to define which points were semilandmarks. We conducted all subsequent analyses in R version 3.0.2 \citep[R Development Core][]{Team2013} within the geomorph package \citep{Adams2013}. We used the gpagen function to run a general Procrustes alignment (REFS) of the landmark coordinates while sliding the semilandmarks by minimising procrustes distance rather than bending energy (REFS). We used these Procrustes-aligned coordinates of all species (n=43) to calculate average shape values for each species which we then used for a principal components (PC) analysis (REFS) with the plotTangentSpace function \citep{Adams2013}. 
 
+%-----------------------------------------------
 \subsubsection{Phylogeny} 
 % NC: Or just phylogeny?
 	% SF I moved the taxonomy bit up into the morphological data collection
@@ -197,24 +185,22 @@ Eight species (six \textit{Microgale} tenrecs and two golden moles) in our morph
 % NC: I feel like some of this belongs in the analysis section...
 	%SF It could do but it's not clear where to put it without making a separate analyses section for the phylogenies and I don't think that makes sense. It 
 	
-	
+%-------------------------------------------------------	
 \subsection{Analyses}
 \subsubsection{Disparity calculations} 
 
 We calculated morphological disparity separately for golden moles and tenrecs in each of the morphological datasets. We used the PC axes which accounted for 95\% of the cumulative variation to calculate four disparity metrics; the sum and product of the range and variance of morphospace occupied by each family \citep{Brusatte2008, Foth2012, Ruta2013}. We also calculated morphological disparity directly from the Procrustes-superimposed shape data \citep{Zelditch2012}. 
-Disparity is expected to be higher in larger groups (REFS). Therefore we repeated our disparity comparisons between the two families using rarefaction (see Supplementary Material) to confirm that observed differences in disparity between the two groups were not artefacts of differences in sample size.
+Disparity is expected to be higher in larger groups (REFS). Therefore we repeated our disparity comparisons between the two families using rarefaction (see supplementary material) to confirm that observed differences in disparity between the two groups were not artefacts of differences in sample size.
 
 To test whether tenrecs are more morphologically disparate than expected by chance, we simulated shape evolution  \citep{Harmon2008} of the species-average, Procrustes-superimposed shape coordinates of each tenrec species across our distribution of phylogenies under a Brownian Motion (BM) model (1000 simulations on each of 101 phylogenies pruned to include tenrec species only). We ran a principal components analysis on each of the simulations and used the PC axes which accounted for 95\% of the cumulative variation to calculate disparity metrics.
- 
-%I still need to calculate the Zelditch metric for each of the simulations
 
 We compared the observed disparity measure to the corresponding distribution of values and used a two-tailed test to determine whether the observed (true) disparity measures were more or less than expected by chance.
 
-The majority of tenrecs (19 out of 31 in our data) are members of the \textit{Microgale} (shrew-like) genus which is notable for its relatively low phenotypic diversity \citep{ Soarimalala2011, Jenkins2003} and may mask signals of high disparity among other tenrecs. To test this we repeated our simulations of shape evolution excluding \textit{Microgale} species. This reduced our data from 31 to 12 species. 
+The majority of tenrecs (19 out of 31 in our data) are members of the \textit{Microgale} (shrew-like) genus which is notable for its relatively low phenotypic diversity \citep{ Soarimalala2011, Jenkins2003} and may mask signals of high disparity among other tenrecs. To test this we repeated our simulations of shape evolution excluding \textit{Microgale} species. This reduced our data set for tenrecs from 31 to 12 species. 
 
 To test whether tenrecs are more disparate than their nearest relatives, we used a non parametric MANOVA \citep{Anderson2001} to compare morphospace occupation between the two groups (REFS?). 
 
-
+%-----------------------------------------------------------
 
 \section{Results}
 
@@ -226,7 +212,10 @@ To test whether tenrecs are more disparate than their nearest relatives, we used
 % NC: Rethink subheadings - best idea is if they match the methods, if not then maybe no subheadings are required.
 %*****************************************
 
-We compared observed disparity to calculations of disparity from BM simulations of shape data (1,000 simulations on each of 101 phylogenies). For each metric of disparity in both the dorsal skulls (table \ref{skdorssims}) and mandibles (table \ref{mandssims}), the true (observed) values were significantly lower than expected compared to the distribution of simulated values. We also found significantly lower disparity than expected by chance in both the ventral and lateral skull views (Supplementary Material).
+We compared observed disparity to calculations of disparity from BM simulations of shape data (1,000 simulations on each of 101 phylogenies). For each metric of disparity in both the dorsal skulls (table \ref{tab:skdors_sims}) and mandibles (table \ref{tab:mands_sims}), the true (observed) values were significantly lower than expected compared to the distribution of simulated values. We also found significantly lower disparity than expected by chance in both the ventral and lateral skull views (supplementary material).
+
+%COME BACK TO THIS
+
 % NC: Is there a figure of the distribution with your values on it? Would be nice. and possibly better than a table to show the results quickly and clearly.
 
 %*************************************************************
@@ -235,8 +224,8 @@ We compared observed disparity to calculations of disparity from BM simulations 
 
 Removing the phenotypically similar \textit{Microgale} tenrecs did not qualitatively affect our results; the non-\textit{Microgale} tenrecs still show significantly lower phenotypic disparity than expected by chance (simulation results in the supplementary material). 
 
-
-%Table of the simulation results for SkDors tenrecs
+%**************************************
+%Simulation results tables
 	%comes from the SkDors_Trc+Gmole_TenrecDisparity_1000simsOutput file
 
 \begin{table}[H]				
@@ -245,7 +234,7 @@ Removing the phenotypically similar \textit{Microgale} tenrecs did not qualitati
 \caption{Comparison of observed and simulated disparity measures for the dorsal skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values)}
 
 \input{tables/sklat.sim.disp}
-\label{skdorssims} %give it a label so I can refer to it in the text
+\label{tab:skdors_sims} %give it a label so I can refer to it in the text
 \end{table}
 
 %Data comes from the Mands_Trc+Gmole_TenrecDisparity_1000simsOutput file
@@ -255,21 +244,30 @@ Removing the phenotypically similar \textit{Microgale} tenrecs did not qualitati
 \caption{Comparison of observed and simulated disparity measures for the mandibles analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values)}
 
 \input{tables/mands.sim.disp}
-\label{mandssims}
+\label{tab:mands_sims}
 \end{table}
+%******************************************************
 
 \subsection{Morphological disparity in tenrec and golden moles} 
 
-Figures  \ref{skdorsPCA} and \ref{mandsPCA} depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
+Figures  \ref{fig:skdorsPCA} and \ref{fig:mandsPCA} depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
 
-There was agreement among all of our disparity metrics that tenrecs have more diverse dorsal skull shapes than golden moles
-%quote one or two of the disparity measures and then include the rest in the supplementary
-and the two families occupy significantly different areas of morphospace.
-%put in the npManova results
+There was agreement among all of our disparity metrics that tenrecs have more diverse dorsal skull shapes than golden moles and the two families occupy significantly different areas of morphospace (npMANOVA, F = 59.34, R$^2 $ = 0.59, p = 0.001). 
 
-Non-\textit{Microgale} tenrecs also have higher disparity than golden moles and we found the same results in our analyses of ventral and lateral skull shapes (see Supplementary Material).
+%These are the npMANOVA results based on the PC axes rather than the distance matrix
+
+%Not much point in mentioning the non-Microgale tenrecs here because you would expect them to have higher disparity anyway
+%Non-\textit{Microgale} tenrecs also have higher disparity than golden moles and we found the same results in our analyses of ventral and lateral skull shapes (see supplementary material).
+
+Unexpectedly, our analyses of disparity in mandible shape yielded the opposite result; golden moles have higher disparity in the shape of their mandibles than tenrecs and they occupy significantly different areas of morphospace (npMANOVA F = 59.34, R$^2$ = 0.59, p =	0.001)  
+
+However, this result may be an artefact of the relatively low phenotypic diversity within \textit{Microgale} tenrecs. Golden moles and non-\text{Microgale} tenrecs occupy significantly different areas of morphospace (npMANOVA F = 31.6, R$^2$ = 0.59, p =	0.001). However, the overall differences in morphospace occupation are only supported by some of the disparity metrics. When disparity is calculated as the product of variance or product of ranges, golen moles have higher disparity than non-\textit{Microgale}. In contrast, there is no significant difference between the two groups when disparity is measured as the sum of ranges or the sum of variance. 
+%Put in rarefaction curves?
 
 
+
+%************************************
+%PCA figures
 %I want to make these figures nicer
 
 	% I could add the warp grids but they look messy and would be very small
@@ -283,33 +281,26 @@ Non-\textit{Microgale} tenrecs also have higher disparity than golden moles and 
 \centering
 \includegraphics[width=1\linewidth]{figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg}
 \caption{Principal components plot of the dorsal skulls' morphospace occupied by tenrecs (red, n=31) and golden moles (black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-\label{skdorsPCA}
+\label{fig:skdorsPCA}
 \end{figure}
-
-
-Surprisingly, our analyses of disparity in mandible shape yielded the opposite result; golden moles have significantly higher diversity in the shape of their mandibles than tenrecs.  
-%put in the disparity metrics and the npMANOVA
-Again, this result is not an artifact of the relatively low phenotypic diversity within \textit{Microgale} tenrecs; non-\textit{Microgale} tenrecs still have significantly lower disparity in the shape of their mandibles than golden moles.
-%This seems to be true for the dorsal skulls but I need to check it for the mandibles 
-
-Rarefaction analyses confirmed that our findings were not the result of differences in sample size (see supplementary material).
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\linewidth]{figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg}
 \caption{Principal components plot of the mandibles' morphospace occupied by tenrecs (red, n=31) and golden moles(black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-\label{mandsPCA}
+\label{fig:mandsPCA}
 
 \end{figure}
+%**********************************************
 
 
-
-\section{Discussion} % NC: I know this is rough and hard to do before the final results are in, so I haven't done too much to it. It looks a bit long already though. Same kind of rules apply as in the introduction. Should include    . Discussion is mainly meant to set your results in the context of other work. You don't need to include every little possible problem in the caveats.
+\section{Discussion} % NC: I know this is rough and hard to do before the final results are in, so I haven't done too much to it. It looks a bit long already though. Same kind of rules apply as in the introduction. 
+%Discussion is mainly meant to set your results in the context of other work. You don't need to include every little possible problem in the caveats.
 
 
 %1 - summary of results
-Our findings provide new insights into phenotypic diversity within the tenrec family. Contrary to previous suggestions \citep[e.g.][]{Eisenberg1969, Olson2013}, tenrecs do not appear to be exceptional in their morphological diversity. They do seem to be more morphologically disparate than their closest relatives but only in skull morphology; the opposite is true when we look at mandible morphology (figure \ref{mandsPCA}). Our results illustrate the vital importance of applying quantitative methods to test assumptions about morphological diversity. 
+Our findings provide new insights into phenotypic diversity within the tenrec family. Contrary to previous suggestions \citep[e.g.][]{Eisenberg1969, Olson2013}, tenrecs do not appear to be exceptional in their morphological diversity. They do seem to be more morphologically disparate than their closest relatives but only in skull morphology; the opposite is true when we look at mandible morphology (figure \ref{fig:mandsPCA}). Our results illustrate the vital importance of applying quantitative methods to test assumptions about morphological diversity. 
 
 %2 - interpret results with reference to other work
 
@@ -322,7 +313,7 @@ Although tenrecs are not more morphologically diverse than expected by chance, t
 There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
 For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
 
-Our landmarks and curves for the mandibles (figure \ref{mandslandmarks}, table \ref{mandslanddesc}) include aspects of variation in the dentition but they focus particular attention on the ascending ramus (condyloid, condylar and angular processes). Therefore the higher morphological disparity in golden mole mandibles most likely reflects greater variation in the shape of the muscle attachment areas of the mandible. In contrast it proved impossible to position reliable landmarks on the corresponding articulation areas of the skull in lateral view (see Supplementary).
+Our landmarks and curves for the mandibles (figure \ref{fig:mands_landmarks}, table \ref{tab:mands_landmarks}) include aspects of variation in the dentition but they focus particular attention on the ascending ramus (condyloid, condylar and angular processes). Therefore the higher morphological disparity in golden mole mandibles most likely reflects greater variation in the shape of the muscle attachment areas of the mandible. In contrast it proved impossible to position reliable landmarks on the corresponding articulation areas of the skull in lateral view (see supplementary).
 
 If variation in muscle attachment/articulation sites is driving morphological disparity in mandibles, it is not clear why golden moles should have more disparate articular rami than tenrecs. 
 
@@ -372,9 +363,7 @@ However, the results of \citep{Foth2012} are encouraging. In an analysis of morp
 
 \section*{Acknowledgements}
 
-%NERD club, museum staff, IRC and Marie Curie 
-
-We thank the members of NERD club for insightful discussions and the musuem staff and curators for their support and access to collections. Funding was provided by an Irish Research Council EMBARK Initiative Postgraduate Scholarship (SF) and the European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant. Proposal number: 321696 (NC)
+We thank the members of NERD club for insightful discussions and the musuem staff and curators for their support and access to collections. Funding was provided by an Irish Research Council EMBARK Initiative Postgraduate Scholarship (SF) and the European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant. Proposal number: 321696 (NC, SF)
 
 \bibliographystyle{jeb}
 \bibliography{Refs_01_05_14_edited}
