@@ -1,6 +1,8 @@
-#09/05/2014
+#09/06/2014
 
 #Re-coding and re-analysis of my disparity project
+#Updating my previous script based on Matt Will's advice about re-sampling and rarefaction
+ #(NB: This might change again once I get the code from Steve Wang)
 
 #general script which can be used with any of the data sets (skdors, skvent, sklat, mands)
   #change the input files depending on which data I'm using
@@ -387,7 +389,7 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     #pdf(file="skvent_nonmic_tenrec+gmole_PCA.pdf")
         
   #Mands
-   pdf(file="mands_tenrec+gmole_PCA.pdf")
+   #pdf(file="mands_tenrec+gmole_PCA.pdf")
    #pdf(file="mands_nonmic_tenrec+gmole_PCA.pdf")
 
 #PCA plot, default colour palette so Chrysochloridae are black and Tenrecidae are red
@@ -409,30 +411,31 @@ dev.off()
 #------------------------------------------------------  
 #Cleaned up plot for presentations (no axes or values)
   #Plot just the golden moles on their own (tenrecs are white)
-#  gmole.alone <- c("black", "white")
-#  palette(gmole.alone)
+  #gmole.alone <- c("black", "white")
+  #palette(gmole.alone)
 
-#  plot(xaxis,yaxis, xlab="", ylab="",las=1,
-#       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
-#      abline(0,0,h=0,v=0,lty=1,lwd=2)
+  #plot(xaxis,yaxis, xlab="", ylab="",las=1,
+       #col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.8, xaxt="n",yaxt="n")
+      #abline(0,0,h=0,v=0,lty=1,lwd=2)
 
   #Plot golden moles and tenrecs
-#  palette("default")
+  #palette("default")
 
-#  plot(xaxis,yaxis, xlab="", ylab="",las=1,
-#       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
-#      abline(0,0,h=0,v=0,lty=1,lwd=2)
+  #plot(xaxis,yaxis, xlab="", ylab="",las=1,
+       #col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.8, xaxt="n",yaxt="n")
+      #abline(0,0,h=0,v=0,lty=1,lwd=2)
 
 #########################################################################
 #SENSITIVITY ANALYSIS for the PC-based disparity metrics
 #########################################################################
+#New code based on Matt Will's advice about comparing disparity metrics
 
 #Re-sample the PC axis data: from 2 to (full species-1), resample without replacement 
 #Tenrecs 
-  tenrec.res <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates =100, no.col=ncol(tenrecPC))
+  tenrec.res <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates =1000, no.col=ncol(tenrecPC))
 
 #Golden moles
-  gmole.res <- resample.data(gmolePC, samp.min=2, samp.max=(nrow(gmolePC)-1), no.replicates =100, no.col=ncol(gmolePC))
+  gmole.res <- resample.data(gmolePC, samp.min=2, samp.max=(nrow(gmolePC)-1), no.replicates =1000, no.col=ncol(gmolePC))
 
 #-----------------------------------------------------------------
 #Calculate disparity metrics for each re-sampled data
@@ -453,65 +456,75 @@ dev.off()
     gmole.res.pr <- calc.each.array(gmole.res, PCprodrange)
 
 #-----------------------------------------------------------------
-#Mean values for each sample (mean sumvar for 2 species, 3 species etc.)
+#Median values for each sample (mean sumvar for 2 species, 3 species etc.)
+  #Matt Wills' advised to use median rather than mean because the mean can wander outside of confidence intervals
+  
   #Sum of variance
-    tenrec.res.sv.mean <- lapply(tenrec.res.sv, mean)
-    gmole.res.sv.mean <- lapply(gmole.res.sv, mean)
+    tenrec.res.sv.median <- lapply(tenrec.res.sv, median)
+    gmole.res.sv.median <- lapply(gmole.res.sv, median)
 
   #Product of variance
-    tenrec.res.pv.mean <- lapply(tenrec.res.pv, mean)
-    gmole.res.pv.mean <- lapply(gmole.res.pv, mean)
+    tenrec.res.pv.median <- lapply(tenrec.res.pv, median)
+    gmole.res.pv.median <- lapply(gmole.res.pv, median)
     
   #Sum of ranges
-    tenrec.res.sr.mean <- lapply(tenrec.res.sr, mean)
-    gmole.res.sr.mean <- lapply(gmole.res.sr, mean)
+    tenrec.res.sr.median <- lapply(tenrec.res.sr, median)
+    gmole.res.sr.median <- lapply(gmole.res.sr, median)
     
   #Product of ranges
-    tenrec.res.pr.mean <- lapply(tenrec.res.pr, mean)
-    gmole.res.pr.mean <- lapply(gmole.res.pr, mean)
+    tenrec.res.pr.median <- lapply(tenrec.res.pr, median)
+    gmole.res.pr.median <- lapply(gmole.res.pr, median)
 
 #----------------------------------------------------
-#Bootstrap confidence intervals
+#Confidence intervals from ordering the re-sampled values  
+
+#Order the simulated disparity values for each iteration (smallest to largest)
+#Sum of Variance
+  sorted.tc.sv <- sorted.list (tenrec.res.sv)
+  sorted.gm.sv <- sorted.list (gmole.res.sv)
+  
+#Product of Variance
+  sorted.tc.pv <- sorted.list (tenrec.res.pv)
+  sorted.gm.pv <- sorted.list (gmole.res.pv)
+  
+#Sum of Ranges
+  sorted.tc.sr <- sorted.list (tenrec.res.sr)
+  sorted.gm.sr <- sorted.list (gmole.res.sr)
+  
+#Product of Ranges
+  sorted.tc.pr <- sorted.list (tenrec.res.pr)
+  sorted.gm.pr <- sorted.list (gmole.res.pr)
+
+#Confidence intervals from the sorted lists
+  #90% confidence intervals: choose the 50th 951st values from the ordered list
+
   #Sum of variance
-    #Tenrecs
-      tenrec.sv.boot <- lapply(tenrec.res.sv, boot.mean.1000)
-      tenrec.sv.min.conf <- unlist(lapply(tenrec.sv.boot, boot.95.min.confidence))
-      tenrec.sv.max.conf <- unlist(lapply(tenrec.sv.boot, boot.95.max.confidence))
-    #Golden moles
-      gmole.sv.boot <- lapply(gmole.res.sv, boot.mean.1000)
-      gmole.sv.min.conf <- unlist(lapply(gmole.sv.boot, boot.95.min.confidence))
-      gmole.sv.max.conf <- unlist(lapply(gmole.sv.boot, boot.95.max.confidence))      
+    tc.sv.min.conf <- unlist(select.from.list (sorted.tc.sv, 50))
+    tc.sv.max.conf <- unlist(select.from.list (sorted.tc.sv, 951))
 
+    gm.sv.min.conf <- unlist(select.from.list (sorted.gm.sv, 50))
+    gm.sv.max.conf <- unlist(select.from.list (sorted.gm.sv, 951))
+    
   #Product of variance
-    #Tenrecs
-      tenrec.pv.boot <- lapply(tenrec.res.pv, boot.mean.1000)
-      tenrec.pv.min.conf <- unlist(lapply(tenrec.pv.boot, boot.95.min.confidence))
-      tenrec.pv.max.conf <- unlist(lapply(tenrec.pv.boot, boot.95.max.confidence))
-    #Golden moles
-      gmole.pv.boot <- lapply(gmole.res.pv, boot.mean.1000)
-      gmole.pv.min.conf <- unlist(lapply(gmole.pv.boot, boot.95.min.confidence))
-      gmole.pv.max.conf <- unlist(lapply(gmole.pv.boot, boot.95.max.confidence))      
+    tc.pv.min.conf <- unlist(select.from.list (sorted.tc.pv, 50))
+    tc.pv.max.conf <- unlist(select.from.list (sorted.tc.pv, 951))
 
+    gm.pv.min.conf <- unlist(select.from.list (sorted.gm.pv, 50))
+    gm.pv.max.conf <- unlist(select.from.list (sorted.gm.pv, 951))
+    
   #Sum of ranges
-    #Tenrecs
-      tenrec.sr.boot <- lapply(tenrec.res.sr, boot.mean.1000)
-      tenrec.sr.min.conf <- unlist(lapply(tenrec.sr.boot, boot.95.min.confidence))
-      tenrec.sr.max.conf <- unlist(lapply(tenrec.sr.boot, boot.95.max.confidence))
-    #Golden moles
-      gmole.sr.boot <- lapply(gmole.res.sr, boot.mean.1000)
-      gmole.sr.min.conf <- unlist(lapply(gmole.sr.boot, boot.95.min.confidence))
-      gmole.sr.max.conf <- unlist(lapply(gmole.sr.boot, boot.95.max.confidence))      
+    tc.sr.min.conf <- unlist(select.from.list (sorted.tc.sr, 50))
+    tc.sr.max.conf <- unlist(select.from.list (sorted.tc.sr, 951))
 
+    gm.sr.min.conf <- unlist(select.from.list (sorted.gm.sr, 50))
+    gm.sr.max.conf <- unlist(select.from.list (sorted.gm.sr, 951))
+    
   #Product of ranges
-    #Tenrecs
-      tenrec.pr.boot <- lapply(tenrec.res.pr, boot.mean.1000)
-      tenrec.pr.min.conf <- unlist(lapply(tenrec.pr.boot, boot.95.min.confidence))
-      tenrec.pr.max.conf <- unlist(lapply(tenrec.pr.boot, boot.95.max.confidence))
-    #Golden moles
-      gmole.pr.boot <- lapply(gmole.res.pr, boot.mean.1000)
-      gmole.pr.min.conf <- unlist(lapply(gmole.pr.boot, boot.95.min.confidence))
-      gmole.pr.max.conf <- unlist(lapply(gmole.pr.boot, boot.95.max.confidence))      
+    tc.pr.min.conf <- unlist(select.from.list (sorted.tc.pr, 50))
+    tc.pr.max.conf <- unlist(select.from.list (sorted.tc.pr, 951))
 
+    gm.pr.min.conf <- unlist(select.from.list (sorted.gm.pr, 50))
+    gm.pr.max.conf <- unlist(select.from.list (sorted.gm.pr, 951))
 #-------------------------------------------------------------
 #Plot the rarefaction curves
   #sample sizes
@@ -519,10 +532,10 @@ dev.off()
   gmole.samp <-  c(2:(nrow(gmolePC)-1))  
 
 #Range of confidence intervals to use as the ylim values
-  conf.range.sv <- c(min(gmole.sv.min.conf), max(gmole.sv.max.conf), min(tenrec.sv.min.conf), max(tenrec.sv.max.conf))
-  conf.range.pv <- c(min(gmole.pv.min.conf), max(gmole.pv.max.conf), min(tenrec.pv.min.conf), max(tenrec.pv.max.conf))
-  conf.range.sr <- c(min(gmole.sr.min.conf), max(gmole.sr.max.conf), min(tenrec.sr.min.conf), max(tenrec.sr.max.conf))
-  conf.range.pr <- c(min(gmole.pr.min.conf), max(gmole.pr.max.conf), min(tenrec.pr.min.conf), max(tenrec.pr.max.conf))
+  conf.range.sv <- c(min(gm.sv.min.conf), max(gm.sv.max.conf), min(tc.sv.min.conf), max(tc.sv.max.conf))
+  conf.range.pv <- c(min(gm.pv.min.conf), max(gm.pv.max.conf), min(tc.pv.min.conf), max(tc.pv.max.conf))
+  conf.range.sr <- c(min(gm.sr.min.conf), max(gm.sr.max.conf), min(tc.sr.min.conf), max(tc.sr.max.conf))
+  conf.range.pr <- c(min(gm.pr.min.conf), max(gm.pr.max.conf), min(tc.pr.min.conf), max(tc.pr.max.conf))
   
   
 #SkDors
@@ -548,52 +561,53 @@ par(mfrow=c(2,2))
 par(mgp=c(3.2,0.5,0))
 par(mar=c(5,7,4,2)+0.1)
 #Sum of variance
-  plot(tenrec.samp,tenrec.res.sv.mean, type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
+  plot(tenrec.samp,tenrec.res.sv.median, type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.sv), max(conf.range.sv)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
        xlab="SampleSize", ylab="Sum of Variance")
         
-         lines(tenrec.samp,tenrec.sv.min.conf, type="o",pch=16, col="pink", lwd=1, cex=0.6)   #confidence intervals for tenrecs
-         lines(tenrec.samp,tenrec.sv.max.conf, type="o",pch=16, col="pink", lwd=1,cex=0.6)
+         lines(tenrec.samp,tc.sv.min.conf, type="o",pch=16, col="pink", lwd=1, cex=0.6)   #confidence intervals for tenrecs
+         lines(tenrec.samp,tc.sv.max.conf, type="o",pch=16, col="pink", lwd=1,cex=0.6)
    
-       lines(gmole.samp,gmole.res.sv.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  #mean line for golden moles
-         lines(gmole.samp,gmole.sv.min.conf, type="o",pch=16, col="grey", lwd=1, cex=0.6) #confidence intervals for golden moles
-         lines(gmole.samp,gmole.sv.max.conf, type="o",pch=16, col="grey",lwd=1, cex=0.6)
+       lines(gmole.samp,gmole.res.sv.median,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  #mean line for golden moles
+         lines(gmole.samp,gm.sv.min.conf, type="o",pch=16, col="grey", lwd=1, cex=0.6) #confidence intervals for golden moles
+         lines(gmole.samp,gm.sv.max.conf, type="o",pch=16, col="grey",lwd=1, cex=0.6)
+
             
 #Product of variance
-  plot(tenrec.samp,tenrec.res.pv.mean,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
+  plot(tenrec.samp,tenrec.res.pv.median,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.pv), max(conf.range.pv)),        
        xlab="SampleSize", ylab="Product of Variance")
         
-         lines(tenrec.samp,tenrec.pv.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
-         lines(tenrec.samp,tenrec.pv.max.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)
+         lines(tenrec.samp,tc.pv.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
+         lines(tenrec.samp,tc.pv.max.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)
    
-        lines(gmole.samp,gmole.res.pv.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
-          lines(gmole.samp,gmole.pv.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
-          lines(gmole.samp,gmole.pv.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
+        lines(gmole.samp,gmole.res.pv.median,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
+          lines(gmole.samp,gm.pv.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
+          lines(gmole.samp,gm.pv.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
             
 #Sum of ranges
-  plot(tenrec.samp,tenrec.res.sr.mean,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
+  plot(tenrec.samp,tenrec.res.sr.median,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.sr), max(conf.range.sr)),       
        xlab="SampleSize", ylab="Sum of Ranges")
         
-         lines(tenrec.samp,tenrec.sr.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
-         lines(tenrec.samp,tenrec.sr.max.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)
+         lines(tenrec.samp,tc.sr.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
+         lines(tenrec.samp,tc.sr.max.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)
    
-       lines(gmole.samp,gmole.res.sr.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
-         lines(gmole.samp,gmole.sr.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
-         lines(gmole.samp,gmole.sr.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
+       lines(gmole.samp,gmole.res.sr.median,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
+         lines(gmole.samp,gm.sr.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
+         lines(gmole.samp,gm.sr.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
             
 #Product of ranges
-  plot(tenrec.samp,tenrec.res.pr.mean,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
+  plot(tenrec.samp,tenrec.res.pr.median,type="o", pch=16, bty ="l", las=1,col="red", cex.axis=0.9, cex.lab=1.3, lwd=1.2, cex=0.8,
        ylim=c(min(conf.range.pr), max(conf.range.pr)),        
        xlab="SampleSize", ylab="Product of Ranges")
         
-         lines(tenrec.samp,tenrec.pr.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
-         lines(tenrec.samp,tenrec.pr.max.conf, type="o", pch=16,  col="pink", lwd=1, cex=0.6)
+         lines(tenrec.samp,tc.pr.min.conf, type="o", pch=16, col="pink", lwd=1, cex=0.6)   
+         lines(tenrec.samp,tc.pr.max.conf, type="o", pch=16,  col="pink", lwd=1, cex=0.6)
    
-        lines(gmole.samp,gmole.res.pr.mean,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
-          lines(gmole.samp,gmole.pr.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
-          lines(gmole.samp,gmole.pr.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
+        lines(gmole.samp,gmole.res.pr.median,type="o", pch=16, col="black", lwd=1.2, cex=0.8)  
+          lines(gmole.samp,gm.pr.min.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6) 
+          lines(gmole.samp,gm.pr.max.conf, type="o", pch=16, col="grey", lwd=1, cex=0.6)
             
 dev.off()    
 
@@ -601,74 +615,4 @@ dev.off()
 
 
 
-
-########################################################
-#Come back to this
-
-#Resample the tenrec data with replacment
-  #resample with replacement
-  tenrec.res.rep <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates=100, no.col=ncol(tenrecPC))
-  #Sum of variance
-    tenrec.res.rep.sv <- calc.each.array(tenrec.res.rep, PCsumvar)
-    #mean values Sum of variance
-    tenrec.res.rep.sv.mean <- lapply(tenrec.res.rep.sv, mean)
-    #bootstrap confidence intervals
-    #Tenrecs
-      tenrec.rep.sv.boot <- lapply(tenrec.res.rep.sv, boot.mean.1000)
-      tenrec.rep.sv.min.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.min.confidence))
-      tenrec.rep.sv.max.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.max.confidence))
-      
-  plot(tenrec.samp,tenrec.res.rep.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
-       ylim=c(min(tenrec.rep.sv.min.conf), max(tenrec.rep.sv.max.conf)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
-       xlab="SampleSize", ylab="Sum of Variance")
-        
-         lines(tenrec.samp,tenrec.rep.sv.min.conf, type="o", col="pink")   #confidence intervals for tenrecs
-         lines(tenrec.samp,tenrec.rep.sv.max.conf, type="o", col="pink")
-
-#Alternative way of getting confidence intervals (Foote 1992)
-#Trial way to get 90% confidence intervals (Foote 1992)
-   
-#   sorted.tc.sv <- NULL
-#    for (i in 1:length(tenrec.res.sv)){
-#      sorted.tc.sv[[i]] <- sort(tenrec.res.sv[[i]])
-#    }
-    
-#    min.lim.tc.sv <- NULL
-#      for (i in 1:length(sorted.tc.sv)){
-#        min.lim.tc.sv[[i]] <- sorted.tc.sv[[i]][6]
-#      }
-      
-#    max.lim.tc.sv <- NULL
-#      for (i in 1:length(sorted.tc.sv)){
-#        max.lim.tc.sv[[i]] <- sorted.tc.sv[[i]][95]
-#      }
-#---------------------------    
-#    sorted.gm.sv <- NULL
-#     for (i in 1:length(gmole.res.sv)){
-#      sorted.gm.sv[[i]] <- sort(gmole.res.sv[[i]])
-#    }  
-
-#  min.lim.gm.sv <- NULL
-#      for (i in 1:length(sorted.gm.sv)){
-#        min.lim.gm.sv[[i]] <- sorted.gm.sv[[i]][6]
-#      }
-      
-#    max.lim.gm.sv <- NULL
-#      for (i in 1:length(sorted.gm.sv)){
-#        max.lim.gm.sv[[i]] <- sorted.gm.sv[[i]][95]
-#      }
-
-#tc.samp <- 2:30
-#gm.samp <- 2:11 
-#dev.new()
-#plot(tc.samp,tenrec.res.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.75,
-#      ylim=c((min(min.lim.tc.sv)), (max(max.lim.tc.sv))),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
-#      xlab="SampleSize", ylab="Sum of Variance")
-#        lines(tc.samp,max.lim.tc.sv, type="o", col="pink")   #confidence intervals for tenrecs
-#        lines(tc.samp,min.lim.tc.sv, type="o", col="pink")
-   
-#    lines(gm.samp,gmole.res.sv.mean,type="o", col="black")  #mean line for golden moles
-#            lines(gm.samp,max.lim.gm.sv, type="o", col="grey") #confidence intervals for golden moles
-#            lines(gm.samp,min.lim.gm.sv, type="o", col="grey")
-            
 

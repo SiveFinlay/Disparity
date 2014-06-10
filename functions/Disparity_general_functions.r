@@ -16,6 +16,7 @@
       #calc.each.list
       #calc.each.array
       #list.arrays.to.matrices
+      #sorted.list
       
 #3) Dealing with shape data
       #species.coordinates
@@ -195,7 +196,16 @@
       }
       return(new.list)
   }
-  
+
+#------------------------------------------------------------------
+#Function to sort the elements in a list (from smallest to largest)
+  sorted.list <- function (mylist){
+    sorted.list <- NULL
+      for (i in 1:length(mylist)){
+        sorted.list[[i]] <- sort(mylist[[i]])
+      }
+    return(sorted.list)
+  }  
     
 #***************************************************
 #3) Dealing with shape data
