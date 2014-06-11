@@ -264,6 +264,34 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   manova.res <- rbind(dist.man.frp, PC.man.frp)
   rownames(manova.res) <-c ("dist.man", "PC.man")
 
+#-------------------------------------
+#Test for significant differences in disparity (code from Steve Wang)
+
+#Calculate the observed (actual) difference in disparity
+obs.sv <- tenrec.sv - gmole.sv
+
+# initialize variables
+  numreps <- 2000                   # number of repetitions to run
+  results <- rep(NA, numreps)       # vector to store results
+
+# loop over repetitions
+for(rep in 1:numreps)  {
+ 
+  # shuffle group labels
+  shufgroup <- sample(sp.fam$Family) 
+
+  # split according to new group labels and calculate difference in disparities
+  shuf.tc.sv <- PC95axes[shufgroup=="Tenrecidae"]
+  shuf.gm.sv <- PC95axes[shufgroup=="Chrysochloridae"]
+  shufdiff <- PCsumvar(shuf.tc.sv) - PCsumvar(shuf.gm.sv)
+
+  # store result
+  results[rep] <- shufdiff 
+}
+
+hist(results)
+abline(v=obs.sv, col='red')
+
 
 #######################################
 #OUTPUT FILES

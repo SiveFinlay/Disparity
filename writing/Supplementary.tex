@@ -120,16 +120,37 @@ Most of the landmarks in this view are concentrated around the dentition and pal
 \subsection{Disparity analysis}
 
 
-We compared observed disparity to calculations of disparity from BM simulations of shape data (1,000 simulations on each of 101 phylogenies). Our analyses for both the lateral skulls (table \ref{tab:sklat_sims}) and ventral skulls (table \ref{tab:skvent_sims}) supported our findings for the dorsal skulls and mandibles: the true (observed) disparity values were significantly lower than expected compared to the distribution of simulated values. The same patterns were true in each of our five disparity metrics; four of which were based on the PC scores of each species (sum and product of range and variance) and disparity calculated as the sum of squared distances between species pairs \citep{Zelditch2012}. 
+We compared observed disparity to calculations of disparity from BM simulations of shape data (1,000 simulations on each of 101 phylogenies). Our analyses for both the lateral skulls (table \ref{tab:sklat_sims}) and ventral skulls (table \ref{tab:skvent_sims}) supported our findings for the dorsal skulls (table \ref{tab:skdors_sims}) and mandibles (table \ref{tab:mands_sims}): the true (observed) disparity values were significantly lower than expected compared to the distribution of simulated values. The same patterns were true in each of our five disparity metrics; four of which were based on the PC scores of each species (sum and product of range and variance) and disparity calculated as the sum of squared distances between species pairs \citep{Zelditch2012}. 
 
-%--------------------------------------_________
+%--------------------------------------
 %Tables of simulation results
+
+\begin{table}[H]				
+
+\centering
+\caption{Comparison of observed and simulated disparity measures for the dorsal skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values)}
+
+\input{tables/sklat.sim.disp}
+\label{tab:skdors_sims} 
+\end{table}
+
+
+\begin{table}[H]				
+
+\centering
+\caption{Comparison of observed and simulated disparity measures for the mandibles analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values)}
+
+\input{tables/mands.sim.disp}
+\label{tab:mands_sims}
+\end{table}
+
+
 \begin{table}[H]				
 \centering
 \caption{Comparison of observed and simulated disparity measures for the lateral skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values.)}
 
 \input{tables/sklat.sim.disp}
-\label{tab:sklat_sims} %give it a label so I can refer to it in the text
+\label{tab:sklat_sims} 
 \end{table}
 
 \begin{table}[H]				
@@ -138,7 +159,7 @@ We compared observed disparity to calculations of disparity from BM simulations 
 \caption{Comparison of observed and simulated disparity measures for the ventral skulls analysis; observed (true) disparity measures, minimum simulated value (sim.min), maximum simulated value (sim.max), standard deviation of the simulated values (sdev.sim) and p value comparing the observed disparity measures to the distribution of simulated values.)}
 
 \input{tables/skvent.sim.disp}
-\label{tab:skvent_sims} %give it a label so I can refer to it in the text
+\label{tab:skvent_sims} 
 \end{table}
 
 %----------------------------------------------------------

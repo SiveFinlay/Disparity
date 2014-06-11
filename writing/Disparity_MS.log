@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  5 JUN 2014 17:15
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  10 JUN 2014 11:47
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -427,14 +427,14 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pplj/b/n' tried instead on input line 108.
  [5] (Disparity_MS.fff)
 (Disparity_MS.ttt) [6] [7] [8] [9] [10]
-LaTeX Font Info:    Try loading font information for OML+pplj on input line 307
+LaTeX Font Info:    Try loading font information for OML+pplj on input line 322
 .
-LaTeX Font Info:    No file OMLpplj.fd. on input line 307.
+LaTeX Font Info:    No file OMLpplj.fd. on input line 322.
 
 
 LaTeX Font Warning: Font shape `OML/pplj/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textgreater' on input line 307.
+(Font)              for symbol `textgreater' on input line 322.
 
 [11] [12] [13]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [14]
@@ -458,19 +458,19 @@ pplj/m/it/12 Potamogale
  []
 
 
-Overfull \hbox (10.02144pt too wide) in paragraph at lines 4--4
+Overfull \hbox (10.02144pt too wide) in paragraph at lines 6--6
  \OT1/pplj/m/n/12 oc-cu-pied by ten-recs (red, n=31) and golden moles(black, n=
 12). 
  []
 
 
-Overfull \hbox (9.98546pt too wide) in paragraph at lines 4--4
+Overfull \hbox (9.98546pt too wide) in paragraph at lines 6--6
  \OT1/pplj/m/n/12 anal-y-sis of mean Pro-crustes shape co-or-di-nates for each 
 species. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 6--6
  [][]  
  []
 
@@ -498,28 +498,48 @@ line 11.
 (pdftex.def)             Requested size: 398.3386pt x 167.25629pt.
  [21 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/AMNH_51327_land
 marksdiagram.png>]
-<figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg, id=78, 666.99188pt x 500.36937
+<figures/skdors_trc+gmole_tenrec_sumvariance.jpg, id=78, 505.89pt x 505.89pt>
+File: figures/skdors_trc+gmole_tenrec_sumvariance.jpg Graphic file (type jpg)
+
+<use figures/skdors_trc+gmole_tenrec_sumvariance.jpg>
+Package pdftex.def Info: figures/skdors_trc+gmole_tenrec_sumvariance.jpg used o
+n input line 20.
+(pdftex.def)             Requested size: 398.3386pt x 398.34415pt.
+ [22 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors_trc+gmol
+e_tenrec_sumvariance.jpg>] <figures/mands_trc+gmole_tenrec_sumvariance.jpg, id=
+82, 505.89pt x 505.89pt>
+File: figures/mands_trc+gmole_tenrec_sumvariance.jpg Graphic file (type jpg)
+
+<use figures/mands_trc+gmole_tenrec_sumvariance.jpg>
+Package pdftex.def Info: figures/mands_trc+gmole_tenrec_sumvariance.jpg used on
+ input line 29.
+(pdftex.def)             Requested size: 398.3386pt x 398.34415pt.
+ [23 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/mands_trc+gmole
+_tenrec_sumvariance.jpg>]
+<figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg, id=86, 666.99188pt x 500.36937
 pt>
 File: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg Graphic file (type jpg)
  <use figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg>
 Package pdftex.def Info: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg used on
- input line 20.
+ input line 38.
 (pdftex.def)             Requested size: 398.3386pt x 298.83437pt.
- [22 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkDors_Tenrecs+
+ [24 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkDors_Tenrecs+
 Gmoles_PC1PC2_01_05.jpg>]
-<figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg, id=82, 548.0475pt x 480.7962
+<figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg, id=90, 548.0475pt x 480.7962
 5pt>
 File: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg Graphic file (type jpg)
  <use figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg>
 Package pdftex.def Info: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg used 
-on input line 28.
+on input line 46.
 (pdftex.def)             Requested size: 398.3386pt x 349.46704pt.
- [23 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/Mands_Tenrecs+G
+ [25 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/Mands_Tenrecs+G
 moles_PC1PC2_01_05_14.jpg>]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing
 \Disparity_MS.lot)
 \tf@lot=\write6
 
-[24
+[26
+
+
 
 
 
@@ -533,38 +553,38 @@ Overfull \hbox (83.30539pt too wide) in paragraph at lines 3--6
  [][] 
  []
 
-[25]
+[27]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/mandibles.landmarks.t
 ex)
 Overfull \hbox (87.73332pt too wide) in paragraph at lines 3--14
  [][] 
  []
 
-[26]
+[28]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/sklat.sim.disp.tex)
-Overfull \hbox (20.20947pt too wide) in paragraph at lines 3--24
+Overfull \hbox (16.87347pt too wide) in paragraph at lines 4--24
  [][] 
  []
 
-[27]
+[29]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/mands.sim.disp.tex)
-Overfull \hbox (20.20947pt too wide) in paragraph at lines 3--34
+Overfull \hbox (16.87347pt too wide) in paragraph at lines 4--34
  [][] 
  []
 
-[28]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
+[30]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4663 strings out of 493921
- 66594 string characters out of 3147276
- 135254 words of memory out of 3000000
- 7812 multiletter control sequences out of 15000+200000
+ 4675 strings out of 493921
+ 67118 string characters out of 3147276
+ 135272 words of memory out of 3000000
+ 7822 multiletter control sequences out of 15000+200000
  41547 words of font info for 98 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,8n,36p,1045b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,8n,36p,1045b,308s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -573,9 +593,9 @@ ts/type1/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (28 pages, 942453 bytes).
+Output written on Disparity_MS.pdf (30 pages, 1039852 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
