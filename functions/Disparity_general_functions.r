@@ -8,6 +8,7 @@
     #subset.matrix
     #anova.frp
     #common.character
+    #group.diff (cf Steve Wang)
     
 #2) Dealing with lists
       #remove.from.list
@@ -87,6 +88,21 @@
       }
       return(common)
   }
+#---------------------------------------------------------
+#Function for permutation tests of significant differences between two groups
+  #Modified from Steve Wang's email on 10/06/2014
+  group.diff <- function (numreps, two.groups, mydata, test.statistic){
+    results <- rep(NA,numreps)
+    for (rep in 1:numreps) {
+      shufgroup <- sample(two.groups)
+        shuff.group1 <- mydata[which(shufgroup==(levels(two.groups)[1])),]
+        shuff.group2 <- mydata[which(shufgroup==(levels(two.groups)[2])),]
+          shuffdiff <- test.statistic(shuff.group1) - test.statistic(shuff.group2)
+      results[rep] <- shuffdiff
+    }
+    return(results)
+  } 
+
 #****************************************
 #2) Dealing with lists
 #****************************************
