@@ -1,4 +1,5 @@
 #09/05/2014
+  #updated on 11/06/2014; permutation tests for significant differences in disparity
 
 #Re-coding and re-analysis of my disparity project
 
@@ -16,6 +17,7 @@
   #5) Select PC axes that account for 95% of the variation
   #6) Calculate disparity measures
   #7) Compare disparity in families; npMANOVA
+  #7a) Compare disparity measures directly: permutation tests
   #8) Output files: shape data, taxonomy, disparity, disparity comparisons
   #8) Sensitivity analysis (rarefaction)
 
@@ -26,7 +28,7 @@
         # (the binomial names are in the same order in each object)
     #3) Table of disparity measures of each family                                  (disp)
     #4) Table of npMANOVA reults; based on distance matrix and PC axes              (manova.res)
-    
+    #5) Summary table of results from permutation tests for significant differences in disparity (disp.signif)
     
   #figures
     #1) PCA plots
@@ -45,19 +47,19 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #READ IN DATA; directory will change for each data set
 ########################################################
 #SkDors data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
 
 #1) Landmarks
 #landmarks + curves file with the control lines removed
-  land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+  #land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
 
 #2) Sliders
 #edited sliders file (top 2 rows removed and the words before slide after put in instead
-  curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+  #curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
 
 #3) Taxonomy
 #file that has the correct taxonomy for each of the images
-  taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+  #taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
 
 #4) Specimens to remove
   #Null
@@ -88,16 +90,16 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
 
 #1) Landmarks
-  #land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
+  land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
 #2) Sliders
-  #curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
+  curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
 #3) Taxonomy
-  #taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
+  taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
 #4) Specimens to remove
-  #rem <- read.csv("Mands_remove_spec.csv", header=T)
+  rem <- read.csv("Mands_remove_spec.csv", header=T)
 
 #################################################
 #CLEAN UP THE DATA
@@ -118,9 +120,9 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #doesn't apply to the skdors data because rem is NULL
 #************************************************** 
 #find the ID numbers of specimens with missing data
-  #matching <- matching.id(rem$SpecID, combine$SpecID)
-    #combine <- remove.from.list(combine, matching)
-    #combine <- droplevels.from.list(combine)
+  matching <- matching.id(rem$SpecID, combine$SpecID)
+    combine <- remove.from.list(combine, matching)
+    combine <- droplevels.from.list(combine)
 #*********************************************
 
 #Select the tenrec and golden mole specimens only
@@ -133,10 +135,10 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #Option depending on the analysis
 #************************************************** 
 #Option to remove all of the Microgale specimens
-  # mic <- which(mydata$Genus=="Microgale")
+   mic <- which(mydata$Genus=="Microgale")
 
-  # mydata <- remove.from.list(mydata, mic)
-  # mydata <- droplevels.from.list(mydata)
+   mydata <- remove.from.list(mydata, mic)
+   mydata <- droplevels.from.list(mydata)
 #**************************************************  
 #######################################
 #PROCRUSTES SUPERIMPOSTION
@@ -265,32 +267,68 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   rownames(manova.res) <-c ("dist.man", "PC.man")
 
 #-------------------------------------
-#Test for significant differences in disparity (code from Steve Wang)
+#Test for significant differences in disparity (modified code from Steve Wang, email on 10/06/2014)
+  #tests for PC disparity metrics (Zelditch MD needs extra steps)
+  #Advantage of this method is that it takes differences in sample size into account
 
-#Calculate the observed (actual) difference in disparity
-obs.sv <- tenrec.sv - gmole.sv
+  #observed differences in disparity
+  obs.diff.sv <- tenrec.sv - gmole.sv
+  obs.diff.pv <- tenrec.pv - gmole.pv
+  obs.diff.sr <- tenrec.sr - gmole.sr
+  obs.diff.pr <- tenrec.pr - gmole.pr
+  obs.diff.md <- tenrecMD - gmoleMD
 
-# initialize variables
-  numreps <- 2000                   # number of repetitions to run
-  results <- rep(NA, numreps)       # vector to store results
+  
+  #permutation test for significant differences in disparity between tenrecs and golden moles
+  perm.sv <- group.diff(1000, sp.fam$Family, PC95axes, PCsumvar)
+  perm.pv <- group.diff(1000, sp.fam$Family, PC95axes, PCprodvar)
+  perm.sr <- group.diff(1000, sp.fam$Family, PC95axes, PCsumrange)
+  perm.pr <- group.diff(1000, sp.fam$Family, PC95axes, PCprodrange)
+  #ZelditchMD calculated from interlandmark distance, not the PC axes
+  perm.md <- group.diff(1000, sp.fam$Family, as.matrix(ild.distance), ZelditchMD)
 
-# loop over repetitions
-for(rep in 1:numreps)  {
- 
-  # shuffle group labels
-  shufgroup <- sample(sp.fam$Family) 
+  #histograms of the results
+  par(mfrow=c(1,2)) 
+    #Variance
+    hist(perm.sv)
+     abline(v=obs.diff.sv, col="red")    
+    hist(perm.pv)
+     abline(v=obs.diff.pv, col="red")
+    
+    #Ranges
+    hist(perm.sr)
+     abline(v=obs.diff.sr, col="red")
+    hist(perm.pr)
+     abline(v=obs.diff.pr, col="red")
+    
+    #ZelditchMD
+    hist(perm.md)
+     abline(v=obs.diff.md, col="red")
+  
+   #test for significant differences
+    #distributions values above and below the observed
+      obs.dist.sv <- table(perm.sv >= obs.diff.sv)
+      obs.dist.pv <- table(perm.pv >= obs.diff.pv)
+      obs.dist.sr <- table(perm.sr >= obs.diff.sr)
+      obs.dist.pr <- table(perm.pr >= obs.diff.pr)
+      obs.dist.md <- table(perm.md >= obs.diff.md)
+    
+    #p values
+      pvalue.sv <- pvalue.dist(perm.sv, obs.diff.sv)
+      pvalue.pv <- pvalue.dist(perm.pv, obs.diff.pv)
+      pvalue.sr <- pvalue.dist(perm.sr, obs.diff.sr)
+      pvalue.pr <- pvalue.dist(perm.pr, obs.diff.pr)
+      pvalue.md <- pvalue.dist(perm.md, obs.diff.md)
 
-  # split according to new group labels and calculate difference in disparities
-  shuf.tc.sv <- PC95axes[shufgroup=="Tenrecidae"]
-  shuf.gm.sv <- PC95axes[shufgroup=="Chrysochloridae"]
-  shufdiff <- PCsumvar(shuf.tc.sv) - PCsumvar(shuf.gm.sv)
-
-  # store result
-  results[rep] <- shufdiff 
-}
-
-hist(results)
-abline(v=obs.sv, col='red')
+#Summary table of the results
+  disp.signif <- matrix(NA,nrow=5, ncol=4)
+    rownames(disp.signif) <- c("SumVar","ProdVar","SumRange","ProdRange", "ZelditchMD")
+    colnames(disp.signif) <- c("Tenrecidae", "Chrysochloridae", "Difference", "Pvalue")
+  disp.signif[1,] <-c(tenrec.sv, gmole.sv, obs.diff.sv, pvalue.sv)
+  disp.signif[2,] <-c(tenrec.pv, gmole.pv, obs.diff.pv, pvalue.pv)
+  disp.signif[3,] <-c(tenrec.sr, gmole.sr, obs.diff.sr, pvalue.sr)
+  disp.signif[4,] <-c(tenrec.pr, gmole.pr, obs.diff.pr, pvalue.pr)
+  disp.signif[5,] <-c(tenrecMD, gmoleMD, obs.diff.md, pvalue.md)
 
 
 #######################################
@@ -305,7 +343,7 @@ abline(v=obs.sv, col='red')
 #SkVent
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
 #Mands
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
 
 #**************************************************
 #1) Shape data, taxonomy , disparity measures, disparity comparisons 
@@ -320,7 +358,11 @@ abline(v=obs.sv, col='red')
     #write.table(file="SkDors_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
     #write.table(file="SkDors_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="SkDors_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+      
+      
+      
 #B) Non-microgale tenrecs and golden moles
 
   #1) Average shape coordinates
@@ -331,7 +373,8 @@ abline(v=obs.sv, col='red')
     #write.table(file="SkDors_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
     #write.table(file="SkDors_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="SkDors_nonmic_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 
 #--------------------------------------------------------------------
@@ -346,7 +389,9 @@ abline(v=obs.sv, col='red')
      #write.table(file="SkLat_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
      #write.table(file="SkLat_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
-     
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="SkLat_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+           
 #B) Non-microgale tenrecs and golden moles
   #1) Average shape coordinates
      #dput(sps.mean, file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
@@ -356,6 +401,10 @@ abline(v=obs.sv, col='red')
      #write.table(file="SkLat_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
      #write.table(file="SkLat_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="SkLat_nonmic_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+
 #----------------------------------------------------------
 #SkVent
 #A) All tenrecs and golden moles
@@ -367,6 +416,9 @@ abline(v=obs.sv, col='red')
     #write.table(file="SkVent_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
     #write.table(file="SkVent_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="SkVent_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    
     
 #B) Non-microgale tenrecs and golden moles
   #1) Average shape coordinates
@@ -377,6 +429,9 @@ abline(v=obs.sv, col='red')
     #write.table(file="SkVent_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
     #write.table(file="SkVent_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="SkVent_nonmic_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
 #----------------------------------------------------------
 #Mands
 #A) All tenrecs and golden moles
@@ -388,6 +443,9 @@ abline(v=obs.sv, col='red')
     #write.table(file="Mands_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
     #write.table(file="Mands_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #5) Table of permutation test for significant differences in group disparity
+      #write.table(file="Mands_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  
 
 #B) Non-microgale tenrecs and golden moles
   #1) Average shape coordinates
@@ -398,6 +456,8 @@ abline(v=obs.sv, col='red')
    # write.table(file="Mands_nonmic_tenrec+gmole_disp.txt",disp,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of npMANOVA results
    # write.table(file="Mands_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #5) Table of permutation test for significant differences in group disparity
+      write.table(file="Mands_nonmic_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #**************************************************
 #2) Save the PCA plot
@@ -415,21 +475,21 @@ abline(v=obs.sv, col='red')
     #pdf(file="skvent_nonmic_tenrec+gmole_PCA.pdf")
         
   #Mands
-   pdf(file="mands_tenrec+gmole_PCA.pdf")
+   #pdf(file="mands_tenrec+gmole_PCA.pdf")
    #pdf(file="mands_nonmic_tenrec+gmole_PCA.pdf")
 
 #PCA plot, default colour palette so Chrysochloridae are black and Tenrecidae are red
  
-  plot(xaxis,yaxis, xlab="Species' average PC1", ylab="Species' average PC2",las=1,
-       col=sp.fam$Family,pch=16, bty="l",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
+  #plot(xaxis,yaxis, xlab="Species' average PC1", ylab="Species' average PC2",las=1,
+       #col=sp.fam$Family,pch=16, bty="l",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
     #draw the min,max and 0 values on the x axis
-      axis(side=1,at=c(-0.1,0,0.1),las=1,cex=1.3)
+      #axis(side=1,at=c(-0.1,0,0.1),las=1,cex=1.3)
     #same for the y axis
-      axis(side=2,at=c(-0.06,0,0.08),las=1,cex=1.3)
+      #axis(side=2,at=c(-0.06,0,0.08),las=1,cex=1.3)
     #add dotted lines along 0,0
-      abline(0,0,h=0,v=0,lty=2,lwd=1)
- 
-dev.off()
+      #abline(0,0,h=0,v=0,lty=2,lwd=1)
+      
+#dev.off()
 
 #identify points on the graph
 #  identify(xaxis,yaxis,labels=(sp.fam$Binom))
@@ -451,8 +511,12 @@ dev.off()
 #       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
 #      abline(0,0,h=0,v=0,lty=1,lwd=2)
 
+
+
+
 #########################################################################
 #SENSITIVITY ANALYSIS for the PC-based disparity metrics
+  #NB: I don't need these if I use Wang's permutation method to test for significant differences in group disparity
 #########################################################################
 
 #Re-sample the PC axis data: from 2 to (full species-1), resample without replacement 
@@ -631,27 +695,28 @@ dev.off()
 
 
 ########################################################
-#Come back to this
+#This code is expanded into an alternative re-sampling and confidence interval method in the twofamily_disparity_Wills script
+
 
 #Resample the tenrec data with replacment
   #resample with replacement
-  tenrec.res.rep <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates=100, no.col=ncol(tenrecPC))
+  #tenrec.res.rep <- resample.data(tenrecPC, samp.min=2, samp.max=(nrow(tenrecPC)-1), no.replicates=100, no.col=ncol(tenrecPC))
   #Sum of variance
-    tenrec.res.rep.sv <- calc.each.array(tenrec.res.rep, PCsumvar)
+    #tenrec.res.rep.sv <- calc.each.array(tenrec.res.rep, PCsumvar)
     #mean values Sum of variance
-    tenrec.res.rep.sv.mean <- lapply(tenrec.res.rep.sv, mean)
+    #tenrec.res.rep.sv.mean <- lapply(tenrec.res.rep.sv, mean)
     #bootstrap confidence intervals
     #Tenrecs
-      tenrec.rep.sv.boot <- lapply(tenrec.res.rep.sv, boot.mean.1000)
-      tenrec.rep.sv.min.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.min.confidence))
-      tenrec.rep.sv.max.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.max.confidence))
+      #tenrec.rep.sv.boot <- lapply(tenrec.res.rep.sv, boot.mean.1000)
+      #tenrec.rep.sv.min.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.min.confidence))
+      #tenrec.rep.sv.max.conf <- unlist(lapply(tenrec.rep.sv.boot, boot.95.max.confidence))
       
-  plot(tenrec.samp,tenrec.res.rep.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
-       ylim=c(min(tenrec.rep.sv.min.conf), max(tenrec.rep.sv.max.conf)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
-       xlab="SampleSize", ylab="Sum of Variance")
+  #plot(tenrec.samp,tenrec.res.rep.sv.mean,type="o", bty ="l", las=1,col="red", cex.axis=0.65, cex.lab=0.8,
+       #ylim=c(min(tenrec.rep.sv.min.conf), max(tenrec.rep.sv.max.conf)),  #range from the lowest minimum confidence interval to the highest maximum confidence interval      
+       #xlab="SampleSize", ylab="Sum of Variance")
         
-         lines(tenrec.samp,tenrec.rep.sv.min.conf, type="o", col="pink")   #confidence intervals for tenrecs
-         lines(tenrec.samp,tenrec.rep.sv.max.conf, type="o", col="pink")
+         #lines(tenrec.samp,tenrec.rep.sv.min.conf, type="o", col="pink")   #confidence intervals for tenrecs
+         #lines(tenrec.samp,tenrec.rep.sv.max.conf, type="o", col="pink")
 
 #Alternative way of getting confidence intervals (Foote 1992)
 #Trial way to get 90% confidence intervals (Foote 1992)
