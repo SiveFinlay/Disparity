@@ -229,7 +229,7 @@ We compared observed disparity to the distributions of expected disparity calcul
 %Sum of variance diagrams -overall dissimilarity, less affected by sample size Wills 1994
 
 %Figures of simulated compared to observed disparity measures
-
+% I could make this shorter by putting the two figures beside each other in panels
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figures/skdors_trc+gmole_tenrec_sumvariance.jpg}
@@ -256,26 +256,26 @@ Removing the phenotypically similar \textit{Microgale} tenrecs did not qualitati
 %******************************************************
 
 \subsection{Morphological disparity in tenrec and golden moles} 
-
-Figures  \ref{fig:skdorsPCA} and \ref{fig:mandsPCA} depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
+ % Maybe put in a modified version of my results summary table here? Easy way of comparing all the disparity measures in each of the data sets
+ 
+Figures  \ref{fig:skdorsPCA} and \ref{fig:mandsPCA} 
+%again, I could put these beside each other as panels 
+depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
 
 In the dorsal skulls analysis, tenrecs and golden moles occupy significantly different areas of morphospace (npMANOVA, F = 59.34, R$^2 $ = 0.59, p = 0.001) indicating that the two families have signficantly different skull morphologies. 
 %These are the npMANOVA results based on the PC axes rather than the distance matrix
 For each of the calculated metrics, tenrecs have higher disparity than golden moles but these differences were not significant for the variance-based calculations.  
+Non-\textit{Microgale} tenrecs also higher disparity than golden moles but none of the comparisons were statistically significant .
 
-
-
-%Not much point in mentioning the non-Microgale tenrecs here because you would expect them to have higher disparity anyway
-%Non-\textit{Microgale} tenrecs also have higher disparity than golden moles and we found the same results in our analyses of ventral and lateral skull shapes (see supplementary material).
-
-Tenrecs and golden moles also have significantly different mandible shapes (npMANOVA F = 59.34, R$^2$ = 0.59, p =	0.001). However, unexpectedly, golden moles appear to have higher disparity than tenrecs in the shape of their mandibles (significant differences when disparity is calculated as product of variance, sum of ranges and ZelditchMD).   
+Tenrecs and golden moles have significantly different mandible shapes (npMANOVA F = 59.34, R$^2$ = 0.59, p =	0.001). However, unexpectedly, golden moles appear to have higher disparity than tenrecs in the shape of their mandibles (although these differences are only significant when disparity is calculated as product of variance or ZelditchMD). 
+%Sum of ranges is also a significant difference but in the opposite direction: tenrecs>golden moles  
 
 We tested whether these results may be artefacts of relatively low phenotypic diversity within \textit{Microgale} tenrecs. However, although golden moles and non-\text{Microgale} tenrecs occupy significantly different areas of morphospace (npMANOVA F = 31.6, R$^2$ = 0.59, p =	0.001), there is no significant difference between the two groups for any metrics of disparity. %based on the permutation tests
 
 
 
 %************************************
-%PCA figures
+%PCA figures: maybe put them together into panels to make them fit in?
 %I want to make these figures nicer
 
 	% I could add the warp grids but they look messy and would be very small
@@ -308,15 +308,30 @@ We tested whether these results may be artefacts of relatively low phenotypic di
 
 
 %1 - summary of results
-Our findings provide new insights into phenotypic diversity within the tenrec family. Contrary to previous suggestions \citep[e.g.][]{Eisenberg1969, Olson2013}, tenrecs do not appear to be exceptional in their morphological diversity. They do seem to be more morphologically disparate than their closest relatives but only in skull morphology; the opposite is true when we look at mandible morphology (figure \ref{fig:mandsPCA}). Our results illustrate the vital importance of applying quantitative methods to test assumptions about morphological diversity. 
+Our findings provide new insights into phenotypic diversity within the tenrec family.  
+Contrary to previous suggestions \citep[e.g.][]{Eisenberg1969, Olson2013}, tenrecs do not appear to be exceptional in their morphological diversity. 
+Tenrecs are not more morphologically varied than expected to evolve by chance: they show significantly lower disparity in their morphologies than expected to evolve under Brownian Motion models of evolution. 
+
+When we compared tenrecs' cranial morphologies to their closest relatives the resulting patterns were less straightforward. For the analyses of skull shapes we found a trend towards higher disparity in tenrecs than in golden moles although these apparent differences were only significant for some disparity metrics. In contrast, the analyses of the mandibles indicated that golden moles have more diverse mandible shapes although, again, these results are only significant for some disparity metrics. %put in reference to the results summary table
+
+These results put a new perspective on the long-standing assumption that tenrecs are an adaptive radiation.
 
 %2 - interpret results with reference to other work
 
-Tenrecs are evidently a diverse group, both phenotypically and ecologically. Body sizes of extant tenrecs span three orders of magnitude (2.5 to \textgreater 2,000g) which is a greater range than all other Families, and most Orders, of living mammals \citep{Olson2003}. Within this vast size range there is striking morphological diversity, from the spiny \textit{Echinops, Setifer} and striking \textit{Hemicentetes} to the shrew-like  \textit{Microgale}. Furthermore, tenrecs inhabit a variety of ecological niches and habitats including terrestrial, arboreal, semi-aquatic and semi-fossorial forms (REFS).
+It is evidence that tenrecs are a diverse group, both phenotypically and ecologically. Body sizes of extant tenrecs span three orders of magnitude (2.5 to \textgreater 2,000g) which is a greater range than all other Families, and most Orders, of living mammals \citep{Olson2003}. Within this vast size range there is striking morphological diversity, from the spiny \textit{Echinops, Setifer} and striking \textit{Hemicentetes} to the shrew-like  \textit{Microgale}. Furthermore, tenrecs inhabit a variety of ecological niches and habitats including terrestrial, arboreal, semi-aquatic and semi-fossorial forms (REFS). However, our results cast doubt over whether the evident diversity within the tenrec family should be considered to be a true adaptive radiation. 
 
-However, our results cast doubt over whether the evident diversity within the tenrec family should be considered to be an adaptive radiation. Phenotypic and ecological divergences within a clade are not surprising; most clades have at least small levels of disparity so, when it comes to identifying adaptive radiations, it's important to identify clades which are exceptional in their diversity \citep{Losos2010a}. Here we have presented the first quantitative investigation of morphological disparity in tenrecs and our results suggest that perhaps phenotypic variation in tenrecs is not the product of an adaptive radiation in the strict sense of its definition.
+Phenotypic and ecological divergences within a clade are not surprising; most clades have at least small levels of disparity so, when it comes to identifying adaptive radiations, it's important to identify clades which are exceptional in their diversity \citep{Losos2010a}. Here we have presented the first quantitative investigation of morphological disparity in tenrecs and our results suggest that perhaps phenotypic variation in tenrecs is not the product of an adaptive radiation in the strict sense of its definition.
 
-Although tenrecs are not more morphologically diverse than expected by chance, they do show greater cranial disparity than their nearest relatives. The discrepancies between our analyses of cranial and mandible disparity could reflect derive from factors associated with the modularity of morphological evolution.
+
+
+All of our simulation analyses agree that tenrecs show significantly lower morphological diversity than that which is expected to evolve under random, BM evolution.
+	% discussion of differences between subjective and quantitative measures of apparent diversity
+
+
+%Anomalies: why are there differences among disparity metrics?
+%			why are there opposite patterns in the skulls and    mandibles?
+
+The discrepancies between our analyses of cranial and mandible disparity could reflect derive from factors associated with the modularity of morphological evolution.
 
 There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
 For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
