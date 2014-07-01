@@ -78,28 +78,28 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 
 #-----------------------------------------------------
 #SkVent data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skvent")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skvent")
 
 #1) Landmarks
-  #land <- readland.tps(file="SkVent_30_10_13_13landmarks+1curve_edited.TPS")
+  land <- readland.tps(file="SkVent_30_10_13_13landmarks+1curve_edited.TPS")
 #2) Sliders
-  #curves <- as.matrix(read.table(file="SkVent_1skull_13landmarks+1curve_sliders_edited.tps", header=TRUE))     #this is a tps file and the others are nts but it doesn't make a difference
+  curves <- as.matrix(read.table(file="SkVent_1skull_13landmarks+1curve_sliders_edited.tps", header=TRUE))     #this is a tps file and the others are nts but it doesn't make a difference
 #3) Taxonomy
-  #taxa <- read.csv("SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
+  taxa <- read.csv("SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
 #4) Specimens to remove
-  #rem <- read.csv("SkVent_remove_spec.csv", header=T)
+  rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
 
 #1) Landmarks
-  land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
+  #land <- readland.tps(file="Mands_14_03_2014_7landmarks+4curves_edited.TPS")
 #2) Sliders
-  curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
+  #curves <- as.matrix(read.table("Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
 #3) Taxonomy
-  taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
+  #taxa <- read.csv("Mands_14_03_2014_Images+Specimens.csv", header=T)
 #4) Specimens to remove
-  rem <- read.csv("Mands_remove_spec.csv", header=T)
+  #rem <- read.csv("Mands_remove_spec.csv", header=T)
 
 #################################################
 #CLEAN UP THE DATA
@@ -135,10 +135,10 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #Option depending on the analysis
 #************************************************** 
 #Option to remove all of the Microgale specimens
-   mic <- which(mydata$Genus=="Microgale")
+   #mic <- which(mydata$Genus=="Microgale")
 
-   mydata <- remove.from.list(mydata, mic)
-   mydata <- droplevels.from.list(mydata)
+   #mydata <- remove.from.list(mydata, mic)
+   #mydata <- droplevels.from.list(mydata)
 #**************************************************  
 #######################################
 #PROCRUSTES SUPERIMPOSTION
@@ -268,7 +268,7 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 
 #-------------------------------------
 #Test for significant differences in disparity (modified code from Steve Wang, email on 10/06/2014)
-  #tests for PC disparity metrics (Zelditch MD needs extra steps)
+  #tests for PC disparity metrics and Zelditch MD
   #Advantage of this method is that it takes differences in sample size into account
 
   #observed differences in disparity
@@ -510,6 +510,8 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #  plot(xaxis,yaxis, xlab="", ylab="",las=1,
 #       col=sp.fam$Family,pch=16, bty="n",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
 #      abline(0,0,h=0,v=0,lty=1,lwd=2)
+
+
 
 
 
