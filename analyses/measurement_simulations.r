@@ -96,12 +96,65 @@ for (i in 1:length(specid)){
   }
 }
 
-
-
-median.list <- as.data.frame(median.list)
+#Get rid of the speech marks around the character objects
+  median.list <- as.data.frame(median.list)
 
 #Add the taxonomic information
   median.taxa <- merge(median.list, taxa.updated)
   
-#Remove the unnecessary columns
+#Select only the relevant columns
   mydata <- median.taxa[,c(1,2,3,7,8,9,11,13)]
+  
+#-------------------------------------------------------------------------------
+#Check that the data and the phylogenies have the same species
+TreeOnly <- tree.only(mytrees,mydata$Binomial_05)        #null
+
+#species which are in the data but not in the trees
+  DataOnly<-as.list(rep(NA,length(mytrees)))
+
+  for (i in 1: length(mytrees)){
+    DataOnly[[i]]<-setdiff(mydata$Binomial_05, mytrees[[i]]$tip.label)
+  }
+  
+#Remove these two _sp. species from the data
+  rem.sp <- c(which(mydata$Binomial_05 == "Chrysochloris_sp."), which(mydata$Binomial_05 == "Oryzorictes_sp."))
+  mydata <- droplevels(mydata[-(rem.sp),])
+   
+#--------------------------------------------------------
+#Simulate character evolution
+
+#One trait on its own: mandible length
+  mand.length <- mydata[which(mydata$Measurement=="15_ML"),]
+  mand.length <- droplevels(mand.length)
+
+#Unique species names 
+ binom<-levels(mand.length$Binomial_05)
+
+#Average values for each species
+  mand.length.mean <- matrix(NA, length(binom),1)
+  for (i in 1:length(binom)){
+    mand.length.mean[i,1] <- mean(as.numeric(as.vector(mand.length$Median[which(mand.length$Binomial_05==binom[i])])))
+  }
+
+  #add the species as rownames
+  rownames(mand.length.mean) <- binom
+
+#Separate variance covariance matrix of mandible length for each of the phylogenies
+
+#Separate variance covariance matrix of the shape data for each of the phylogenies
+  varcov <- as.list(rep(NA,length(mytrees)))
+    for(i in 1:length(mytrees)){
+      varcov[[i]] <- vcv(phy=mytrees[[i]],mand.length.mean)
+    } 
+    
+#simulate shape evolution on each phylogeny
+  length.sim <- as.list(rep(NA,length(mytrees)))
+    for (i in 1: length(mytrees)){
+      length.sim[[i]] <- sim.char(mytrees[[i]], varcov[[i]],nsim=1000,model="BM")
+    }
+    
+#Combine simulations into one list
+  simlist <- list.arrays.to.matrices(length.sim)
+
+#These simulations work but it would make more sense to have more than one trait
+  #then I can compare them with PC analyses or some other metric   

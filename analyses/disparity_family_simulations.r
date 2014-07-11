@@ -184,7 +184,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
 #a) Simulated data
   shape.simPC <- calc.each.list(mylist=simlist, calculation=prcomp)
 
-#Select the PC axes that account for approsimately 95% of the variation
+#Select the PC axes that account for approximately 95% of the variation
   shape.simPC95 <- NULL
     for (i in 1:length(shape.simPC)){
       shape.simPC95[[i]] <- selectPCaxes.prcomp(shape.simPC[[i]], 0.956)
