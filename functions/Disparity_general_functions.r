@@ -283,7 +283,7 @@
   #selects based on a threshold amount of cumulative variation explained and then add 1 extra axis
   selectPCaxes.prcomp <- function (prcomp.object, threshold){
     no.of.axes <- NULL
-      if(summary(prcomp.object)$importance[3,1] > 0.956){
+      if(summary(prcomp.object)$importance[3,1] > threshold){
         no.of.axes <- 1
       } else {
         no.of.axes <- length(which(summary(prcomp.object)$importance[3,] <= threshold))
