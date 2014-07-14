@@ -92,7 +92,7 @@ for (i in 1:length(specid)){
   for (j in 1:length(measures)){
     median.list[(j+(i*(length(measures)) - length(measures))),1] <- specid[i]
     median.list[(j+(i*(length(measures)) - length(measures))),2] <- measures[j]
-    median.list[(j+(i*(length(measures)) - length(measures))),3] <- median(tc.gm$Value[which(tc.gm$SpecID == specid[i] & test$Measure == measures[j])])    
+    median.list[(j+(i*(length(measures)) - length(measures))),3] <- median(tc.gm$Value[which(tc.gm$SpecID == specid[i] & tc.gm$Measure == measures[j])])    
   }
 }
 
@@ -121,40 +121,102 @@ TreeOnly <- tree.only(mytrees,mydata$Binomial_05)        #null
   mydata <- droplevels(mydata[-(rem.sp),])
    
 #--------------------------------------------------------
-#Simulate character evolution
-
-#One trait on its own: mandible length
-  mand.length <- mydata[which(mydata$Measurement=="15_ML"),]
-  mand.length <- droplevels(mand.length)
 
 #Unique species names 
- binom<-levels(mand.length$Binomial_05)
+ binom<-levels(mydata$Binomial_05)
 
 #Average values for each species
-  mand.length.mean <- matrix(NA, length(binom),1)
+  mydata.mean <- matrix(NA, length(binom)*length(measures),3)
+  
   for (i in 1:length(binom)){
-    mand.length.mean[i,1] <- mean(as.numeric(as.vector(mand.length$Median[which(mand.length$Binomial_05==binom[i])])))
-  }
+    for (j in 1:length(measures)){
+      mydata.mean[(j+(i*(length(measures)) - length(measures))),1] <- binom[i]
+      mydata.mean[(j+(i*(length(measures)) - length(measures))),2] <- measures[j]
+      mydata.mean[(j+(i*(length(measures)) - length(measures))),3] <- mean(as.numeric(as.vector(mydata$Median[which(mydata$Binomial_05 == binom[i] & mydata$Measure == measures[j])])))
+    }
+  }                                                                   
+
 
   #add the species as rownames
-  rownames(mand.length.mean) <- binom
+  mydata.mean <- as.data.frame(mydata.mean)
+  colnames(mydata.mean) <- c("Binom","Measure", "Mean")
 
-#Separate variance covariance matrix of mandible length for each of the phylogenies
+#Re-shape the matrix so that each trait is in a separate column
+   mydata.mean.rs <- matrix(NA, length(binom), length(measures))
+   
+   for (i in 1:length(levels(mydata.mean$Measure))){
+    rownames(mydata.mean.rs) <- binom
+    colnames(mydata.mean.rs) <- levels(mydata.mean$Measure)
+    mydata.mean.rs[,i] <- mydata.mean$Mean[which(mydata.mean$Measure == (levels(mydata.mean$Measure)[i]))]
+   }
+
+#-------------------------------------------------------
+#Variance covariance matrix for the trait data
+  #NB: advice from Adam Algar at BES Macro Nottingham: use ic.sigma
+      #but that's been deprecated -> use vcv.phylo instead (previously I used vcv)
+      #Here using vcv and vcv.phylo give the same results
+
+#One phylogeny first
+ one.tree <- mytrees[[1]]
+ 
+ varcov.phylo <- vcv.phylo(one.tree, mydata.mean.rs)
+  varcov <- vcv(one.tree, mydata.mean.rs)
+#-----------------------------------------------------------
+#Separate variance covariance matrix for each of the phylogenies
 
 #Separate variance covariance matrix of the shape data for each of the phylogenies
-  varcov <- as.list(rep(NA,length(mytrees)))
+  varcov.list <- as.list(rep(NA,length(mytrees)))
+    
     for(i in 1:length(mytrees)){
-      varcov[[i]] <- vcv(phy=mytrees[[i]],mand.length.mean)
+      varcov.list[[i]] <- vcv.phylo(phy=mytrees[[i]],mydata.mean.rs)
     } 
     
-#simulate shape evolution on each phylogeny
-  length.sim <- as.list(rep(NA,length(mytrees)))
+#Simulate trait evolution on each phylogeny
+  shape.sim <- as.list(rep(NA,length(mytrees)))
+    
     for (i in 1: length(mytrees)){
-      length.sim[[i]] <- sim.char(mytrees[[i]], varcov[[i]],nsim=1000,model="BM")
+      shape.sim[[i]] <- sim.char(mytrees[[i]], varcov.list[[i]], nsim=1000, model="BM")
     }
     
 #Combine simulations into one list
-  simlist <- list.arrays.to.matrices(length.sim)
+  simlist <- list.arrays.to.matrices(shape.sim)
 
-#These simulations work but it would make more sense to have more than one trait
-  #then I can compare them with PC analyses or some other metric   
+#----------------------------------------------------------
+#Compare observed and simulated data
+
+#PCA on observed data
+  mydata.mean.PCA <- prcomp(mydata.mean.rs)
+#Select PC axes that account for 95% of the variation
+  mydata.mean.PCaxes <- selectPCaxes.prcomp(mydata.mean.PCA, 0.956)
+  #Calculate disparity as sum of variance
+  mydata.mean.sumvar <- PCsumvar(mydata.mean.PCaxes) 
+  
+#PCA on simulated data
+  simlist.PCA <- NULL
+  
+  for (i in 1:length(simlist)){
+    simlist.PCA[[i]] <- prcomp(simlist[[i]])
+  }
+
+#Select PC axes that account for 95% of the variation
+  simlist.PCaxes <- NULL
+  
+  for (i in 1:length(simlist.PCA)){
+    simlist.PCaxes[[i]] <- selectPCaxes.prcomp(simlist.PCA[[i]], 0.956)
+  }
+  
+#Calculate disparity as sum of variance
+  simlist.sumvar <- NULL
+  
+  for (i in 1:length(simlist.PCA)){
+    simlist.sumvar[[i]] <- PCsumvar(simlist.PCaxes[[i]])
+  }
+
+#Compare the observed and simulated values  
+p.sumvar <- pvalue.dist(simlist.sumvar, mydata.mean.sumvar)
+
+#Histogram comparison
+  sumvar.hist <- hist(simlist.sumvar, xlab="Sum of Variance", main=NULL, las=1,
+                      cex.lab=1.2)
+    arrow.to.x.point(sumvar.hist, mydata.mean.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
+                    height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
