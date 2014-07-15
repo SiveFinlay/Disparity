@@ -1,12 +1,17 @@
 #04/07/2014
+  #Updated on 15/07/14 after reading through Luke Mahler's Continuous_tutorial script (under R_work/tutorials)
 
 #Script to test my simulations code on linear measurements
   #Data file is my mandible measurements
   #(created by taking the intact mandible measurements from Skulls_after_remeasuring_06_2013
   #and combining it with the mandible measurements from Skulls_FMNH_Sept2013)
+  
+
 
 library(ape)
 library(geiger)
+library(phytools)
+library(qpcR)
 
 source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
 source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
@@ -147,8 +152,31 @@ TreeOnly <- tree.only(mytrees,mydata$Binomial_05)        #null
    for (i in 1:length(levels(mydata.mean$Measure))){
     rownames(mydata.mean.rs) <- binom
     colnames(mydata.mean.rs) <- levels(mydata.mean$Measure)
-    mydata.mean.rs[,i] <- mydata.mean$Mean[which(mydata.mean$Measure == (levels(mydata.mean$Measure)[i]))]
-   }
+    mydata.mean.rs[,i] <- as.character(mydata.mean$Mean[which(mydata.mean$Measure == (levels(mydata.mean$Measure)[i]))])
+   }                              #without as.character then the code just ranks the values
+
+#Log each of the variables
+  mydata.mean.rs.log <- matrix(NA, length(binom), length(measures))
+  
+  for (i in 1:length(measures)){
+    rownames(mydata.mean.rs.log) <- binom
+    colnames(mydata.mean.rs.log) <- levels(mydata.mean$Measure)
+    mydata.mean.rs.log[,i] <- log(as.numeric(mydata.mean.rs[,i]))
+  }
+############################################
+#NB; I missed a possibly very important step: sort the trait data to be in the same order as the tip labels
+  #(It won't make a difference if the code can recognise the same binomial species names in the data and the trees
+  # but Mahler's tutorial code advocates that it's a good idea to sort data)
+  
+#However, there's an issue in that the tip data are in different orders in every tree
+#So presumably I need to create differently sorted trait data matrices to match each phylogeny
+
+mydata.sorted <- NULL
+
+for (i in 1:length(mytrees)){
+  mydata.sorted[[i]] <- mydata.mean.rs.log[mytrees[[i]]$tip.label,]
+}
+
 
 #-------------------------------------------------------
 #Variance covariance matrix for the trait data
@@ -159,16 +187,18 @@ TreeOnly <- tree.only(mytrees,mydata$Binomial_05)        #null
 #One phylogeny first
  one.tree <- mytrees[[1]]
  
- varcov.phylo <- vcv.phylo(one.tree, mydata.mean.rs)
-  varcov <- vcv(one.tree, mydata.mean.rs)
+ varcov.phylo <- vcv.phylo(one.tree, mydata.mean.rs.log)
+  varcov <- vcv(one.tree, mydata.mean.rs.log)
+  varcov.phylo==varcov #All true
 #-----------------------------------------------------------
 #Separate variance covariance matrix for each of the phylogenies
 
-#Separate variance covariance matrix of the shape data for each of the phylogenies
+#Separate variance covariance matrix of the logged average trait values for each of the phylogenies
+  #use the list of sorted trait matrices
   varcov.list <- as.list(rep(NA,length(mytrees)))
     
     for(i in 1:length(mytrees)){
-      varcov.list[[i]] <- vcv.phylo(phy=mytrees[[i]],mydata.mean.rs)
+      varcov.list[[i]] <- vcv.phylo(phy=mytrees[[i]],mydata.sorted[[i]])
     } 
     
 #Simulate trait evolution on each phylogeny
@@ -184,8 +214,8 @@ TreeOnly <- tree.only(mytrees,mydata$Binomial_05)        #null
 #----------------------------------------------------------
 #Compare observed and simulated data
 
-#PCA on observed data
-  mydata.mean.PCA <- prcomp(mydata.mean.rs)
+#PCA on observed data (log values)
+  mydata.mean.PCA <- prcomp(mydata.mean.rs.log)
 #Select PC axes that account for 95% of the variation
   mydata.mean.PCaxes <- selectPCaxes.prcomp(mydata.mean.PCA, 0.956)
   #Calculate disparity as sum of variance
@@ -220,3 +250,63 @@ p.sumvar <- pvalue.dist(simlist.sumvar, mydata.mean.sumvar)
                       cex.lab=1.2)
     arrow.to.x.point(sumvar.hist, mydata.mean.sumvar, fraction.of.yaxis=50, line.fraction.of.yaxis=4,
                     height.above.xaxis=5, head.length=0.15, colour="blue", line.width=2.5)
+                    
+#---------------------------------
+#Observed disparity is significantly lower than the simulated values, 
+  #even after sorting the data according to the tip labels in the phylogeny
+
+#----------------------------------------------
+#Trying out code from Mahler's Continuous_tutorial script
+
+#Use the PCA results of the trait values
+#Select PC1 (drop=FALSE maintains the same object class - stops it from turning a single column into a vector)
+
+mands.pc <- (mydata.mean.PCA$x[,1, drop=FALSE])
+
+#Working with one tree only
+
+#Check whether the data and species in the tree are in the same order
+(mytrees[[1]]$tip.label) == rownames(mands.pc)   #not true for all of them
+
+#Re-order the data based on the order of the tip labels in one phylogeny only
+    mands.pc.order <- mands.pc[one.tree$tip.label,, drop=FALSE]
+    
+    
+#Re-scale variables to plot them to look for variation
+	mands.lines <- (mands.pc-min(mands.pc)) / (max(mands.pc)-min(mands.pc))
+
+#Plot the single tree in one half of the plotting window	
+	plot(one.tree, x.lim=250,cex=.5,font=4,label.offset=.025,edge.width=3)  
+
+#plot line segments corresponding to each trait.
+
+	nspecies <- length(one.tree$tip.label)
+	segments(rep(150,nspecies),1:nspecies,rep(150,nspecies)+(25*mands.lines), 1:nspecies,lwd=3)
+	mtext("relative mandible length", at = 150, side = 1, line = 0, cex=.5,font=2)
+
+#Try different models of continuous trait evolution	
+  brown_mands <- fitContinuous(one.tree, mands.pc.order)	
+	eb_mands <- fitContinuous(one.tree, mands.pc.order, model="EB") #using the default bounds instead of the tutorial example, 
+                                                                                          #I don't understand how they're chosen
+	ou_mands <- fitContinuous(one.tree, mands.pc.order, ,model="OU")
+
+#Table to compare the models	
+	model<-matrix(,3,4,dimnames = list(c("Brownian Motion", "Early Burst", "Ornstein-Uhlenbeck"),c("log likelihood", "AICc", "Delta AICc", "AICc Weights")))
+
+# Now, let's put the likelihood scores and AICc values into the first two columns, calling them from the dataframes we made earlier:
+
+	model[,1]<-c(brown_mands$opt$lnL, eb_mands$opt$lnL, ou_mands$opt$lnL)
+	model[,2]<-c(brown_mands$opt$aicc, eb_mands$opt$aicc, ou_mands$opt$aicc)
+
+# Add the delta AIC scores and the AIC weights 
+
+	aic.all<-as.matrix(model[,2])
+	scor.wts<-akaike.weights(aic.all)
+
+
+	model[,3]<-scor.wts$deltaAIC
+	model[,4]<-scor.wts$weights
+
+  #NB: this method works but it's not particularly informative since there isn't an obvious difference in AIC weights
+    #and also I've only tried to fo it on one tree; it would take longer to fit all models to all of the trees
+
