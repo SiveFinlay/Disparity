@@ -1,11 +1,13 @@
-#04/06/2014 (date of most recent modification)
+#16/07/2014 (date of most recent modification)
 #General script for simulating shape evolution across phylogenies and calculating disparity
     #Modified the script to make it work for running the analyses through the terminal connection to cyberman
-
+    #Need to re-run the analysis to check whether sorting the data makes any difference
+    
 #Steps
   #1) Read in phylogenies, shape data and taxonomy
   #2) Choose which family (tenrecs or golden moles) 
   #3) Prune phylogenies
+  #Extra step: sort the data to match the order of the tip labels in each phylogeny
   #4) Shape simulation across phylogenies
   #5) PCA analysis of each simulation
   #6) Calculate disparity for each simulation and observed data
@@ -27,9 +29,9 @@ library(geomorph)
 #First option: working directories
 
 #Run on my computer
-#	source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
-#	source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
-#  source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
+	#source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
+	#source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
+  #source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
 
 #On the alien: save everything onto the USB
   #source("E:/Disparity/functions/Disparity_general_functions.r")
@@ -68,23 +70,25 @@ library(geomorph)
 #SkLat
 
 #1) Phylogenies
+#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
 setwd("~/Disparity/output/phylogenies")
      mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
      
 #2) Data
+#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
 setwd("~/Disparity/output/shape_data/sklat")
   
   #2a) All tenrecs and golden moles
       #shape coordinates
-      #sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
+      sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-      #tax <- read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
+      tax <- read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
   
   #2b) Non-microgale tenrecs and all golden moles
     #shape coordinates
-    sps.mean <- dget(file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
+    #sps.mean <- dget(file="SkLat_nonmic_tenrec+gmole_sps.mean.txt")
     #taxonomic information
-    tax <- read.table("SkLat_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
+    #tax <- read.table("SkLat_nonmic_tenrec+gmole_sps.mean_taxonomy.txt")
 #------------------------------------------------------
 #SkVent
 #1) Phylogenies
@@ -163,10 +167,20 @@ setwd("~/Disparity/output/shape_data/sklat")
 #Add the species as rownames
   rownames(twoDshape) <- mysps.mean$Binom
 
+#NB: Sort the data frames so that the species are in the same order as the tip labels on the phylogenies
+  #(cf. Mahler's Continuous_tutorial script
+  twoDshape.sorted <- NULL
+
+  for (i in 1:length(sps.trees)){
+    twoDshape.sorted[[i]] <- twoDshape[sps.trees[[i]]$tip.label,]
+  }
+
+#Use the sorted data that corresponds with each tree
+
 #Separate variance covariance matrix of the shape data for each of the phylogenies
   varcov <- as.list(rep(NA,length(sps.trees)))
     for(i in 1:length(sps.trees)){
-      varcov[[i]] <- vcv(phy=sps.trees[[i]],twoDshape)
+      varcov[[i]] <- vcv.phylo(phy=sps.trees[[i]],twoDshape.sorted[[i]])
     }   
 
 #simulate shape evolution on each phylogeny
