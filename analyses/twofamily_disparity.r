@@ -1,16 +1,21 @@
 #09/05/2014
   #updated on 11/06/2014; permutation tests for significant differences in disparity
+  #updated on 16/07/2014: tests of additional ideas from Uri at BES Nottingham
+    #1) compare disparity of the other family groups; on the basis that golden moles are all fossorial so you 
+      #would expect them to have lower morphological variation than the more ecologically diverse tenrecs
+    #2) find a way to look at intraspecific variation
 
 #Re-coding and re-analysis of my disparity project
 
 #general script which can be used with any of the data sets (skdors, skvent, sklat, mands)
   #change the input files depending on which data I'm using
   
-#compare disparity in tenrecs and golden moles only
+#compare disparity in tenrecs and golden moles only  # change this to comparing all of the families
   #additional option of selecting just microgale tenrecs
 
 #steps:
-  #1) Read in a clean up raw landmark data to select tenrecs and golden moles only
+  #1) Read in a clean up raw landmark data 
+    #OPTIONS; choices depending on the analysis
   #2) Procrustes superimposition of tenrecs and golden moles
   #3) Find the average Procrustes shape coordinates for each species
   #4) PCA of the shape coordinates
@@ -47,19 +52,19 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #READ IN DATA; directory will change for each data set
 ########################################################
 #SkDors data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
 
 #1) Landmarks
 #landmarks + curves file with the control lines removed
-  #land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+  land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
 
 #2) Sliders
 #edited sliders file (top 2 rows removed and the words before slide after put in instead
-  #curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+  curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
 
 #3) Taxonomy
 #file that has the correct taxonomy for each of the images
-  #taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+  taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
 
 #4) Specimens to remove
   #Null
@@ -78,16 +83,16 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 
 #-----------------------------------------------------
 #SkVent data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skvent")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skvent")
 
 #1) Landmarks
-  land <- readland.tps(file="SkVent_30_10_13_13landmarks+1curve_edited.TPS")
+  #land <- readland.tps(file="SkVent_30_10_13_13landmarks+1curve_edited.TPS")
 #2) Sliders
-  curves <- as.matrix(read.table(file="SkVent_1skull_13landmarks+1curve_sliders_edited.tps", header=TRUE))     #this is a tps file and the others are nts but it doesn't make a difference
+  #curves <- as.matrix(read.table(file="SkVent_1skull_13landmarks+1curve_sliders_edited.tps", header=TRUE))     #this is a tps file and the others are nts but it doesn't make a difference
 #3) Taxonomy
-  taxa <- read.csv("SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
+  #taxa <- read.csv("SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
 #4) Specimens to remove
-  rem <- read.csv("SkVent_remove_spec.csv", header=T)
+  #rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
@@ -115,31 +120,37 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
  combine <- droplevels.from.list(combine)
 
 #********************************************
-#Option depending on the data
+#OPTIONS; depending on the data and the analysis
+#************************************
+#1) Clean up the data
 #Clean up the sklat, skvent and mands data
   #doesn't apply to the skdors data because rem is NULL
-#************************************************** 
+
 #find the ID numbers of specimens with missing data
-  matching <- matching.id(rem$SpecID, combine$SpecID)
-    combine <- remove.from.list(combine, matching)
-    combine <- droplevels.from.list(combine)
+  #matching <- matching.id(rem$SpecID, combine$SpecID)
+    #combine <- remove.from.list(combine, matching)
+    #combine <- droplevels.from.list(combine)
 #*********************************************
-
-#Select the tenrec and golden mole specimens only
-  tc.gm <- c(which(combine$Fam=="Chrysochloridae"), which(combine$Fam=="Tenrecidae"))
+ #2) Select which families to work with 
+  #2a) Select the tenrec and golden mole specimens only
+    #tc.gm <- c(which(combine$Fam=="Chrysochloridae"), which(combine$Fam=="Tenrecidae"))
   
-  mydata <- select.from.list(combine, tc.gm)
-  mydata <- droplevels.from.list(mydata)
-
+    #mydata <- select.from.list(combine, tc.gm)
+    #mydata <- droplevels.from.list(mydata)
+  
+  #2b) All of the families (just rename combine as mydata)
+    #NB: remove the Notoryctidae because there's only one specimen in the family
+      mydata <- remove.from.list(combine, which(combine$Fam=="Notoryctidae"))
+      mydata <- droplevels.from.list(mydata)
 #**************************************************
-#Option depending on the analysis
-#************************************************** 
-#Option to remove all of the Microgale specimens
+  #3) Option to remove the Microgale tenrecs
+
    #mic <- which(mydata$Genus=="Microgale")
 
    #mydata <- remove.from.list(mydata, mic)
    #mydata <- droplevels.from.list(mydata)
 #**************************************************  
+
 #######################################
 #PROCRUSTES SUPERIMPOSTION
 #######################################
@@ -165,6 +176,7 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 
 #list of species
   binom <- sps.mean$Binom
+
 #######################################
 #PRINCIPAL COMPONENTS ANALYSIS
 #######################################
@@ -191,6 +203,12 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   gmolePC <- PC95axes[which(sp.fam$Family=="Chrysochloridae"),]
   tenrecPC <- PC95axes[which(sp.fam$Family=="Tenrecidae"),]
 
+#Additional families for the full data set (including Solenodontidae even though there are only two species)
+  hedgePC <- PC95axes[which(sp.fam$Family=="Erinaceidae"),]
+  shrewPC <- PC95axes[which(sp.fam$Family=="Soricidae"),]
+  molePC <- PC95axes[which(sp.fam$Family=="Talpidae"),]
+  solenPC <- PC95axes[which(sp.fam$Family=="Solenodontidae"),]
+
 #######################################
 #CALCULATE DISPARITY
 #######################################
@@ -206,7 +224,6 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     tenrec.sr <- PCsumrange(tenrecPC)
     tenrec.pr <- PCprodrange(tenrecPC)
 
-
   #Golden moles
     #variance
     gmole.v <- PCvariance(gmolePC)
@@ -221,6 +238,10 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #Based on sum of squared distances (Zeldich 2012)
   #interlandmark distance: compare each species to the overall mean shape of all species
     ild.distance <- dist.to.ref(sps.mean$meanshape)
+    #create a matrix version as well with species as rownames (need it for permutation tests later in the script)
+    ild.distance.mat <- as.matrix(ild.distance)
+    rownames(ild.distance.mat) <- binom
+    
 
   #tenrecs
     tenrec.ild <- ild.distance[which(sp.fam$Fam == "Tenrecidae")]
@@ -229,23 +250,96 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   #golden moles
     gmole.ild <- ild.distance[which(sp.fam$Fam == "Chrysochloridae")]
     gmoleMD <- ZelditchMD(gmole.ild)
+#------------------------------
+#Extra families for the full analysis
+  #Hedgehogs
+    #variance
+    hedge.v <- PCvariance(hedgePC)
+    hedge.sv <- PCsumvar(hedgePC)
+    hedge.pv <- PCprodvar(hedgePC)
 
-#Put the disparity calculations into a single table
-  disp <- matrix(NA,nrow=2, ncol=5)
-    rownames(disp) <- c("Tenrec","Gmole")
+    #range
+    hedge.r <- PCrange(hedgePC)
+    hedge.sr <- PCsumrange(hedgePC)
+    hedge.pr <- PCprodrange(hedgePC)
+
+    #sum of squared Euclidean distances
+    hedge.ild <- ild.distance[which(sp.fam$Fam == "Erinaceidae")]
+    hedgeMD <- ZelditchMD(hedge.ild)             
+    
+  #Moles
+    #variance
+    mole.v <- PCvariance(molePC)
+    mole.sv <- PCsumvar(molePC)
+    mole.pv <- PCprodvar(molePC)
+
+    #range
+    mole.r <- PCrange(molePC)
+    mole.sr <- PCsumrange(molePC)
+    mole.pr <- PCprodrange(molePC)
+
+    #sum of squared Euclidean distances
+    mole.ild <- ild.distance[which(sp.fam$Fam == "Talpidae")]
+    moleMD <- ZelditchMD(mole.ild) 
+    
+  #Shrews
+    #variance
+    shrew.v <- PCvariance(shrewPC)
+    shrew.sv <- PCsumvar(shrewPC)
+    shrew.pv <- PCprodvar(shrewPC)
+
+    #range
+    shrew.r <- PCrange(shrewPC)
+    shrew.sr <- PCsumrange(shrewPC)
+    shrew.pr <- PCprodrange(shrewPC)
+
+    #sum of squared Euclidean distances
+    shrew.ild <- ild.distance[which(sp.fam$Fam == "Soricidae")]
+    shrewMD <- ZelditchMD(shrew.ild) 
+    
+  #Solenodons
+    #variance
+    solen.v <- PCvariance(solenPC)
+    solen.sv <- PCsumvar(solenPC)
+    solen.pv <- PCprodvar(solenPC)
+
+    #range
+    solen.r <- PCrange(solenPC)
+    solen.sr <- PCsumrange(solenPC)
+    solen.pr <- PCprodrange(solenPC)
+    
+    #sum of squared Euclidean distances
+    solen.ild <- ild.distance[which(sp.fam$Fam == "Solenodontidae")]
+    solenMD <- ZelditchMD(solen.ild) 
+#------------------------------------------------    
+
+#Put the disparity calculations into a single table (just tenrecs and golden moles)
+  #disp <- matrix(NA,nrow=2, ncol=5)
+    #rownames(disp) <- c("Tenrec","Gmole")
+    #colnames(disp) <- c("SumVar","ProdVar","SumRange","ProdRange", "ZelditchMD")
+    #disp[,1] <- c(tenrec.sv, gmole.sv)
+    #disp[,2] <- c(tenrec.pv, gmole.pv)
+    #disp[,3] <- c(tenrec.sr, gmole.sr)
+    #disp[,4] <- c(tenrec.pr, gmole.pr)
+    #disp[,5] <- c(tenrecMD, gmoleMD)
+    
+#Put the disparity calculations into a single table (full table for all families)
+  disp <- matrix(NA,nrow=6, ncol=5)
+    rownames(disp) <- c("Tenrec","Gmole", "Hedge", "Mole", "Shrew", "Solen")
     colnames(disp) <- c("SumVar","ProdVar","SumRange","ProdRange", "ZelditchMD")
-    disp[,1] <- c(tenrec.sv,gmole.sv)
-    disp[,2] <- c(tenrec.pv,gmole.pv)
-    disp[,3] <- c(tenrec.sr,gmole.sr)
-    disp[,4] <- c(tenrec.pr,gmole.pr)
-    disp[,5] <- c(tenrecMD,gmoleMD)
+    disp[,1] <- c(tenrec.sv, gmole.sv, hedge.sv, mole.sv, shrew.sv, solen.sv)
+    disp[,2] <- c(tenrec.pv, gmole.pv, hedge.pv, mole.pv, shrew.pv, solen.pv)
+    disp[,3] <- c(tenrec.sr, gmole.sr, hedge.sr, mole.sr, shrew.sr, solen.sr)
+    disp[,4] <- c(tenrec.pr, gmole.pr, hedge.pr, mole.pr, shrew.pr, solen.pr)
+    disp[,5] <- c(tenrecMD, gmoleMD, hedgeMD, moleMD, shrewMD, solenMD)
   
 
 #######################################
 #COMPARE FAMILIES
 #######################################
 #Compare morphospace occupation (not comparing disparity metrics directly)
-
+        #Not very meaningful because it just shows that overall families occupy significantly different areas of morphospace
+          #i.e. it doesn't show the specific differences between particular families
 #1) Distance matrix
 
 #Euclidean distance matrix of all of the species
@@ -270,69 +364,148 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #Test for significant differences in disparity (modified code from Steve Wang, email on 10/06/2014)
   #tests for PC disparity metrics and Zelditch MD
   #Advantage of this method is that it takes differences in sample size into account
-
-  #observed differences in disparity
-  obs.diff.sv <- tenrec.sv - gmole.sv
-  obs.diff.pv <- tenrec.pv - gmole.pv
-  obs.diff.sr <- tenrec.sr - gmole.sr
-  obs.diff.pr <- tenrec.pr - gmole.pr
-  obs.diff.md <- tenrecMD - gmoleMD
-
+  #Pairwise observed differences in disparity among all family groups
   
-  #permutation test for significant differences in disparity between tenrecs and golden moles
-  perm.sv <- group.diff(1000, sp.fam$Family, PC95axes, PCsumvar)
-  perm.pv <- group.diff(1000, sp.fam$Family, PC95axes, PCprodvar)
-  perm.sr <- group.diff(1000, sp.fam$Family, PC95axes, PCsumrange)
-  perm.pr <- group.diff(1000, sp.fam$Family, PC95axes, PCprodrange)
-  #ZelditchMD calculated from interlandmark distance, not the PC axes
-  perm.md <- group.diff(1000, sp.fam$Family, as.matrix(ild.distance), ZelditchMD)
-
-  #histograms of the results
-  par(mfrow=c(1,2)) 
-    #Variance
-    hist(perm.sv)
-     abline(v=obs.diff.sv, col="red")    
-    hist(perm.pv)
-     abline(v=obs.diff.pv, col="red")
-    
-    #Ranges
-    hist(perm.sr)
-     abline(v=obs.diff.sr, col="red")
-    hist(perm.pr)
-     abline(v=obs.diff.pr, col="red")
-    
-    #ZelditchMD
-    hist(perm.md)
-     abline(v=obs.diff.md, col="red")
+  obs.diff.sv <- group.pair.diff(group.identity=rownames(disp), group.values=disp[,1])    
+  obs.diff.pv <- group.pair.diff(group.identity=rownames(disp), group.values=disp[,2])   
+  obs.diff.sr <- group.pair.diff(group.identity=rownames(disp), group.values=disp[,3])   
+  obs.diff.pr <- group.pair.diff(group.identity=rownames(disp), group.values=disp[,4])   
+  obs.diff.md <- group.pair.diff(group.identity=rownames(disp), group.values=disp[,5])   
   
-   #test for significant differences
-    #distributions values above and below the observed
-      obs.dist.sv <- table(perm.sv >= obs.diff.sv)
-      obs.dist.pv <- table(perm.pv >= obs.diff.pv)
-      obs.dist.sr <- table(perm.sr >= obs.diff.sr)
-      obs.dist.pr <- table(perm.pr >= obs.diff.pr)
-      obs.dist.md <- table(perm.md >= obs.diff.md)
-    
-    #p values
-      pvalue.sv <- pvalue.dist(perm.sv, obs.diff.sv)
-      pvalue.pv <- pvalue.dist(perm.pv, obs.diff.pv)
-      pvalue.sr <- pvalue.dist(perm.sr, obs.diff.sr)
-      pvalue.pr <- pvalue.dist(perm.pr, obs.diff.pr)
-      pvalue.md <- pvalue.dist(perm.md, obs.diff.md)
+#Permutation tests for significant differences in disparity between tenrecs and other family groups
+  #1) Tenrecs vs golden moles  
+      #Permutation tests 
+      tc.gm.perm.sv <- perm.diff.two.groups(1000, "Chrysochloridae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      tc.gm.perm.pv <- perm.diff.two.groups(1000, "Chrysochloridae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      tc.gm.perm.sr <- perm.diff.two.groups(1000, "Chrysochloridae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      tc.gm.perm.pr <- perm.diff.two.groups(1000, "Chrysochloridae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      tc.gm.perm.md <- perm.diff.two.groups(1000, "Chrysochloridae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+  
+      #test for significant differences
+          #(NB: Another way to look at the distribution is with a table showing when the permutated values are greater than the observed)
+          #tc.gm.obs.dist.sv <- table(tc.gm.perm.sv >= obs.diff.sv[1,3])
+      tc.gm.pvalue.sv <- pvalue.dist(tc.gm.perm.sv, obs.diff.sv[1,3])
+      tc.gm.pvalue.pv <- pvalue.dist(tc.gm.perm.pv, obs.diff.pv[1,3])
+      tc.gm.pvalue.sr <- pvalue.dist(tc.gm.perm.sr, obs.diff.sr[1,3])
+      tc.gm.pvalue.pr <- pvalue.dist(tc.gm.perm.pr, obs.diff.pr[1,3])
+      tc.gm.pvalue.md <- pvalue.dist(tc.gm.perm.md, obs.diff.md[1,3])
 
-#Summary table of the results
-  disp.signif <- matrix(NA,nrow=5, ncol=4)
-    rownames(disp.signif) <- c("SumVar","ProdVar","SumRange","ProdRange", "ZelditchMD")
-    colnames(disp.signif) <- c("Tenrecidae", "Chrysochloridae", "Difference", "Pvalue")
-  disp.signif[1,] <-c(tenrec.sv, gmole.sv, obs.diff.sv, pvalue.sv)
-  disp.signif[2,] <-c(tenrec.pv, gmole.pv, obs.diff.pv, pvalue.pv)
-  disp.signif[3,] <-c(tenrec.sr, gmole.sr, obs.diff.sr, pvalue.sr)
-  disp.signif[4,] <-c(tenrec.pr, gmole.pr, obs.diff.pr, pvalue.pr)
-  disp.signif[5,] <-c(tenrecMD, gmoleMD, obs.diff.md, pvalue.md)
+  #2) Tenrecs vs. hedgehogs
+      #Permutation tests 
+      tc.hd.perm.sv <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      tc.hd.perm.pv <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      tc.hd.perm.sr <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      tc.hd.perm.pr <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      tc.hd.perm.md <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+  
+      #test for significant differences
+      tc.hd.pvalue.sv <- pvalue.dist(tc.hd.perm.sv, obs.diff.sv[2,3])
+      tc.hd.pvalue.pv <- pvalue.dist(tc.hd.perm.pv, obs.diff.pv[2,3])
+      tc.hd.pvalue.sr <- pvalue.dist(tc.hd.perm.sr, obs.diff.sr[2,3])
+      tc.hd.pvalue.pr <- pvalue.dist(tc.hd.perm.pr, obs.diff.pr[2,3])
+      tc.hd.pvalue.md <- pvalue.dist(tc.hd.perm.md, obs.diff.md[2,3])
+
+  #3) Tenrecs vs. moles
+      #Permutation tests 
+      tc.ml.perm.sv <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      tc.ml.perm.pv <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      tc.ml.perm.sr <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      tc.ml.perm.pr <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      tc.ml.perm.md <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+  
+      #test for significant differences
+      tc.ml.pvalue.sv <- pvalue.dist(tc.ml.perm.sv, obs.diff.sv[3,3])
+      tc.ml.pvalue.pv <- pvalue.dist(tc.ml.perm.pv, obs.diff.pv[3,3])
+      tc.ml.pvalue.sr <- pvalue.dist(tc.ml.perm.sr, obs.diff.sr[3,3])
+      tc.ml.pvalue.pr <- pvalue.dist(tc.ml.perm.pr, obs.diff.pr[3,3])
+      tc.ml.pvalue.md <- pvalue.dist(tc.ml.perm.md, obs.diff.md[3,3])
+
+  #4) Tenrecs vs. shrews
+      #Permutation tests 
+      tc.sh.perm.sv <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      tc.sh.perm.pv <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      tc.sh.perm.sr <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      tc.sh.perm.pr <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      tc.sh.perm.md <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+  
+      #test for significant differences
+      tc.sh.pvalue.sv <- pvalue.dist(tc.sh.perm.sv, obs.diff.sv[4,3])
+      tc.sh.pvalue.pv <- pvalue.dist(tc.sh.perm.pv, obs.diff.pv[4,3])
+      tc.sh.pvalue.sr <- pvalue.dist(tc.sh.perm.sr, obs.diff.sr[4,3])
+      tc.sh.pvalue.pr <- pvalue.dist(tc.sh.perm.pr, obs.diff.pr[4,3])
+      tc.sh.pvalue.md <- pvalue.dist(tc.sh.perm.md, obs.diff.md[4,3])
+
+
+#Summary table of the results (make this shorter when it's just a tenrec vs. golden mole analysis)
+  perm.res.summary <- matrix(NA, nrow=20, ncol=7)
+    colnames(perm.res.summary) <- c("metric", "fam1", "fam2", "obs.diff", "perm.min", "perm.max", "pvalue")
+    
+  perm.res.summary[,1] <- c(rep("sumvar",4), rep("prodvar", 4), rep("sumrange", 4), rep("prodrange",4), rep("ZelditchMD",4))
+  perm.res.summary[,2] <- rep(c("gmole", "hedge", "mole", "shrew"),5)
+  perm.res.summary[,3] <- "tenrec"
+    #fill in the observed disparity values
+      perm.res.summary[1:4,4] <- obs.diff.sv[1:4,3] 
+      perm.res.summary[5:8,4] <- obs.diff.pv[1:4,3] 
+      perm.res.summary[9:12,4] <- obs.diff.sr[1:4,3] 
+      perm.res.summary[13:16,4] <- obs.diff.pr[1:4,3]
+      perm.res.summary[17:20,4] <- obs.diff.md[1:4,3]
+    #minimum and maximum values from permutations and p values
+      #sum of variance
+      perm.res.summary[1,5:7] <- c(min(tc.gm.perm.sv), max(tc.gm.perm.sv), tc.gm.pvalue.sv)
+      perm.res.summary[2,5:7] <- c(min(tc.hd.perm.sv), max(tc.hd.perm.sv), tc.hd.pvalue.sv)
+      perm.res.summary[3,5:7] <- c(min(tc.ml.perm.sv), max(tc.ml.perm.sv), tc.ml.pvalue.sv)
+      perm.res.summary[4,5:7] <- c(min(tc.sh.perm.sv), max(tc.sh.perm.sv), tc.sh.pvalue.sv)
+      
+      #product of variance
+      perm.res.summary[5,5:7] <- c(min(tc.gm.perm.pv), max(tc.gm.perm.pv), tc.gm.pvalue.pv)
+      perm.res.summary[6,5:7] <- c(min(tc.hd.perm.pv), max(tc.hd.perm.pv), tc.hd.pvalue.pv)
+      perm.res.summary[7,5:7] <- c(min(tc.ml.perm.pv), max(tc.ml.perm.pv), tc.ml.pvalue.pv)
+      perm.res.summary[8,5:7] <- c(min(tc.sh.perm.pv), max(tc.sh.perm.pv), tc.sh.pvalue.pv)
+
+      #sum of ranges
+      perm.res.summary[9,5:7] <- c(min(tc.gm.perm.sr), max(tc.gm.perm.sr), tc.gm.pvalue.sr)
+      perm.res.summary[10,5:7] <- c(min(tc.hd.perm.sr), max(tc.hd.perm.sr), tc.hd.pvalue.sr)
+      perm.res.summary[11,5:7] <- c(min(tc.ml.perm.sr), max(tc.ml.perm.sr), tc.ml.pvalue.sr)
+      perm.res.summary[12,5:7] <- c(min(tc.sh.perm.sr), max(tc.sh.perm.sr), tc.sh.pvalue.sr)
+                               
+      #product of ranges
+      perm.res.summary[13,5:7] <- c(min(tc.gm.perm.pr), max(tc.gm.perm.pr), tc.gm.pvalue.pr)
+      perm.res.summary[14,5:7] <- c(min(tc.hd.perm.pr), max(tc.hd.perm.pr), tc.hd.pvalue.pr)
+      perm.res.summary[15,5:7] <- c(min(tc.ml.perm.pr), max(tc.ml.perm.pr), tc.ml.pvalue.pr)
+      perm.res.summary[16,5:7] <- c(min(tc.sh.perm.pr), max(tc.sh.perm.pr), tc.sh.pvalue.pr)                               
+     
+      #ZelditchMD
+      perm.res.summary[17,5:7] <- c(min(tc.gm.perm.md), max(tc.gm.perm.md), tc.gm.pvalue.md)
+      perm.res.summary[18,5:7] <- c(min(tc.hd.perm.md), max(tc.hd.perm.md), tc.hd.pvalue.md)
+      perm.res.summary[19,5:7] <- c(min(tc.ml.perm.md), max(tc.ml.perm.md), tc.ml.pvalue.md)
+      perm.res.summary[20,5:7] <- c(min(tc.sh.perm.md), max(tc.sh.perm.md), tc.sh.pvalue.md)
+                               
+perm.res.summary<-as.data.frame(perm.res.summary)                                    
+  
+  #No significant difference in the sum of variance between tenrecs and any of the other groups
+    #Significant difference for every other metric                            
+
+#------------------------------
+#Extra comparison of moles vs. golden moles (mainly relevant when I move on to trying to figure out why gmoles have more variable mandibles than tenrecs)
+      #Permutation tests 
+      gm.ml.perm.sv <- perm.diff.two.groups(1000, "Talpidae", "Chrysochloridae", sp.fam, PC95axes, PCsumvar)
+      gm.ml.perm.pv <- perm.diff.two.groups(1000, "Talpidae", "Chrysochloridae", sp.fam, PC95axes, PCprodvar)
+      gm.ml.perm.sr <- perm.diff.two.groups(1000, "Talpidae", "Chrysochloridae", sp.fam, PC95axes, PCsumrange)
+      gm.ml.perm.pr <- perm.diff.two.groups(1000, "Talpidae", "Chrysochloridae", sp.fam, PC95axes, PCprodrange)  
+      gm.ml.perm.md <- perm.diff.two.groups(1000, "Talpidae", "Chrysochloridae", sp.fam, ild.distance.mat, ZelditchMD)  
+  
+      #test for significant differences
+      gm.ml.pvalue.sv <- pvalue.dist(gm.ml.perm.sv, obs.diff.sv[7,3])
+      gm.ml.pvalue.pv <- pvalue.dist(gm.ml.perm.pv, obs.diff.pv[7,3])
+      gm.ml.pvalue.sr <- pvalue.dist(gm.ml.perm.sr, obs.diff.sr[7,3])
+      gm.ml.pvalue.pr <- pvalue.dist(gm.ml.perm.pr, obs.diff.pr[7,3])
+      gm.ml.pvalue.md <- pvalue.dist(gm.ml.perm.md, obs.diff.md[7,3])
+  #Only the ZelditchMD values are significantly different
 
 
 #######################################
 #OUTPUT FILES
+  #NB: I haven't made new output files of the permutation tests yet
 #######################################
 
 #Save the outputs to different working directory
@@ -343,7 +516,7 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #SkVent
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skvent")
 #Mands
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
 
 #**************************************************
 #1) Shape data, taxonomy , disparity measures, disparity comparisons 
@@ -457,7 +630,7 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   #4) Table of npMANOVA results
    # write.table(file="Mands_nonmic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #5) Table of permutation test for significant differences in group disparity
-      write.table(file="Mands_nonmic_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+      #write.table(file="Mands_nonmic_tenrec+gmole_disp.signif.txt",disp.signif,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #**************************************************
 #2) Save the PCA plot
