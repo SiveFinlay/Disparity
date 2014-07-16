@@ -8,7 +8,9 @@
     #subset.matrix
     #anova.frp
     #common.character
+    #group.pair.diff
     #group.diff (cf Steve Wang)
+    #perm.diff.two.groups (wrapper function for group.diff)
     
 #2) Dealing with lists
       #remove.from.list
@@ -89,8 +91,30 @@
       return(common)
   }
 #---------------------------------------------------------
+#Function to calculate pairwise differences among single values for different groups
+  #Returns a data frame listing the two groups and the differences in their values
+
+  group.pair.diff <- function (group.identity, group.values){
+    group.pair <- combn(group.identity,2)
+    value.pair.diff <- diff(combn(group.values, 2))
+    pair.diff <- matrix(NA, nrow=ncol(group.pair), ncol=3)
+      colnames(pair.diff) <- c("group1", "group2", "group2-group1") 
+        for (i in 1:ncol(group.pair)){
+          pair.diff[i,1] <- group.pair[,i][1]
+          pair.diff[i,2] <- group.pair[,i][2]
+          pair.diff[i,3] <- value.pair.diff[i]
+        }  
+    pair.diff <- as.data.frame(pair.diff)
+    pair.diff[,3] <- as.numeric(as.character(pair.diff[,3]))
+    return(pair.diff)
+  }
+  
+#---------------------------------------------------
 #Function for permutation tests of significant differences between two groups
   #Modified from Steve Wang's email on 10/06/2014
+  #Modified again on 16/07/2014 to make the function applicable to more than two groups
+
+  
   group.diff <- function (numreps, two.groups, mydata, test.statistic){
     results <- rep(NA,numreps)
     for (rep in 1:numreps) {
@@ -102,6 +126,22 @@
     }
     return(results)
   } 
+
+#Wrapper function for using group.diff; select two family groups and corresponding data from larger data objects
+
+perm.diff.two.groups <- function (numreps, fam1, fam2, sp.fam.data, mydata, test.statistic){
+  #list of species names
+  mygroups <- droplevels(sp.fam.data[c(which(sp.fam.data$Family == fam1), (which(sp.fam.data == fam2))),])
+  #select those species from mydata
+  mygroups.id <- NULL
+    for (i in 1:length(mygroups$Binomial)){
+      mygroups.id[i] <- which(rownames(mydata) == mygroups$Binomial[i])
+    }
+  mygroups.data <- mydata[mygroups.id,,drop=FALSE]    #drop=FALSE preserves the matrix class of the selected object
+  #permutation test for significant difference in a test statistic between the two groups
+  perm.group <- group.diff(numreps, mygroups$Family, mygroups.data, test.statistic)
+}
+
 
 #****************************************
 #2) Dealing with lists
