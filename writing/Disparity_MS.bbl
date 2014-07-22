@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -32,6 +32,12 @@ Asher, R.J., Maree, S., Bronner, G., Bennett, N., Bloomer, P., Czechowski, P.,
 \newblock A phylogenetic estimate for golden moles ({M}ammalia, {A}frotheria,
   {C}hrysochloridae).
 \newblock \emph{BMC Evolutionary Biology} \textbf{10}: 1--13.
+
+\bibitem[{Bookstein(1997)}]{Bookstein1997}
+Bookstein, F. 1997.
+\newblock Landmark methods for forms without landmarks: morphometrics of group
+  differences in outline shape.
+\newblock \emph{Medical image analysis} \textbf{1}: 225--243.
 
 \bibitem[{Brusatte et~al.(2008)Brusatte, Benton, Ruta \& Lloyd}]{Brusatte2008}
 Brusatte, S., Benton, M., Ruta, M. \& Lloyd, G. 2008.
@@ -83,27 +89,9 @@ Harmon, L., Schulte, J., Larson, A. \& Losos, J.B. 2003.
 \newblock Tempo and mode of evolutionary radiation in iguanian lizards.
 \newblock \emph{Science} \textbf{301}: 961--964.
 
-\bibitem[{Harmon et~al.(2008)Harmon, Weir, Brock, Glor \&
-  Challenger}]{Harmon2008}
-Harmon, L., Weir, J., Brock, C., Glor, R. \& Challenger, W. 2008.
-\newblock G{E}{I}{G}{E}{R}: investigating evolutionary radiations.
-\newblock \emph{Bioinformatics} \textbf{24}: 129--131.
-
-\bibitem[{Hopkins(2013)}]{Hopkins2013}
-Hopkins, M. 2013.
-\newblock Decoupling of taxonomic diversity and morphological disparity during
-  decline of the {C}ambrian trilobite family \textit{{P}terocephaliidae}.
-\newblock \emph{Journal of Evolutionary Biology} \textbf{26}: 1665--1676.
-\newblock 10.1111/jeb.12164.
-
 \bibitem[{IUCN(2012)}]{IUCN2012}
 IUCN 2012.
 \newblock International {U}nion for {C}onservation of {N}ature.
-
-\bibitem[{Jenkins(2003)}]{Jenkins2003}
-Jenkins, P. 2003.
-\newblock \emph{Microgale, shrew tenrecs}, pp. 1273--1278.
-\newblock The University of Chicago Press, Chicago.
 
 \bibitem[{Klingenberg(2008)}]{Klingenberg2008a}
 Klingenberg, C. 2008.
@@ -130,6 +118,12 @@ Losos, J. 2010.
   {A}ddress.
 \newblock \emph{The American Naturalist} \textbf{175}: 623--639.
 \newblock 10.1086/652433.
+
+\bibitem[{Losos \& Miles(2002)}]{Losos2002}
+Losos, J. \& Miles, D. 2002.
+\newblock Testing the hypothesis that a clade has adaptively radiated:
+  {I}guanid lizards as a case study.
+\newblock \emph{The American Naturalist} \textbf{160}: 147--157.
 
 \bibitem[{Losos \& Mahler(2010)}]{Losos2010a}
 Losos, J.B. \& Mahler, D. 2010.
