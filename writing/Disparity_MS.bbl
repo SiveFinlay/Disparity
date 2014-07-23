@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -12,13 +12,11 @@ Adams, D., Ot\'arola-Castillo, E. \& Paradis, E. 2013.
 \newblock geomorph: an r package for the collection and analysis of geometric
   morphometric shape data.
 \newblock \emph{Methods in Ecology and Evolution} \textbf{4}: 393--399.
-\newblock 10.1111/2041-210X.12035.
 
 \bibitem[{Anderson(2001)}]{Anderson2001}
 Anderson, M. 2001.
 \newblock A new method for non-parametric multivariate analysis of variance.
 \newblock \emph{Austral Ecology} \textbf{26}: 32--46.
-\newblock 10.1111/j.1442-9993.2001.01070.pp.x.
 
 \bibitem[{Asher \& Hofreiter(2006)}]{Asher2006}
 Asher, R. \& Hofreiter, M. 2006.
@@ -68,13 +66,17 @@ Foth, C., Brusatte, S. \& Butler, R. 2012.
   {I}nsights from the cranial morphometrics and evolutionary history of
   \textit{{P}terosauria} ({D}iapsida: {A}rchosauria).
 \newblock \emph{Journal of Evolutionary Biology} \textbf{25}: 904--915.
-\newblock 10.1111/j.1420-9101.2012.02479.x.
 
 \bibitem[{Gavrilets \& Losos(2009)}]{Gavrilets2009}
 Gavrilets, S. \& Losos, J. 2009.
 \newblock Adaptive radiation: contrasting theory with data.
 \newblock \emph{Science} \textbf{323}: 732--736.
-\newblock 10.1126/science.1157966.
+
+\bibitem[{Glor(2010)}]{Glor2010}
+Glor, R. 2010.
+\newblock Phylogenetic insights on adaptive radiation.
+\newblock \emph{Annual Review of Ecology, Evolution, and Systematics}
+  \textbf{41}: 251--270.
 
 \bibitem[{Goswami et~al.(2011)Goswami, Milne \& Wroe}]{Goswami2011}
 Goswami, A., Milne, N. \& Wroe, S. 2011.
@@ -82,7 +84,6 @@ Goswami, A., Milne, N. \& Wroe, S. 2011.
   convergence across living and fossil carnivorous mammals.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{278}: 1831--1839.
-\newblock 10.1098/rspb.2010.2031.
 
 \bibitem[{Harmon et~al.(2003)Harmon, Schulte, Larson \& Losos}]{Harmon2003}
 Harmon, L., Schulte, J., Larson, A. \& Losos, J.B. 2003.
@@ -109,7 +110,6 @@ Klingenberg, C. 2013.
 Kuhn, T., Mooers, A. \& Thomas, G. 2011.
 \newblock A simple polytomy resolver for dated phylogenies.
 \newblock \emph{Methods in Ecology and Evolution} \textbf{2}: 427--436.
-\newblock 10.1111/j.2041-210X.2011.00103.x.
 
 \bibitem[{Losos(2010)}]{Losos2010}
 Losos, J. 2010.
@@ -146,26 +146,28 @@ Olson, L.E. 2013.
 \newblock Tenrecs.
 \newblock \emph{Current Biology} \textbf{23}: R5--R8.
 
+\bibitem[{Olson \& Arroyo‐Santos(2009)}]{Olson2009}
+Olson, M.E. \& Arroyo‐Santos, A. 2009.
+\newblock Thinking in continua: beyond the “adaptive radiation” metaphor.
+\newblock \emph{BioEssays} \textbf{31}: 1337--1346.
+
 \bibitem[{O'Meara et~al.(2006)O'Meara, An\'e, Sanderson \&
   Wainwright}]{OMeara2006}
 O'Meara, B., An\'e, C., Sanderson, M. \& Wainwright, P. 2006.
 \newblock Testing for different rates of continuous trait evolution using
   likelihood.
 \newblock \emph{Evolution} \textbf{60}: 922--933.
-\newblock 10.1111/j.0014-3820.2006.tb01171.x.
 
 \bibitem[{Paradis et~al.(2004)Paradis, Claude \& Strimmer}]{Paradis2004}
 Paradis, E., Claude, J. \& Strimmer, K. 2004.
 \newblock Ape: Analyses of {P}hylogenetics and {E}volution in {R} language.
 \newblock \emph{Bioinformatics} \textbf{20}: 289--290.
-\newblock 10.1093/bioinformatics/btg412.
 
 \bibitem[{Price et~al.(2013)Price, Tavera, Near \& Wainwright}]{Price2013}
 Price, S., Tavera, J., Near, T. \& Wainwright, P. 2013.
 \newblock Elevated rates of morphological and functional diversification in
   reef-dwelling haemulid fishes.
 \newblock \emph{Evolution} \textbf{67}: 417--428.
-\newblock 10.1111/j.1558-5646.2012.01773.x.
 
 \bibitem[{Revell(2012)}]{Revell2012}
 Revell, L. 2012.
@@ -197,7 +199,6 @@ Ruta, M., Angielczyk, K., Fr\"obisch, J. \& Benton, M. 2013.
   adaptive radiation of anomodont therapsids.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{280}: 20131071.
-\newblock 10.1098/rspb.2013.1071.
 
 \bibitem[{Soarimalala \& Goodman(2011)}]{Soarimalala2011}
 Soarimalala, V. \& Goodman, S. 2011.
@@ -205,9 +206,24 @@ Soarimalala, V. \& Goodman, S. 2011.
 \newblock Guides sur la diversit\'e biologique de {M}adagascar. Association
   {V}ahatra, {A}ntananarivo, {M}adagascar.
 
+\bibitem[{Stanhope et~al.(1998)Stanhope, Waddell, Madsen, de~Jong, Hedges,
+  Cleven, Kao \& Springer}]{Stanhope1998}
+Stanhope, M., Waddell, V., Madsen, O., de~Jong, W., Hedges, S., Cleven, G.,
+  Kao, D. \& Springer, M. 1998.
+\newblock Molecular evidence for multiple origins of insectivora and for a new
+  order of endemic african insectivore mammals.
+\newblock \emph{Proceedings of the National Academy of Sciences} \textbf{95}:
+  9967--9972.
+
 \bibitem[{Team(2013)}]{Team2013}
 Team, R.D.C. 2013.
 \newblock R: {A} language and environment for statistical computing.
+
+\bibitem[{Wills et~al.(1994)Wills, Briggs \& Fortey}]{Wills1994}
+Wills, A., Briggs, D. \& Fortey, R. 1994.
+\newblock Disparity as an evolutionary index: {A} comparison of {C}ambrian and
+  recent arthropods.
+\newblock \emph{Paleontological Society} \textbf{20}: 93--130.
 
 \bibitem[{Wilson \& Reeder(2005)}]{Wilson2005}
 Wilson, D. \& Reeder, D. 2005.

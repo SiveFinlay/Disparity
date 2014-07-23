@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  22 JUL 2014 11:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  23 JUL 2014 16:14
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -320,19 +320,19 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count121
 )
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Try loading font information for OT1+pplj on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Try loading font information for OT1+pplj on input line 56.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pplj.fd"
@@ -387,30 +387,30 @@ File: ot1pplj.fd 2004/09/06 font definitions for OT1/pplj.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 64.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 64.
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 60.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 60.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd"
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 60.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 60.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd"
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 60.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 60.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd"
@@ -419,26 +419,33 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 68.
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 64.
  [2
 
-] [3] [4]
+]
+Missing character: There is no ‚ in font pplr9o!
+Missing character: There is no Ä in font pplr9o!
+Missing character: There is no ê in font pplr9o!
+Missing character: There is no ‚ in font pplr9o!
+Missing character: There is no Ä in font pplr9o!
+Missing character: There is no ê in font pplr9o!
+ [3] [4]
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 119.
- [5] (Disparity_MS.fff)
-(Disparity_MS.ttt) [6] [7] [8] [9] [10]
-LaTeX Font Info:    Try loading font information for OML+pplj on input line 315
-.
-LaTeX Font Info:    No file OMLpplj.fd. on input line 315.
-
-
-LaTeX Font Warning: Font shape `OML/pplj/m/n' undefined
-(Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textgreater' on input line 315.
-
-[11] [12] [13] [14]
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [15]
-[16] [17] [18]) AED endfloat: Processing end Figures and Tables [19]
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 93.
+ [5] [6] (Disparity_MS.fff)
+(Disparity_MS.ttt) [7] [8] [9] [10] [11] [12] [13]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [14]
+[15] [16]
+Missing character: There is no ‚ in font pplr9o!
+Missing character: There is no Ä in font pplr9o!
+Missing character: There is no ê in font pplr9o!
+Missing character: There is no ‚ in font pplr9o!
+Missing character: There is no Ä in font pplr9o!
+Missing character: There is no ú in font pplr9o!
+Missing character: There is no ‚ in font pplr9o!
+Missing character: There is no Ä in font pplr9o!
+Missing character: There is no ù in font pplr9o!
+ [17] [18]) AED endfloat: Processing end Figures and Tables [19]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof
 Overfull \hbox (1.11337pt too wide) in paragraph at lines 1--1
  \OT1/pplj/m/n/12 ture the mor-pho-log-i-cal shape of skulls in dor-sal view. C
@@ -503,7 +510,7 @@ pt>
 File: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg Graphic file (type jpg)
  <use figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg>
 Package pdftex.def Info: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg used on
- input line 20.
+ input line 19.
 (pdftex.def)             Requested size: 398.3386pt x 298.83437pt.
  [23 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkDors_Tenrecs+
 Gmoles_PC1PC2_01_05.jpg>]
@@ -512,7 +519,7 @@ Gmoles_PC1PC2_01_05.jpg>]
 File: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg Graphic file (type jpg)
  <use figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg>
 Package pdftex.def Info: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg used 
-on input line 28.
+on input line 27.
 (pdftex.def)             Requested size: 398.3386pt x 349.46704pt.
  [24 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/Mands_Tenrecs+G
 moles_PC1PC2_01_05_14.jpg>]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing
@@ -540,28 +547,25 @@ Overfull \hbox (87.73332pt too wide) in paragraph at lines 4--24
  [][] 
  []
 
-) [27]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
+) [27]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 4649 strings out of 493921
- 66156 string characters out of 3147276
- 135174 words of memory out of 3000000
- 7807 multiletter control sequences out of 15000+200000
- 41547 words of font info for 98 fonts, out of 3000000 for 9000
+ 4653 strings out of 493921
+ 66274 string characters out of 3147276
+ 135405 words of memory out of 3000000
+ 7813 multiletter control sequences out of 15000+200000
+ 41548 words of font info for 98 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,8n,36p,1045b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (27 pages, 939996 bytes).
+ 33i,8n,36p,1046b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+{
+C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fp
+l/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on Disparity_MS.pdf (27 pages, 939963 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

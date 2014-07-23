@@ -6,7 +6,8 @@
 
 
 %Start: 22/04/14
-%Last edited on 22/07
+%Last edited on 23/07
+	%Removed the simulations completely and changed the focus to more of a morphological study
 
 
 % Preamble
@@ -37,9 +38,8 @@
 %\linespread{1.6} 		% this is 1.5 spacing, double line spacing is 1.6 - unrecognised command (maybe due to the setspace package?)
 \usepackage[round]{natbib} % author-year citations in round brackets
 
-\title{Cranial morphological disparity within the adaptive radiation of tenrecs (Afrosoricida, Tenrecidae) is no greater than expected by chance} 
-% I want to come up with a better title; especially now that the simulations turn out to be wrong and I'm re-phrasing the introduction to avoid mentioning adaptive radiation
-% NC: Perhaps wait until you have confirmed the results etc.
+\title{Quantifying cranial morphological disparity in tenrecs (Afrosoricida, 	Tenrecidae) with implications for their designation as an adaptive radiation} 
+% I want to come up with a better title
 
 \author{Sive Finlay$^{1,2,*}$ and Natalie Cooper$^{1,2}$}
 \affiliation{\noindent{\footnotesize
@@ -47,8 +47,6 @@ $^1$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\
 $^2$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
 $^*$sfinlay@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland.\\ Fax: +353 1 6778094; Tel: +353 1 896 2571.\\}}
 \date{}	% To give blank date
-%Most likely put Steve in here as well
-% NC: I have a feeling he may not be interested in being on this one but yes let's ask him
 
 \runninghead{???} %I'll fix this when I have a proper title
 
@@ -69,147 +67,107 @@ $^*$sfinlay@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland.
 
 \newpage
 %-------------------------------------------------------
-\section{Introduction} % NC: This is *far* too long. Best introductions are short and to the point
-% NC: What does a reader *really* need to know to understand your paper? Generally aim for 4 or 5 paragraphs. 
+\section{Introduction} 
 
-% NC: OK I see what you're getting at here. But it's far to long before you get on to what you're actually looking at. How about a severely shortened version, something along the lines of 
-%1 - Adaptive radiation, short definition, is an exciting pattern and seen across many taxa (some examples, probably mention Darwin's finches). There has been debate about the exact meaning of the term - some arguing that it should be reserved only for species exhibiting lots of morphological disparity. However, few adaptive radiations have been characterised in this way (if this is true :). 
+Phenotypically diverse groups have long attracted the attentions of evolutionary biologists (REFS). Studies which quantify phenotypic variety have important implications for understanding the factors that contribute to high morphological diversity in some groups and not others (REFS). For example...
 
+These issues are particularly relevant when it comes to the study of adaptive radiations: "evolutionary divergence of members of a single phylogenetic lineage into a variety of different adaptive forms" \citep[Futuyma 1998, cited by][]{Losos2010}. 
+There are many famous examples of adaptively radiated groups \citep{Gavrilets2009}. However, there has also been considerable debate about how adaptive radiations should be defined \citep{Glor2010, Losos2010a} based on the relative importance of speciation rate, species richness and morphological diversity. One particular issue is whether it is even meaningful to classify a particular group of species as an adaptive radiation or not since any classification relies on arbitrary distinctions between what is most likely a continua of characteristics which describe the diversity of a particular clade \citep{Olson2009}.
 
-Adaptive radiations, "evolutionary divergence of members of a single phylogenetic lineage into a variety of different adaptive forms" \citep[Futuyma 1998, cited by][]{Losos2010} have long-attracted the interests and attentions of naturalists. Some of the most famous examples include cichlid fish and Caribbean \textit{Anolis} lizards \citep{Gavrilets2009}. These groups exhibit great variety in both their phenotypic forms and the ecological niches which they occupy. 
+However, despite the controversies and disagreements, there does seem to be a consensus that high morphological diversity is an important criteria for identifying a group of species as belonging to the adaptive radiation scale \citep{Losos2010a, Olson2009}. One way to test whether a group shows high morphological diversity is through sister taxa comparisons. For example, Losos and Miles \citeyear{Losos2002} used this approach to demonstrate exceptional diversity in some but not all clades of iguanid lizards.
+Here we use this approach to test whether tenrecs (Afrosoricida, Tenrecidae) exhibit the high levels of phenotypic diversity which is the expected characteristic of an adaptively radiated clade.
 
-Each of these groups are uncontroversially accepted as examples of adaptive radiations. However, there has been considerable debate about how adaptive radiations should be defined (REFS) and how to distinguish an adaptively radiated group from just a clade of apparently diverse species. This is an important distinction because we need a consistent means of identifying an adaptive radiation before we can investigate and understand the selective pressures which cause adaptive radiations to develop in some groups and not others (REFS). 
+The tenrec family is comprised of 34 species, 31 of which are endemic to Madagascar \citep{Olson2013}. From a single common ancestor \citep{Asher2006}, Malagasy tenrecs diversified into a wide variety of descendant species which convergently resemble distantly related insectivore mammals such as shrews (\textit{Microgale} tenrecs), moles (\textit{Oryzorictes} tenrecs) and hedgehogs (\textit{Echinops} and \textit{Setifer} tenrecs) \citep{Eisenberg1969}. These convergent resemblances are so great that tenrecs used to be considered part of the general "insectivore" clade and only molecular studies revealed their true phylogenetic relationships with the rest of the Afrotheria clade \citep{Stanhope1998}.  
 
-%-----------------------------
-%Maybe put this paragraph in somewhere else but it doesn't fit here
+Tenrecs are often cited as an example of an adaptively radiated family which exhibits exceptional morphological diversity \citep{Soarimalala2011, Olson2003, Eisenberg1969}. However, this apparent exceptional diversity is based on subjective comparisons to other groups and it has not been tested. Here we present the first quantitative test of patterns of phenotypic diversity in tenrecs and examine how morphological diversity in tenrecs compares to their closest relatives, the golden moles (Afrosoricida, Chryscholoridae). 
 
-%One common issue is the assumption that adaptively radiated (phenotypically and ecologically diverse) groups should also exhibit a high degree of species richness (REFS). This apparent correlation is true for some groups, including the Anole and cichlid examples mentioned above, but taxonomic variety does not necessarily correlate with phenotypic diversity \citep{Ruta2013, Hopkins2013}. Clades that have exceptional phenotypic diversity can still be regarded as adaptive radiations even if they are not taxonomically diverse, the most famous example being Darwin's finches \citep{Gavrilets2009}. 
-%--------------
-One suggestion is that an adaptively radiated clade should show exceptional (i.e. greater than expected by chance) morphological and ecological diversity \citep{Losos2010a}. In this case, a group of species would be considered exceptionally diverse if they have more phenotypic and ecological diverstiy than their closest relatives and also if they exhibit greater diversity than expected by chance. However, few putative examples of adaptive radiations have been characterised in this way. %I think this is true but I need to double check
-Under this definition it is equally important to demonstrate exceptional diversity in both phenotypic variety and the range of ecological niches which the species occupy. However, for the purposes of this paper we will focus on the first criteria; investigating the evidence for morphological variety. 
-
-
-%2 - Morphological disparity is short definition. It can be measured in many ways including - several *short* methods. 
-Phenotypic diversity is commonly measured as morphological disparity; the diversity of organic form \citep{Foote1997,Erwin2007}). There is no single definition of disparity and it can be calculated in many ways including measures of morphospace occupation \citep[e.g.][]{Goswami2011, Brusatte2008} and rate-based approaches that assess the amount of directed change away from an ancestor \citep{OMeara2006, Price2013}. Analyses of disparity apply these alternative approaches depending on whether the study is interested in current patterns of morphological diversity or the rate at which they accumulate through time. 
-
-%I need to finish off the paragraph here depending on whether I end up using one or both approaches 
+We use disparity, the diversity of organic form \citep{Foote1997, Wills1994, Erwin2007}, to measure phenotypic variety within the two families. There is no single definition of disparity and it can be calculated in many ways including measures of morphospace occupation \citep[e.g.][]{Goswami2011, Brusatte2008} and rate-based approaches that assess the amount of directed change away from an ancestor \citep{OMeara2006, Price2013}. Here we focus on patterns of phenotypic variety in extant species rather than analysing the rate of diversity accumulation through time. 
+Using the most complete morphological data set of tenrecs and golden moles to date we apply two dimensional geometric morphometrics \citep{Rohlf1993, Adams2013} to quantify variation in cranial and mandible morphologies as proxies for phenotypic diversity in the two families. 
+Our results indicate that, on average, tenrec crania are more phenotypically diverse than golden mole skulls. However, we recover the opposite pattern in our analyses of mandible shape; golden moles appear to have greater phenotypic diversity in their mandibles than tenrecs.
+Therefore, these findings support the designation of tenrecs as an exceptionally diverse group but also highlight how our understanding of patterns of phenotypic diversity changes depending on the morphological proxies which we use.
 
 
-%3- Here we investigate morphological disparity in tenrecs, to determine whether they represent an adaptive radiation sensu Losos. Tenrecs are - brief description. We use brief methods 
-
-Here we investigate current patterns of morphological disparity in tenrecs (Afrosoricida, Tenrecidae) to determine whether they represent an adaptive radiation sensu \citep{Losos2010a}. The tenrec family is comprised of 34 species, 31 of which are endemic to Madagascar \citep{Olson2013}. From a single common ancestor \citep{Asher2006}, Malagasy tenrecs diversified into a wide variety of descendant species which convergently resemble distantly related insectivore mammals such as shrews (\textit{Microgale} tenrecs), moles (\textit{Oryzorictes} tenrecs) and hedgehogs (\textit{Echinops} and \textit{Setifer} tenrecs) \citep{Eisenberg1969}.
-
-Tenrecs are often cited as an example of an adaptively radiated family which exhibits exceptional morphological diversity \citep{Soarimalala2011, Olson2003, Eisenberg1969}. However, this apparent exceptional diversity is based on subjective comparisons to other groups and it has not been tested quantitatively. If tenrecs are exceptionally morphologically diverse then, following \citep{Losos2010a}, tenrecs should be more morphologically disparate than expected by chance and they should exhibit significantly more phenotypic diversity than their nearest relatives, the golen moles (Afrosoricida, Chrysochloridae). Here we test these predictions using cranial morphology as a proxy for phenotypic diversity.
-
-
-%4- *Brief$* results and implications. 
-
-Using the most complete morphological data set of tenrecs and golden moles to date we apply geometric morphometric analyses \citep{Rohlf1993, Zelditch2012} to quantify morphological disparity among our species. Our results indicate that, on average, tenrecs are more phenotypically diverse than their closest relatives but their morphological diversity is no greater than that which is expected to evolve by chance.
-%NB: the new permutation method shows that only some of these differences are significant 
-Therefore, under strict definitions, the designation of tenrecs as an exceptional adaptive radiation may need to be reconsidered. 
-
-These findings highlight the vital importance of testing our common, but often erroneous, expectations about patterns of morphological disparity in groups that exhibit apparent high levels of diversity. 
-
-%I need a better final sentence here
 %-------------------------------------------------------------
 \section{Materials and Methods}
 
-\subsection{Data collection} % NC: Separate into data collection and analysis sections 
-% NC: I'd go for the geometric morphometrics first then mention the supplemental data e.g phylogeny afterwards
+\subsection{Data collection} 
 
-\subsubsection{Morphological data collection} % NC: Perhaps more descriptive than geo morph?
-
-% Due to the high number and relatively small sizes of our specimens we chose to use two dimensional morphometrics rather than 3D techniques. NC: Is this needed? Never start a section with an apology!
-	%SF Fair point, I was just trying to pre-empt an obvious reviewer criticism but I could stick the justification into the supplemental if necessary
+\subsubsection{Morphological data collection} 
 	
-One of us (SF) photographed cranial specimens of tenrecs and golden moles at the Natural History Museum London (NHML), the Smithsonian Institute Natural History Museum (SI), the American Museum of Natural History (AMNH), Harvard's Museum of Comparative Zoology (MCZ) and the Field Museum of Natural History, Chicago (FMNH). We photographed the specimens with a Canon EOS 650D camera fitted with an EF 100mm f/2.8 Macro USM lens using a standardised procedure to minimise potential error (see supplementary material for details). 
-%NC Might want to use the standard museum abbreviations - BMNH etc.
-	%SF I used NHML because I thought the BMNH was the old name?
+	One of us (SF) photographed cranial specimens of tenrecs and golden moles at the Natural History Museum London (NHML), the Smithsonian Institute Natural History Museum (SI), the American Museum of Natural History (AMNH), Harvard's Museum of Comparative Zoology (MCZ) and the Field Museum of Natural History, Chicago (FMNH). We photographed the specimens with a Canon EOS 650D camera fitted with an EF 100mm f/2.8 Macro USM lens using a standardised procedure to minimise potential error (see supplementary material for details). 
+	%NC Might want to use the standard museum abbreviations - BMNH etc.
+		%SF I used NHML because I thought the BMNH was the old name?
 
+	We collected pictures of the skulls in dorsal, ventral and lateral views (right side of the skull) and of the outer (buccal) side of the right mandibles. A full list of museum accession numbers and access to the images can be found in the supplementary material.
 
-
-We collected pictures of the skulls in dorsal, ventral and lateral views (right side of the skull) and of the outer (buccal) side of the right mandibles. A full list of museum accession numbers and access to the images can be found in the supplementary material.
-
-
-In total we collected pictures from 182 skulls in dorsal view (148 tenrecs and 34 golden moles) and 181 mandibles in lateral view (147 tenrecs and 34 golden moles), representing 31 species of tenrec (out of the total 34 in the family) and 12 species of golden moles (out of a total of 21 in the family \citep{Asher2010}). We used the taxonomy of Wilson and Reeder \citeyearpar{Wilson2005} supplemented with more recent sources \citep{IUCN2012, Olson2013} to identify our specimens. 
-% NC: I rearranged to make it shorter, try and do this. Need to be more concise or you'll never get it short enough to submit :)
-	%Thanks, I know I'm long-winded!
+	In total we collected pictures from 182 skulls in dorsal view (148 tenrecs and 34 golden moles) and 181 mandibles in lateral view (147 tenrecs and 34 golden moles), representing 31 species of tenrec (out of the total 34 in the family) and 12 species of golden moles (out of a total of 21 in the family \citep{Asher2010}). We used the taxonomy of Wilson and Reeder \citeyearpar{Wilson2005} supplemented with more recent sources \citep{IUCN2012, Olson2013} to identify our specimens. 
 	
 
-We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}) and semilandmarks to characterise the shapes of our specimens. Our landmarks (points) and semilandmarks (outline curves) used to represent shape variation in the dorsal skulls and mandibles are depicted in Figures \ref{fig:skdors_landmarks} and \ref{fig:mands_landmarks} respectively. Corresponding landmark definitions for each view are in tables \ref{tab:skdors_landmarks} and \ref{tab:mands_landmarks}. We also placed landmarks and semilandmarks on photographs of ventral and lateral skull views, details can be found in the supplementary material. We digitised all landmarks and semilandmarks in tpsDIG, version 2.17 \citep{Rohlf2013}.
+	We used a combination of both landmarks (type 2 and type 3, \citep{Zelditch2012}) and semilandmarks to characterise the shapes of our specimens. Our landmarks (points) and semilandmarks (outline curves) used to represent shape variation in the dorsal skulls and mandibles are depicted in Figures \ref{fig:skdors_landmarks} and \ref{fig:mands_landmarks} respectively. Corresponding landmark definitions for each view are in tables \ref{tab:skdors_landmarks} and \ref{tab:mands_landmarks}. We also placed landmarks and semilandmarks on photographs of ventral and lateral skull views, details can be found in the supplementary material. We digitised all landmarks and semilandmarks in tpsDIG, version 2.17 \citep{Rohlf2013}.
+
+	We re-sampled the outlines to the minimum number of evenly spaced semilandmark points required to represent each outline accurately \citep[][details in supplementary material]{MacLeod2013}. We used TPSUtil \citep{Rohlf2012} to create sliders files \citep{Zelditch2012} to define which points were semilandmarks. We conducted all subsequent analyses in R version 3.0.2 \citep[R Development Core][]{Team2013} within the geomorph package \citep{Adams2013}. We used the gpagen function to run a general Procrustes alignment \citep{Rohlf1993} of the landmark coordinates while sliding the semilandmarks by minimising procrustes distance \citep{Bookstein1997}. We used these Procrustes-aligned coordinates of all species (n=43) to calculate average shape values for each species which we then used for a principal components (PC) analysis with the plotTangentSpace function \citep{Adams2013}. 
 
 %*************************************************
 %I've fixed the formatting to put tables and figures at the end
 %May need to re-do pictures to grey scale instead of colour
 %**************************************
-%Skdors landmarks diagram
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{figures/AMNH_51327_dorsallandmarksdiagram.png}
-\caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of skulls in dorsal view. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) skull, accession number: AMNH\_51327}
-\label{fig:skdors_landmarks}
-\end{figure}
+%Skdors 
+	%landmarks diagram
+	\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{figures/AMNH_51327_dorsallandmarksdiagram.png}
+	\caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of skulls in dorsal view. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) skull, accession number: AMNH\_51327}
+	\label{fig:skdors_landmarks}
+	\end{figure}
 
 
-%Table for the dorsal skulls landmark descriptions
-\begin{table}[H]			
-\centering
-\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the skulls in dorsal view (see Figure \ref{fig:skdors_landmarks}).}
-\input{tables/skdors.landmarks} % This is the same table that I used in my methods chapter
-\label{tab:skdors_landmarks}  
-\end{table}
-%------------------------------------------
-%Mandibles landmarks diagram
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\linewidth]{figures/AMNH_51327_landmarksdiagram.png}
+	%Table with landmark descriptions
+	\begin{table}[H]			
+	\centering
+	\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the skulls in dorsal view (see Figure \ref{fig:skdors_landmarks}).}
+	\input{tables/skdors.landmarks} % This is the same table that I used in my methods chapter
+	\label{tab:skdors_landmarks}  
+	\end{table}
 
-\caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of mandibles. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) mandible, accession number: AMNH\_51327}
-\label{fig:mands_landmarks}
-\end{figure}
+%Mandibles 
+	%landmarks diagram
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/AMNH_51327_landmarksdiagram.png}
+	\caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of mandibles. Curves were re-sampled to the same number of evenly-spaced points. See table X for description of curves and landmarks.\textit{Potamogale velox} (Tenrecidae) mandible, accession number: AMNH\_51327}
+	\label{fig:mands_landmarks}
+	\end{figure}
 
-%Table for the mandibles' landmark descriptions
+	%Table for the mandibles' landmark descriptions
+	\begin{table}[H]			
+	\centering
+	\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the mandibles in lateral (buccal) view (see figure \ref{fig:mands_landmarks})}
+	\input{tables/mandibles.landmarks}
+	\label{tab:mands_landmarks} %give it a label so I can refer to it in the text
+	\end{table}
+%************************************************** 
 
-\begin{table}[H]			
-\centering
-\caption{Descriptions of the landmarks (points) and curves (semilandmarks) for the mandibles in lateral (buccal) view (see figure \ref{fig:mands_landmarks})}
-\input{tables/mandibles.landmarks}
-\label{tab:mands_landmarks} %give it a label so I can refer to it in the text
-\end{table}
-%---------------------------------------------------------- 
-
-
-
-We re-sampled the outlines to the minimum number of evenly spaced points required to represent each outline accurately \citep[][details in supplementary material]{MacLeod2013}. We used TPSUtil \citep{Rohlf2012} to create sliders files \citep{Zelditch2012} to define which points were semilandmarks. We conducted all subsequent analyses in R version 3.0.2 \citep[R Development Core][]{Team2013} within the geomorph package \citep{Adams2013}. We used the gpagen function to run a general Procrustes alignment \citep{Rohlf1993} of the landmark coordinates while sliding the semilandmarks by minimising procrustes distance \citep{Bookstein1997}. We used these Procrustes-aligned coordinates of all species (n=43) to calculate average shape values for each species which we then used for a principal components (PC) analysis with the plotTangentSpace function \citep{Adams2013}. 
-
-%-----------------------------------------------
 \subsubsection{Phylogeny} 
-Instead of basing our analyses on individual trees and assuming that their topologies were known without error \citep[e.g.][]{Ruta2013, Foth2012, Brusatte2008, Harmon2003} we used a distribution of 101 pruned phylogenies derived from the randomly resolved mammalian supertrees in \citep{Kuhn2011}. 
-	% I used 101 because that was the number in the smaller Fritz file - I could change it to 100 instead if 101 sounds odd?
+	Instead of basing our analyses on individual trees and assuming that their topologies were known without error \citep[e.g.][]{Ruta2013, Foth2012, Brusatte2008, Harmon2003} we used a distribution of 101 pruned phylogenies derived from the randomly resolved mammalian supertrees in \citep{Kuhn2011}. 
+		% I used 101 because that was the number in the smaller Fritz file - I could change it to 100 instead if 101 sounds odd?
 
-Eight species (six \textit{Microgale} tenrecs and two golden moles) in our morphological data were not in the phylogenies. Phylogenetic relationships among the \textit{Microgale} have not been resolved more recently than the \citep{Kuhn2011} analysis, therefore we added the additional \textit{Microgale} species at random to the \textit{Microgale} genus within each phylogeny \citep{Revell2012}. We could not use the same approach to add the two missing golden mole species because they were the only representatives of their respective genera within our data. Therefore we randomly added these species to the common ancestral node (using the findMRCA function in phytools \citep{Revell2012}) of all golden moles within each phylogeny. Adding these extra species to the phylogenies created polytomies which we resolved arbitrarily using zero-length branches \citep{Paradis2004}. We calculated pairwise phylogenetic distances among species using the cophenetic function \citep[R Development Core][]{Team2013}. 
-% NC: I feel like some of this belongs in the analysis section...
-	%SF Me too but I'm not sure where to put it without making a separate analyses section for the phylogenies and I don't think that makes sense.  
+	Eight species (six \textit{Microgale} tenrecs and two golden moles) in our morphological data were not in the phylogenies. Phylogenetic relationships among the \textit{Microgale} have not been resolved more recently than the \citep{Kuhn2011} analysis, therefore we added the additional \textit{Microgale} species at random to the \textit{Microgale} genus within each phylogeny \citep{Revell2012}. We could not use the same approach to add the two missing golden mole species because they were the only representatives of their respective genera within our data. Therefore we randomly added these species to the common ancestral node (using the findMRCA function in phytools \citep{Revell2012}) of all golden moles within each phylogeny. Adding these extra species to the phylogenies created polytomies which we resolved arbitrarily using zero-length branches \citep{Paradis2004}. We calculated pairwise phylogenetic distances among species using the cophenetic function \citep[R Development Core][]{Team2013}. 
+	% NC: I feel like some of this belongs in the analysis section...
+		%SF Me too but I'm not sure where to put it without making a separate analyses section for the phylogenies and I don't think that makes sense.  
 	
 %-------------------------------------------------------	
 \subsection{Analyses}
 \subsubsection{Disparity calculations} 
 
-We calculated morphological disparity separately for golden moles and tenrecs in each of the morphological datasets. We used the PC axes which accounted for 95\% of the cumulative variation to calculate four disparity metrics; the sum and product of the range and variance of morphospace occupied by each family \citep{Brusatte2008, Foth2012, Ruta2013}. We also calculated morphological disparity directly from the Procrustes-superimposed shape data based on the inter-landmark distances among species pairs \citep[ZelditchMD,][]{Zelditch2012}. We used 
+	We calculated morphological disparity separately for golden moles and tenrecs in each of the morphological datasets. We used the PC axes which accounted for 95\% of the cumulative variation to calculate four disparity metrics; the sum and product of the range and variance of morphospace occupied by each family \citep{Brusatte2008, Foth2012, Ruta2013}. We also calculated morphological disparity directly from the Procrustes-superimposed shape data based on the inter-landmark distances among species pairs \citep[ZelditchMD,][]{Zelditch2012}. We used 
 
-To test whether tenrecs have significantly different morphologies than golden moles, we used a non parametric MANOVA \citep{Anderson2001} to compare morphospace occupation between the two groups and pairwise permutation tests to assess the evidence for significant differences in each disparity metric.
+	To test whether tenrecs have significantly different morphologies than golden moles, we used a non parametric MANOVA \citep{Anderson2001} to compare morphospace occupation between the two groups and pairwise permutation tests to assess the evidence for significant differences in each disparity metric.
 
-%I need to re-phrase this part
-Sister taxon comparisons are inadequate on their own to determine whether a clade is exceptionally diverse \citep{Losos2002}. Therefore we repeated our morphometric analyses with a larger data set that included other small mammal species to which tenrecs are considered to be convergent. We added specimens from hedgehogs (Erinaceidae,x specimens of x species), moles (Talpidae, x specimens of x species), shrews (Soricidae, x specimens of x species) and Solenodons (Solenodontidae, x specimens of 2 species).
-
-
+	%I need to re-phrase this part
+	Sister taxon comparisons are inadequate on their own to determine whether a clade is exceptionally diverse \citep{Losos2002}. Therefore we repeated our morphometric analyses with a larger data set that included other small mammal species to which tenrecs are considered to be convergent. We added specimens from hedgehogs (Erinaceidae,x specimens of x species), moles (Talpidae, x specimens of x species), shrews (Soricidae, x specimens of x species) and Solenodons (Solenodontidae, x specimens of 2 species).
 
 
-%My simulation studies are wrong: Luke Harmon said that I can't use sim.char for shape data because the vcv matrices should be based on independent traits, not the x and y coordinates of the same shape variables.
 
-	%To test whether tenrecs are more morphologically disparate than expected by chance, we simulated shape evolution  \citep{Harmon2008} of the species-average, Procrustes-superimposed shape coordinates of each tenrec species across our distribution of phylogenies. We took "chance" to mean the expected shape evolution under a Brownian Motion (BM) model and we repeated 1000 simulations on of shape evolution in BM on each of 101 phylogenies pruned to include tenrec species only. We ran a principal components analysis on each of the simulations and used the PC axes which accounted for 95\% of the cumulative variation to calculate disparity metrics.
-
-	%We compared the observed disparity measure to the corresponding distribution of values and used a two-tailed test to determine whether the observed (true) disparity measures were more or less than that which is expected to evolve under BM.
 
 	%The majority of tenrecs (19 out of 31 in our data) are members of the \textit{Microgale} (shrew-like) genus which is notable for its relatively low phenotypic diversity \citep{ Soarimalala2011, Jenkins2003} and may mask signals of high disparity among other tenrecs. To test this we repeated our simulations of shape evolution excluding \textit{Microgale} species. This reduced our data set for tenrecs from 31 to 12 species. 
 
@@ -218,157 +176,122 @@ Sister taxon comparisons are inadequate on their own to determine whether a clad
 
 \section{Results}
 
-\subsection{Morphological disparity in tenrecs} 
-
-%This section is irrelevant now because the simulations are wrong
-
-	%We compared observed disparity to the distributions of expected disparity calculated from BM simulations of shape data (1,000 simulations on each of 101 phylogenies). We present the results from comparing our observed and simulated measures of sum of variance (figures \ref{fig:skdors_sumvar} and \ref{fig:mands_sumvar}) because all disparity metrics yielded the same patterns: tenrecs have significantly lower disparity than expected under BM.  Full results from all disparity metrics and including the ventral and lateral skull views can be found in the supplementary.
-
-
-
-	%Figures of simulated compared to observed disparity measures
-	% I could make this shorter by putting the two figures beside each other in panels
-	%\begin{figure}
-	%\centering
-	%\includegraphics[width=1\linewidth]{figures/skdors_trc+gmole_tenrec_sumvariance.jpg}
-
-	%\caption{Comparison of the observed and expected disparity in the dorsal skulls. Disparity is measured as sum of variance, blue arrow points to the observed value of disparity (0.0017)}
-	%\label{fig:skdors_sumvar}
-	%\end{figure}
-
-	%\begin{figure}
-	%\centering
-	%\includegraphics[width=1\linewidth]{figures/mands_trc+gmole_tenrec_sumvariance.jpg}
-
-	%\caption{Comparison of the observed and expected disparity in the mandibles. Disparity is measured as sum of variance, blue arrow points to the observed value of disparity (0.0031)}
-	%\label{fig:mands_sumvar}
-	%\end{figure}
-
-
-
-
-
-	%Removing the phenotypically similar \textit{Microgale} tenrecs did not qualitatively affect our results; the non-\textit{Microgale} tenrecs still show significantly lower phenotypic disparity than expected by chance (simulation results in the supplementary material). 
-
-
-%******************************************************
-
 \subsection{Morphological disparity in tenrecs and golden moles} 
  % Maybe put in a modified version of my results summary table here? Easy way of comparing all the disparity measures in each of the data sets
  
-Figures  \ref{fig:skdorsPCA} and \ref{fig:mandsPCA} 
-%again, I could put these beside each other as panels 
-depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
+	Figures  \ref{fig:skdorsPCA} and \ref{fig:mandsPCA} 
+	%again, I could put these beside each other as panels 
+	depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
 
-In the dorsal skulls analysis, tenrecs and golden moles occupy significantly different areas of morphospace (npMANOVA, F = 59.34, R$^2 $ = 0.59, p = 0.001) indicating that the two families have signficantly different skull morphologies. 
-%These are the npMANOVA results based on the PC axes rather than the distance matrix
-For each of the calculated metrics, tenrecs have higher disparity than golden moles but these differences were not significant for the variance-based calculations.  
-Non-\textit{Microgale} tenrecs also higher disparity than golden moles but none of the comparisons were statistically significant .
+	In the dorsal skulls analysis, tenrecs and golden moles occupy significantly different areas of morphospace (npMANOVA, F = 59.34, R$^2 $ = 0.59, p = 0.001) indicating that the two families have signficantly different skull morphologies. 
 
-Tenrecs and golden moles have significantly different mandible shapes (npMANOVA F = 59.34, R$^2$ = 0.59, p = 0.001). However, unexpectedly, golden moles appear to have higher disparity than tenrecs in the shape of their mandibles (although these differences are only significant when disparity is calculated as product of variance or ZelditchMD). 
-%Sum of ranges is also a significant difference but in the opposite direction: tenrecs>golden moles  
+	For each of the calculated metrics, tenrecs have higher disparity than golden moles but these differences were not significant for the variance-based calculations.  
+	Non-\textit{Microgale} tenrecs also higher disparity than golden moles but none of the comparisons were statistically significant .
 
-We tested whether these results may be artefacts of relatively low phenotypic diversity within \textit{Microgale} tenrecs. However, although golden moles and non-\text{Microgale} tenrecs occupy significantly different areas of morphospace (npMANOVA F = 31.6, R$^2$ = 0.59, p =	0.001), there is no significant difference between the two groups for any metrics of disparity. %based on the permutation tests
+	Tenrecs and golden moles have significantly different mandible shapes (npMANOVA F = 59.34, R$^2$ = 0.59, p = 0.001). However, unexpectedly, golden moles appear to have higher disparity than tenrecs in the shape of their mandibles (although these differences are only significant when disparity is calculated as product of variance or ZelditchMD). 
+	%Sum of ranges is also a significant difference but in the opposite direction: tenrecs>golden moles  
 
-%Add the permuation test results of comparing tenrecs to the other families too
-%Re-think the results summaries: combine them together into tables?
+	We tested whether these results may be artefacts of relatively low phenotypic diversity within \textit{Microgale} tenrecs. However, although golden moles and non-\text{Microgale} tenrecs occupy significantly different areas of morphospace (npMANOVA F = 31.6, R$^2$ = 0.59, p =	0.001), there is no significant difference between the two groups for any metrics of disparity. %based on the permutation tests
+
+	%Add the permuation test results of comparing tenrecs to the other families too
+	%Re-think the results summaries: combine them together into tables?
 
 %************************************
 %PCA figures: maybe put them together into panels to make them fit in?
+	
+	%Skdors
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg}
+	\caption{Principal components plot of the dorsal skulls' morphospace occupied by tenrecs (red, n=31) and golden moles (black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+	\label{fig:skdorsPCA}
+	\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\linewidth]{figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg}
-\caption{Principal components plot of the dorsal skulls' morphospace occupied by tenrecs (red, n=31) and golden moles (black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-\label{fig:skdorsPCA}
-\end{figure}
+	%Mandibles
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg}
+	\caption{Principal components plot of the mandibles' morphospace occupied by tenrecs (red, n=31) and golden moles(black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+	\label{fig:mandsPCA}
 
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\linewidth]{figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg}
-\caption{Principal components plot of the mandibles' morphospace occupied by tenrecs (red, n=31) and golden moles(black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-\label{fig:mandsPCA}
-
-\end{figure}
+	\end{figure}
 %**********************************************
 
 
-\section{Discussion} % NC: I know this is rough and hard to do before the final results are in, so I haven't done too much to it. It looks a bit long already though. Same kind of rules apply as in the introduction. 
-%Discussion is mainly meant to set your results in the context of other work. You don't need to include every little possible problem in the caveats.
-
-%Again lots of this is now irrelevant because the simulations are wrong
+\section{Discussion} 
 
 %1 - summary of results
-Our findings provide new insights into phenotypic diversity within the tenrec family and highlight the importance of testing assumptions about.  
-Contrary to previous suggestions \citep[e.g.][]{Eisenberg1969, Olson2013}, tenrecs do not appear to be exceptional in their morphological diversity. 
-Tenrecs are not more morphologically varied than expected to evolve by chance: they show significantly lower disparity in their morphologies than expected to evolve under Brownian Motion models of evolution. 
+	Our findings provide new insights into phenotypic diversity within the tenrec family. 
+	When we compared tenrecs' cranial morphologies to their closest relatives we found a trend towards higher disparity in tenrecs than in golden moles. However, these apparent differences were only significant for some disparity metrics. In contrast, the analyses of the mandibles indicated that golden moles have more diverse mandible shapes than tenrecs.
 
-When we compared tenrecs' cranial morphologies to their closest relatives the resulting patterns were less straightforward. For the analyses of skull shapes we found a trend towards higher disparity in tenrecs than in golden moles although these apparent differences were only significant for some disparity metrics. In contrast, the analyses of the mandibles indicated that golden moles have more diverse mandible shapes although, again, these results are only significant for some disparity metrics. %put in reference to the results summary table
-
-These results put a new perspective on the long-standing assumption that tenrecs are an adaptive radiation.
 
 %2 - interpret results with reference to other work
 
-It is evidence that tenrecs are a diverse group, both phenotypically and ecologically. Body sizes of extant tenrecs span three orders of magnitude (2.5 to \textgreater 2,000g) which is a greater range than all other Families, and most Orders, of living mammals \citep{Olson2003}. Within this vast size range there is striking morphological diversity, from the spiny \textit{Echinops, Setifer} and striking \textit{Hemicentetes} to the shrew-like  \textit{Microgale}. Furthermore, tenrecs inhabit a variety of ecological niches and habitats including terrestrial, arboreal, semi-aquatic and semi-fossorial forms (REFS). However, our results cast doubt over whether the evident diversity within the tenrec family should be considered to be a true adaptive radiation.
-
-Phenotypic and ecological divergences within a clade are not surprising; most clades have at least small levels of disparity so, when it comes to identifying adaptive radiations, it's important to identify clades which are exceptional in their diversity \citep{Losos2010a}. Here we have presented the first quantitative investigation of morphological disparity in tenrecs and our results suggest that perhaps phenotypic variation in tenrecs is not the product of an adaptive radiation in the strict sense of its definition.
-
-
-
-
-%Anomalies 1: why are there differences among disparity metrics?
-
-We found an overall pattern of higher disparity in tenrec skull shape than golden moles but only the range and Procrustes distance-based metrics are significant. This is probably because variance and range-based measures describe different aspects of morphospace occupation. 
-%I need to finish off this part: variance measures are usually less affected by sample size (Wills 1994) so does that imply that the significant differences in range are just artefacts of different sample sizes? Surely that shouldn't be the case because the permutation tests for looking for significant differences between groups takes sample size into account? 
+	It is evident that tenrecs are a diverse group, both phenotypically and ecologically. Body sizes of extant tenrecs span three orders of magnitude (2.5 to $>$ 2,000g) which is a greater range than all other Families, and most Orders, of living mammals \citep{Olson2003}. Within this vast size range there is striking morphological diversity, from the spiny \textit{Echinops, Setifer} and striking \textit{Hemicentetes} to the shrew-like  \textit{Microgale}. Furthermore, tenrecs inhabit a variety of ecological niches and habitats including terrestrial, arboreal, semi-aquatic and semi-fossorial forms \citep{Soarimalala2011}. 
+	
+	Here we have presented the first quantitative investigation of morphological disparity in tenrecs and our results suggest that perhaps phenotypic variation in tenrecs is not as uniformly exceptional as it first appears.
 
 
 
 
-%Anomalies 2: why are there opposite patterns in the skulls and mandibles?
-Another apparent anomaly in our results is that we found opposite patterns of group dissimilarities in the analyses of skulls and mandibles. The discrepancies could arise from factors associated with the modularity of morphological evolution.
+%3 - anomalies 
+	%1: why are there differences among disparity metrics?
 
-There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
-For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
-
-Our landmarks and curves for the mandibles (figure \ref{fig:mands_landmarks}, table \ref{tab:mands_landmarks}) include aspects of variation in the dentition but they focus particular attention on the ascending ramus (condyloid, condylar and angular processes). Therefore the higher morphological disparity in golden mole mandibles most likely reflects greater variation in the shape of the muscle attachment areas of the mandible. It proved impossible to position reliable landmarks on the corresponding mandibular articulation areas of the skull in lateral view (see supplementary). Therefore we could not test whether higher morphological disparity in the rami were correlated with associated morphological variety in the articulation areas of the skull.
-
-If variation in muscle attachment/articulation sites is driving morphological disparity in mandibles, it is not clear why golden moles should have more disparate articular rami than tenrecs. 
-%greater differences in diet breadth? burrowing increases diversity?
-
-% I know that I'm grasping at straws here, I still don't have a good reason why golden moles should have more variable muscle attachment sites than tenrecs
- 
+	We found an overall pattern of higher disparity in tenrec skull shape than golden moles but only the range and Procrustes distance-based metrics are significant. This is probably because variance and range-based measures describe different aspects of morphospace occupation. 
+	%I need to finish off this part: variance measures are usually less affected by sample size (Wills 1994) so does that imply that the significant differences in range are just artefacts of different sample sizes? Surely that shouldn't be the case because the permutation tests for looking for significant differences between groups takes sample size into account? 
 
 
-%3 - Caveats
-While our findings cast doubt on the designation of tenrecs as an adaptive radiation sensu \citep{Losos2010a}, there are certain caveats to consider which could modify the interpretation of our results.
 
-%No test of adaptive significance: this is important so it needs to go into the introduction
-Phenoypic variation can evolve for reasons other than adaptive radiation. Therefore, to describe phenotypic divergence as the product of an adaptive radiations requires exceptional morphological diversity in traits which have specific and proven adaptive significance \citep{Losos2010a}. The evolution of cranial shape (both upper skull and mandible), particularly dental morphology, has obvious correlations with dietary specialisations (REFS) and occupation of specific ecological niches (REFS). %references for specific head shape in digging mammals? 
 
-Considering the wide ecological diversity of our study species; the fossorial golden moles and semi-fossorial, arboreal, terrestrial and semi-aquatic tenrecs (REFS) it is reasonable to expect that this variety should be reflected in skull morphology.
-We assume that variation in cranial shape is an adaptive characterstic which allows the animals to survive in their divergent niches but we have not tested this assumption explicitly. 
-%I know this is weak; maybe I should just say that we didn't measure whether skull shape is adaptive but equally neither did any other study?
+	%2: Why are there opposite patterns in the skulls and mandibles?
+	
+	Another apparent anomaly in our results is that we found opposite patterns of group dissimilarities in the analyses of skulls and mandibles. 
+	Our landmarks and curves for the mandibles (figure \ref{fig:mands_landmarks}, table \ref{tab:mands_landmarks}) include aspects of variation in the dentition but they focus particular attention on the ascending ramus (condyloid, condylar and angular processes). Therefore higher disparity in golden moles could reflect greater morphological variability in these posterior mandible structures. To test this idea we deleted the semi-landmark curves around these structures (curves A, B, and C, table\ref{tab:mands_landmarks}) and repeated our disparity analyses on all of the specimens. In this case we retrieved the opposite pattern: tenrecs had higher morphological disparity than golden moles (see supplementary material).
+		%NB; I need to add these results to the supplementary
+	Therefore, our results indicate that golden moles have greater morphological variation in the posterior structures of their mandibles compared to tenrecs.
+		
+ 	It proved impossible to position reliable landmarks on the corresponding mandibular articulation areas of the skull in lateral view (see supplementary). Therefore we could not test whether higher morphological disparity in the rami were correlated with associated morphological variety in the articulation areas of the skull.
+	
+	
+	%The discrepancies could arise from factors associated with the modularity of morphological evolution.
 
-%Skulls don't measure all diversity
-Cranial shape similarities are commonly used to delineate species boundaries (REFS) or for cross-taxonomic comparative studies of phenotypic (dis)similarities (REFS). However, disparity studies are inevitably constrained to be measures of diversity within specific traits rather than overall morphology \citep{Roy1997}. Therefore it is possible that other morphological proxies of phenotype; analyses of linear measurements and/or discrete characters of either cranial or post-cranial morphologies could yield different results. 
+	%There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
+	%For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
 
-However, the results of \citep{Foth2012} are encouraging. In an analysis of morphological disparity in pterosaurs, they found that disparity calculations based on geometric morphometric characterisation of skull shape yielded broadly similar results compared to analyses of whole-skeleton discrete characters and limb proportion data sets. Therefore the disparity patterns we find here based on geometric morphometric analyses of cranial shape most likely represent approximations of disparity which are accurate for morphological diversity in the clades. 
 
-% NC: Is this relevant to our results? Did we really do enough to say we looked into discrepancies? Maybe we did, I'm just trying to get you to be critical of what you include.
+
+%4 - Caveats
+	There are certain caveats to consider which could modify the interpretation of our results.
+%----------------------------------
+%Maybe move this section?
+	%1- No test of adaptive significance: this is important so it needs to go into the introduction
+	Phenoypic variation can evolve for reasons other than adaptive radiation. Therefore, to describe phenotypic divergence as the product of an adaptive radiations requires exceptional morphological diversity in traits which have specific and proven adaptive significance \citep{Losos2010a}. The evolution of cranial shape (both upper skull and mandible), particularly dental morphology, has obvious correlations with dietary specialisations (REFS) and occupation of specific ecological niches (REFS). %references for specific head shape in digging mammals? 
+
+	Considering the wide ecological diversity of our study species; the fossorial golden moles and semi-fossorial, arboreal, terrestrial and semi-aquatic tenrecs (REFS) it is reasonable to expect that this variety should be reflected in skull morphology.
+	We assume that variation in cranial shape is an adaptive characterstic which allows the animals to survive in their divergent niches but we have not tested this assumption explicitly. 
+	%I know this is weak; maybe I should just say that we didn't measure whether skull shape is adaptive but equally neither did any other study?
+%----------------------------------
+
+
+	%2- Skulls don't measure all diversity
+	Cranial shape similarities are commonly used to delineate species boundaries (REFS) or for cross-taxonomic comparative studies of phenotypic (dis)similarities (REFS). However, disparity studies are inevitably constrained to be measures of diversity within specific traits rather than overall morphology \citep{Roy1997}. Therefore it is possible that other morphological proxies of phenotype; analyses of linear measurements and/or discrete characters of either cranial or post-cranial morphologies could yield different results. 
+
+	However, the results of \citep{Foth2012} are encouraging. In an analysis of morphological disparity in pterosaurs, they found that disparity calculations based on geometric morphometric characterisation of skull shape yielded broadly similar results compared to analyses of whole-skeleton discrete characters and limb proportion data sets. Therefore the disparity patterns we find here based on geometric morphometric analyses of cranial shape most likely represent approximations of disparity which are accurate for morphological diversity in the clades. 
+
+	% NC: Is this relevant to our results? Did we really do enough to say we looked into discrepancies? Maybe we did, I'm just trying to get you to be critical of what you include.
 
 	% maybe I make the point too strong but I think it's important to mention it somewhere, otherwise it would be an easy criticism from a reviewer to say that we're basing a broad test of adaptive radiation on very limited assumptions of disparity from just skulls
 
 
 
-%4 - Implications
+%5 - Implications
 
-These results highlight the importance of applying quantitative methods to testing our assumptions about adaptively radiated groups. 
+	These results highlight the importance of applying quantitative methods to testing our assumptions about adaptively radiated groups. 
 
-%Put in the Gavrilets and Losos 2009 point that it's important to expand our studies of adaptive radiation to different cases and not just the typical examples
-%Ruta 2013: ecological opportunity doesn't necessariliy correlate with increased morphological disparity
+	%Put in the Gavrilets and Losos 2009 point that it's important to expand our studies of adaptive radiation to different cases and not just the typical examples
+	%Ruta 2013: ecological opportunity doesn't necessariliy correlate with increased morphological disparity
 
-These analyses represent the first attempt to find evidence to support the common claim that tenrecs are an adaptive radiation. Future work will develop our results by expanding the analyses to non-cranial morphology and also measures of ecological diversity. However, our current results provide a clear indication that phenotypic variety within tenrecs is perhaps not as exceptional as it first seems and therefore their designation as an adaptive radiation may need to be re-considered.
+	These analyses represent the first attempt to find evidence to support the common claim that tenrecs are an adaptive radiation. Future work will develop our results by expanding the analyses to non-cranial morphology and also measures of ecological diversity. However, our current results provide a clear indication that phenotypic variety within tenrecs is perhaps not as exceptional as it first seems and therefore their designation as an adaptive radiation may need to be re-considered.
 
 
 
@@ -376,7 +299,7 @@ These analyses represent the first attempt to find evidence to support the commo
 
 \section*{Acknowledgements}
 
-We thank Fran\c{c}ois Gould, Gary Bronner, Steve Brusatte, Steve Wang, Luke Harmon, Thomas Guillerme and the members of NERD club for insightful discussions and the musuem staff and curators for their support and access to collections. Funding was provided by an Irish Research Council EMBARK Initiative Postgraduate Scholarship (SF) and the European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant. Proposal number: 321696 (NC, SF)
+	We thank Fran\c{c}ois Gould, Dean Adams, David Polly, Gary Bronner, Steve Brusatte, Steve Wang, Luke Harmon, Thomas Guillerme and the members of NERD club for insightful discussions and the musuem staff and curators for their support and access to collections. Funding was provided by an Irish Research Council EMBARK Initiative Postgraduate Scholarship (SF) and the European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant. Proposal number: 321696 (NC, SF)
 
 \bibliographystyle{jeb}
 \bibliography{Refs_01_05_14_edited}
