@@ -312,10 +312,19 @@ perm.diff.two.groups <- function (numreps, fam1, fam2, sp.fam.data, mydata, test
 #Function to select specific PC axes from a pcaresults object
   #select based on a threshold amount of cumulative variation explained and then add 1 extra axis
     #avoids selecting just single axes
-  selectPCaxes <- function(pcaresults, threshold, species){                #03/06/2014 Changed function for twofamily_disparity script
-    no.of.axes <- length(which(pcaresults$importance[3,] <= threshold))      #took out $pc.summary before $importance
-      PCaxes <- pcaresults$x[,1:(no.of.axes + 1)]                            #changed $pc.scores to $x
-      rownames(PCaxes) <- species
+      #03/06/2014 Changed function for twofamily_disparity script
+              #took out $pc.summary before $importance
+              #changed $pc.scores to $x
+      #23/07/2014: Changed the function so that it will still select axes even if PC1 is greater than the threshold
+  
+  selectPCaxes <- function(pcaresults, threshold, species){                
+    if (pcaresults$importance[3,1] > threshold){
+        no.of.axes <- 1
+    } else {
+        no.of.axes <- length(which(pcaresults$importance[3,] <= threshold))      
+        }
+        PCaxes <- pcaresults$x[,1:(no.of.axes + 1)]   
+        rownames(PCaxes) <- species
     return(PCaxes)
   }
     
