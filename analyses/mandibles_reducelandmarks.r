@@ -255,11 +255,11 @@ par(mfrow=c(1,2))
 
   #a) Landmarks data
       #Pairwise observed differences in disparity among all family groups(just tenrecs vs. golden moles but could be scaled up)
-        obs.diff.landmarks.sv <- group.pair.diff(group.identity=rownames(disp.landmarks), group.values=disp.landmarks[,1])
-        obs.diff.landmarks.pv <- group.pair.diff(group.identity=rownames(disp.landmarks), group.values=disp.landmarks[,2])
-        obs.diff.landmarks.sr <- group.pair.diff(group.identity=rownames(disp.landmarks), group.values=disp.landmarks[,3])
-        obs.diff.landmarks.pr <- group.pair.diff(group.identity=rownames(disp.landmarks), group.values=disp.landmarks[,4])
-        obs.diff.landmarks.md <- group.pair.diff(group.identity=rownames(disp.landmarks), group.values=disp.landmarks[,5])
+        obs.diff.landmarks.sv <- group.pair.diff(group.identity=colnames(disp.landmarks), group.values=disp.landmarks[1,])
+        obs.diff.landmarks.pv <- group.pair.diff(group.identity=colnames(disp.landmarks), group.values=disp.landmarks[2,])
+        obs.diff.landmarks.sr <- group.pair.diff(group.identity=colnames(disp.landmarks), group.values=disp.landmarks[3,])
+        obs.diff.landmarks.pr <- group.pair.diff(group.identity=colnames(disp.landmarks), group.values=disp.landmarks[4,])
+        obs.diff.landmarks.md <- group.pair.diff(group.identity=colnames(disp.landmarks), group.values=disp.landmarks[5,])
   
       #Permutation tests for significant differences in disparity between tenrecs and golden moles
         #Permutation tests
@@ -278,11 +278,11 @@ par(mfrow=c(1,2))
 
   #b) Landmarks + onecurve data
       #Pairwise observed differences in disparity among all family group
-        obs.diff.onecurve.sv <- group.pair.diff(group.identity=rownames(disp.onecurve), group.values=disp.onecurve[,1])
-        obs.diff.onecurve.pv <- group.pair.diff(group.identity=rownames(disp.onecurve), group.values=disp.onecurve[,2])
-        obs.diff.onecurve.sr <- group.pair.diff(group.identity=rownames(disp.onecurve), group.values=disp.onecurve[,3])
-        obs.diff.onecurve.pr <- group.pair.diff(group.identity=rownames(disp.onecurve), group.values=disp.onecurve[,4])
-        obs.diff.onecurve.md <- group.pair.diff(group.identity=rownames(disp.onecurve), group.values=disp.onecurve[,5])
+        obs.diff.onecurve.sv <- group.pair.diff(group.identity=colnames(disp.onecurve), group.values=disp.onecurve[1,])
+        obs.diff.onecurve.pv <- group.pair.diff(group.identity=colnames(disp.onecurve), group.values=disp.onecurve[2,])
+        obs.diff.onecurve.sr <- group.pair.diff(group.identity=colnames(disp.onecurve), group.values=disp.onecurve[3,])
+        obs.diff.onecurve.pr <- group.pair.diff(group.identity=colnames(disp.onecurve), group.values=disp.onecurve[4,])
+        obs.diff.onecurve.md <- group.pair.diff(group.identity=colnames(disp.onecurve), group.values=disp.onecurve[5,])
 
       #Permutation tests for significant differences in disparity between tenrecs and golden moles
         #Permutation tests
@@ -326,3 +326,23 @@ disp.onecurve.summary <- matrix(NA, nrow=5, ncol=6)
   #Otherwise there's no significant difference in tenrec and golden mole disparity
   #So the differences in my full analysis come from more variable muscle attachment shapes in golden moles
     #Now the question is why!
+#---------------------------------------------    
+#Output
+    setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
+
+#PCA plot for the mandibles data with one curve
+  pdf(file="Mandibles_trc+gmole_onecurve_PCA.pdf")
+    
+    plot(xaxis.onecurve,yaxis.onecurve, xlab="Species' average PC1", ylab="Species' average PC2",las=1,
+       col=sp.fam$Family,pch=16, bty="l",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
+      axis(side=1,at=c(-0.1,0,0.1),las=1,cex=1.3)
+      axis(side=2,at=c(-0.06,0,0.08),las=1,cex=1.3)
+      abline(0,0,h=0,v=0,lty=2,lwd=1)
+  dev.off()
+  
+#Summary table of disparity calculations
+  write.table(file="Mandibles_trc+gmole_onecurve_disp_summary.txt",disp.onecurve.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  
+  #generate a latex table directly: then copy and paste it into a text file
+library(xtable)
+xtable(disp.onecurve.summary)
