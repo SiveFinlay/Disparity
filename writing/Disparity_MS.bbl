@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -94,17 +94,10 @@ Harmon, L., Schulte, J., Larson, A. \& Losos, J.B. 2003.
 IUCN 2012.
 \newblock International {U}nion for {C}onservation of {N}ature.
 
-\bibitem[{Klingenberg(2008)}]{Klingenberg2008a}
-Klingenberg, C. 2008.
-\newblock Morphological integration and developmental modularity.
-\newblock \emph{Annual review of ecology, evolution, and systematics}
-  \textbf{39}: 115--132.
-
-\bibitem[{Klingenberg(2013)}]{Klingenberg2013a}
-Klingenberg, C. 2013.
-\newblock Cranial integration and modularity: insights into evolution and
-  development from morphometric data.
-\newblock \emph{Hystrix, the Italian Journal of Mammalogy} \textbf{24}: 43--58.
+\bibitem[{Jenkins(2003)}]{Jenkins2003}
+Jenkins, P. 2003.
+\newblock \emph{Microgale, shrew tenrecs}, pp. 1273--1278.
+\newblock The University of Chicago Press, Chicago.
 
 \bibitem[{Kuhn et~al.(2011)Kuhn, Mooers \& Thomas}]{Kuhn2011}
 Kuhn, T., Mooers, A. \& Thomas, G. 2011.

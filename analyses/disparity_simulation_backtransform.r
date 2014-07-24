@@ -16,21 +16,18 @@
       
 #-------------------------------------------------------
 library(ape)
-library(geiger)   
-#NB: The new version of geiger (geiger_2.0.3.)creates different outputs for the vcv.phylo function
-      #it produces vcv matrices with species as the rows and columns, not traits
-      #I have an older geiger version (geiger_1.99-3.1) installed on my laptop but the new version is the alien
+library(geiger)   #NB: new version of geiger has the function ratematrix() to do the same thing as vcv.phylo()
 library(geomorph)
 
-
-source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
-source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
-source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
+#On my laptop
+  #source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/DisparityFunctions_Variance_Range.r")
+  #source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PValueFunction_FromDistribution.r")
+  #source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r" )
 
 #On cyberman (alien as remote server)
-  #source("~/Disparity/functions/Disparity_general_functions.r")
-  #source("~/Disparity/functions/DisparityFunctions_Variance_Range.r")
-  #source("~/Disparity/functions/PvalueFunction_FromDistribution.r")
+  source("~/Disparity/functions/Disparity_general_functions.r")
+  source("~/Disparity/functions/DisparityFunctions_Variance_Range.r")
+  source("~/Disparity/functions/PvalueFunction_FromDistribution.r")
 
 
 
@@ -38,13 +35,13 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_fu
 
 #SkDors
 #1) Phylogenies
-   setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-   #setwd("~/Disparity/output/phylogenies")
+   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
+   setwd("~/Disparity/output/phylogenies")
    mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
 
 #2) Data
-   setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
-   #setwd("~/Disparity/output/shape_data/skdors")
+   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
+   setwd("~/Disparity/output/shape_data/skdors")
    
    
   #2a) All tenrecs and golden moles
@@ -107,13 +104,13 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_fu
 #Separate variance covariance matrix of the shape data for each of the phylogenies
   varcov <- as.list(rep(NA,length(mytrees)))
     for(i in 1:length(mytrees)){
-      varcov[[i]] <- vcv.phylo(phy=mytrees[[i]],twoDshape.sorted[[i]])
+      varcov[[i]] <- ratematrix(phy=mytrees[[i]],twoDshape.sorted[[i]])
     }
 
 #Simulate shape evolution on each phylogeny
   shape.sim <- as.list(rep(NA,length(mytrees)))
     for (i in 1: length(mytrees)){
-      shape.sim[[i]] <- sim.char(mytrees[[i]], varcov[[i]],nsim=50,model="BM")         #scale up the simulations later
+      shape.sim[[i]] <- sim.char(mytrees[[i]], varcov[[i]],nsim=100,model="BM")         
     }
 
 #Combine simulations into one list
@@ -156,7 +153,7 @@ simlist <- list.arrays.to.matrices(shape.sim)
     }
     
 #-------------------------------------
-#GPA of each simulated data set
+#GPA of each simulated data set  (takes a long time to run )
   sim.GPA <- NULL
 
     for (i in 1:length(sim.add.mshape)){
@@ -165,6 +162,12 @@ simlist <- list.arrays.to.matrices(shape.sim)
 
 #PCA for each of these sets of Procrustes-superimposed simulated data  
   #(NB: This takes ages to run because it creates a PCA graph for each one; maybe it would be better to use prcomp?)
+    #But I don't think prcomp produces exactly the same output
+  sim.PCA <- NULL
+    for (i in 1:length(sim.GPA)){
+      sim.PCA[[i]] <- plotTangentSpace(sim.GPA[[i]]$coords)
+    }
+
   sim.PCA <- NULL
     for (i in 1:length(sim.GPA)){
       sim.PCA[[i]] <- plotTangentSpace(sim.GPA[[i]]$coords)
