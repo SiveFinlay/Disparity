@@ -51,19 +51,19 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 #READ IN DATA; directory will change for each data set
 ########################################################
 #SkDors data
-  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
+  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skdors")
 
 #1) Landmarks
 #landmarks + curves file with the control lines removed
-  #land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+  land <- readland.tps(file="Skdors_16_12_13_10landmarks+4curves_edited.TPS")
 
 #2) Sliders
 #edited sliders file (top 2 rows removed and the words before slide after put in instead
-  #curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+  curves <- as.matrix(read.table("Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
 
 #3) Taxonomy
 #file that has the correct taxonomy for each of the images
-  #taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+  taxa <- read.csv ("Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
 
 #4) Specimens to remove
   #Null
@@ -82,16 +82,16 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 
 #-----------------------------------------------------
 #SkVent data
-  setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skvent")
+  #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/skvent")
 
 #1) Landmarks
-  land <- readland.tps(file="SkVent_30_10_13_13landmarks+1curve_edited.TPS")
+  #land <- readland.tps(file="SkVent_30_10_13_13landmarks+1curve_edited.TPS")
 #2) Sliders
-  curves <- as.matrix(read.table(file="SkVent_1skull_13landmarks+1curve_sliders_edited.tps", header=TRUE))     #this is a tps file and the others are nts but it doesn't make a difference
+  #curves <- as.matrix(read.table(file="SkVent_1skull_13landmarks+1curve_sliders_edited.tps", header=TRUE))     #this is a tps file and the others are nts but it doesn't make a difference
 #3) Taxonomy
-  taxa <- read.csv("SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
+  #taxa <- read.csv("SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
 #4) Specimens to remove
-  rem <- read.csv("SkVent_remove_spec.csv", header=T)
+  #rem <- read.csv("SkVent_remove_spec.csv", header=T)
 #------------------------------------------
 #Mandibles data
   #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/mands")
@@ -126,9 +126,9 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
   #doesn't apply to the skdors data because rem is NULL
 
 #find the ID numbers of specimens with missing data
-  matching <- matching.id(rem$SpecID, combine$SpecID)
-    combine <- remove.from.list(combine, matching)
-    combine <- droplevels.from.list(combine)
+  #matching <- matching.id(rem$SpecID, combine$SpecID)
+    #combine <- remove.from.list(combine, matching)
+    #combine <- droplevels.from.list(combine)
 #*********************************************
  #2) Select which families to work with 
   #2a) Select the tenrec and golden mole specimens only
