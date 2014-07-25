@@ -22,8 +22,8 @@
   #5) Select PC axes that account for 95% of the variation
   #6) Calculate disparity measures
   #7) Compare disparity in families; npMANOVA
-  #7a) Compare disparity measures directly: permutation tests
-  #8) Output files: shape data, taxonomy, disparity, disparity comparisons
+  #8) Compare disparity measures directly: permutation tests
+  #9) Output files: shape data, taxonomy, disparity, disparity comparisons
 
 
 #output from this script

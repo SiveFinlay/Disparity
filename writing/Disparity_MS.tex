@@ -159,8 +159,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 
 	We calculated morphological disparity separately for golden moles and tenrecs in each of the morphological datasets. We used the PC axes which accounted for 95\% of the cumulative variation to calculate four disparity metrics; the sum and product of the range and variance of morphospace occupied by each family \citep{Brusatte2008, Foth2012, Ruta2013}. We also calculated morphological disparity directly from the Procrustes-superimposed shape data based on the inter-landmark distances among species pairs \citep[ZelditchMD,][]{Zelditch2012}. 
 
-	We used two approaches to test whether tenrecs have significantly different morphologies compared to golden moles. We compared morphospace occupation between the two groups with non parametric MANOVAs \citep{Anderson2001} to test whether tenrecs and golden moles occupy significantly different areas of morphospace (REFS). 
-	We used pairwise permutation tests to test our null hypothesis that tenrecs and golden moles have equal disparity. If this hypothesis were true then the designation of each species as belonging to either tenrecs or golden moles should be arbitrary because each group would have the same disparity. Therefore we permutated the data by assigning family identities at random to each specimen and calculated the differences in disparity for each of new family groupings. We repeated these permutations 1000 times to generate a distribution of the expected differences in family disparity under the null hypothesis that tenrecs and golden moles have equivalent disparity. We compared our observed (true) measures of the differences in disparity between tenrecs and golden moles to these permutated distributions to test whether the families had significantly different levels of disparity.
+	We used two approaches to test whether tenrecs have significantly different morphologies compared to golden moles. We compared morphospace occupation between the two groups with non parametric MANOVAs \citep{Anderson2001} to test whether tenrecs and golden moles occupy significantly different areas of morphospace \citep[e.g][]{Serb2011, Ruta2013}. 
+	We used pairwise permutation tests to test our null hypothesis that tenrecs and golden moles have equal disparity. If this hypothesis were true then the designation of each species as belonging to either tenrecs or golden moles should be arbitrary because each group would have the same disparity. Therefore we permutated the data by assigning family identities at random to each specimen and calculated the differences in disparity for each of the new family groupings. We repeated these permutations 1000 times to generate a null distribution of the expected differences in family disparity. We compared our observed (true) measures of the differences in disparity between tenrecs and golden moles to these permutated distributions to test whether the families had significantly different levels of disparity.
 
 	The majority of tenrecs (19 out of 31 in our data) are members of the \textit{Microgale} (shrew-like) genus which is notable for its relatively low phenotypic diversity \citep{ Soarimalala2011, Jenkins2003}. The strong similarities among these species may mask signals of higher disparity among other tenrecs. Therefore we repeated our family-level comparisons of disparity with a reduced data set that excluded the \textit{Microgale} so that we could compare disparity within the remaining 12 tenrec species to disparity within the 12 species of golden moles.
 
@@ -169,44 +169,47 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 
 \section{Results}
 
+
 \subsection{Morphological disparity in tenrecs and golden moles} 
- % Maybe put in a modified version of my results summary table here? Easy way of comparing all the disparity measures in each of the data sets
+
  
-	Figures  \ref{fig:skdorsPCA} and \ref{fig:mandsPCA} 
-	%again, I could put these beside each other as panels 
-	depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 6 axes for the dorsal skulls analysis and n = 11 axes for the mandibles) to calculate the disparity of each family. 
+	Figures  \ref{fig:fourPCA} depict the morphospace plots derived from our principal components analyses of average Procrustes-superimposed shape coordinates for each species in our skull and mandible data respectively. We used the principal components axes which accounted for 95\% of the cumulative variation (n = 7, 8, 8 axes for the dorsal, ventral and lateral skull analyses respectively and n = 12 axes for the mandibles) to calculate the disparity of each family. 
 
-	In the dorsal skulls analysis, tenrecs and golden moles occupy significantly different areas of morphospace (npMANOVA, F = 59.34, R$^2 $ = 0.59, p = 0.001) indicating that the two families have signficantly different skull morphologies. 
+	Tenrecs and golden moles clearly have very different cranial and mandible morphologies: in each analysis, the families occupy significantly different areas of morphospace (npMANOVA, table \ref{tab:npmanova.summary})
 
-	For each of the calculated metrics, tenrecs have higher disparity than golden moles but these differences were not significant for the variance-based calculations.  
-	Non-\textit{Microgale} tenrecs also higher disparity than golden moles but none of the comparisons were statistically significant .
 
-	Tenrecs and golden moles have significantly different mandible shapes (npMANOVA F = 59.34, R$^2$ = 0.59, p = 0.001). However, unexpectedly, golden moles appear to have higher disparity than tenrecs in the shape of their mandibles (although these differences are only significant when disparity is calculated as product of variance or ZelditchMD). 
-	%Sum of ranges is also a significant difference but in the opposite direction: tenrecs>golden moles  
 
-	We tested whether these results may be artefacts of relatively low phenotypic diversity within \textit{Microgale} tenrecs. However, although golden moles and non-\text{Microgale} tenrecs occupy significantly different areas of morphospace (npMANOVA F = 31.6, R$^2$ = 0.59, p =	0.001), there is no significant difference between the two groups for any metrics of disparity. %based on the permutation tests
 
-	%Add the permuation test results of comparing tenrecs to the other families too
-	%Re-think the results summaries: combine them together into tables?
+
 
 %************************************
-%PCA figures: maybe put them together into panels to make them fit in?
+%Results tables and figures
+
+%Summary table of the family comparisons for all tenrecs vs. golden moles
+	\begin{table}[h]			
+	\caption{Summary of disparity comparisons between tenrecs (T) and golden moles (G) for each of our four data sets(rows) and five disparity metrics(columns). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are; sum of variance, product of variance, sum of ranges, product of ranges and sum of squared distances among species. }
+	\centering
+	\input{tables/disp.trc.gmole.results} 
+	\label{tab:disp.summary}  
+	\end{table}
 	
-	%Skdors
+%Summary table of the npMANOVA morphospace occupation comparisons
+	
+	\begin{table}[h]			
+
+	\caption{Summary of the npMANOVA comparisons of morphospace occupation for tenrecs and golden moles in each of the four analyses (three views of skulls and mandibles). In each case the two families occupy significantly different areas of morphospace.}
+	\centering
+	\input{tables/npmanova.summary} 
+	\label{tab:npmanova.summary}  
+	\end{table}
+		
+%PCA figures: changed to having all four plots instead of individual PCA graphs
+	%Source of this figure in my shape_data/output folder 
 	\begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg}
-	\caption{Principal components plot of the dorsal skulls' morphospace occupied by tenrecs (red, n=31) and golden moles (black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-	\label{fig:skdorsPCA}
-	\end{figure}
-
-	%Mandibles
-	\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg}
-	\caption{Principal components plot of the mandibles' morphospace occupied by tenrecs (red, n=31) and golden moles(black, n=12). Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-	\label{fig:mandsPCA}
-
+	\includegraphics[width=1\linewidth]{figures/FourPlotPCA.png}
+	\caption{Principal components plots of the morphospaces occupied by tenrecs (red, n=31 species) and golden moles (black, n=12) for the skulls: dorsal (A), ventral (B), lateral (C) and mandibles (D) analyses. Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+	\label{fig:fourPCA}
 	\end{figure}
 %**********************************************
 

@@ -67,10 +67,15 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
       #mydata <- remove.from.list(combine, which(combine$Fam=="Notoryctidae"))
       #mydata <- droplevels.from.list(mydata)
 
+#3) Option to remove the Microgale tenrecs
+   mic <- which(mydata$Genus=="Microgale")
+
+   mydata <- remove.from.list(mydata, mic)
+   mydata <- droplevels.from.list(mydata)
 #--------------------------------------------------
 # Reduced data file with just the 7 landmarks
   
-  landmarks <- array(1, dim=c(7,2,181))
+  landmarks <- array(1, dim=c(7,2,dim(mydata$land)[3]))
 
     for (i in 1:dim(mydata$land)[3]){
       landmarks[,,i][1:7,] <-mydata$land[,,i][c(1:7),]
@@ -78,8 +83,8 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 
 #Make a new data set with just these 7 landmarks and no curves
 
-just.landmarks <- list(land=landmarks, curves=NULL, ID=taxa$ID,SpecID=taxa$SpecID, Order=taxa$Order_05,
-                  Fam=taxa$Family_05, Genus=taxa$Genus_05, Species=taxa$Species_05, Binom=taxa$Binomial_05)
+just.landmarks <- list(land=landmarks, curves=NULL, ID=mydata$ID, SpecID=mydata$SpecID, Order=mydata$Order,
+                  Fam=mydata$Fam, Genus=mydata$Genus, Species=mydata$Species, Binom=mydata$Binom)
 
 #--------------------------------------
 #Procrustes superimposition
@@ -331,7 +336,11 @@ disp.onecurve.summary <- matrix(NA, nrow=5, ncol=6)
     setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/mands")
 
 #PCA plot for the mandibles data with one curve
-  pdf(file="Mandibles_trc+gmole_onecurve_PCA.pdf")
+  #All tenrecs and golden moles
+  #pdf(file="Mandibles_trc+gmole_onecurve_PCA.pdf")
+  
+  #Non-Microgale tenrecs and golden moles  
+  pdf(file="Mandibles_nonmic_trc+gmole_onecurve_PCA.pdf")  
     
     plot(xaxis.onecurve,yaxis.onecurve, xlab="Species' average PC1", ylab="Species' average PC2",las=1,
        col=sp.fam$Family,pch=16, bty="l",cex.lab=1,cex=1.2, xaxt="n",yaxt="n")
@@ -341,8 +350,12 @@ disp.onecurve.summary <- matrix(NA, nrow=5, ncol=6)
   dev.off()
   
 #Summary table of disparity calculations
-  write.table(file="Mandibles_trc+gmole_onecurve_disp_summary.txt",disp.onecurve.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+  #All terecs and golden moles
+  #write.table(file="Mandibles_trc+gmole_onecurve_disp_summary.txt",disp.onecurve.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   
-  #generate a latex table directly: then copy and paste it into a text file
+  #Non-Microgale tenrecs and golden moles
+  write.table(file="Mandibles_nonmic_trc+gmole_onecurve_disp_summary.txt",disp.onecurve.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)  
+
+#generate a latex table directly: then copy and paste it into a text file
 library(xtable)
 xtable(disp.onecurve.summary)

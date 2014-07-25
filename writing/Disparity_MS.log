@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  24 JUL 2014 15:59
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  25 JUL 2014 12:57
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -433,9 +433,9 @@ Missing character: There is no ê in font pplr9o!
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pplj/b/n' tried instead on input line 94.
  [5] [6] (Disparity_MS.fff)
-[7] [8] [9] [10] [11] [12] [13]
+[7] [8] [9] (Disparity_MS.ttt) [10] [11] [12] [13]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [14]
-[15] [16]
+[15]
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ê in font pplr9o!
@@ -445,22 +445,11 @@ Missing character: There is no ú in font pplr9o!
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ù in font pplr9o!
- [17]) AED endfloat: Processing end Figures and Tables [18]
+ [16] [17]) AED endfloat: Processing end Figures and Tables [18]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof
-Overfull \hbox (10.02144pt too wide) in paragraph at lines 4--4
- \OT1/pplj/m/n/12 oc-cu-pied by ten-recs (red, n=31) and golden moles(black, n=
-12). 
- []
-
-
-Overfull \hbox (9.98546pt too wide) in paragraph at lines 4--4
- \OT1/pplj/m/n/12 anal-y-sis of mean Pro-crustes shape co-or-di-nates for each 
-species. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
- [][]  
+Overfull \hbox (6.2167pt too wide) in paragraph at lines 3--3
+ \OT1/pplj/m/n/12 for the skulls: dor-sal (A), ven-tral (B), lat-eral (C) and m
+andibles 
  []
 
 )
@@ -487,44 +476,57 @@ t line 13.
 (pdftex.def)             Requested size: 398.3386pt x 288.82962pt.
  [21 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkLat+mands_lan
 dmark_diagrams.png>]
-<figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg, id=78, 666.99188pt x 500.36937
-pt>
-File: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg Graphic file (type jpg)
- <use figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg>
-Package pdftex.def Info: figures/SkDors_Tenrecs+Gmoles_PC1PC2_01_05.jpg used on
- input line 23.
-(pdftex.def)             Requested size: 398.3386pt x 298.83437pt.
- [22 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkDors_Tenrecs+
-Gmoles_PC1PC2_01_05.jpg>]
-<figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg, id=82, 548.0475pt x 480.7962
-5pt>
-File: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg Graphic file (type jpg)
- <use figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg>
-Package pdftex.def Info: figures/Mands_Tenrecs+Gmoles_PC1PC2_01_05_14.jpg used 
-on input line 31.
-(pdftex.def)             Requested size: 398.3386pt x 349.46704pt.
- [23 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/Mands_Tenrecs+G
-moles_PC1PC2_01_05_14.jpg>]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing
-\Disparity_MS.aux) ) 
+<figures/FourPlotPCA.png, id=78, 627.7854pt x 479.8728pt>
+File: figures/FourPlotPCA.png Graphic file (type png)
+
+<use figures/FourPlotPCA.png>
+Package pdftex.def Info: figures/FourPlotPCA.png used on input line 23.
+(pdftex.def)             Requested size: 398.3386pt x 304.48152pt.
+ [22 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/FourPlotPCA.png
+>])
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lot)
+\tf@lot=\write6
+ [23
+
+
+
+
+
+]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.ttt
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/disp.trc.gmole.result
+s.tex)
+Overfull \hbox (74.62903pt too wide) in paragraph at lines 4--6
+ [][] 
+ []
+
+[24
+
+]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/npmanova.summary.tex)
+[25
+
+]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 4629 strings out of 493921
- 65423 string characters out of 3147276
- 135352 words of memory out of 3000000
- 7806 multiletter control sequences out of 15000+200000
+ 4646 strings out of 493921
+ 65863 string characters out of 3147276
+ 135438 words of memory out of 3000000
+ 7807 multiletter control sequences out of 15000+200000
  41548 words of font info for 98 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,8n,36p,1046b,308s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.en
-c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/fpl/fplrc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/fpl/fplrij8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb
-8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (23 pages, 863214 bytes).
+ 33i,9n,36p,1046b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Pr
+ogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fpl
+rc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/urw/palatino/uplri8a.pfb>
+Output written on Disparity_MS.pdf (25 pages, 858231 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
+ 119 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

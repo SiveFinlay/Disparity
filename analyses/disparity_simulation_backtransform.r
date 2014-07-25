@@ -29,32 +29,59 @@ library(geomorph)
   source("~/Disparity/functions/DisparityFunctions_Variance_Range.r")
   source("~/Disparity/functions/PvalueFunction_FromDistribution.r")
 
-
-
-
-
 #SkDors
 #1) Phylogenies
    #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
-   setwd("~/Disparity/output/phylogenies")
-   mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
+   #setwd("~/Disparity/output/phylogenies")
+   #mytrees <- read.tree("SkDors_tenrec+gmole_101trees.phy")
 
 #2) Data
    #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/skdors")
-   setwd("~/Disparity/output/shape_data/skdors")
+   #setwd("~/Disparity/output/shape_data/skdors")
    
    
   #2a) All tenrecs and golden moles
       #shape coordinates
-      sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
+      #sps.mean <- dget(file="SkDors_tenrec+gmole_sps.mean.txt")
       #taxonomic information
-      tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
+      #tax <- read.table("SkDors_tenrec+gmole_sps.mean_taxonomy.txt")
+#--------------------------------------------
+#SkVent
+#1) Phylogenies
+    setwd("~/Disparity/output/phylogenies")
+    mytrees <- read.tree("SkVent_tenrec+gmole_101trees.phy")
 
+#2) Data
+    setwd("~/Disparity/output/shape_data/skvent")
+  
+  #2a) All tenrecs and golden moles
+      #shape coordinates
+      sps.mean <- dget(file="SkVent_tenrec+gmole_sps.mean.txt")
+      #taxonomic information
+      tax <- read.table("SkVent_tenrec+gmole_sps.mean_taxonomy.txt")
+  
+#--------------------------------------------
+#SkLat
+
+#1) Phylogenies
+    #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/phylogenies")
+    #setwd("~/Disparity/output/phylogenies")
+     #mytrees <- read.tree("SkLat_tenrec+gmole_101trees.phy")
+     
+#2) Data
+    #setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/sklat")
+    #setwd("~/Disparity/output/shape_data/sklat")
+  
+  #2a) All tenrecs and golden moles
+      #shape coordinates
+      #sps.mean <- dget(file="SkLat_tenrec+gmole_sps.mean.txt")
+      #taxonomic information
+      #tax <- read.table("SkLat_tenrec+gmole_sps.mean_taxonomy.txt")
+  
 
 #Don't need to prune the phylogenies or change the data because it's just golden moles and tenrecs
 
 #################################
-#VCV matrix of superimposed Procrustes coordinates
 
 #Convert the shape coordinates into a 2D array
   twoDshape <- two.d.array(sps.mean$meanshape)
@@ -62,7 +89,7 @@ library(geomorph)
 #Add the species as rownames
   rownames(twoDshape) <- sps.mean$Binom
 
-#-------------------------------------------------
+
 #Calculate observed disparity
 
 #PCA of mean shape values for each species     (NB: L.Harmon said to do a phylogenetic PCA)
@@ -110,7 +137,7 @@ library(geomorph)
 #Simulate shape evolution on each phylogeny
   shape.sim <- as.list(rep(NA,length(mytrees)))
     for (i in 1: length(mytrees)){
-      shape.sim[[i]] <- sim.char(mytrees[[i]], varcov[[i]],nsim=100,model="BM")         
+      shape.sim[[i]] <- sim.char(mytrees[[i]], varcov[[i]],nsim=500,model="BM")         
     }
 
 #Combine simulations into one list
@@ -168,10 +195,6 @@ simlist <- list.arrays.to.matrices(shape.sim)
       sim.PCA[[i]] <- plotTangentSpace(sim.GPA[[i]]$coords)
     }
 
-  sim.PCA <- NULL
-    for (i in 1:length(sim.GPA)){
-      sim.PCA[[i]] <- plotTangentSpace(sim.GPA[[i]]$coords)
-    }
 
 #Select PC axes
   sim.PC95axes <- NULL
@@ -227,4 +250,35 @@ simlist <- list.arrays.to.matrices(shape.sim)
     gmole.sumvar.p <- pvalue.dist(distribution=sim.gmole.sumvar, obs.val=gmole.sumvar)
     gmole.prodvar.p <- pvalue.dist(distribution=sim.gmole.prodvar, obs.val=gmole.prodvar) 
     gmole.sumrange.p <- pvalue.dist(distribution=sim.gmole.sumrange, obs.val=gmole.sumrange) 
-    gmole.prodrange.p <- pvalue.dist(distribution=sim.gmole.prodrange, obs.val=gmole.prodrange)   
+    gmole.prodrange.p <- pvalue.dist(distribution=sim.gmole.prodrange, obs.val=gmole.prodrange)
+    
+#Summarise the results in tables  
+    tenrec.sim.summary <- matrix (NA, nrow=4, ncol=4)
+      rownames(tenrec.sim.summary) <- c("SumVar", "ProdVar", "SumRange", "ProdRange")
+      colnames(tenrec.sim.summary) <- c("obs.disp", "sim.min", "sim.max", "pvalue")
+      
+      tenrec.sim.summary[,1] <- c(signif(tenrec.sumvar,3),signif(tenrec.prodvar,3), signif(tenrec.sumrange,3), signif(tenrec.prodrange,3))     
+      tenrec.sim.summary[,2] <- c(signif(min(sim.tenrec.sumvar),3), signif(min(sim.tenrec.prodvar),3), signif(min(sim.tenrec.sumrange),3), signif(min(sim.tenrec.prodrange),3))
+      tenrec.sim.summary[,3] <- c(signif(max(sim.tenrec.sumvar),3), signif(max(sim.tenrec.prodvar),3), signif(max(sim.tenrec.sumrange),3), signif(max(sim.tenrec.prodrange),3))
+      tenrec.sim.summary[,4] <- c(tenrec.sumvar.p, tenrec.prodvar.p, tenrec.sumrange.p, tenrec.prodrange.p)
+      
+    gmole.sim.summary <- matrix (NA, nrow=4, ncol=4)
+      rownames(gmole.sim.summary) <- c("SumVar", "ProdVar", "SumRange", "ProdRange")
+      colnames(gmole.sim.summary) <- c("obs.disp", "sim.min", "sim.max", "pvalue")
+      
+      gmole.sim.summary[,1] <- c(signif(gmole.sumvar,3),signif(gmole.prodvar,3), signif(gmole.sumrange,3), signif(gmole.prodrange,3))     
+      gmole.sim.summary[,2] <- c(signif(min(sim.gmole.sumvar),3), signif(min(sim.gmole.prodvar),3), signif(min(sim.gmole.sumrange),3), signif(min(sim.gmole.prodrange),3))
+      gmole.sim.summary[,3] <- c(signif(max(sim.gmole.sumvar),3), signif(max(sim.gmole.prodvar),3), signif(max(sim.gmole.sumrange),3), signif(max(sim.gmole.prodrange),3))
+      gmole.sim.summary[,4] <- c(gmole.sumvar.p, gmole.prodvar.p, gmole.sumrange.p, gmole.prodrange.p)
+
+#Save the output of the simulations
+#SkDors
+   #setwd("~/Disparity/output/shape_simulations/skdors")
+    #write.table(file="Skdors_tenrec+gmole_300sims_trc_disp.txt",tenrec.sim.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="Skdors_tenrec+gmole_300sims_gmole_disp.txt",gmole.sim.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)  
+    
+#SkLat
+  setwd("~/Disparity/output/shape_simulations/sklat")
+    write.table(file="Sklat_tenrec+gmole_500sims_trc_disp.txt",tenrec.sim.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    write.table(file="Sklat_tenrec+gmole_500sims_gmole_disp.txt",gmole.sim.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)  
+        
