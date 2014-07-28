@@ -111,7 +111,7 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 	%I thought the four tables of definitions would take up too much space here?
 	
 
-	We digitised all landmarks and semilandmarks in tpsDIG, version 2.17 \citep{Rohlf2013}. We re-sampled the outlines to the minimum number of evenly spaced semilandmark points required to represent each outline accurately \citep[][details in supplementary material]{MacLeod2013}. We used TPSUtil \citep{Rohlf2012} to create sliders files \citep{Zelditch2012} to define which points were semilandmarks. We conducted all subsequent analyses in R version 3.0.2 \citep[R Development Core][]{Team2013} within the geomorph package \citep{Adams2013}. We used the gpagen function to run a general Procrustes alignment \citep{Rohlf1993} of the landmark coordinates while sliding the semilandmarks by minimising procrustes distance \citep{Bookstein1997}. We used these Procrustes-aligned coordinates of all species (n=43) to calculate average shape values for each species which we then used for a principal components (PC) analysis with the plotTangentSpace function \citep{Adams2013}. 
+	We digitised all landmarks and semilandmarks in tpsDIG, version 2.17 \citep{Rohlf2013}. We re-sampled the outlines to the minimum number of evenly spaced semilandmark points required to represent each outline accurately \citep[][details in supplementary material]{MacLeod2013}. We used TPSUtil \citep{Rohlf2012} to create sliders files \citep{Zelditch2012} to define which points were semilandmarks. We conducted all subsequent analyses in R version 3.0.2 \citep{Team2014} within the geomorph package \citep{Adams2013}. We used the gpagen function to run a general Procrustes alignment \citep{Rohlf1993} of the landmark coordinates while sliding the semilandmarks by minimising procrustes distance \citep{Bookstein1997}. We used these Procrustes-aligned coordinates of all species to calculate average shape values for each species (n=43) which we then used for a principal components (PC) analysis with the plotTangentSpace function \citep{Adams2013}. 
 
 %*************************************************
 %May need to re-do pictures to grey scale instead of colour
@@ -123,7 +123,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 	\centering
 	\includegraphics[width=1\linewidth]{figures/SkDors+Skvent_landmark_diagrams.png}
 	
-	\caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of skulls in dorsal and ventral views respectively. Curves were re-sampled to the same number of evenly-spaced points. Descriptions of the curves and landmarks are in the supplementary material. The specimens belong to two different \textit{Potamogale velox} (Tenrecidae) skulls: accession number AMNH 51327 for the dorsal picture and NHML 1934.6.16.2 for the ventral picture}
+	\caption[Diagram of the landmarks and curves for the skulls in dorsal and ventral views]
+		{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of skulls in dorsal and ventral views respectively. Curves were re-sampled to the same number of evenly-spaced points. Descriptions of the curves and landmarks are in the supplementary material. The specimens belong to two different \textit{Potamogale velox} (Tenrecidae) skulls: accession number AMNH 51327 for the dorsal picture and NHML 1934.6.16.2 for the ventral picture}
 	
 	\label{fig:skdors_skvent_landmarks}
 	\end{figure}
@@ -135,7 +136,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 	\centering
 	\includegraphics[width=1\linewidth]{figures/SkLat+mands_landmark_diagrams.png}
 	
-	\caption{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of lateral views of skulls and mandibles respectively. Curves were re-sampled to the same number of evenly-spaced points. Descriptions of the curves and landmarks are in the supplementary material.The specimens belong to two different \textit{Potamogale velox} (Tenrecidae) skulls: accession number AMNH 51327 for the dorsal picture and NHML 1934.6.16.2 for the ventral picture}
+	\caption[Diagrams of the landmarks and curves used for lateral views of skulls and mandibles]
+		{Landmarks (red points) and curves (blue lines) used to capture the morphological shape of lateral views of skulls and mandibles respectively. Curves were re-sampled to the same number of evenly-spaced points. Descriptions of the curves and landmarks are in the supplementary material.The specimens belong to two different \textit{Potamogale velox} (Tenrecidae) skulls: accession number AMNH 51327 for the dorsal picture and NHML 1934.6.16.2 for the ventral picture}
 	
 	\label{fig:sklat_mands_landmarks}
 	\end{figure}
@@ -150,19 +152,20 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 	%Instead of basing our analyses on individual trees and assuming that their topologies were known without error \citep[e.g.][]{Ruta2013, Foth2012, Brusatte2008, Harmon2003} we used a distribution of 101 pruned phylogenies derived from the randomly resolved mammalian supertrees in \citep{Kuhn2011}. 
 		% I used 101 because that was the number in the smaller Fritz file - I could change it to 100 instead if 101 sounds odd?
 
-	%Eight species (six \textit{Microgale} tenrecs and two golden moles) in our morphological data were not in the phylogenies. Phylogenetic relationships among the \textit{Microgale} have not been resolved more recently than the \citep{Kuhn2011} analysis, therefore we added the additional \textit{Microgale} species at random to the \textit{Microgale} genus within each phylogeny \citep{Revell2012}. We could not use the same approach to add the two missing golden mole species because they were the only representatives of their respective genera within our data. Therefore we randomly added these species to the common ancestral node (using the findMRCA function in phytools \citep{Revell2012}) of all golden moles within each phylogeny. Adding these extra species to the phylogenies created polytomies which we resolved arbitrarily using zero-length branches \citep{Paradis2004}. We calculated pairwise phylogenetic distances among species using the cophenetic function \citep[R Development Core][]{Team2013}. 
+	%Eight species (six \textit{Microgale} tenrecs and two golden moles) in our morphological data were not in the phylogenies. Phylogenetic relationships among the \textit{Microgale} have not been resolved more recently than the \citep{Kuhn2011} analysis, therefore we added the additional \textit{Microgale} species at random to the \textit{Microgale} genus within each phylogeny \citep{Revell2012}. We could not use the same approach to add the two missing golden mole species because they were the only representatives of their respective genera within our data. Therefore we randomly added these species to the common ancestral node (using the findMRCA function in phytools \citep{Revell2012}) of all golden moles within each phylogeny. Adding these extra species to the phylogenies created polytomies which we resolved arbitrarily using zero-length branches \citep{Paradis2004}. We calculated pairwise phylogenetic distances among species using the cophenetic function \citep{Team2014}. 
 	% NC: I feel like some of this belongs in the analysis section...
 		%SF Me too but I'm not sure where to put it without making a separate analyses section for the phylogenies and I don't think that makes sense.  
 	
 %-------------------------------------------------------	
 \subsection{Disparity calculations}
 
-	We calculated morphological disparity separately for golden moles and tenrecs in each of the morphological datasets. We used the PC axes which accounted for 95\% of the cumulative variation to calculate four disparity metrics; the sum and product of the range and variance of morphospace occupied by each family \citep{Brusatte2008, Foth2012, Ruta2013}. We also calculated morphological disparity directly from the Procrustes-superimposed shape data based on the sum of the squared inter-landmark distances among species pairs \citep[ZelditchMD,][]{Zelditch2012}. 
+	We calculated morphological disparity separately for golden moles and tenrecs in each of the morphological datasets. We used the PC axes which accounted for 95\% of the cumulative variation to calculate four disparity metrics; the sum and product of the range and variance of morphospace occupied by each family \citep{Brusatte2008, Foth2012, Ruta2013}. We also calculated morphological disparity directly from the Procrustes-superimposed shape data based on the sum of the squared inter-landmark distances among species pairs \citep[SSqDist,][]{Zelditch2012}. 
 
-	We used two approaches to test whether tenrecs have significantly different morphologies compared to golden moles. We compared morphospace occupation between the two groups with non parametric MANOVAs \citep{Anderson2001} to test whether tenrecs and golden moles occupy significantly different areas of morphospace \citep[e.g][]{Serb2011, Ruta2013}. 
-	We used pairwise permutation tests to test our null hypothesis that tenrecs and golden moles have equal disparity. If this hypothesis were true then the designation of each species as belonging to either tenrecs or golden moles should be arbitrary because each group would have the same disparity. Therefore we permutated the data by assigning family identities at random to each specimen and calculated the differences in disparity for each of the new family groupings. We repeated these permutations 1000 times to generate a null distribution of the expected differences in family disparity. We compared our observed (true) measures of the differences in disparity between tenrecs and golden moles to these permutated distributions to test whether the families had significantly different levels of disparity.
+	We used two approaches to test whether tenrecs have significantly different morphologies compared to golden moles. The first was a comparison of morphospace occupation between the two groups with non parametric MANOVAs \citep{Anderson2001} to test whether tenrecs and golden moles occupy significantly different areas of morphospace \citep[e.g][]{Serb2011, Ruta2013}.
+	 
+	Secondly, we used pairwise permutation tests to test the null hypothesis that tenrecs and golden moles have equal disparity. If this hypothesis were true then the designation of each species as belonging to either tenrecs or golden moles should be arbitrary because each group would have the same disparity. Therefore we permutated the data by assigning family identities at random to each specimen and calculated the differences in disparity for each of the new family groupings. We repeated these permutations 1000 times to generate a null distribution of the expected differences in family disparity. We compared our observed (true) measures of the differences in disparity between tenrecs and golden moles to these permutated distributions to test whether the families had significantly different levels of disparity.
 
-	The majority of tenrecs (19 out of 31 in our data) are members of the \textit{Microgale} (shrew-like) genus which is notable for its relatively low phenotypic diversity \citep{ Soarimalala2011, Jenkins2003}. The strong similarities among these species may mask signals of higher disparity among other tenrecs. Therefore we repeated our family-level comparisons of disparity with a reduced data set that excluded the \textit{Microgale} so that we could compare disparity within the remaining 12 tenrec species to disparity within the 12 species of golden moles.
+	The majority of tenrec species (19 out of 31 in our data) are members of the \textit{Microgale} (shrew-like) genus which is notable for its relatively low phenotypic diversity \citep{ Soarimalala2011, Jenkins2003}. The strong similarities among these species may mask signals of higher disparity among other tenrecs. Therefore we repeated our family-level comparisons of disparity with a reduced data set that excluded the \textit{Microgale} so that we could compare disparity within the remaining 12 tenrec species to disparity within the 12 species of golden moles.
 
 
 %-----------------------------------------------------------
@@ -193,7 +196,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 
 %Summary table of the family comparisons for all tenrecs vs. golden moles
 	\begin{table}[h]			
-	\caption{Summary of disparity comparisons between tenrecs (T) and golden moles (G) for each of our data sets(rows) and five disparity metrics (columns). "Mandibles:one curve" refers to our shape analysis of mandibles excluding the three curves around the posterior structures of jaw (figure \ref{fig:sklat_mands_landmarks}). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are; sum of variance, product of variance, sum of ranges, product of ranges and sum of squared distances among species. }
+	\caption[Summary of disparity comparisons between tenrecs and golden moles]
+		{Summary of disparity comparisons between tenrecs (T) and golden moles (G) for each of our data sets(rows) and five disparity metrics (columns). "Mandibles:one curve" refers to our shape analysis of mandibles excluding the three curves around the posterior structures of jaw (figure \ref{fig:sklat_mands_landmarks}). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are; sum of variance, product of variance, sum of ranges, product of ranges and sum of squared distances among species. }
 	\centering
 	\input{tables/disp.trc.gmole.results} 
 	\label{tab:disp.summary}  
@@ -201,7 +205,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 
 %Summary of the family comparisons for non-Microgale tenrecs vs. golden moles
 	\begin{table}[h]			
-	\caption{Summary of disparity comparisons between non-\textit{Microgale} tenrecs (T) and golden moles (G) for each of our data sets(rows) and five disparity metrics (columns). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are; sum of variance, product of variance, sum of ranges, product of ranges and sum of squared distances among species. }
+	\caption[Summary of disparity comparisons between non-\textit{Microgale} tenrecs and golden moles]
+		{Summary of disparity comparisons between non-\textit{Microgale} tenrecs (T) and golden moles (G) for each of our data sets(rows) and five disparity metrics (columns). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are; sum of variance, product of variance, sum of ranges, product of ranges and sum of squared distances among species. }
 	\centering
 	\input{tables/disp.nonmictrc.gmole.results} 
 	\label{tab:disp.nonmic.summary}  
@@ -211,7 +216,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 	
 	\begin{table}[h]			
 
-	\caption{Summary of the npMANOVA comparisons of morphospace occupation for tenrecs and golden moles in each of the four analyses (three views of skulls and mandibles). In each case the two families occupy significantly different areas of morphospace.}
+	\caption[Summary of npMANOVA comparisons of morphospace occupation for tenrecs and golden moles]
+		{Summary of the npMANOVA comparisons of morphospace occupation for tenrecs and golden moles in each of the four analyses (three views of skulls and mandibles). In each case the two families occupy significantly different areas of morphospace.}
 	\centering
 	\input{tables/npmanova.summary} 
 	\label{tab:npmanova.summary}  
@@ -222,7 +228,8 @@ These findings cast doubt over whether the apparent phenotypic diversity within 
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{figures/FourPlotPCA.png}
-	\caption{Principal components plots of the morphospaces occupied by tenrecs (red, n=31 species) and golden moles (black, n=12) for the skulls: dorsal (A), ventral (B), lateral (C) and mandibles (D) analyses. Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+	\caption[Principal components plots of the morphospaces occupied by tenrecs and golden moles]
+		{Principal components plots of the morphospaces occupied by tenrecs (red, n=31 species) and golden moles (black, n=12) for the skulls: dorsal (A), ventral (B), lateral (C) and mandibles (D) analyses. Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
 	\label{fig:fourPCA}
 	\end{figure}
 %**********************************************

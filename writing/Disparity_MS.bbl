@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -85,11 +85,6 @@ Goswami, A., Milne, N. \& Wroe, S. 2011.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{278}: 1831--1839.
 
-\bibitem[{Harmon et~al.(2003)Harmon, Schulte, Larson \& Losos}]{Harmon2003}
-Harmon, L., Schulte, J., Larson, A. \& Losos, J.B. 2003.
-\newblock Tempo and mode of evolutionary radiation in iguanian lizards.
-\newblock \emph{Science} \textbf{301}: 961--964.
-
 \bibitem[{IUCN(2012)}]{IUCN2012}
 IUCN 2012.
 \newblock International {U}nion for {C}onservation of {N}ature.
@@ -98,11 +93,6 @@ IUCN 2012.
 Jenkins, P. 2003.
 \newblock \emph{Microgale, shrew tenrecs}, pp. 1273--1278.
 \newblock The University of Chicago Press, Chicago.
-
-\bibitem[{Kuhn et~al.(2011)Kuhn, Mooers \& Thomas}]{Kuhn2011}
-Kuhn, T., Mooers, A. \& Thomas, G. 2011.
-\newblock A simple polytomy resolver for dated phylogenies.
-\newblock \emph{Methods in Ecology and Evolution} \textbf{2}: 427--436.
 
 \bibitem[{Losos(2010)}]{Losos2010}
 Losos, J. 2010.
@@ -151,22 +141,17 @@ O'Meara, B., An\'e, C., Sanderson, M. \& Wainwright, P. 2006.
   likelihood.
 \newblock \emph{Evolution} \textbf{60}: 922--933.
 
-\bibitem[{Paradis et~al.(2004)Paradis, Claude \& Strimmer}]{Paradis2004}
-Paradis, E., Claude, J. \& Strimmer, K. 2004.
-\newblock Ape: Analyses of {P}hylogenetics and {E}volution in {R} language.
-\newblock \emph{Bioinformatics} \textbf{20}: 289--290.
-
 \bibitem[{Price et~al.(2013)Price, Tavera, Near \& Wainwright}]{Price2013}
 Price, S., Tavera, J., Near, T. \& Wainwright, P. 2013.
 \newblock Elevated rates of morphological and functional diversification in
   reef-dwelling haemulid fishes.
 \newblock \emph{Evolution} \textbf{67}: 417--428.
 
-\bibitem[{Revell(2012)}]{Revell2012}
-Revell, L. 2012.
-\newblock phytools: an {R} package for phylogenetic comparative biology (and
-  other things).
-\newblock \emph{Methods in Ecology and Evolution} \textbf{3}: 217--223.
+\bibitem[{{R Core Team}(2014)}]{Team2014}
+{R Core Team} 2014.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+\newblock \urlprefix\url{http://www.R-project.org/}.
 
 \bibitem[{Rohlf(2012)}]{Rohlf2012}
 Rohlf, F. 2012.
@@ -215,10 +200,6 @@ Stanhope, M., Waddell, V., Madsen, O., de~Jong, W., Hedges, S., Cleven, G.,
   order of endemic african insectivore mammals.
 \newblock \emph{Proceedings of the National Academy of Sciences} \textbf{95}:
   9967--9972.
-
-\bibitem[{Team(2013)}]{Team2013}
-Team, R.D.C. 2013.
-\newblock R: {A} language and environment for statistical computing.
 
 \bibitem[{Wills et~al.(1994)Wills, Briggs \& Fortey}]{Wills1994}
 Wills, A., Briggs, D. \& Fortey, R. 1994.

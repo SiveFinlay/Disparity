@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  25 JUL 2014 16:01
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  28 JUL 2014 15:29
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -435,11 +435,11 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
  [5] [6] (Disparity_MS.fff)
 [7] [8] [9]
 LaTeX Font Info:    Font shape `OT1/pplj/bx/it' in size <14.4> not available
-(Font)              Font shape `OT1/pplj/b/it' tried instead on input line 186.
+(Font)              Font shape `OT1/pplj/b/it' tried instead on input line 189.
 
  (Disparity_MS.ttt) [10] [11] [12] [13]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [14]
-[15]
+[15] [16]
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ê in font pplr9o!
@@ -449,20 +449,15 @@ Missing character: There is no ú in font pplr9o!
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ù in font pplr9o!
- [16] [17]) AED endfloat: Processing end Figures and Tables [18]
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof
-Overfull \hbox (6.2167pt too wide) in paragraph at lines 3--3
- \OT1/pplj/m/n/12 for the skulls: dor-sal (A), ven-tral (B), lat-eral (C) and m
-andibles 
- []
-
-)
+ [17]) AED endfloat: Processing end Figures and Tables [18]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof)
 \tf@lof=\write5
  [19
 
 
-] (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.fff
-<figures/SkDors+Skvent_landmark_diagrams.png, id=71, 393.1488pt x 374.8404pt>
+]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.fff
+<figures/SkDors+Skvent_landmark_diagrams.png, id=72, 393.1488pt x 374.8404pt>
 File: figures/SkDors+Skvent_landmark_diagrams.png Graphic file (type png)
 
 <use figures/SkDors+Skvent_landmark_diagrams.png>
@@ -471,27 +466,27 @@ put line 3.
 (pdftex.def)             Requested size: 398.3386pt x 379.8098pt.
  [20 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkDors+Skvent_l
 andmark_diagrams.png>]
-<figures/SkLat+mands_landmark_diagrams.png, id=75, 371.4678pt x 269.3262pt>
+<figures/SkLat+mands_landmark_diagrams.png, id=76, 371.4678pt x 269.3262pt>
 File: figures/SkLat+mands_landmark_diagrams.png Graphic file (type png)
 
 <use figures/SkLat+mands_landmark_diagrams.png>
 Package pdftex.def Info: figures/SkLat+mands_landmark_diagrams.png used on inpu
-t line 13.
+t line 14.
 (pdftex.def)             Requested size: 398.3386pt x 288.82962pt.
  [21 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/SkLat+mands_lan
 dmark_diagrams.png>]
-<figures/FourPlotPCA.png, id=79, 627.7854pt x 479.8728pt>
+<figures/FourPlotPCA.png, id=80, 627.7854pt x 479.8728pt>
 File: figures/FourPlotPCA.png Graphic file (type png)
 
 <use figures/FourPlotPCA.png>
-Package pdftex.def Info: figures/FourPlotPCA.png used on input line 23.
+Package pdftex.def Info: figures/FourPlotPCA.png used on input line 25.
 (pdftex.def)             Requested size: 398.3386pt x 304.48152pt.
  [22 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/FourPlotPCA.png
 >])
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lot
-Overfull \hbox (11.03978pt too wide) in paragraph at lines 2--2
- \OT1/pplj/m/n/12 ten-recs (T) and golden moles (G) for each of our data sets(r
-ows) 
+Overfull \hbox (13.72942pt too wide) in paragraph at lines 1--1
+ [][] []\OT1/pplj/m/n/12 Summary of dis-par-ity com-par-isons be-tween ten-recs
+ and golden 
  []
 
 )
@@ -505,7 +500,7 @@ ows)
 ] (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.ttt
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/disp.trc.gmole.result
 s.tex)
-Overfull \hbox (99.76897pt too wide) in paragraph at lines 4--6
+Overfull \hbox (99.76897pt too wide) in paragraph at lines 4--7
  [][] 
  []
 
@@ -514,7 +509,7 @@ Overfull \hbox (99.76897pt too wide) in paragraph at lines 4--6
 ]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/disp.nonmictrc.gmole.
 results.tex)
-Overfull \hbox (90.661pt too wide) in paragraph at lines 4--14
+Overfull \hbox (90.661pt too wide) in paragraph at lines 4--16
  [][] 
  []
 
@@ -526,26 +521,27 @@ Overfull \hbox (90.661pt too wide) in paragraph at lines 4--14
 
 ]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 4657 strings out of 493921
- 66179 string characters out of 3147276
- 135447 words of memory out of 3000000
- 7810 multiletter control sequences out of 15000+200000
- 43638 words of font info for 102 fonts, out of 3000000 for 9000
+ 4647 strings out of 493921
+ 65987 string characters out of 3147276
+ 135252 words of memory out of 3000000
+ 7799 multiletter control sequences out of 15000+200000
+ 43807 words of font info for 103 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,9n,36p,1032b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,9n,36p,1010b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fpl
-rc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/p
-alatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (26 pages, 869649 bytes).
+/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/
+uplri8a.pfb>
+Output written on Disparity_MS.pdf (26 pages, 872974 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
+ 130 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
