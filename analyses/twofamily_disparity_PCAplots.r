@@ -134,7 +134,7 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 
   # Remove the _sp. specimens
     mands.sp <- which(mands.combine$Species=="sp.")
-    mands.combine <- remove.from.list(mands.combine, sklat.sp)
+    mands.combine <- remove.from.list(mands.combine, mands.sp)
     mands.combine <- droplevels.from.list(mands.combine)
 
   # Remove specimens with missing data
@@ -294,8 +294,11 @@ par(mfrow=c(2,2))
       axis(side=2, at=c(round(min(mands.yaxis),3), 0, round(max(mands.yaxis),3)), las=1, cex=1.5)
     #add dotted lines along 0,0
       abline(0,0, h=0, v=0, lty=2, lwd=1)
+#identify points
+identify(mands.xaxis, mands.yaxis,labels=(mands.sp.fam$Binom))
 
 #I copied and pasted the plots into a powerpoint presentation and added the labels to the axes
+  #Saved within output/shapedata
 
 #--------------------------------------
 #Select PC axes for each analysis
