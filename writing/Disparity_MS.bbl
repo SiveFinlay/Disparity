@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -31,11 +31,26 @@ Asher, R.J., Maree, S., Bronner, G., Bennett, N., Bloomer, P., Czechowski, P.,
   {C}hrysochloridae).
 \newblock \emph{BMC Evolutionary Biology} \textbf{10}: 1--13.
 
+\bibitem[{Blagojevi\'c \& Milo\v{s}evi\'c-Zlatanovi\'c(2011)}]{Blagojevic2011}
+Blagojevi\'c, M. \& Milo\v{s}evi\'c-Zlatanovi\'c, S. 2011.
+\newblock Sexual shape dimorphism in {S}erbian roe deer (\textit{{C}apreolus
+  capreolus} {L}.).
+\newblock \emph{Mammalian Biology - Zeitschrift f\"ur S\"augetierkunde}
+  \textbf{76}: 735--740.
+
 \bibitem[{Bookstein(1997)}]{Bookstein1997}
 Bookstein, F. 1997.
 \newblock Landmark methods for forms without landmarks: morphometrics of group
   differences in outline shape.
 \newblock \emph{Medical image analysis} \textbf{1}: 225--243.
+
+\bibitem[{Bornholdt et~al.(2008)Bornholdt, Oliveira \&
+  Fabi\'an}]{Bornholdt2008}
+Bornholdt, R., Oliveira, L.R. \& Fabi\'an, M.E. 2008.
+\newblock Size and shape variability in the skull of \textit{Myotis nigricans}
+  (schinz, 1821) (chiroptera: Vespertilionidae) from two geographic areas in
+  brazil.
+\newblock \emph{Brazilian Journal of Biology} \textbf{68}: 623--631.
 
 \bibitem[{Bronner(1995)}]{Bronner1995}
 Bronner, G. 1995.
@@ -160,6 +175,13 @@ O'Meara, B., An\'e, C., Sanderson, M. \& Wainwright, P. 2006.
   likelihood.
 \newblock \emph{Evolution} \textbf{60}: 922--933.
 
+\bibitem[{Panchetti et~al.(2008)Panchetti, Scalici, Carpaneto \&
+  Gibertini}]{Panchetti2008}
+Panchetti, F., Scalici, M., Carpaneto, G. \& Gibertini, G. 2008.
+\newblock Shape and size variations in the cranium of elephant-shrews: a
+  morphometric contribution to a phylogenetic debate.
+\newblock \emph{Zoomorphology} \textbf{127}: 69--82.
+
 \bibitem[{Price et~al.(2013)Price, Tavera, Near \& Wainwright}]{Price2013}
 Price, S., Tavera, J., Near, T. \& Wainwright, P. 2013.
 \newblock Elevated rates of morphological and functional diversification in
@@ -231,6 +253,12 @@ Wilson, D. \& Reeder, D. 2005.
 \newblock \emph{Mammal species of the world. {A} taxonomic and geographic
   reference (3rd ed)}.
 \newblock Johns Hopkins University Press.
+
+\bibitem[{Wroe \& Milne(2007)}]{Wroe2007}
+Wroe, S. \& Milne, N. 2007.
+\newblock Convergence and remarkably consistent constraint in the evolution of
+  carnivore skull shape.
+\newblock \emph{Evolution} \textbf{61}: 1251--1260.
 
 \bibitem[{Zelditch et~al.(2012)Zelditch, Swiderski \& Sheets}]{Zelditch2012}
 Zelditch, M., Swiderski, D. \& Sheets, D. 2012.
