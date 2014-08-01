@@ -1,0 +1,5 @@
+obs.disp	sim.min	sim.max	pvalue
+SumVar	0.00168	0.0038	0.0491	0
+ProdVar	0.000147	0.000394	0.0104	0
+SumRange	0.364	0.363	1.12	0.00070323488045007
+ProdRange	0.0473	0.0823	0.359	0
