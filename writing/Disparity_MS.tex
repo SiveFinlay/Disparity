@@ -80,9 +80,11 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	There are many famous examples of adaptive radiations including Darwin's finches, Caribbean \textit{Anolis} lizards and cichlid fish \citep{Gavrilets2009}. However, there has been considerable debate about how adaptive radiations should be defined \citep{Glor2010, Losos2010a} based on the relative importance of speciation rates, species richness and morphological diversity. One particular issue is whether it is even meaningful to distinguish a specific group of species as an adaptive radiation or not based on arbitrary statistical thresholds of variety \citep{Olson2009}.
 	%SF: Re-phrased the laste sentence to try and make it clearer
 
-	Despite the controversies and disagreements, there does seem to be a consensus that high morphological diversity is an important criterion for identifying adaptive radiations \citep{Losos2010a, Olson2009}. One way to test whether a group shows high morphological diversity is through sister taxa comparisons. For example, Losos and Miles (\citeyear{Losos2002}) used this approach to demonstrate exceptional diversity in some but not all clades of iguanid lizards.
-%Probably needs another linking sentence here
+	Despite the controversies and disagreements, there does seem to be a consensus that high morphological diversity is an important criterion for identifying adaptive radiations \citep{Losos2010a, Olson2009}. One way to test whether a group shows high morphological diversity is through sister taxa comparisons. For example, Losos and Miles (\citeyear{Losos2002}) used this approach to demonstrate exceptional diversity in some but not all clades of iguanid lizards. This is a good way of assessing the relative diversity of a clade but of course there is also a danger that a focal clade's diversity will be judged to be exceptional just because it is more variable than an exceptionally non-diverse sister taxon \citep{Losos2002}. 
+
+%Still needs another linking sentence here
 %COME BACK TO HERE
+
 	Here we use sister-taxa comparisons to test whether tenrecs (Afrosoricida, Tenrecidae) exhibit the high levels of phenotypic diversity that are expected of an adaptively radiated clade.
 	% NC: Yeah this paragraph needs some work. Jumps quite quickly from really broad to really focused. 
 
@@ -200,14 +202,14 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 
 	We used two approaches to test whether tenrecs have significantly different morphologies compared to golden moles. First we compared morphospace occupation between the two groups with non parametric MANOVAs \citep{Anderson2001} to test whether tenrecs and golden moles occupy significantly different areas of morphospace \citep[e.g][]{Serb2011, Ruta2013}.
 	 
-	Secondly, we used pairwise permutation tests to test the null hypothesis that tenrecs and golden moles have equal disparity. If this hypothesis was true then the designation of each species as belonging to either tenrecs or golden moles should be arbitrary. Therefore we permuted the data by assigning Family identities at random to each specimen and calculated the differences in disparity for each of the new Family groupings. We repeated these permutations 1000 times to generate a null distribution of the expected differences in Family disparity. We compared our observed (true) measures of the differences in disparity between tenrecs and golden moles to these permuted distributions to test whether the families had significantly different levels of disparity.
-% NC: It's permuted not permutated
-% NC: Have a go at re-writing this disparity section to make it clearer. Go from first principles and don't read this. Don't worry if it makes it longer. Think about writing it for Nicola to understand. Clear writing is hard but worthwhile, esp in your chosen line of work.
+	Secondly, we tested whether tenrecs have significantly higher or lower disparity than golden moles. If the two Families have equal disparity then the designation of each species as being either a tenrec or golden mole should not make any difference to our calculations. Therefore we used pairwise permutation tests to assess whether our data differed from this null hypothesis. We assigned Family identities at random to each specimen and calculated the differences in disparity for these new Family groupings. We repeated these permutations 1000 times to generate a null distribution of the expected differences in Family disparity. We compared our observed (true) measures of the differences in disparity between tenrecs and golden moles to these permuted distributions to test whether the families had significantly different levels of disparity compared to the null hypothesis.
+
+% SF: I tried re-writing this disparity methods explanation, not sure if it makes it any clearer though
 
 	The majority of tenrec species (19 out of 31 in our dataset) are members of the \textit{Microgale} (shrew-like) Genus which is notable for its relatively low phenotypic diversity \citep{Soarimalala2011, Jenkins2003}. The strong similarities among these species may mask signals of higher disparity among other tenrecs. Therefore we repeated our Family-level comparisons of disparity excluding the \textit{Microgale} species so that we could compare disparity within the remaining 12 tenrec species to disparity within the 12 species of golden moles.
 
 % NC: Now this is shortened I'd stick the rarefaction in here too
-% SF: I took out rarefaction because Steve Wang and Steve Brusatte both advised that it was not the most appropriate test to use. The permutation method also takes sample size into account so I thought that removed the need for a rarefcation analysis aswell?
+	% SF: I took out rarefaction because Steve Wang and Steve Brusatte both advised that it was not the most appropriate test to use. The permutation method also takes sample size into account so I thought that removed the need for a rarefcation analysis aswell?
 %-----------------------------------------------------------
 
 \section{Results}
@@ -286,13 +288,32 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	 
 	When we compared tenrec cranial morphologies to their closest relatives we found a trend towards higher disparity in tenrecs compared to golden moles but none of these differences were significant. Even when we removed the phenotypically similar \textit{Microgale} Genus, tenrecs were still no more diverse than golden moles in most of the analyses (table \ref{tab:disp.nonmic.summary}). In contrast, our mandible analyses showed that golden moles have more disparate mandibles than tenrecs seemingly due to greater diversity within their posterior-mandible shapes.
 
+	One apparent anomaly in our results is that we found opposite patterns for disparity among tenrecs and golden moles in the analyses of skulls and mandibles. 
+	Our landmarks and curves for the mandibles (figure \ref{fig:sklat_mands_landmarks}) include aspects of variation in the dentition but they focus particular attention on the ascending ramus (condyloid, condylar and angular processes). Therefore higher disparity in golden moles could reflect greater morphological variability in these posterior mandible structures. To test this idea we deleted the three semi-landmark curves around these structures and repeated our disparity analyses of mandibles using seven landmarks and just one curve at the base of the jaw. In this case we retrieved the opposite pattern: tenrecs had higher morphological disparity than golden moles but not significantly (see supplementary material). Therefore, our results indicate that golden moles have greater morphological variation in the posterior structures of their mandibles compared to tenrecs.
+		
+	%NB; I still need to add these results to the supplementary
+		%Needs another sentence here
+			
+	 Given that these posterior structures are predominantly muscle attachment and articulation sites for connections with the upper jaw %needs a ref
+	 one might expect that golden moles with highly disparate posterior mandible morphologies should also show high variability in the corresponding mandible articulation areas of the skull. However, we could not locate reliable, homologous points on these areas of the skull pictures in lateral view which could be identified in all of our species. Instead, our landmarks and semilandmark curves for the skulls in lateral view focus attention on morphological variation in the dentition and the overall shape of the top and back of the skulls (figure \ref{fig:sklat_mands_landmarks}). This may explain why golden mole skulls in lateral view do not show the same pattern of higher disparity compared to tenrecs that we see in our analyses of the mandibles.
+	 	
+		%The discrepancies could arise from factors associated with the modularity of morphological evolution.
+	
+		%There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
+		%For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
+	
+	% NC: I don't really get the relevance of this part...
+	% SF: It was just one of my ideas for trying to figure out why I'm getting different patterns in the mandibles compared to the skulls but I didn't manage to develop it properly
+	
+	
 	It is evident that tenrecs are a diverse group, both phenotypically and ecologically. Body sizes of extant tenrecs span three orders of magnitude (2.5 to $>$ 2,000g) which is a greater range than all other Families, and most Orders, of living mammals \citep{Olson2003}.
 	% NC Could alternatively cite the PanTHERIA dataset here 	
-	%SF: Yep, I just put this reference in because that's where I got the claim that the range is greater than any other Family but I guess it's easy enough to check in PanTHERIA too
+		%SF: Yep, I just put this reference in because that's where I got the claim that the range is greater than any other Family but I guess it's easy enough to check in PanTHERIA too
 	Within this vast size range there is striking phenotypic diversity from the spiny \textit{Echinops, Setifer} and \textit{Hemicentetes} to the mole-like \textit{Oryzorictes} and shrew-like \textit{Microgale}. These diverse forms inhabit a wide variety of ecological niches and habitats including terrestrial, arboreal, semi-aquatic and semi-fossorial environments \citep{Soarimalala2011}. 
 	In contrast, although golden moles occupy a wide altitudinal, climatic and vegetational spectrum of habitats \citep{Bronner1995}, they are are all fossorial species which, superficially at least, appear to be less functionally diverse than tenrecs. 
 	
-	There is a danger when using sister taxa comparisons that a clade's diversity will be judged to be exceptional just because it is more variable than an exceptionally non-diverse sister taxon \citep{Losos2002}. However, we compared an apparently phenotypically diverse clade to a more uniform sister clade yet our results do not indicate that tenrecs are more morphologically diverse than their closest relatives (table \ref{tab:disp.summary}). These unexpected findings highlight the importance of testing our assumptions about patterns of morphological variety.
+	%I moved this first sentence into the introduction
+	%There is a danger when using sister taxa comparisons that a clade's diversity will be judged to be exceptional just because it is more variable than an exceptionally non-diverse sister taxon \citep{Losos2002}. However, we compared an apparently phenotypically diverse clade to a more uniform sister clade yet our results do not indicate that tenrecs are more morphologically diverse than their closest relatives (table \ref{tab:disp.summary}). These unexpected findings highlight the importance of testing our assumptions about patterns of morphological variety.
 	
 	%2: Why are there opposite patterns in the skulls and mandibles?
 	
@@ -300,22 +321,7 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	
 	%However, as I was choosing the landmarks I knew that the dental formulae varied for each species - and therefore the landmarks are relative points showing the end of the tooth row rather than biologically meaningful positions of dental characteristics. But now I don't know if I can get away with using that as an excuse when it comes to trying to explain strange results in my paper.
 	
-	One apparent anomaly in our results is that we found opposite patterns for disparity among tenrecs and golden moles in the analyses of skulls and mandibles. 
-	Our landmarks and curves for the mandibles (figure \ref{fig:sklat_mands_landmarks}) include aspects of variation in the dentition but they focus particular attention on the ascending ramus (condyloid, condylar and angular processes). Therefore higher disparity in golden moles could reflect greater morphological variability in these posterior mandible structures. To test this idea we deleted the three semi-landmark curves around these structures and repeated our disparity analyses of mandibles using seven landmarks and just one curve at the base of the jaw. In this case we retrieved the opposite pattern: tenrecs had higher morphological disparity than golden moles but not significantly (see supplementary material). Therefore, our results indicate that golden moles have greater morphological variation in the posterior structures of their mandibles compared to tenrecs.
-	
-	%NB; I still need to add these results to the supplementary
-	%Needs another sentence here
-		
- 	Given that these posterior structures are predominantly muscle attachment and articulation sites for connections with the upper jaw %needs a ref
- 	one might expect that golden moles with highly disparate posterior mandible morphologies should also show high variability in the corresponding mandible articulation areas of the skull. However, we could not locate reliable, homologous points on these areas of the skull pictures in lateral view which could be identified in all of our species. Instead, our landmarks and semilandmark curves for the skulls in lateral view focus attention on morphological variation in the dentition and the overall shape of the top and back of the skulls (figure \ref{fig:sklat_mands_landmarks}). This may explain why golden mole skulls in lateral view do not show the same pattern of higher disparity compared to tenrecs that we see in our analyses of the mandibles.
- 	
-	%The discrepancies could arise from factors associated with the modularity of morphological evolution.
 
-	%There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
-	%For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
-
-% NC: I don't really get the relevance of this part...
-% SF: It was just one of my ideas for trying to figure out why I'm getting different patterns in the mandibles compared to the skulls but I didn't manage to develop it properly
 
 %4 - Caveats
 % NC: Be careful not to end on caveats. Also make sure the caveats don't overwhelm the results! :)
