@@ -2,6 +2,8 @@
 %All tenrecs and golden moles
 %Removed the SSqDist column because it was just making the whole paper more confusing (previous versions of the file include those results)
 
+%p value for Mandibles SumRange is 0.025: should I treat this as insignificant because I'm using a two-tailed test?
+
 \begin{tabular}[t]{l l l l l  }		
 \hline
 \textbf{Disparity metric} & \textbf{SumVar} & \textbf{ProdVar} & \textbf{SumRange} & \textbf{ProdRange} \\
@@ -12,9 +14,9 @@ Skulls lateral	& T$>$G & T$>$G & T$>$G & T$>$G \\
 %-------------------------------------------------------
 Skulls ventral & T$>$G & G$>$T & T$>$G & T$>$G \\
 %-------------------------------------------------------
-Mandibles & G$>$T & \textbf{G$>$T* (0.008)} & \textbf{T$>$G* (0.025)} & \textbf{T$>$G* (0.009)}\\
+Mandibles & G$>$T & \textbf{G$>$T* (0.008)} & \textbf{T$>$G* (0.025)} & \textbf{G$>$T* (0.009)}\\
 %-------------------------------------------------------
-Mandibles & G$>$T & G$>$T & T$>$G & T$>$G\\
+Mandibles:one curve & G$>$T & G$>$T & T$>$G & T$>$G\\
 %-------------------------------------------------------
 \hline
 \end{tabular}
