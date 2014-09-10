@@ -2,6 +2,8 @@
 
 
 #Useful functions from my re-writing of the disparity analysis
+  #Use this as a source file for all of my analyses, not just the disparity ones
+  #Includes functions that are generally useful for data manipulation and shape data
 
 #1) General functions
     #matching.id 
@@ -26,6 +28,7 @@
       #mean.coordinates
       #selectPCaxes
       #selectPCaxes.prcomp
+      #Proc.dist.within
 
 #4) Resampling (rarefaction)
       #resample.data
@@ -341,6 +344,37 @@ perm.diff.two.groups <- function (numreps, fam1, fam2, sp.fam.data, mydata, test
         rownames(PCaxes) <- rownames(prcomp.object$x) 
      return(PCaxes)
    } 
+
+#-------------------------------------------------
+#Function to find the min, max and mean Procrustes distances within a set of specimens
+  #Based on a Euclidean distance matrix
+  #I used it for morphometrics error checking so there are multiple measures of single specimens
+    #NB: The function selects the minimum non 0 number
+  #(there will always be 0s in the distance matrix because there's no difference between an image and itself)   
+  
+  Proc.dist.within <- function (dist.mat){
+    specimen <- NULL
+    for (i in 1:length(unique(rownames(dist.mat)))){
+      specimen[[i]] <-   which(rownames(dist.mat) == (unique(rownames(dist.mat))[i]))
+    }
+    specimen.dist <- NULL
+    for (j in 1:length(specimen)){
+      specimen.dist[[j]] <- dist.mat[specimen[[j]], specimen[[j]]]
+    }
+    
+    dist.summary <- matrix(nrow=(length(specimen)), ncol=3)
+      rownames(dist.summary) <- unique(rownames(dist.mat))
+      colnames(dist.summary) <- c("non_0_min", "max", "mean")
+
+    for (k in 1:length(specimen.dist)){
+         #dist.summary[j,] <- c(range (dist.mat[specimen[[j]],specimen[[j]]]), mean(dist.mat[specimen[[j]],specimen[[j]]]))
+         dist.summary[k,1] <- min(specimen.dist[[k]][which(specimen.dist[[k]] > 0)])
+         dist.summary[k,2] <- max(specimen.dist[[k]])
+         dist.summary[k,3] <- mean(specimen.dist[[k]])
+         }
+  
+    return(dist.summary)
+    }
 
 #**********************************************
 #4) Resampling (rarefaction)

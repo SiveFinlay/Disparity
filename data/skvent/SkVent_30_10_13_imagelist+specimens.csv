@@ -236,7 +236,7 @@ ID,Image,SpecID,Skull,Order_05,Suborder_05,Family_05,Subfamily_05,Genus_05,Subge
 235,'SI_320532_cr_vt_1A_11_04_2013.TIF',SI_320532,Y,Soricomorpha,,Talpidae,Talpinae,Euroscaptor,,klossi,,Euroscaptor_klossi,
 236,'SI_326693_cr_vt_1A_19_04_2013.TIF',SI_326693,Y,Erinaceomorpha,,Erinaceidae,Erinaceinae,Hemiechinus,,auritus,,Hemiechinus_auritus,
 237,'SI_327190_cr_vt_1A_05_04_2013.TIF',SI_327190,Y,Erinaceomorpha,,Erinaceidae,Erinaceinae,Erinaceus,,concolor,,Erinaceus_concolor,
-238,'SI_327893_cr_vt_1A_11_04_2013.TIF',SI_327893,Y,Erinaceomorpha,,Talpidae,Scalopinae,Condylura,,cristata,,Condylura_cristata,
+238,'SI_327893_cr_vt_1A_11_04_2013.TIF',SI_327893,Y,Soricomorpha,,Talpidae,Scalopinae,Condylura,,cristata,,Condylura_cristata,
 239,'SI_327911_cr_vt_1A_19_04_2013.TIF',SI_327911,Y,Erinaceomorpha,,Erinaceidae,Erinaceinae,Hemiechinus,,auritus,,Hemiechinus_auritus,
 240,'SI_327912_cr_vt_1A_19_04_2013.TIF',SI_327912,Y,Erinaceomorpha,,Erinaceidae,Erinaceinae,Hemiechinus,,auritus,,Hemiechinus_auritus,
 241,'SI_328604_cr_vt_1A_01_04_2013.TIF',SI_328604,Y,Afrosoricida,Tenrecomorpha,Tenrecidae,Tenrecinae,Setifer,,setosus,,Setifer_setosus,

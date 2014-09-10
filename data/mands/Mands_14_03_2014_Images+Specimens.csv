@@ -179,7 +179,7 @@ ID,Image,SpecID,Skull,Order_05,Family_05,Genus_05,Subgenus_05,Species_05,Subspec
 178,'SI_320532_ma_1A_11_04_2013.TIF',SI_320532,Y,Soricomorpha,Talpidae,Euroscaptor,,klossi,,Euroscaptor_klossi,
 179,'SI_326693_ma_1A_19_04_2013.TIF',SI_326693,Y,Erinaceomorpha,Erinaceidae,Hemiechinus,,auritus,,Hemiechinus_auritus,
 180,'SI_327190_ma_1A_05_04_2013.TIF',SI_327190,Y,Erinaceomorpha,Erinaceidae,Erinaceus,,concolor,,Erinaceus_concolor,
-181,'SI_327893_ma_1A_11_04_2013.TIF',SI_327893,Y,Erinaceomorpha,Talpidae,Condylura,,cristata,,Condylura_cristata,
+181,'SI_327893_ma_1A_11_04_2013.TIF',SI_327893,Y,Soricomorpha,Talpidae,Condylura,,cristata,,Condylura_cristata,
 182,'SI_327911_ma_1A_19_04_2013.TIF',SI_327911,Y,Erinaceomorpha,Erinaceidae,Hemiechinus,,auritus,,Hemiechinus_auritus,
 183,'SI_327912_ma_1A_19_04_2013.TIF',SI_327912,Y,Erinaceomorpha,Erinaceidae,Hemiechinus,,auritus,,Hemiechinus_auritus,
 184,'SI_328604_ma_1A_01_04_2013.TIF',SI_328604,Y,Afrosoricida,Tenrecidae,Setifer,,setosus,,Setifer_setosus,

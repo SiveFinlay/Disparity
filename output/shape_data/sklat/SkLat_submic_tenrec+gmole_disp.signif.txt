@@ -1,0 +1,5 @@
+metric	obs.tenrec	obs.gmole	obs.diff	perm.min	perm.max	pvalue
+1	sumvar	0.00366	0.0013	-0.00236	-0.00367	0.00394	0.023
+2	prodvar	0.000304	0.000152	-0.000152	-0.000276	0.000253	0.074
+3	sumrange	0.543	0.298	-0.246	-0.243	0.2	0
+4	prodrange	0.067	0.0401	-0.0269	-0.0388	0.0265	0.029
