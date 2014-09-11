@@ -57,13 +57,13 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 #--------------------------------------------------------
 #SkLat
   #1) Landmarks
-    land <- readland.tps(file="sklat/SkLat_08_11_13_9landmarks_2curves_edited.TPS")
+    #land <- readland.tps(file="sklat/SkLat_08_11_13_9landmarks_2curves_edited.TPS")
   #2) Sliders
-    curves <- as.matrix(read.table(file="sklat/SkLat_08_11_13_9landmarks_2curves_sliders_edited.NTS", header=TRUE))
+    #curves <- as.matrix(read.table(file="sklat/SkLat_08_11_13_9landmarks_2curves_sliders_edited.NTS", header=TRUE))
   #3) Taxonomy
-    taxa <- read.csv("sklat/SkLat_08_11_13_Specimens+images.csv", header=TRUE)
+    #taxa <- read.csv("sklat/SkLat_08_11_13_Specimens+images.csv", header=TRUE)
   #4) Specimens to remove
-    rem <- read.csv("sklat/SkLat_remove_spec.csv", header=T)
+    #rem <- read.csv("sklat/SkLat_remove_spec.csv", header=T)
 
 #-----------------------------------------------------
 #SkVent
@@ -78,13 +78,13 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 #------------------------------------------
 #Mandibles
   #1) Landmarks
-    #land <- readland.tps(file="mands/Mands_14_03_2014_7landmarks+4curves_edited.TPS")
+    land <- readland.tps(file="mands/Mands_14_03_2014_7landmarks+4curves_edited.TPS")
   #2) Sliders
-    #curves <- as.matrix(read.table("mands/Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
+    curves <- as.matrix(read.table("mands/Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
   #3) Taxonomy
-    #taxa <- read.csv("mands/Mands_14_03_2014_Images+Specimens.csv", header=T)
+    taxa <- read.csv("mands/Mands_14_03_2014_Images+Specimens.csv", header=T)
   #4) Specimens to remove
-    #rem <- read.csv("mands/Mands_remove_spec.csv", header=T)
+    rem <- read.csv("mands/Mands_remove_spec.csv", header=T)
     
 #################################################
 #CLEAN UP THE DATA
@@ -343,13 +343,13 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
 #SkLat
 #Subset of tenrecs (17 species including 5 Microgale) compared to golden moles
   #1) Average shape coordinates
-     dput(sps.mean, file="sklat/SkLat_submic_tenrec+gmole_sps.mean.txt")
+     #dput(sps.mean, file="sklat/SkLat_submic_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-     write.table(file="sklat/SkLat_submic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+     #write.table(file="sklat/SkLat_submic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of npMANOVA results
-     write.table(file="sklat/SkLat_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+     #write.table(file="sklat/SkLat_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of permutation test for significant differences in group disparity
-     write.table(file="sklat/SkLat_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+     #write.table(file="sklat/SkLat_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
 #--------------------------------------
 #SkVent
@@ -367,10 +367,10 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
 #Mands
 #Subset of tenrecs (17 species including 5 Microgale) compared to golden moles
   #1) Average shape coordinates
-    #dput(sps.mean, file="mands/Mands_submic_tenrec+gmole_sps.mean.txt")
+    dput(sps.mean, file="mands/Mands_submic_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-    #write.table(file="mands/Mands_submic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    write.table(file="mands/Mands_submic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of npMANOVA results
-    #write.table(file="mands/Mands_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    write.table(file="mands/Mands_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of permutation test for significant differences in group disparity
-    #write.table(file="mands/Mands_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    write.table(file="mands/Mands_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
