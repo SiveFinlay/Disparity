@@ -29,6 +29,9 @@
     #3) Table of npMANOVA reults; based on distance matrix and PC axes              (manova.res)
     #4) Summary table of results from permutation tests for significant differences in disparity (perm.res.summary)
 
+    #Extra: tps file of the raw coordinates for the subset of tenrecs and all golden moles
+      #Use this to look at landmark variation in tpsRelw
+
   #figures
     #1) PCA plots  - I haven't added the code to this script
 
@@ -43,15 +46,15 @@ source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/PvalueFunction_FromD
 setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 
 #######################
-#Read in the data
+#Read in the data: 3 views of skulls, 2 options for mandibles (1 or 4 curves)
 #################
 #SkDors
     #1) Landmarks
-      #land <- readland.tps(file="skdors/Skdors_16_12_13_10landmarks+4curves_edited.TPS")
+      land <- readland.tps(file="skdors/Skdors_16_12_13_10landmarks+4curves_edited.TPS")
     #2) Sliders
-      #curves <- as.matrix(read.table("skdors/Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
+      curves <- as.matrix(read.table("skdors/Skdors_16_12_13_10landmarks+4curves_sliders_edited.NTS", header=TRUE))
     #3) Taxonomy
-      #taxa <- read.csv ("skdors/Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
+      taxa <- read.csv ("skdors/Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
     #4) Specimens to remove
       #Null
 #--------------------------------------------------------
@@ -88,13 +91,13 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 
 #Mandibles: Reduced landmarks: all landmarks but just one curve at the base of the mandible
   #1) Landmarks
-    land <- readland.tps(file="mands/Mands_14_03_2014_7landmarks+1bottomcurve_edited.TPS")
+    #land <- readland.tps(file="mands/Mands_14_03_2014_7landmarks+1bottomcurve_edited.TPS")
   #2) Sliders
-    curves <- as.matrix(read.table("mands/Mands_14_03_2014_7landmarks+1bottomcurve_sliders_edited.NTS", header=TRUE))
+    #curves <- as.matrix(read.table("mands/Mands_14_03_2014_7landmarks+1bottomcurve_sliders_edited.NTS", header=TRUE))
   #3) Taxonomy
-    taxa <- read.csv("mands/Mands_14_03_2014_Images+Specimens.csv", header=T)
+    #taxa <- read.csv("mands/Mands_14_03_2014_Images+Specimens.csv", header=T)
   #4) Specimens to remove
-    rem <- read.csv("mands/Mands_remove_spec.csv", header=T)
+    #rem <- read.csv("mands/Mands_remove_spec.csv", header=T)
 
     
 #################################################
@@ -217,10 +220,36 @@ sps.meanPCA <- plotTangentSpace(sps.mean$meanshape, axis1 = 1, axis2 = 2,warpgri
 #######################################
 
 PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
+#NB: results could change depending on the threshold set for the number of axes to use
+#But the dimensionality of the two families is the same
 
-#select the axes for each family
+#select the rows on those axes that correspond to each family
   gmolePC <- PC95axes[which(sp.fam$Family=="Chrysochloridae"),]
   tenrecPC <- PC95axes[which(sp.fam$Family=="Tenrecidae"),]
+
+#################
+#Diversity of families based on distances to centroid
+#################
+#Find the centroid of each family: mean score of each of the axes
+  gmole.cent <- NULL
+    for (i in 1:ncol(gmolePC)){
+      gmole.cent[i] <- mean(gmolePC[,i])
+    }
+#Distance from each gmole species to the gmole centroid
+  gmole.cent.dist <- NULL
+    for (i in 1:nrow(gmolePC)){
+      gmole.cent.dist[i] <- dist(rbind(gmolePC[i,], gmole.cent), method="euclidean")
+    }
+    
+    dist(gmolePC[1,], gmole.cent)
+
+#Mean and standard error of those distances from the centroid
+    library(plotrix)
+    
+    gmole.se <- std.error(gmole.cent.dist)
+    gmole.mean <- mean(gmole.cent.dist)
+
+#Same thing for tenrecs
   
 #######################################
 #CALCULATE DISPARITY
@@ -350,6 +379,11 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
   #4) Table of permutation test for significant differences in group disparity
     #write.table(file="skdors/SkDors_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+
+#Export the raw coordinates (before superimposition) of just tenrecs and golden moles to a tps file
+  #Still the subset of tenrecs and all golden moles
+  #Use this file to look at landmark variation within tpsRelw
+    #writeland.tps(mydata$land, file = "skdors/SkDors_submic_tenrec+gmole_raw_coords.tps")
 #----------------------------------------
 #SkLat
 #Subset of tenrecs (17 species including 5 Microgale) compared to golden moles
@@ -362,6 +396,10 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
   #4) Table of permutation test for significant differences in group disparity
      #write.table(file="sklat/SkLat_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+#Export the raw coordinates (before superimposition) of just tenrecs and golden moles to a tps file
+  #Still the subset of tenrecs and all golden moles
+  #Use this file to look at landmark variation within tpsRelw
+    #writeland.tps(mydata$land, file = "sklat/SkLat_submic_tenrec+gmole_raw_coords.tps")     
 #--------------------------------------
 #SkVent
 #Subset of tenrecs (17 species including 5 Microgale) compared to golden moles
@@ -373,6 +411,11 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
     #write.table(file="skvent/SkVent_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of permutation test for significant differences in group disparity
     #write.table(file="skvent/SkVent_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#Export the raw coordinates (before superimposition) of just tenrecs and golden moles to a tps file
+  #Still the subset of tenrecs and all golden moles
+  #Use this file to look at landmark variation within tpsRelw
+    writeland.tps(mydata$land, file = "skvent/SkVent_submic_tenrec+gmole_raw_coords.tps")
 
 #-----------------------------------------------
 #Mands: all landmarks and 4 curves
@@ -386,13 +429,23 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
   #4) Table of permutation test for significant differences in group disparity
     #write.table(file="mands/Mands_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
 
+#Export the raw coordinates (before superimposition) of just tenrecs and golden moles to a tps file
+  #Still the subset of tenrecs and all golden moles
+  #Use this file to look at landmark variation within tpsRelw
+    #writeland.tps(mydata$land, file = "mands/Mands_submic_tenrec+gmole_raw_coords.tps")
+
 #Mands: all landmarks but only 1 curve
 #Subset of tenrecs (17 species including 5 Microgale) compared to golden moles
   #1) Average shape coordinates
-    dput(sps.mean, file="mands/Mands_1curve_submic_tenrec+gmole_sps.mean.txt")
+    #dput(sps.mean, file="mands/Mands_1curve_submic_tenrec+gmole_sps.mean.txt")
   #2) Family and species taxonomy
-    write.table(file="mands/Mands_1curve_submic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="mands/Mands_1curve_submic_tenrec+gmole_sps.mean_taxonomy.txt",sp.fam,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #3) Table of npMANOVA results
-    write.table(file="mands/Mands_1curve_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="mands/Mands_1curve_submic_tenrec+gmole_manova.res.txt",manova.res,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
   #4) Table of permutation test for significant differences in group disparity
-    write.table(file="mands/Mands_1curve_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+    #write.table(file="mands/Mands_1curve_submic_tenrec+gmole_disp.signif.txt",perm.res.summary,col.names=T, row.names=T,sep="\t",quote=F,append=FALSE)
+
+#Export the raw coordinates (before superimposition) of just tenrecs and golden moles to a tps file
+  #Still the subset of tenrecs and all golden moles
+  #Use this file to look at landmark variation within tpsRelw
+    #writeland.tps(mydata$land, file = "mands/Mands_1curve_submic_tenrec+gmole_raw_coords.tps")

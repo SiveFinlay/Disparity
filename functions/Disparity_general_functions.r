@@ -29,6 +29,7 @@
       #selectPCaxes
       #selectPCaxes.prcomp
       #Proc.dist.within
+      #euc.dist.cent
 
 #4) Resampling (rarefaction)
       #resample.data
@@ -375,6 +376,24 @@ perm.diff.two.groups <- function (numreps, fam1, fam2, sp.fam.data, mydata, test
   
     return(dist.summary)
     }
+
+#--------------------------------------------------
+#Function to calculate mean euclidean distances from the centroid
+  euc.dist.cent <- function(PCdata){
+    #Centroid (mean score of each PC axis)
+    centroid <- NULL
+      for(i in 1:ncol(PCdata)){
+        centroid[i] <- mean(PCdata[,i])
+      }
+
+    #Euclidean distances to the centroid
+    cent.dist <- NULL
+      for (j in 1:nrow(PCdata)){
+        cent.dist[j] <- dist(rbind(PCdata[j,], centroid), method="euclidean")
+      }
+    return(cent.dist)
+  }
+  
 
 #**********************************************
 #4) Resampling (rarefaction)
