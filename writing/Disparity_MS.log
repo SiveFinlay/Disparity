@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  17 SEP 2014 15:56
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  17 SEP 2014 17:04
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -426,38 +426,26 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <17.28> not available
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pplj/b/n' tried instead on input line 97.
  [4] [5] (Disparity_MS.fff)
-[6]
+[6] [7] [8] (Disparity_MS.ttt)
 
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 7 undefined on inp
-ut line 189.
-
-
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 7 undefined on inp
-ut line 189.
-
-LaTeX Font Info:    Font shape `OT1/pplj/bx/it' in size <14.4> not available
-(Font)              Font shape `OT1/pplj/b/it' tried instead on input line 191.
-
-[7] (Disparity_MS.ttt)
-
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 8 undefined on inp
-ut line 249.
+LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 9 undefined on inp
+ut line 231.
 
 
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 8 undefined on inp
-ut line 256.
+LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 9 undefined on inp
+ut line 238.
 
-[8] [9] [10] [11]
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [12]
-[13] [14] [15]) AED endfloat: Processing end Figures and Tables [16]
+[9] [10] [11] [12]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [13]
+[14] [15] [16]) AED endfloat: Processing end Figures and Tables [17]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof)
 \tf@lof=\write5
- [17
+ [18
 
 
 ]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.fff
-<figures/skdors+skvent+sklat_BW.png, id=65, 423.0204pt x 524.6802pt>
+<figures/skdors+skvent+sklat_BW.png, id=67, 423.0204pt x 524.6802pt>
 File: figures/skdors+skvent+sklat_BW.png Graphic file (type png)
 
 <use figures/skdors+skvent+sklat_BW.png>
@@ -466,18 +454,18 @@ Package pdftex.def Info: figures/skdors+skvent+sklat_BW.png used on input line
 (pdftex.def)             Requested size: 398.3386pt x 494.08812pt.
 
 
-LaTeX Warning: Text page 18 contains only floats.
+LaTeX Warning: Text page 19 contains only floats.
 
-[18
+[19
 
  <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors+skvent+sklat
-_BW.png>] <figures/FourPlotPCA.png, id=69, 627.7854pt x 508.299pt>
+_BW.png>] <figures/FourPlotPCA.png, id=72, 627.7854pt x 508.299pt>
 File: figures/FourPlotPCA.png Graphic file (type png)
 
 <use figures/FourPlotPCA.png>
 Package pdftex.def Info: figures/FourPlotPCA.png used on input line 14.
 (pdftex.def)             Requested size: 398.3386pt x 322.51808pt.
- [19 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/FourPlotPCA.png
+ [20 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/FourPlotPCA.png
 >])
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lot
 Overfull \hbox (13.72942pt too wide) in paragraph at lines 1--1
@@ -487,17 +475,17 @@ Overfull \hbox (13.72942pt too wide) in paragraph at lines 1--1
 
 )
 \tf@lot=\write6
- [20
+ [21
 
 
 
 ] (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.ttt
 
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 21 undefined on in
+LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 22 undefined on in
 put line 3.
 
 
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 21 undefined on in
+LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 22 undefined on in
 put line 3.
 
 
@@ -507,7 +495,7 @@ Overfull \hbox (32.60507pt too wide) in paragraph at lines 7--7
  [][] 
  []
 
-[21
+[22
 
 ]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/disp.nonmictrc.gmole.
@@ -516,11 +504,11 @@ Overfull \hbox (8.97713pt too wide) in paragraph at lines 6--16
  [][] 
  []
 
-[22
+[23
 
 ]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/npmanova.summary.tex)
-[23
+[24
 
 ]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
 
@@ -528,11 +516,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4639 strings out of 493921
- 65686 string characters out of 3147276
+ 4633 strings out of 493921
+ 65621 string characters out of 3147276
  135284 words of memory out of 3000000
- 7792 multiletter control sequences out of 15000+200000
- 43807 words of font info for 103 fonts, out of 3000000 for 9000
+ 7790 multiletter control sequences out of 15000+200000
+ 41717 words of font info for 99 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  33i,9n,36p,1396b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
@@ -542,12 +530,11 @@ ts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fpl
 rc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/p
-alatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (23 pages, 712276 bytes).
+iKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/urw/palatino/uplri8a.pfb>
+Output written on Disparity_MS.pdf (24 pages, 705221 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
