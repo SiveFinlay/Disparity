@@ -4,12 +4,10 @@
     #Calculate disparity as based on euclidean distances from the centroid for each family
       #Compare the dispersion of tenrecs and golden moles around their average skull shapes
 
-  #Stuck on the t test/anova stage: t test doesn't work for skdors and neither work for sklat
-  #I need to complete the script to make output files
-
-
-  #Significant difference for skdors (tenrec>gmole) anova F=15.71, p=0.000488
-    #But I need to get a t test to work instead of an anova
+  #Overall result for skulls: no significant difference for the full data
+    #Tenrecs>golden moles in the reduced analysis with the Microgale subsample
+    
+    #Leaving out the mandibles because they have G>T for all data and no significant difference with the subsample data set
 
 #steps:
   #1) Read in a clean up raw landmark data
@@ -24,8 +22,7 @@ library(geomorph)
 library(vegan)
 library(plotrix)
 
-source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Disparity_general_functions.r")
-
+source("C:/Users/sfinlay/Desktop/Thesis/Disparity/functions/Morpho_diversity_functions.r")
 
 setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 
@@ -41,16 +38,6 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
       #taxa <- read.csv ("skdors/Skdors_16_12_13_10landmarks_images+specimens.csv" , header=T)
     #4) Specimens to remove
       #Null
-#--------------------------------------------------------
-#SkLat
-  #1) Landmarks
-    land <- readland.tps(file="sklat/SkLat_08_11_13_9landmarks_2curves_edited.TPS")
-  #2) Sliders
-    curves <- as.matrix(read.table(file="sklat/SkLat_08_11_13_9landmarks_2curves_sliders_edited.NTS", header=TRUE))
-  #3) Taxonomy
-    taxa <- read.csv("sklat/SkLat_08_11_13_Specimens+images.csv", header=TRUE)
-  #4) Specimens to remove
-    rem <- read.csv("sklat/SkLat_remove_spec.csv", header=T)
 
 #-----------------------------------------------------
 #SkVent
@@ -62,26 +49,18 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
     #taxa <- read.csv("skvent/SkVent_30_10_13_imagelist+specimens.csv" , header=TRUE)
   #4) Specimens to remove
     #rem <- read.csv("skvent/SkVent_remove_spec.csv", header=T)
-#------------------------------------------
-#Mandibles: Full analysis
-  #1) Landmarks
-    #land <- readland.tps(file="mands/Mands_14_03_2014_7landmarks+4curves_edited.TPS")
-  #2) Sliders
-    #curves <- as.matrix(read.table("mands/Mands_14_03_2014_7landmarks+4curves_sliders_edited.txt", header=TRUE))
-  #3) Taxonomy
-    #taxa <- read.csv("mands/Mands_14_03_2014_Images+Specimens.csv", header=T)
-  #4) Specimens to remove
-    #rem <- read.csv("mands/Mands_remove_spec.csv", header=T)
 
-#Mandibles: Reduced landmarks: all landmarks but just one curve at the base of the mandible
+#--------------------------------------------------------
+#SkLat
   #1) Landmarks
-    #land <- readland.tps(file="mands/Mands_14_03_2014_7landmarks+1bottomcurve_edited.TPS")
+    land <- readland.tps(file="sklat/SkLat_08_11_13_9landmarks_2curves_edited.TPS")
   #2) Sliders
-    #curves <- as.matrix(read.table("mands/Mands_14_03_2014_7landmarks+1bottomcurve_sliders_edited.NTS", header=TRUE))
+    curves <- as.matrix(read.table(file="sklat/SkLat_08_11_13_9landmarks_2curves_sliders_edited.NTS", header=TRUE))
   #3) Taxonomy
-    #taxa <- read.csv("mands/Mands_14_03_2014_Images+Specimens.csv", header=T)
+    taxa <- read.csv("sklat/SkLat_08_11_13_Specimens+images.csv", header=TRUE)
   #4) Specimens to remove
-    #rem <- read.csv("mands/Mands_remove_spec.csv", header=T)
+    rem <- read.csv("sklat/SkLat_remove_spec.csv", header=T)
+
 
 
 #################################################
@@ -123,34 +102,34 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 #I originally removed all of the Microgale but it makes more sense to keep at least some of them
 
 #Find all of the rows that are Microgale specimens
-   mic <- which(mydata$Genus=="Microgale")
+   #mic <- which(mydata$Genus=="Microgale")
 #Find how many different Microgale species there are
-  mic.data <- select.from.list(mydata, mic)
-  mic.data <- droplevels.from.list(mic.data)
+  #mic.data <- select.from.list(mydata, mic)
+  #mic.data <- droplevels.from.list(mic.data)
 
   #Soarimalala et al 2011 divide Microgale into 5 groups based on body size and tail length
     #I'm using these as proxies for diversity across the Microgale genus
       #Select 1 species to represent each of the 5 groups: parvula, brevicaudata, dryas, longicaudata, dobsoni
 
   #Row numbers for the selected microgale species
-    sel.mic.id <- sort(c(which(mic.data$Species == "parvula"), which(mic.data$Species == "brevicaudata"),
-                  which(mic.data$Species == "dryas"), which(mic.data$Species == "longicaudata"),
-                  which(mic.data$Species == "dobsoni")))
-
+    #sel.mic.id <- sort(c(which(mic.data$Species == "parvula"), which(mic.data$Species == "brevicaudata"),
+                  #which(mic.data$Species == "dryas"), which(mic.data$Species == "longicaudata"),
+                  #which(mic.data$Species == "dobsoni")))
+                  
   #List of Microgale species which are not the selected ones
-    mic.spec.rem <- droplevels((remove.from.list(mic.data, sel.mic.id))$Binom)
+   #mic.spec.rem <- droplevels((remove.from.list(mic.data, sel.mic.id))$Binom)
 
   #Remove these Microgale (12 species that are not the 5 selected ones)
 
   #Find the ID numbers of those species within the main data set
-  mic.rem.id <- NULL
-    for (i in 1:length(levels(mic.spec.rem))){
-      mic.rem.id[[i]] <- which(mydata$Binom == levels(mic.spec.rem)[i])
-    }
+  #mic.rem.id <- NULL
+    #for (i in 1:length(levels(mic.spec.rem))){
+     #mic.rem.id[[i]] <- which(mydata$Binom == levels(mic.spec.rem)[i])
+   #}
 
    #Remove those IDs from the data
-    mydata <- remove.from.list(mydata, unlist(mic.rem.id))
-    mydata <- droplevels.from.list(mydata)
+    #mydata <- remove.from.list(mydata, unlist(mic.rem.id))
+    #mydata <- droplevels.from.list(mydata)
 
 #End of the option to remove some tenrecs
 #*****************
@@ -202,7 +181,6 @@ sps.meanPCA <- plotTangentSpace(sps.mean$meanshape, axis1 = 1, axis2 = 2,warpgri
 #######################################
 #SELECT PC AXES
 #######################################
-
 PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #NB: results could change depending on the threshold set for the number of axes to use
 #But the dimensionality of the two families is the same
@@ -224,16 +202,11 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
     colnames(cent.dist) <- c("dist", "group")
     cent.dist[,1] <- c(gmole.cent.dist, tenrec.cent.dist)
     cent.dist[,2] <- c(rep("gmole", length(gmole.cent.dist)), rep("tenrec", length(tenrec.cent.dist)))
-  cent.dist <- as.data.frame(cent.dist)
 
-#I tried to compare the two groups with a t test
-  comp.cent <- t.test(cent.dist[,1] ~ cent.dist[,2])
-  #but it gives an error that the data are essentially constant (not sufficiently different to the larger of the two means?)
-  
-#Anova instead
-  comp.cent <- aov(cent.dist[,1] ~ cent.dist[,2])
-  summary(comp.cent)
-      #significant difference for the skdors
+
+#Compare the two groups with a t test
+  comp.cent <- t.test(as.numeric(cent.dist[,1]) ~ cent.dist[,2])
+
   
 #Mean and standard error of those distances from the centroid
   mean.se <- matrix(nrow=2, ncol=2)
@@ -242,5 +215,17 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
   mean.se[,1] <- c(mean(gmole.cent.dist), mean(tenrec.cent.dist))
   mean.se[,2] <- c(std.error(gmole.cent.dist), std.error(tenrec.cent.dist))
 
+################################
+#Pairwise permutation tests
+##############################
+#Check that the significant differences are not just an artefact of differences in sample size
 
+#Observed differences in the mean
+  obs.mean.diff <- mean.se[2,1] - mean.se[1,1]  
 
+#Permutation test for significant difference in the mean
+  perm.mean <- group.diff(1000, sp.fam$Family, PC95axes, mean)
+#Test for significant difference
+  perm.mean.pvalue <- pvalue.dist(perm.mean, obs.mean.diff)
+  
+#Creat output files to summarise the results

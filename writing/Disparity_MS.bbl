@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -66,17 +66,6 @@ Eisenberg, J.F. \& Gould, E. 1969.
   {E}volution.
 \newblock \emph{Smithsonian Contributions to Zoology} \textbf{27}: 1--152.
 
-\bibitem[{Erwin(2007)}]{Erwin2007}
-Erwin, D. 2007.
-\newblock Disparity: morphological pattern and developmental context.
-\newblock \emph{Palaeontology} \textbf{50}: 57--73.
-
-\bibitem[{Foote(1997)}]{Foote1997}
-Foote, M. 1997.
-\newblock The evolution of morphological diversity.
-\newblock \emph{Annual Review of Ecology and Systematics} \textbf{28}:
-  129--152.
-
 \bibitem[{Foth et~al.(2012)Foth, Brusatte \& Butler}]{Foth2012}
 Foth, C., Brusatte, S. \& Butler, R. 2012.
 \newblock Do different disparity proxies converge on a common signal?
@@ -89,12 +78,6 @@ Gavrilets, S. \& Losos, J. 2009.
 \newblock Adaptive radiation: contrasting theory with data.
 \newblock \emph{Science} \textbf{323}: 732--736.
 
-\bibitem[{Glor(2010)}]{Glor2010}
-Glor, R. 2010.
-\newblock Phylogenetic insights on adaptive radiation.
-\newblock \emph{Annual Review of Ecology, Evolution, and Systematics}
-  \textbf{41}: 251--270.
-
 \bibitem[{Goswami et~al.(2011)Goswami, Milne \& Wroe}]{Goswami2011}
 Goswami, A., Milne, N. \& Wroe, S. 2011.
 \newblock Biting through constraints: cranial morphology, disparity and
@@ -104,7 +87,7 @@ Goswami, A., Milne, N. \& Wroe, S. 2011.
 
 \bibitem[{IUCN(2012)}]{IUCN2012}
 IUCN 2012.
-\newblock International {U}nion for {C}onservation of {N}ature.
+\newblock \emph{International {U}nion for {C}onservation of {N}ature}.
 
 \bibitem[{Jenkins(2003)}]{Jenkins2003}
 Jenkins, P. 2003.
@@ -118,12 +101,6 @@ Losos, J. 2010.
   {A}ddress.
 \newblock \emph{The American Naturalist} \textbf{175}: 623--639.
 \newblock 10.1086/652433.
-
-\bibitem[{Losos \& Miles(2002)}]{Losos2002}
-Losos, J. \& Miles, D. 2002.
-\newblock Testing the hypothesis that a clade has adaptively radiated:
-  {I}guanid lizards as a case study.
-\newblock \emph{The American Naturalist} \textbf{160}: 147--157.
 
 \bibitem[{Losos \& Mahler(2010)}]{Losos2010a}
 Losos, J.B. \& Mahler, D. 2010.
@@ -154,7 +131,7 @@ Olson, L.E. 2013.
 
 \bibitem[{Olson \& Arroyo-Santos(2009)}]{Olson2009}
 Olson, M.E. \& Arroyo-Santos, A. 2009.
-\newblock Thinking in continua: beyond the “adaptive radiation” metaphor.
+\newblock Thinking in continua: beyond the "adaptive radiation" metaphor.
 \newblock \emph{BioEssays} \textbf{31}: 1337--1346.
 
 \bibitem[{Panchetti et~al.(2008)Panchetti, Scalici, Carpaneto \&
@@ -221,12 +198,6 @@ Stanhope, M., Waddell, V., Madsen, O., de~Jong, W., Hedges, S., Cleven, G.,
   order of endemic african insectivore mammals.
 \newblock \emph{Proceedings of the National Academy of Sciences} \textbf{95}:
   9967--9972.
-
-\bibitem[{Wills et~al.(1994)Wills, Briggs \& Fortey}]{Wills1994}
-Wills, A., Briggs, D. \& Fortey, R. 1994.
-\newblock Disparity as an evolutionary index: {A} comparison of {C}ambrian and
-  recent arthropods.
-\newblock \emph{Paleontological Society} \textbf{20}: 93--130.
 
 \bibitem[{Wilson \& Reeder(2005)}]{Wilson2005}
 Wilson, D. \& Reeder, D. 2005.

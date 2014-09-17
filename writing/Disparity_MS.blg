@@ -6,9 +6,14 @@ I was expecting a `,' or a `}'---line 206 of file refs_disparity.bib
  :  url = {http://animaldiversity.ummz.umich.edu/}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 2486 of file refs_disparity.bib
+ :   
+ :   url = {http://eol.org/pages/7690/hierarchy_entries/24930846/overview#Species}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--missing school in Bronner1995
 Warning--can't use both author and editor fields in Jenkins2003
 Warning--can't use both author and editor fields in Losos2010a
 Warning--can't use both author and editor fields in Olson2003
 Warning--missing publisher in Soarimalala2011
-(There was 1 error message)
+(There were 2 error messages)
