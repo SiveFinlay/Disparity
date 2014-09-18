@@ -1,0 +1,31 @@
+%Diversity based on centroid distances results summary
+%All tenrecs and golden moles
+%Morphological diversity based on comparing the mean Euclidean distances to each family's centroid
+%NB: Journal of Mammalogy asks for the degrees of freedom that accompany the t test but I'm getting different degrees of freedom in each summary and I don't know why
+\resizebox{\columnwidth}{!}{
+%Scales down the table to fit within the column width
+	% If this is too small then I'll probably need to break the table into two
+\begin{tabular}[t]{c | c c c c | c c c c}		
+\hline
+
+Skulls & Tenrecs (31) & Golden moles & t & p & Tenrecs (19) & Golden moles&  t & p \\
+%-------------------------------------------------------
+analysis & (mean$\pm$ s.e) & (mean$\pm$ s.e) & & & (mean$\pm$ s.e) & (mean$\pm$ s.e) & &\\
+%---------------------------------------
+\hline
+%---------------------------
+Dorsal & 0.036& 0.029 & -1.63 & 0.11 & 0.044 & 0.029 & -3.62 & \textbf{0.001} \\
+%-------------------------------------
+ & ($\pm$0.0029) & ($\pm$0.0032) &  & & ($\pm$0.0025) & ($\pm$0.003) & & \\
+%---------------------------
+Ventral & 0.048 & 0.044 & -0.676 & 0.51 & 0.054 & 0.042 & -2.23 & \textbf{0.04} \\
+%---------------------------
+ & ($\pm$0.0034) & ($\pm$0.0041) &  &  & ($\pm$0.004) & ($\pm$0.004) & &  \\
+%---------------------------
+Lateral & 0.044 & 0.032 & -2.16 & \textbf{0.04} & 0.054 & 0.031 & -3.47 & \textbf{0.002} \\
+%--------------------
+& ($\pm$0.0041) & ($\pm$0.0037) & & & ($\pm$0.005) & ($\pm$0.0037) & & \\
+%--------------------
+\hline
+\end{tabular}
+}

@@ -1,0 +1,2 @@
+     obs.tenrec  obs.gmole    obs.diff    perm.min    perm.max pvalue
+[1,] 0.03635669 0.02937553 0.006981163 -0.01062402 0.009756495  0.013

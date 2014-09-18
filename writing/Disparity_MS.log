@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  17 SEP 2014 17:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  18 SEP 2014 15:37
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -194,6 +194,14 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathpazo.sty"
 Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fixltx2e.sty"
+Package: fixltx2e 2006/09/13 v1.1m fixes to LaTeX
+LaTeX Info: Redefining \em on input line 420.
+LaTeX Info: The control sequence `\(' is already robust on input line 469.
+LaTeX Info: The control sequence `\)' is already robust on input line 470.
+LaTeX Info: The control sequence `\[' is already robust on input line 471.
+LaTeX Info: The control sequence `\]' is already robust on input line 472.
 )
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\ms.sty
 Package: ms 2008/07/28 v1 Rich's manuscript definitions
@@ -428,14 +436,31 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
  [4] [5] (Disparity_MS.fff)
 [6] [7] [8] (Disparity_MS.ttt)
 
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 9 undefined on inp
-ut line 231.
+LaTeX Warning: Reference `tab:disp.summary' on page 9 undefined on input line 2
+10.
 
 
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 9 undefined on inp
-ut line 238.
+LaTeX Warning: Reference `tab:disp.nonmic.summary' on page 9 undefined on input
+ line 210.
 
-[9] [10] [11] [12]
+[9]
+
+LaTeX Warning: Reference `tab:disp.summary' on page 10 undefined on input line 
+212.
+
+
+LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 10 undefined on in
+put line 213.
+
+
+LaTeX Warning: Reference `tab:disp.summary' on page 10 undefined on input line 
+213.
+
+
+LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 10 undefined on in
+put line 220.
+
+[10] [11] [12]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [13]
 [14] [15] [16]) AED endfloat: Processing end Figures and Tables [17]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof)
@@ -459,18 +484,20 @@ LaTeX Warning: Text page 19 contains only floats.
 [19
 
  <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors+skvent+sklat
-_BW.png>] <figures/FourPlotPCA.png, id=72, 627.7854pt x 508.299pt>
-File: figures/FourPlotPCA.png Graphic file (type png)
+_BW.png>]
+<figures/skdors_PCA_allspecies_BW.png, id=72, 587.796pt x 451.4466pt>
+File: figures/skdors_PCA_allspecies_BW.png Graphic file (type png)
 
-<use figures/FourPlotPCA.png>
-Package pdftex.def Info: figures/FourPlotPCA.png used on input line 14.
-(pdftex.def)             Requested size: 398.3386pt x 322.51808pt.
- [20 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/FourPlotPCA.png
->])
+<use figures/skdors_PCA_allspecies_BW.png>
+Package pdftex.def Info: figures/skdors_PCA_allspecies_BW.png used on input lin
+e 14.
+(pdftex.def)             Requested size: 398.3386pt x 305.93945pt.
+ [20 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors_PCA_alls
+pecies_BW.png>])
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lot
-Overfull \hbox (13.72942pt too wide) in paragraph at lines 1--1
- [][] []\OT1/pplj/m/n/12 Summary of dis-par-ity com-par-isons be-tween ten-recs
- and golden 
+Overfull \hbox (2.3534pt too wide) in paragraph at lines 1--1
+ [][] []\OT1/pplj/m/n/12 Comparison of mor-pho-log-i-cal di-ver-sity in ten-rec
+s and golden 
  []
 
 )
@@ -480,35 +507,8 @@ Overfull \hbox (13.72942pt too wide) in paragraph at lines 1--1
 
 
 ] (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.ttt
-
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 22 undefined on in
-put line 3.
-
-
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 22 undefined on in
-put line 3.
-
-
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/disp.trc.gmole.result
-s.tex)
-Overfull \hbox (32.60507pt too wide) in paragraph at lines 7--7
- [][] 
- []
-
-[22
-
-]
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/disp.nonmictrc.gmole.
-results.tex)
-Overfull \hbox (8.97713pt too wide) in paragraph at lines 6--16
- [][] 
- []
-
-[23
-
-]
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/npmanova.summary.tex)
-[24
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/cent.dist.diversity.t
+ex) [22
 
 ]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
 
@@ -516,13 +516,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4633 strings out of 493921
- 65621 string characters out of 3147276
- 135284 words of memory out of 3000000
- 7790 multiletter control sequences out of 15000+200000
- 41717 words of font info for 99 fonts, out of 3000000 for 9000
+ 4652 strings out of 493921
+ 65651 string characters out of 3147276
+ 137743 words of memory out of 3000000
+ 7812 multiletter control sequences out of 15000+200000
+ 43620 words of font info for 103 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,9n,36p,1396b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,10n,36p,1396b,300s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -532,9 +532,9 @@ rc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (24 pages, 705221 bytes).
+Output written on Disparity_MS.pdf (22 pages, 655585 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
+ 112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,7 +16,7 @@
 \usepackage{pdflscape}	% for landscape pages
 \usepackage{mathtools}	% For equations etc.
 \usepackage[osf]{mathpazo} % palatino font package
-
+\usepackage{fixltx2e}	% includes subscripts
 \usepackage{ms}     	% load the manuscript style template
 
 %\usepackage{float}		% Use these options to have figures in specific places in the text
@@ -87,8 +87,8 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	Furthermore, linear measurements of morphological traits can restrict our understanding of overall morphological variation (REF). However, geometric morphometric approaches \citep{Rohlf1993, Adams2013} provide more detailed insights into morphological variation.
 	 
 %4) Summary of findings
-	Here we present the first quantitative investigation of morphological diversity in tenrecs. We use geometric morphometrics to compare cranial morphological diversity in tenrecs to their sister taxa, the golden moles (Afrosoricida, Chrysochloridae). Tenrecs inhabit a wider variety of ecological niches \citep{Soarimalala2011} than golden moles \citep{Bronner1995} so we expected tenrecs to be more morphologically diverse than their closest relatives. However, we find no significant difference in the diversity of cranial morphologies between the two groups. It is only when we restricted our data to include a subsample of the morphologically similar \textit{Microgale} tenrec Genus that we found tenrecs to be more morphologically diverse than golden moles.
-	Our results demonstrate the importance of using quantitative methods to assess otherwise subjective estimates of morphological diversity. We show that the apparently high morphological diversity in tenrecs is not necessarily reflected in all morphological traits.
+	Here we present the first quantitative investigation of morphological diversity in tenrecs. We use geometric morphometrics to compare cranial morphological diversity in tenrecs to their sister taxa, the golden moles (Afrosoricida, Chrysochloridae). Tenrecs inhabit a wider variety of ecological niches \citep{Soarimalala2011} than golden moles \citep{Bronner1995} so we expected tenrecs to be more morphologically diverse than their closest relatives. However, we only find a significant difference in the morphological diversity of skulls in lateral view, not dorsal or ventral. In contrast, when we restricted our data to include a subsample of the morphologically similar \textit{Microgale} tenrec Genus, we found that tenrecs were more morphologically diverse than golden moles in all three analyses.
+	Our results demonstrate that the apparently high morphological diversity in tenrecs is not necessarily reflected in all morphological traits. Therefore the choice of morphological traits is a critical consideration when it comes to quantitative investigations of morphological diversity.
 	
 
 %-------------------------------------------------------------
@@ -150,6 +150,10 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	Our groups have unequal sample sizes (31 tenrec species compared to 12 golden mole species). Therefore, we could find higher morphological diversity in tenrecs simply because it is the larger group (REF). We used pairwise permutation tests to account for this potential bias in sample size. Our null hypothesis was that there is no difference in morphological diversity between tenrecs and golden moles. If this were true, then the group identity of each species would be arbitrary: if you randomly assign the species as being either a tenrec or golden moles and then re-calculate morphological diversity there would still be no difference between the two groups. 
 	
 	We assigned Family identities at random to each species and calculated the differences in morphological diversity (mean Euclidean distances to the Family's centroid) for the new groupings. We repeated these permutations 1000 times to generate a null distribution of the expected differences in morphological diversity between a group that has 31 members (tenrecs) compared to one which has 12 members (golden moles). Finally, we compared our observed (true) measures of the differences in morphological diversity to these permuted distributions to test whether there were significant differences in morphological diversity of the two Families after taking sample size differences into account.
+	
+	The majority of tenrec species (19 out of 31 in our dataset) are members of the \textit{Microgale} (shrew-like) Genus which is notable for its relatively low morphological diversity \citep{Soarimalala2011, Jenkins2003}. Therefore, the strong similarities among these species may mask signals of higher morphological diversity among other tenrecs. 
+	To test this idea, we created a subset of our tenrec data which included
+	just 5 of the \textit{Microgale} species. We compared the morphological diversity of this subset of tenrecs (n=19: 5 \textit{Microgale} with 12 other tenrec species) to the morphological diversity within the 12 species of golden moles. We repeated the same morphological diversity comparisons and permutation tests to account for differences in sample size on this reduced data set.
 	 
 
 
@@ -162,58 +166,36 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	%New axes numbers (select axes for 95 % of the variation, not one extra)
 		%Full data: skdors =6, skvent=7, sklat =7
 		%Microgale subset: skdors=6, skvent=6, sklat=6
-	Figure (REF) depicts the morphospace plot derived from out principal components analysis of average Procrustes-superimposed shape coordinates for species in our dorsal skulls analysis. Similar plots for our analyses of skulls in ventral and lateral views can be found in the supplementary material.
+	Figure \ref{fig:skdorsPCA} depicts the morphospace plot derived from our principal components analysis of average Procrustes-superimposed shape coordinates for skulls in dorsal view. Similar plots for our analyses of skulls in ventral and lateral views can be found in the supplementary material.
 	To compare morphological diversity in the two families, we used the principal components axes which accounted for 95\% of the cumulative variation in each of our skull analyses: dorsal (n=6 axes), ventral (n=7 axes) and lateral (n=7 axes). 
-	First, we compared the position of each Family within the morphospace plots. Tenrecs and golden moles occupy significantly different positions in each morphospace (npMANOVA, put in results), indicating that the families have very different cranial morphologies.
-	Secondly, we compared the morphological diversity within each Family. Based on our measures of mean Euclidean distances to the Family's centroid, tenrec crania are not more morphologically diverse than golden mole crania. (ref to new table)
+	First, we compared the position of each Family within the morphospace plots. Tenrecs and golden moles occupy significantly different positions in the dorsal 	(npMANOVA, F \textsubscript{1,42} = 68.13, R$^2$ = 0.62, p=0.001 ), ventral (npMANOVA, F \textsubscript{1,42} = 103.33, R$^2$ = 0.72 , p=0.001 ) and lateral (npMANOVA, F \textsubscript{1,42} = 76.7, R$^2$=0.652, p=0.001 ) skull morphospaces,  indicating that the families have very different cranial morphologies. 
+	%Numbers are from the npMANOVA based on PC axes within my diversity_twofamily_cent_dist script
 
-	The majority of tenrec species (19 out of 31 in our dataset) are members of the \textit{Microgale} (shrew-like) Genus which is notable for its relatively low morphological diversity \citep{Soarimalala2011, Jenkins2003}. Therefore, the strong similarities among these species may mask signals of higher morphological diversity among other tenrecs. 
-	To test this idea, we created a subset of our tenrec data which included
-	just 5 of the \textit{Microgale} species along with the rest of the tenrecs. When we compared morphological diversity within this sample of 19 tenrecs and our 12 golden mole species, we found that tenrecs had significantly higher cranial morphological diversity than golden moles (reference to the new table).
+	Secondly, we compared the morphological diversity within each Family. Based on our measures of mean Euclidean distances to the Family's centroid, tenrec crania are more morphologically diverse than golden mole crania in lateral view but not in dorsal or ventral view (table \ref{tab:diversity}). In contrast, when we compared morphological diversity within the sub-sample of 19 tenrecs (including just 5 \textit{Microgale} species) to the 12 golden mole species, we found that tenrecs had significantly higher cranial morphological diversity than golden moles in all analyses (table \ref{tab:diversity}).
 
-
+	Our pairwise permutation tests for each analysis confirmed that (lack of) differences in morphological diversity were not artefacts of differences in sample size (see supplementary material).
+		%Add the new permutation results to the supplementary
 %************************************
 %Results tables and figures
-%Need to re-do this section
-%Reduce it down to one table and one figure
+%Reduced it down to one table and one figure
 
-%Summary table of the Family comparisons for all tenrecs vs. golden moles
+
 	\begin{table}[h]			
-	\caption[Summary of disparity comparisons between tenrecs and golden moles]
-		{Disparity comparisons between tenrecs (T) and golden moles (G) for each of our data sets(rows) and four disparity metrics (columns). `Mandibles:one curve' refers to our shape analysis of mandibles excluding the three curves around the posterior structures of the jaw (figure \ref{fig:sklat_mands_landmarks}). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are: sum of variance, product of variance, sum of ranges and product of ranges }
-	\centering
-	\input{tables/disp.trc.gmole.results} 
-	\label{tab:disp.summary}  
+	\caption[Comparison of morphological diversity in tenrecs and golden moles.]
+	\centering{Morphological diveristy in tenrecs and golden moles for each of the three analyses (skulls in dorsal, ventral and lateral view). We measured morphological diversity as the mean Euclidean distance between each species and the centroid for their Family. We compared the morphological diversity of 12 species of golden mole to a) all 31 species of tenrec (left) and b) 19 species of tenrec (right) which included just 5 species of \textit{Microgale} tenrec. Significant differences (p values from t-test comparisons) are highlighted in bold.}
+	\input{tables/cent.dist.diversity} 
+	\label{tab:diversity}  
 	\end{table}
 
-%Summary of the Family comparisons for non-Microgale tenrecs vs. golden moles
-	\begin{table}[h]			
-	\caption[Summary of disparity comparisons between non-\textit{Microgale} tenrecs and golden moles]
-		{Disparity comparisons between non-\textit{Microgale} tenrecs (T) and golden moles (G) for each of our data sets(rows) and four disparity metrics (columns). Significant differences are highlighted in bold with the corresponding p value in brackets. Disparity metrics are; sum of variance, product of variance, sum of ranges and product of ranges. }
-	\centering
-	\input{tables/disp.nonmictrc.gmole.results} 
-	\label{tab:disp.nonmic.summary}  
-	\end{table}
-	
-%Summary table of the npMANOVA morphospace occupation comparisons
-	
-	\begin{table}[h]			
-
-	\caption[Summary of npMANOVA comparisons of morphospace occupation for tenrecs and golden moles]
-		{npMANOVA comparisons of morphospace occupation for tenrecs and golden moles in each of the four analyses (three views of skulls and mandibles). In each case the two families occupy significantly different areas of morphospace.}
-	\centering
-	\input{tables/npmanova.summary} 
-	\label{tab:npmanova.summary}  
-	\end{table}
 		
-%PCA figures: changed to having all four plots instead of individual PCA graphs
-	%Source of this figure in my shape_data/output folder 
+%PCA figure: Just skdors as an example
+	%From the diversity_twofamily_cent_dist script
 	\begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/FourPlotPCA.png}
-	\caption[Principal components plots of the morphospaces occupied by tenrecs and golden moles]
-		{Principal components plots of the morphospaces occupied by tenrecs (red, n = 31 species) and golden moles (black, n = 12) for the skulls: dorsal (A), ventral (B), lateral (C) and mandibles (D) analyses. Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
-	\label{fig:fourPCA}
+	\includegraphics[width=1\linewidth]{figures/skdors_PCA_allspecies_BW.png}
+	\caption[Morphospace (principal components) plot of morphological diversity in dorsal views of tenrec and golden mole skulls.]
+		{Principal components plot of the morphospace occupied by tenrecs (triangles, n = 31 species) and golden moles (circles, n = 12) for the skulls in dorsal view. Axes are PC1 and PC2 of the average scores from a PCA analysis of mean Procrustes shape coordinates for each species. }
+	\label{fig:skdorsPCA}
 	\end{figure}
 %**********************************************
 
