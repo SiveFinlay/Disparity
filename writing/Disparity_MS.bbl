@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -54,24 +54,18 @@ Bronner, G. 1995.
   Chrysochloridae)}.
 \newblock Ph.D. thesis.
 
-\bibitem[{Brusatte et~al.(2008)Brusatte, Benton, Ruta \& Lloyd}]{Brusatte2008}
-Brusatte, S., Benton, M., Ruta, M. \& Lloyd, G. 2008.
-\newblock Superiority, competition and opportunism in the evolutionary
-  radiation of dinosaurs.
-\newblock \emph{Science} \textbf{321}: 1485--1488.
-
 \bibitem[{Eisenberg \& Gould(1969)}]{Eisenberg1969}
 Eisenberg, J.F. \& Gould, E. 1969.
 \newblock The {T}enrecs: {A} {S}tudy in {M}ammalian {B}ehaviour and
   {E}volution.
 \newblock \emph{Smithsonian Contributions to Zoology} \textbf{27}: 1--152.
 
-\bibitem[{Foth et~al.(2012)Foth, Brusatte \& Butler}]{Foth2012}
-Foth, C., Brusatte, S. \& Butler, R. 2012.
-\newblock Do different disparity proxies converge on a common signal?
-  {I}nsights from the cranial morphometrics and evolutionary history of
-  \textit{{P}terosauria} ({D}iapsida: {A}rchosauria).
-\newblock \emph{Journal of Evolutionary Biology} \textbf{25}: 904--915.
+\bibitem[{Foote(1991)}]{Foote1991}
+Foote, M. 1991.
+\newblock Morphological and taxonomic diversity in a clade's history: the
+  blastoid record and stochastic simulations.
+\newblock \emph{Museum of Paleontology, The University of Michigan}
+  \textbf{28}: 101--140.
 
 \bibitem[{Gavrilets \& Losos(2009)}]{Gavrilets2009}
 Gavrilets, S. \& Losos, J. 2009.
@@ -84,10 +78,6 @@ Goswami, A., Milne, N. \& Wroe, S. 2011.
   convergence across living and fossil carnivorous mammals.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{278}: 1831--1839.
-
-\bibitem[{IUCN(2012)}]{IUCN2012}
-IUCN 2012.
-\newblock \emph{International {U}nion for {C}onservation of {N}ature}.
 
 \bibitem[{Jenkins(2003)}]{Jenkins2003}
 Jenkins, P. 2003.
@@ -102,22 +92,10 @@ Losos, J. 2010.
 \newblock \emph{The American Naturalist} \textbf{175}: 623--639.
 \newblock 10.1086/652433.
 
-\bibitem[{Losos \& Mahler(2010)}]{Losos2010a}
-Losos, J.B. \& Mahler, D. 2010.
-\newblock \emph{Adaptive radiation: the interaction of ecological opportunity,
-  adaptation and speciation}, chap.~15, pp. 381--420.
-\newblock Sinauer Association, Sunderland, MA.
-
 \bibitem[{MacLeod(2013)}]{MacLeod2013}
 MacLeod, N. 2013.
 \newblock Landmarks and semilandmarks: Difference without meaning and meaning
   without difference.
-
-\bibitem[{Mahler et~al.(2010)Mahler, Revell, Glor \& Losos}]{Mahler2010}
-Mahler, D.L., Revell, L.J., Glor, R.E. \& Losos, J.B. 2010.
-\newblock Ecological opportunity and the rate of morphological evolution in the
-  diversification of greater antillean anoles.
-\newblock \emph{Evolution} \textbf{64}: 2731--2745.
 
 \bibitem[{Olson \& Goodman(2003)}]{Olson2003}
 Olson, L. \& Goodman, S. 2003.
@@ -128,11 +106,6 @@ Olson, L. \& Goodman, S. 2003.
 Olson, L.E. 2013.
 \newblock Tenrecs.
 \newblock \emph{Current Biology} \textbf{23}: R5--R8.
-
-\bibitem[{Olson \& Arroyo-Santos(2009)}]{Olson2009}
-Olson, M.E. \& Arroyo-Santos, A. 2009.
-\newblock Thinking in continua: beyond the "adaptive radiation" metaphor.
-\newblock \emph{BioEssays} \textbf{31}: 1337--1346.
 
 \bibitem[{Panchetti et~al.(2008)Panchetti, Scalici, Carpaneto \&
   Gibertini}]{Panchetti2008}

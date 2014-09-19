@@ -153,7 +153,7 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 	
 	The majority of tenrec species (19 out of 31 in our dataset) are members of the \textit{Microgale} (shrew-like) Genus which is notable for its relatively low morphological diversity \citep{Soarimalala2011, Jenkins2003}. Therefore, the strong similarities among these species may mask signals of higher morphological diversity among other tenrecs. 
 	To test this idea, we created a subset of our tenrec data which included
-	just 5 of the \textit{Microgale} species. We compared the morphological diversity of this subset of tenrecs (n=19: 5 \textit{Microgale} with 12 other tenrec species) to the morphological diversity within the 12 species of golden moles. We repeated the same morphological diversity comparisons and permutation tests to account for differences in sample size on this reduced data set.
+	just five of the \textit{Microgale} species. Each species represents one of the five sub-divisions of \textit{Microgale} outlined by Soarimalala and Goodman \citeyearpar{Soarimalala2011}. We compared the morphological diversity of this subset of tenrecs (n=19: 5 \textit{Microgale} with 12 other tenrec species) to the morphological diversity within the 12 species of golden moles. We repeated the same morphological diversity comparisons and permutation tests to account for differences in sample size on this reduced data set.
 	 
 
 
@@ -201,52 +201,32 @@ $^*$Corresponding author: sfinlay@tcd.ie; Zoology Building, Trinity College Dubl
 
 
 \section{Discussion} 
+%Removed all of the mandible sections on 19/09/2014: previous versions in github will have those discussions
 
-% NC: OK this section needs another proper go over. I don't get what you're trying to say in most places. Worth going back to the intro and making sure you draw in all the themes you touch on there. So your concluding remarks should be about adaptive radiation. Try writing this discussion again, using the same techniques as for writing introductions. Except the direction is narrow to broad rather than broad to narrow. Have a reason for each paragraph, a story you want to tell.
 
-%1) Specific discussion of results and differences between skulls and mandibles
-	Our analyses are the first quantitative investigation of morphological disparity in tenrecs. We show that tenrecs' cranial morphologies are no more diverse than their closest relatives and therefore phenotypic variety in tenrecs is perhaps not as exceptional as it first appears.
+%1) Results: strange and why 
+	Our analyses are the first quantitative investigation of morphological diversity in tenrecs. Tenrecs are often cited as an example of a group with high morphological diversity \citep{Olson2013, Soarimalala2011, Eisenberg1969} and we expected them to be more morphologically diverse than their closest relatives. However, tenrecs were only more morphologically diverse than golden moles in just one of our three skull analyses (table\ref{tab:diversity}). The morphologically similar \textit{Microgale} Genus seems to mask the high morphological diversity in the rest of the tenrec Family: reducing our data to include a sub-sample of this Genus revealed the remaining tenrecs to be significantly more morphologically diverse than golden moles (table \ref{tab:diversity}). Our results highlight the importance of using quantitative methods to test qualitative assumptions about patterns of morphological diversity.
+
 	
-	When we compared the diversity of skull shapes in the two Families, we found a trend towards higher disparity in tenrecs compared to golden moles but none of these differences were significant (table \ref{tab:disp.summary}). Even when we removed the phenotypically similar \textit{Microgale} Genus, tenrecs were still no more diverse than golden moles in most of the analyses of their skull shapes (table \ref{tab:disp.nonmic.summary}). 
-	
-	In contrast to these results for the skulls, two of our disparity metrics indicate that golden moles have more disparate mandible shapes than tenrecs (table \ref{tab:disp.summary}).
-	We recognised that our landmarks and curves for the mandibles focus particular attention on the ascending ramus (condyloid, condylar and angular processes, figure \ref{fig:sklat_mands_landmarks}). Therefore we deleted the three semilandmark curves around these structures and repeated our disparity calculations. In this case we found no significant differences in disparity between the two Families (table \ref{tab:disp.summary}). Therefore, our results seem to indicate that golden moles have greater morphological variation in the posterior structures of their mandibles compared to tenrecs.
+%2) Why are lateral skulls different and why does sub-sampling the Microgale make a difference?
+	In our full analyses, tenrecs only had higher morphological diversity than golden moles when the skulls were measured in lateral view. This is most likely due to our choice of landmarks. The two outline curves in lateral view (figure \ref{fig:skulls_landmarks}) emphasise morphological variation in the back and top of the skulls. In contrast, these areas of the skull could not be included in the dorsal and ventral analyses. Therefore, tenrecs appear to be more morphologically diverse in their three-dimensional height rather than 
+	the palate or braincase morphologies which were captured in dorsal and ventral views. 
+	%Put in something about this making sense because they have roughly similar insectivore diets?
+	The majority of tenrecs are members of the morphologically similar \textit{Microgale} genus. Measures of morphological variation are sensitive to the sampling used. If a particular morphotype is over-represented then the similarities among those species will reduce the overall morphological variation within the group \citep{Foote1991}. This appears to be the case for our data: it is only when we included a sub-sample of \textit{Microgale} tenrecs that we found overall higher morphological diversity in tenrecs compared to golden moles (table \ref{tab:diversity}). These results indicate that the overall morphological diversity within tenrecs is not as large as is often assumed \citep[e.g.][]{Eisenberg1969, Olson2013} because the majority of the Family are members of a single, morphologically similar Genus.
+
+%3) Difficulties and caveats: body size, trait choice, morphological proxy
+
+	Of course our results are based on a single morphological axis; the diversity of skull shape. It is difficult to quantify overall morphological diversity because any study is inevitably constrained by its choice of specific traits \citep{Roy1997}. Many studies have used skulls to study morphological variation within species \citep{Blagojevic2011, Bornholdt2008}, to delineate species boundaries within a clade \citep[e.g.][]{Panchetti2008} or for cross-taxonomic comparative studies of morphological (dis)similarities \citep[e.g.][]{Ruta2013, Goswami2011, Wroe2007}. 
+	However, variation in skull shape is only one aspect of overall morphology. Quantifying variation in other morphological traits could yield different patterns. Therefore future work should extend our approach beyond just skulls to gain a more complete understanding of the overall morphological diversity of tenrecs and golden moles. 
 		
-	%I asked for advice from Gary Bronner about why I was getting higher variation in golden mole mandibles compared to tenrecs. He thinks that the most likely reason is a problem with my landmarks. Landmark 4 is the alveolus of the last molar but that position is not homologous across species because of the presence/absence of a third molar. His advice was to re-run the analysis without landmark 4 and curve A and see what patterns of shape variation come out then.
-		
-	%However, as I was choosing the landmarks I knew that the dental formulae varied for each species - and therefore the landmarks are relative points showing the end of the tooth row rather than biologically meaningful positions of dental characteristics. But now I don't know if I can get away with using that as an excuse when it comes to trying to explain strange results in my paper.
-			
-	 Given that these posterior structures act as muscle attachment and articulation sites for connections with the upper jaw, %needs a ref ?
-	 one might expect that golden moles with highly disparate posterior mandible morphologies should also show high variability in the corresponding mandible articulation areas of the skull. However, we could not locate reliable, homologous points accurately on those areas of the skull pictures in lateral view. Instead, our landmarks and semilandmark curves for the skulls in lateral view focus attention on morphological variation in the dentition and the overall shape of the top and back of the skulls (figure \ref{fig:sklat_mands_landmarks}). This may explain why golden mole skulls in lateral view do not show the same pattern of higher disparity compared to tenrecs that we see in our analyses of the mandibles. However, further investigation is required to identify possible reasons why golden moles appear to show such variation in the posterior structures of their mandibles.
-	 	%SF: I know this is a weak ending but I'm still figuring out possible reasons for this pattern that aren't just data problems. 
-	 	
-		%The discrepancies could arise from factors associated with the modularity of morphological evolution.
+%4) Conclusions: qualitative is not the same as quantitative
+	We have presented the first quantitative investigation of morphological diversity in tenrecs. 
 	
-		%There is strong evidence that morphological variation in skulls and mandibles is derived from differential evolution of integrated developmental modules \citep[reviewed by][]{Klingenberg2013a}.
-		%For example, there seems to be two primary modules in the mouse mandible; an alveolar part which holds the teeth and the ascending ramus for muscle attachment and which articulates with the skull \citep{Klingenberg2008a}. Geometric shape covariation is stronger within rather than between these modules. 
-	
-	% NC: I don't really get the relevance of this part...
-	% SF: It was just one of my ideas for trying to figure out why I'm getting different patterns in the mandibles compared to the skulls but I didn't manage to develop it properly
-	
-%------------------------------------------------------	
-%2) Skulls are only one way of looking at diversity but it's still interesting to see that ecologically diverse tenrecs are no more disparate than the functionally similar golden mole family
-	
-	We used variation in skull and mandible shapes as proxy measures for overall morphological diversity within the two Families. Many other studies also use skulls to study phenotypic variation within species \citep{Blagojevic2011, Bornholdt2008}, to delineate species boundaries within a clade \citep[e.g.][]{Panchetti2008} or for cross-taxonomic comparative studies of phenotypic (dis)similarities \citep[e.g.][]{Ruta2013, Goswami2011, Wroe2007}.
-	
-	However, studies of morphological disparity are inevitably constrained to measure diversity within specific traits rather than overall phenotypes \citep{Roy1997}. Disparity calculations based on skull shape can yield similar results compared to analyses of whole-skeleton discrete characters and limb proportion data sets \citep{Foth2012}. Yet it is still possible that comparing disparity in tenrecs and golden moles using non-cranial morphological measures could produce different results. For example, tenrecs inhabit a wide variety of ecological niches and habitats including terrestrial, arboreal, semi-aquatic and semi-fossorial environments \citep{Soarimalala2011}. In contrast, although golden moles occupy a wide altitudinal, climatic and vegetational spectrum of habitats \citep{Bronner1995}, they are are all fossorial species which, superficially at least, appear to be less functionally diverse than tenrecs. Therefore, comparing the disparity of limb morphologies within the two Families could indicate that tenrecs are more morphologically diverse than golden moles and therefore support the claim that tenrecs are an exceptionally diverse group. 
-	
-	
-%------------------------------------------
-%Wider relevance to adaptive radiation
-
- 	Our analyses are the first measures of morphological diversity within tenrecs, a group which is commonly cited as an example of an adaptive radiation \citep{Olson2013}. Evidence of exceptional morphological diversity is one criterion for designating a clade as an adaptive radiation \citep{Losos2010a}. However, we found that tenrecs are no more morphologically diverse than their their closest relatives and therefore, within our tests, do not appear to show the exceptional diversity which characterises an adaptively radiated group.   
- 	
- 	The evolution of cranial shape (both upper skull and mandible), particularly dental morphology, has obvious correlations with dietary specialisations and occupation of specific ecological niches \citep[e.g.][]{Wroe2007}. Considering the wide ecological diversity of the tenrec Family; semi-fossorial, arboreal, terrestrial and semi-aquatic \citep{Soarimalala2011}, we think that it is reasonable to expect that this variety should be reflected in skull morphology. However, we have not included any measures of the `adaptiveness' of cranial shape in our analyses and therefore our analyses should not be considered to be an explicit test of whether or not tenrecs are an adaptive radiation \citep{Losos2010a}. Instead we have made the first step towards understanding the apparent phenotypic diversity within tenrecs within a quantitative framework. Future work should focus on explicit measures of the `adaptiveness' and functional importance of tenrec cranial and post-cranial morphologies to understand the significance of morphological diversity within the Family \citep[e.g.][]{Mahler2010}. However, we also recognise that strict, statistically based categorisations of clades as being adaptive radiations or not are not always biologically meaningful or helpful when it comes to trying to understand patterns of phenotypic diversity \citep{Olson2009}.   
+	%Finish off the paragraph
 
 
 %---------------------------------------------------	
-%4) Conclusions
-	We have presented the first quantitative study which tests the common claim that tenrecs are an exceptionally diverse group \citep{Olson2013, Soarimalala2011,Eisenberg1969}. Focusing on cranial diversity is only one aspect of morphological variation and further analyses are required to test whether other morphological traits yield similar patterns. However, our results provide a clear indication that phenotypic variety within tenrecs is perhaps not as exceptional as it first seems.   
+ 
 	
 \section{Acknowledgements}
 

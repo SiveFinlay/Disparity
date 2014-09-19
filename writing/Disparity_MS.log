@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  18 SEP 2014 15:37
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  19 SEP 2014 16:55
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -434,43 +434,17 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <17.28> not available
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pplj/b/n' tried instead on input line 97.
  [4] [5] (Disparity_MS.fff)
-[6] [7] [8] (Disparity_MS.ttt)
-
-LaTeX Warning: Reference `tab:disp.summary' on page 9 undefined on input line 2
-10.
-
-
-LaTeX Warning: Reference `tab:disp.nonmic.summary' on page 9 undefined on input
- line 210.
-
-[9]
-
-LaTeX Warning: Reference `tab:disp.summary' on page 10 undefined on input line 
-212.
-
-
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 10 undefined on in
-put line 213.
-
-
-LaTeX Warning: Reference `tab:disp.summary' on page 10 undefined on input line 
-213.
-
-
-LaTeX Warning: Reference `fig:sklat_mands_landmarks' on page 10 undefined on in
-put line 220.
-
-[10] [11] [12]
-(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [13]
-[14] [15] [16]) AED endfloat: Processing end Figures and Tables [17]
+[6] [7] [8] (Disparity_MS.ttt) [9] [10] [11]
+(C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [12]
+[13] [14]) AED endfloat: Processing end Figures and Tables [15]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lof)
 \tf@lof=\write5
- [18
+ [16
 
 
 ]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.fff
-<figures/skdors+skvent+sklat_BW.png, id=67, 423.0204pt x 524.6802pt>
+<figures/skdors+skvent+sklat_BW.png, id=61, 423.0204pt x 524.6802pt>
 File: figures/skdors+skvent+sklat_BW.png Graphic file (type png)
 
 <use figures/skdors+skvent+sklat_BW.png>
@@ -479,20 +453,20 @@ Package pdftex.def Info: figures/skdors+skvent+sklat_BW.png used on input line
 (pdftex.def)             Requested size: 398.3386pt x 494.08812pt.
 
 
-LaTeX Warning: Text page 19 contains only floats.
+LaTeX Warning: Text page 17 contains only floats.
 
-[19
+[17
 
  <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors+skvent+sklat
 _BW.png>]
-<figures/skdors_PCA_allspecies_BW.png, id=72, 587.796pt x 451.4466pt>
+<figures/skdors_PCA_allspecies_BW.png, id=65, 587.796pt x 451.4466pt>
 File: figures/skdors_PCA_allspecies_BW.png Graphic file (type png)
 
 <use figures/skdors_PCA_allspecies_BW.png>
 Package pdftex.def Info: figures/skdors_PCA_allspecies_BW.png used on input lin
 e 14.
 (pdftex.def)             Requested size: 398.3386pt x 305.93945pt.
- [20 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors_PCA_alls
+ [18 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors_PCA_alls
 pecies_BW.png>])
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lot
 Overfull \hbox (2.3534pt too wide) in paragraph at lines 1--1
@@ -502,39 +476,36 @@ s and golden
 
 )
 \tf@lot=\write6
- [21
+ [19
 
 
 
 ] (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.ttt
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/cent.dist.diversity.t
-ex) [22
+ex) [20
 
-]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 4652 strings out of 493921
- 65651 string characters out of 3147276
- 137743 words of memory out of 3000000
- 7812 multiletter control sequences out of 15000+200000
+ 4634 strings out of 493921
+ 65317 string characters out of 3147276
+ 137489 words of memory out of 3000000
+ 7794 multiletter control sequences out of 15000+200000
  43620 words of font info for 103 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,10n,36p,1396b,300s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fpl
-rc8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (22 pages, 655585 bytes).
+ 33i,10n,36p,978b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Pr
+ogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+urw/palatino/uplri8a.pfb>
+Output written on Disparity_MS.pdf (20 pages, 650231 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
