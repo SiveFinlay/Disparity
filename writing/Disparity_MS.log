@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  19 SEP 2014 16:55
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  22 SEP 2014 17:01
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -430,10 +430,10 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/pplj/b/n' tried instead on input line 58.
  [2
 
-] [3]
+] [3] [4] (Disparity_MS.fff)
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 97.
- [4] [5] (Disparity_MS.fff)
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 117.
+ [5]
 [6] [7] [8] (Disparity_MS.ttt) [9] [10] [11]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.bbl [12]
 [13] [14]) AED endfloat: Processing end Figures and Tables [15]
@@ -444,29 +444,46 @@ LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
 
 ]
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.fff
-<figures/skdors+skvent+sklat_BW.png, id=61, 423.0204pt x 524.6802pt>
-File: figures/skdors+skvent+sklat_BW.png Graphic file (type png)
+<figures/Methods_flowchart.png, id=61, 536.2434pt x 716.4366pt>
+File: figures/Methods_flowchart.png Graphic file (type png)
 
-<use figures/skdors+skvent+sklat_BW.png>
-Package pdftex.def Info: figures/skdors+skvent+sklat_BW.png used on input line 
-3.
-(pdftex.def)             Requested size: 398.3386pt x 494.08812pt.
+<use figures/Methods_flowchart.png>
+Package pdftex.def Info: figures/Methods_flowchart.png used on input line 3.
+(pdftex.def)             Requested size: 398.3386pt x 532.20999pt.
 
 
 LaTeX Warning: Text page 17 contains only floats.
 
+
+Overfull \vbox (0.14442pt too high) has occurred while \output is active []
+
+
 [17
+
+ <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/Methods_flowchart.p
+ng>] <figures/skdors+skvent+sklat_BW.png, id=65, 423.0204pt x 524.6802pt>
+File: figures/skdors+skvent+sklat_BW.png Graphic file (type png)
+
+<use figures/skdors+skvent+sklat_BW.png>
+Package pdftex.def Info: figures/skdors+skvent+sklat_BW.png used on input line 
+14.
+(pdftex.def)             Requested size: 398.3386pt x 494.08812pt.
+
+
+LaTeX Warning: Text page 18 contains only floats.
+
+[18
 
  <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors+skvent+sklat
 _BW.png>]
-<figures/skdors_PCA_allspecies_BW.png, id=65, 587.796pt x 451.4466pt>
+<figures/skdors_PCA_allspecies_BW.png, id=69, 587.796pt x 451.4466pt>
 File: figures/skdors_PCA_allspecies_BW.png Graphic file (type png)
 
 <use figures/skdors_PCA_allspecies_BW.png>
 Package pdftex.def Info: figures/skdors_PCA_allspecies_BW.png used on input lin
-e 14.
+e 25.
 (pdftex.def)             Requested size: 398.3386pt x 305.93945pt.
- [18 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors_PCA_alls
+ [19 <C:/Users/sfinlay/Desktop/Thesis/Disparity/writing/figures/skdors_PCA_alls
 pecies_BW.png>])
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.lot
 Overfull \hbox (2.3534pt too wide) in paragraph at lines 1--1
@@ -476,20 +493,20 @@ s and golden
 
 )
 \tf@lot=\write6
- [19
+ [20
 
 
 
 ] (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.ttt
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\tables/cent.dist.diversity.t
-ex) [20
+ex) [21
 
 ]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 4634 strings out of 493921
- 65317 string characters out of 3147276
- 137489 words of memory out of 3000000
- 7794 multiletter control sequences out of 15000+200000
+ 4640 strings out of 493921
+ 65483 string characters out of 3147276
+ 137498 words of memory out of 3000000
+ 7799 multiletter control sequences out of 15000+200000
  43620 words of font info for 103 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  33i,10n,36p,978b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -503,9 +520,9 @@ fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb
 iles/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (20 pages, 650231 bytes).
+Output written on Disparity_MS.pdf (21 pages, 720206 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
+ 110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

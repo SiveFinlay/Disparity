@@ -16,7 +16,7 @@
   #3) Find the average Procrustes shape coordinates for each species
   #4) PCA of the shape coordinates
   #5) Select PC axes that account for 95% of the variation
-  #6) Calculate disparity based on distances from the centroid
+  #6) Calculate diversity based on distances from the centroid
 
 library(geomorph)
 library(vegan)
