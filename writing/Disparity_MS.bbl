@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -54,6 +54,12 @@ Bronner, G. 1995.
   Chrysochloridae)}.
 \newblock Ph.D. thesis.
 
+\bibitem[{Brusatte et~al.(2008)Brusatte, Benton, Ruta \& Lloyd}]{Brusatte2008}
+Brusatte, S., Benton, M., Ruta, M. \& Lloyd, G. 2008.
+\newblock Superiority, competition and opportunism in the evolutionary
+  radiation of dinosaurs.
+\newblock \emph{Science} \textbf{321}: 1485--1488.
+
 \bibitem[{Eisenberg \& Gould(1969)}]{Eisenberg1969}
 Eisenberg, J.F. \& Gould, E. 1969.
 \newblock The {T}enrecs: {A} {S}tudy in {M}ammalian {B}ehaviour and
@@ -67,6 +73,13 @@ Foote, M. 1991.
 \newblock \emph{Museum of Paleontology, The University of Michigan}
   \textbf{28}: 101--140.
 
+\bibitem[{Foth et~al.(2012)Foth, Brusatte \& Butler}]{Foth2012}
+Foth, C., Brusatte, S. \& Butler, R. 2012.
+\newblock Do different disparity proxies converge on a common signal?
+  {I}nsights from the cranial morphometrics and evolutionary history of
+  \textit{{P}terosauria} ({D}iapsida: {A}rchosauria).
+\newblock \emph{Journal of Evolutionary Biology} \textbf{25}: 904--915.
+
 \bibitem[{Gavrilets \& Losos(2009)}]{Gavrilets2009}
 Gavrilets, S. \& Losos, J. 2009.
 \newblock Adaptive radiation: contrasting theory with data.
@@ -78,6 +91,17 @@ Goswami, A., Milne, N. \& Wroe, S. 2011.
   convergence across living and fossil carnivorous mammals.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{278}: 1831--1839.
+
+\bibitem[{Harmon et~al.(2005)Harmon, Kolbe, Cheverud \& Losos}]{Harmon2005}
+Harmon, L., Kolbe, J., Cheverud, J. \& Losos, J. 2005.
+\newblock Convergence and the multidimensional niche.
+\newblock \emph{Evolution} \textbf{59}: 409--421.
+
+\bibitem[{Hopkins(2013)}]{Hopkins2013}
+Hopkins, M. 2013.
+\newblock Decoupling of taxonomic diversity and morphological disparity during
+  decline of the {C}ambrian trilobite family \textit{{P}terocephaliidae}.
+\newblock \emph{Journal of Evolutionary Biology} \textbf{26}: 1665--1676.
 
 \bibitem[{Jenkins(2003)}]{Jenkins2003}
 Jenkins, P. 2003.
@@ -97,6 +121,12 @@ MacLeod, N. 2013.
 \newblock Landmarks and semilandmarks: Difference without meaning and meaning
   without difference.
 
+\bibitem[{Muschick et~al.(2012)Muschick, Indermaur \&
+  Salzburger}]{Muschick2012}
+Muschick, M., Indermaur, A. \& Salzburger, W. 2012.
+\newblock Convergent evolution within an adaptive radiation of cichlid fishes.
+\newblock \emph{Current Biology} \textbf{22}: 1--7.
+
 \bibitem[{Olson \& Goodman(2003)}]{Olson2003}
 Olson, L. \& Goodman, S. 2003.
 \newblock \emph{Phylogeny and biogeography of tenrecs}, pp. 1235--1242.
@@ -114,11 +144,22 @@ Panchetti, F., Scalici, M., Carpaneto, G. \& Gibertini, G. 2008.
   morphometric contribution to a phylogenetic debate.
 \newblock \emph{Zoomorphology} \textbf{127}: 69--82.
 
+\bibitem[{Polly et~al.(2013)Polly, Lawing, Fabre \& Goswami}]{Polly2013}
+Polly, P.D., Lawing, A.M., Fabre, A.C. \& Goswami, A. 2013.
+\newblock Phylogenetic principal components analysis and geometric
+  morphometrics.
+\newblock \emph{Hystrix, the Italian Journal of Mammalogy} \textbf{24}: 1--9.
+
 \bibitem[{{R Core Team}(2014)}]{Team2014}
 {R Core Team} 2014.
 \newblock \emph{R: A Language and Environment for Statistical Computing}.
 \newblock R Foundation for Statistical Computing, Vienna, Austria.
 \newblock \urlprefix\url{http://www.R-project.org/}.
+
+\bibitem[{Rohlf(2009)}]{SUNY2009}
+Rohlf, F. 2009.
+\newblock Morphometrics at {S}{U}{N}{Y} {S}tony {B}rook.
+\newblock \urlprefix\url{http://life.bio.sunysb.edu/morph/index.html}.
 
 \bibitem[{Rohlf(2012)}]{Rohlf2012}
 Rohlf, F. 2012.

@@ -102,34 +102,34 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/data/")
 #I originally removed all of the Microgale but it makes more sense to keep at least some of them
 
 #Find all of the rows that are Microgale specimens
-   mic <- which(mydata$Genus=="Microgale")
+  # mic <- which(mydata$Genus=="Microgale")
 #Find how many different Microgale species there are
-  mic.data <- select.from.list(mydata, mic)
-  mic.data <- droplevels.from.list(mic.data)
+  #mic.data <- select.from.list(mydata, mic)
+  #mic.data <- droplevels.from.list(mic.data)
 
   #Soarimalala et al 2011 divide Microgale into 5 groups based on body size and tail length
     #I'm using these as proxies for diversity across the Microgale genus
       #Select 1 species to represent each of the 5 groups: parvula, brevicaudata, dryas, longicaudata, dobsoni
 
   #Row numbers for the selected microgale species
-    sel.mic.id <- sort(c(which(mic.data$Species == "parvula"), which(mic.data$Species == "brevicaudata"),
-                  which(mic.data$Species == "dryas"), which(mic.data$Species == "longicaudata"),
-                  which(mic.data$Species == "dobsoni")))
+    #sel.mic.id <- sort(c(which(mic.data$Species == "parvula"), which(mic.data$Species == "brevicaudata"),
+                  #which(mic.data$Species == "dryas"), which(mic.data$Species == "longicaudata"),
+                  #which(mic.data$Species == "dobsoni")))
                   
   #List of Microgale species which are not the selected ones
-   mic.spec.rem <- droplevels((remove.from.list(mic.data, sel.mic.id))$Binom)
+   #mic.spec.rem <- droplevels((remove.from.list(mic.data, sel.mic.id))$Binom)
 
   #Remove these Microgale (12 species that are not the 5 selected ones)
 
   #Find the ID numbers of those species within the main data set
-  mic.rem.id <- NULL
-    for (i in 1:length(levels(mic.spec.rem))){
-     mic.rem.id[[i]] <- which(mydata$Binom == levels(mic.spec.rem)[i])
-   }
+  #mic.rem.id <- NULL
+    #for (i in 1:length(levels(mic.spec.rem))){
+     #mic.rem.id[[i]] <- which(mydata$Binom == levels(mic.spec.rem)[i])
+   #}
 
    #Remove those IDs from the data
-    mydata <- remove.from.list(mydata, unlist(mic.rem.id))
-    mydata <- droplevels.from.list(mydata)
+    #mydata <- remove.from.list(mydata, unlist(mic.rem.id))
+    #mydata <- droplevels.from.list(mydata)
 
 #End of the option to remove some tenrecs
 #*****************
@@ -244,18 +244,18 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #PCA plot
 #Families have different symbols instead of different colours
 
-  #plot(xaxis, yaxis, xlab="", ylab="", las=1,
-       #pch=c(16,17)[sp.fam$Family], bty="l", cex.lab=1.75, cex=1.5, xaxt="n", yaxt="n")
-    #draw the min,max and 0 values on the x axis
-      #axis(side=1, at=c(round(min(xaxis),3), 0, round(max(xaxis),3)), las=1, cex=1.75)
+  plot(xaxis, yaxis, xlab="", ylab="", las=1,
+       pch=c(16,17)[sp.fam$Family], bty="l", cex.lab=1.75, cex=1.5, xaxt="n", yaxt="n")
+   draw the min,max and 0 values on the x axis
+      axis(side=1, at=c(round(min(xaxis),3), 0, round(max(xaxis),3)), las=1, cex=1.75)
     #same for the y axis
-      #axis(side=2, at=c(round(min(yaxis),3), 0, round(max(yaxis),3)), las=1, cex=1.75)
+      axis(side=2, at=c(round(min(yaxis),3), 0, round(max(yaxis),3)), las=1, cex=1.75)
     #add dotted lines along 0,0
-      #abline(0,0, h=0, v=0, lty=2, lwd=1)
+      abline(0,0, h=0, v=0, lty=2, lwd=1)
 ##############################################
 #Output
 
-setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")      
+#setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")      
       
 #Skdors: full data
   # PC.man
@@ -309,13 +309,13 @@ setwd("C:/Users/sfinlay/Desktop/Thesis/Disparity/output/shape_data/")
       
 #Sklat: subset of tenrecs
   # PC.man
-    capture.output(PC.man, file= "sklat/morpho_diversity/sklat_subtenrec_manova.res.txt")
+    #capture.output(PC.man, file= "sklat/morpho_diversity/sklat_subtenrec_manova.res.txt")
   # mean.se
-    capture.output(mean.se, file= "sklat/morpho_diversity/sklat_subtenrec_mean+se.txt")    
+    #capture.output(mean.se, file= "sklat/morpho_diversity/sklat_subtenrec_mean+se.txt")    
   # t test results
-    capture.output(comp.cent, file= "sklat/morpho_diversity/sklat_subtenrec_ttest.txt") 
+    #capture.output(comp.cent, file= "sklat/morpho_diversity/sklat_subtenrec_ttest.txt") 
   #perm.res.summary
-    capture.output(perm.res.summary, file= "sklat/morpho_diversity/sklat_subtenrec_perm.res.summary.txt") 
+    #capture.output(perm.res.summary, file= "sklat/morpho_diversity/sklat_subtenrec_perm.res.summary.txt") 
 ###########################################################
     
 
