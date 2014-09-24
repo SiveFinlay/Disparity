@@ -169,13 +169,20 @@ Photographs were captured and saved in a raw file format. Before using the pictu
 
 	We compared morphological diversity in the two Families using t-tests on the mean Euclidean distances among species and Family centroids (see methods section in the main paper). However, we also completed a complementary pairwise permutation 
 	
-	As outlined in our methods, we used pairwise permutation tests to account for the differences in sample sizes between our two Families when comparing morphological diversity.
+	As outlined in our methods, we used pairwise permutation tests to account for the differences in sample sizes between our two Families when comparing morphological diversity. The results of both our full (table \ref{tab:perm.res}) and reduced data set (table \ref{tab:perm.sub.res}) analyses agreed with the t-test results (i.e. we found significant differences in the same comparisons). Therefore, we are confident that (lack of) significant differences in morphological diversity are not artefacts of comparing unequal Family sizes.
 
-% Permutation results
+% Permutation results: all species
 	\begin{table}[h]
-	\caption{Results of the pairwise permutation tests for the full data set (31 species of tenrec compared to 12 species of golden mole). Columns are ...} 
+	\caption{Results of the pairwise permutation tests for the full data set (31 species of tenrec compared to 12 species of golden mole). Columns identify the analysis, observed mean Euclidean distances to centroid for each Family (obs.tenrec, obs.gmole) and the difference between the two (obs.diff). These observed values are compared to the minimum and maximum permutated values (perm.min, perm.max). Finally, the p value identifies whether the observed differences between the Families were significantly different to the expected differences from the permuted distribution.} 
 	\input{tables/perm.summary}
 	\label{tab:perm.res}
+	\end{table}
+
+% Permutation results: subset of tenrecs
+	\begin{table}[h]
+	\caption{Results of the pairwise permutation tests for the subsampled data set (19 species of tenrec compared to 12 species of golden mole). Columns identities are the same as in table \ref{tab:perm.res}.} 
+	\input{tables/perm.summary}
+	\label{tab:perm.sub.res}
 	\end{table}
 
 %--------------------------------------
