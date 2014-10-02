@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  2 OCT 2014 11:44
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.13)  2 OCT 2014 16:21
 entering extended mode
 **Disparity_MS.tex
 (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.tex
@@ -503,13 +503,13 @@ ex) [23
 
 ]) (C:\Users\sfinlay\Desktop\Thesis\Disparity\writing\Disparity_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 4661 strings out of 493921
- 65855 string characters out of 3147276
- 137858 words of memory out of 3000000
- 7820 multiletter control sequences out of 15000+200000
+ 4664 strings out of 493921
+ 65909 string characters out of 3147276
+ 137893 words of memory out of 3000000
+ 7823 multiletter control sequences out of 15000+200000
  43620 words of font info for 103 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,10n,36p,1162b,309s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,10n,36p,1162b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -520,7 +520,7 @@ fpl/fplbj8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb
 iles/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/palatino/uplri8a.pfb>
-Output written on Disparity_MS.pdf (23 pages, 736192 bytes).
+Output written on Disparity_MS.pdf (23 pages, 736443 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

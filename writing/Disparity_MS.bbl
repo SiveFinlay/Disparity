@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -189,6 +189,12 @@ Ruta, M., Angielczyk, K., Fr\"obisch, J. \& Benton, M. 2013.
   adaptive radiation of anomodont therapsids.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{280}: 20131071.
+
+\bibitem[{Salton \& Sargis(2009)}]{Salton2009}
+Salton, J.A. \& Sargis, E. 2009.
+\newblock Evolutionary morphology of the {T}enrecoidea ({M}ammalia) hindlimb
+  skeleton.
+\newblock \emph{Journal of Morphology} \textbf{270}: 367--387.
 
 \bibitem[{Serb et~al.(2011)Serb, Alejandrino, Ot\'{a}rola-Castillo \&
   Adams}]{Serb2011}
