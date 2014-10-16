@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -66,16 +66,12 @@ Eisenberg, J.F. \& Gould, E. 1969.
   {E}volution.
 \newblock \emph{Smithsonian Contributions to Zoology} \textbf{27}: 1--152.
 
-\bibitem[{Erwin(2007)}]{Erwin2007}
-Erwin, D. 2007.
-\newblock Disparity: morphological pattern and developmental context.
-\newblock \emph{Palaeontology} \textbf{50}: 57--73.
-
-\bibitem[{Foote(1997)}]{Foote1997}
-Foote, M. 1997.
-\newblock The evolution of morphological diversity.
-\newblock \emph{Annual Review of Ecology and Systematics} \textbf{28}:
-  129--152.
+\bibitem[{Foote(1991)}]{Foote1991}
+Foote, M. 1991.
+\newblock Morphological and taxonomic diversity in a clade's history: the
+  blastoid record and stochastic simulations.
+\newblock \emph{Museum of Paleontology, The University of Michigan}
+  \textbf{28}: 101--140.
 
 \bibitem[{Foth et~al.(2012)Foth, Brusatte \& Butler}]{Foth2012}
 Foth, C., Brusatte, S. \& Butler, R. 2012.
@@ -89,12 +85,6 @@ Gavrilets, S. \& Losos, J. 2009.
 \newblock Adaptive radiation: contrasting theory with data.
 \newblock \emph{Science} \textbf{323}: 732--736.
 
-\bibitem[{Glor(2010)}]{Glor2010}
-Glor, R. 2010.
-\newblock Phylogenetic insights on adaptive radiation.
-\newblock \emph{Annual Review of Ecology, Evolution, and Systematics}
-  \textbf{41}: 251--270.
-
 \bibitem[{Goswami et~al.(2011)Goswami, Milne \& Wroe}]{Goswami2011}
 Goswami, A., Milne, N. \& Wroe, S. 2011.
 \newblock Biting through constraints: cranial morphology, disparity and
@@ -102,9 +92,16 @@ Goswami, A., Milne, N. \& Wroe, S. 2011.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{278}: 1831--1839.
 
-\bibitem[{IUCN(2012)}]{IUCN2012}
-IUCN 2012.
-\newblock International {U}nion for {C}onservation of {N}ature.
+\bibitem[{Harmon et~al.(2005)Harmon, Kolbe, Cheverud \& Losos}]{Harmon2005}
+Harmon, L., Kolbe, J., Cheverud, J. \& Losos, J. 2005.
+\newblock Convergence and the multidimensional niche.
+\newblock \emph{Evolution} \textbf{59}: 409--421.
+
+\bibitem[{Hopkins(2013)}]{Hopkins2013}
+Hopkins, M. 2013.
+\newblock Decoupling of taxonomic diversity and morphological disparity during
+  decline of the {C}ambrian trilobite family \textit{{P}terocephaliidae}.
+\newblock \emph{Journal of Evolutionary Biology} \textbf{26}: 1665--1676.
 
 \bibitem[{Jenkins(2003)}]{Jenkins2003}
 Jenkins, P. 2003.
@@ -119,28 +116,16 @@ Losos, J. 2010.
 \newblock \emph{The American Naturalist} \textbf{175}: 623--639.
 \newblock 10.1086/652433.
 
-\bibitem[{Losos \& Miles(2002)}]{Losos2002}
-Losos, J. \& Miles, D. 2002.
-\newblock Testing the hypothesis that a clade has adaptively radiated:
-  {I}guanid lizards as a case study.
-\newblock \emph{The American Naturalist} \textbf{160}: 147--157.
-
-\bibitem[{Losos \& Mahler(2010)}]{Losos2010a}
-Losos, J.B. \& Mahler, D. 2010.
-\newblock \emph{Adaptive radiation: the interaction of ecological opportunity,
-  adaptation and speciation}, chap.~15, pp. 381--420.
-\newblock Sinauer Association, Sunderland, MA.
-
 \bibitem[{MacLeod(2013)}]{MacLeod2013}
 MacLeod, N. 2013.
 \newblock Landmarks and semilandmarks: Difference without meaning and meaning
   without difference.
 
-\bibitem[{Mahler et~al.(2010)Mahler, Revell, Glor \& Losos}]{Mahler2010}
-Mahler, D.L., Revell, L.J., Glor, R.E. \& Losos, J.B. 2010.
-\newblock Ecological opportunity and the rate of morphological evolution in the
-  diversification of greater antillean anoles.
-\newblock \emph{Evolution} \textbf{64}: 2731--2745.
+\bibitem[{Muschick et~al.(2012)Muschick, Indermaur \&
+  Salzburger}]{Muschick2012}
+Muschick, M., Indermaur, A. \& Salzburger, W. 2012.
+\newblock Convergent evolution within an adaptive radiation of cichlid fishes.
+\newblock \emph{Current Biology} \textbf{22}: 1--7.
 
 \bibitem[{Olson \& Goodman(2003)}]{Olson2003}
 Olson, L. \& Goodman, S. 2003.
@@ -152,11 +137,6 @@ Olson, L.E. 2013.
 \newblock Tenrecs.
 \newblock \emph{Current Biology} \textbf{23}: R5--R8.
 
-\bibitem[{Olson \& Arroyo-Santos(2009)}]{Olson2009}
-Olson, M.E. \& Arroyo-Santos, A. 2009.
-\newblock Thinking in continua: beyond the “adaptive radiation” metaphor.
-\newblock \emph{BioEssays} \textbf{31}: 1337--1346.
-
 \bibitem[{Panchetti et~al.(2008)Panchetti, Scalici, Carpaneto \&
   Gibertini}]{Panchetti2008}
 Panchetti, F., Scalici, M., Carpaneto, G. \& Gibertini, G. 2008.
@@ -164,11 +144,22 @@ Panchetti, F., Scalici, M., Carpaneto, G. \& Gibertini, G. 2008.
   morphometric contribution to a phylogenetic debate.
 \newblock \emph{Zoomorphology} \textbf{127}: 69--82.
 
+\bibitem[{Polly et~al.(2013)Polly, Lawing, Fabre \& Goswami}]{Polly2013}
+Polly, P.D., Lawing, A.M., Fabre, A.C. \& Goswami, A. 2013.
+\newblock Phylogenetic principal components analysis and geometric
+  morphometrics.
+\newblock \emph{Hystrix, the Italian Journal of Mammalogy} \textbf{24}: 1--9.
+
 \bibitem[{{R Core Team}(2014)}]{Team2014}
 {R Core Team} 2014.
 \newblock \emph{R: A Language and Environment for Statistical Computing}.
 \newblock R Foundation for Statistical Computing, Vienna, Austria.
 \newblock \urlprefix\url{http://www.R-project.org/}.
+
+\bibitem[{Rohlf(2009)}]{SUNY2009}
+Rohlf, F. 2009.
+\newblock Morphometrics at {S}{U}{N}{Y} {S}tony {B}rook.
+\newblock \urlprefix\url{http://life.bio.sunysb.edu/morph/index.html}.
 
 \bibitem[{Rohlf(2012)}]{Rohlf2012}
 Rohlf, F. 2012.
@@ -199,6 +190,12 @@ Ruta, M., Angielczyk, K., Fr\"obisch, J. \& Benton, M. 2013.
 \newblock \emph{Proceedings of the Royal Society B: Biological Sciences}
   \textbf{280}: 20131071.
 
+\bibitem[{Salton \& Sargis(2009)}]{Salton2009}
+Salton, J.A. \& Sargis, E. 2009.
+\newblock Evolutionary morphology of the {T}enrecoidea ({M}ammalia) hindlimb
+  skeleton.
+\newblock \emph{Journal of Morphology} \textbf{270}: 367--387.
+
 \bibitem[{Serb et~al.(2011)Serb, Alejandrino, Ot\'{a}rola-Castillo \&
   Adams}]{Serb2011}
 Serb, J., Alejandrino, A., Ot\'{a}rola-Castillo, E. \& Adams, D. 2011.
@@ -221,12 +218,6 @@ Stanhope, M., Waddell, V., Madsen, O., de~Jong, W., Hedges, S., Cleven, G.,
   order of endemic african insectivore mammals.
 \newblock \emph{Proceedings of the National Academy of Sciences} \textbf{95}:
   9967--9972.
-
-\bibitem[{Wills et~al.(1994)Wills, Briggs \& Fortey}]{Wills1994}
-Wills, A., Briggs, D. \& Fortey, R. 1994.
-\newblock Disparity as an evolutionary index: {A} comparison of {C}ambrian and
-  recent arthropods.
-\newblock \emph{Paleontological Society} \textbf{20}: 93--130.
 
 \bibitem[{Wilson \& Reeder(2005)}]{Wilson2005}
 Wilson, D. \& Reeder, D. 2005.

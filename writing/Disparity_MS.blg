@@ -1,14 +1,18 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Disparity_MS.aux
 The style file: jeb.bst
 Database file #1: refs_disparity.bib
-I was expecting a `,' or a `}'---line 206 of file refs_disparity.bib
- :  
- :  url = {http://animaldiversity.ummz.umich.edu/}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
+Warning--entry type for "SUNY2009" isn't style-file defined
+--line 4571 of file refs_disparity.bib
+Name 1 in "Rohlf, F.," has a comma at the end for entry SUNY2009
+while executing---line 1552 of file jeb.bst
+Name 1 in "Rohlf, F.," has a comma at the end for entry SUNY2009
+while executing---line 1552 of file jeb.bst
 Warning--missing school in Bronner1995
 Warning--can't use both author and editor fields in Jenkins2003
-Warning--can't use both author and editor fields in Losos2010a
 Warning--can't use both author and editor fields in Olson2003
+Name 1 in "Rohlf, F.," has a comma at the end for entry SUNY2009
+while executing---line 1629 of file jeb.bst
+Name 1 in "Rohlf, F.," has a comma at the end for entry SUNY2009
+while executing---line 1629 of file jeb.bst
 Warning--missing publisher in Soarimalala2011
-(There was 1 error message)
+(There were 4 error messages)

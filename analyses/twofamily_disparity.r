@@ -421,48 +421,48 @@ PC95axes <- selectPCaxes(sps.meanPCA, 0.956, binom)
 #-------------------------------------------------------
   #2) Tenrecs vs. hedgehogs
       #Permutation tests 
-      tc.hd.perm.sv <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
-      tc.hd.perm.pv <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
-      tc.hd.perm.sr <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
-      tc.hd.perm.pr <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
-      tc.hd.perm.md <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+      #tc.hd.perm.sv <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      #tc.hd.perm.pv <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      #tc.hd.perm.sr <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      #tc.hd.perm.pr <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      #tc.hd.perm.md <- perm.diff.two.groups(1000, "Erinaceidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
   
       #test for significant differences
-      tc.hd.pvalue.sv <- pvalue.dist(tc.hd.perm.sv, obs.diff.sv[2,3])
-      tc.hd.pvalue.pv <- pvalue.dist(tc.hd.perm.pv, obs.diff.pv[2,3])
-      tc.hd.pvalue.sr <- pvalue.dist(tc.hd.perm.sr, obs.diff.sr[2,3])
-      tc.hd.pvalue.pr <- pvalue.dist(tc.hd.perm.pr, obs.diff.pr[2,3])
-      tc.hd.pvalue.md <- pvalue.dist(tc.hd.perm.md, obs.diff.md[2,3])
+      #tc.hd.pvalue.sv <- pvalue.dist(tc.hd.perm.sv, obs.diff.sv[2,3])
+      #tc.hd.pvalue.pv <- pvalue.dist(tc.hd.perm.pv, obs.diff.pv[2,3])
+      #tc.hd.pvalue.sr <- pvalue.dist(tc.hd.perm.sr, obs.diff.sr[2,3])
+      #tc.hd.pvalue.pr <- pvalue.dist(tc.hd.perm.pr, obs.diff.pr[2,3])
+      #tc.hd.pvalue.md <- pvalue.dist(tc.hd.perm.md, obs.diff.md[2,3])
 
   #3) Tenrecs vs. moles
       #Permutation tests 
-      tc.ml.perm.sv <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
-      tc.ml.perm.pv <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
-      tc.ml.perm.sr <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
-      tc.ml.perm.pr <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
-      tc.ml.perm.md <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+      #tc.ml.perm.sv <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      #tc.ml.perm.pv <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      #tc.ml.perm.sr <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      #tc.ml.perm.pr <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      #tc.ml.perm.md <- perm.diff.two.groups(1000, "Talpidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
   
       #test for significant differences
-      tc.ml.pvalue.sv <- pvalue.dist(tc.ml.perm.sv, obs.diff.sv[3,3])
-      tc.ml.pvalue.pv <- pvalue.dist(tc.ml.perm.pv, obs.diff.pv[3,3])
-      tc.ml.pvalue.sr <- pvalue.dist(tc.ml.perm.sr, obs.diff.sr[3,3])
-      tc.ml.pvalue.pr <- pvalue.dist(tc.ml.perm.pr, obs.diff.pr[3,3])
-      tc.ml.pvalue.md <- pvalue.dist(tc.ml.perm.md, obs.diff.md[3,3])
+      #tc.ml.pvalue.sv <- pvalue.dist(tc.ml.perm.sv, obs.diff.sv[3,3])
+      #tc.ml.pvalue.pv <- pvalue.dist(tc.ml.perm.pv, obs.diff.pv[3,3])
+      #tc.ml.pvalue.sr <- pvalue.dist(tc.ml.perm.sr, obs.diff.sr[3,3])
+      #tc.ml.pvalue.pr <- pvalue.dist(tc.ml.perm.pr, obs.diff.pr[3,3])
+      #tc.ml.pvalue.md <- pvalue.dist(tc.ml.perm.md, obs.diff.md[3,3])
 
   #4) Tenrecs vs. shrews
       #Permutation tests 
-      tc.sh.perm.sv <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
-      tc.sh.perm.pv <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
-      tc.sh.perm.sr <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
-      tc.sh.perm.pr <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
-      tc.sh.perm.md <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
+      #tc.sh.perm.sv <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCsumvar)
+      #tc.sh.perm.pv <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCprodvar)
+      #tc.sh.perm.sr <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCsumrange)
+      #tc.sh.perm.pr <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, PC95axes, PCprodrange)  
+      #tc.sh.perm.md <- perm.diff.two.groups(1000, "Soricidae", "Tenrecidae", sp.fam, ild.distance.mat, ZelditchMD)  
   
       #test for significant differences
-      tc.sh.pvalue.sv <- pvalue.dist(tc.sh.perm.sv, obs.diff.sv[4,3])
-      tc.sh.pvalue.pv <- pvalue.dist(tc.sh.perm.pv, obs.diff.pv[4,3])
-      tc.sh.pvalue.sr <- pvalue.dist(tc.sh.perm.sr, obs.diff.sr[4,3])
-      tc.sh.pvalue.pr <- pvalue.dist(tc.sh.perm.pr, obs.diff.pr[4,3])
-      tc.sh.pvalue.md <- pvalue.dist(tc.sh.perm.md, obs.diff.md[4,3])
+      #tc.sh.pvalue.sv <- pvalue.dist(tc.sh.perm.sv, obs.diff.sv[4,3])
+      #tc.sh.pvalue.pv <- pvalue.dist(tc.sh.perm.pv, obs.diff.pv[4,3])
+      #tc.sh.pvalue.sr <- pvalue.dist(tc.sh.perm.sr, obs.diff.sr[4,3])
+      #tc.sh.pvalue.pr <- pvalue.dist(tc.sh.perm.pr, obs.diff.pr[4,3])
+      #tc.sh.pvalue.md <- pvalue.dist(tc.sh.perm.md, obs.diff.md[4,3])
 
 
 #Full summary table of the results (make this shorter when it's just a tenrec vs. golden mole analysis)

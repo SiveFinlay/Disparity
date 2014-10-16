@@ -1,0 +1,12 @@
+
+	Welch Two Sample t-test
+
+data:  as.numeric(cent.dist[, 1]) by cent.dist[, 2]
+t = -3.4714, df = 26.306, p-value = 0.001803
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.035566543 -0.009120941
+sample estimates:
+ mean in group gmole mean in group tenrec 
+          0.03139809           0.05374183 
+

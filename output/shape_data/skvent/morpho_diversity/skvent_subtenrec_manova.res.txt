@@ -1,0 +1,12 @@
+
+Call:
+adonis(formula = PC95axes ~ sp.fam$Family, data = sp.fam, permutations = 999,      method = "euclidean") 
+
+Terms added sequentially (first to last)
+
+              Df SumsOfSqs  MeanSqs F.Model      R2 Pr(>F)    
+sp.fam$Family  1   0.22632 0.226320  79.287 0.74597  0.001 ***
+Residuals     27   0.07707 0.002854         0.25403           
+Total         28   0.30339                  1.00000           
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
